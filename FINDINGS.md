@@ -207,7 +207,8 @@ vs 2.0 GHz).
 - Last warp exit to the host's sync return took 6.3-8.0 µs (A100) and 4.6-5.0 µs (H100); on the 9 Oct PCIe host it
   was 8.2-9.3 µs.
 - The last block stores its done-flag before its system-scope fence. The fence costs 3,056 / 3,374 cycles (2.85 /
-  1.74 µs on the 8 Oct hosts) and is counted in the kernel time.
+  1.74 µs on the 8 Oct hosts) and is counted in the kernel time. On the 9 Oct H100 host it cost 2,156 cycles (~1.1 µs)
+  and on the 8× A100-PCIe host 2,405–2,583 cycles (~3.0–3.6 µs at 0.72–0.76 GHz).
 - A CPU polling that flag sees it about 6.5 / 4.4 µs before `cudaStreamSynchronize` returns. But the kernel has not
   finished at that point.
 
@@ -451,8 +452,9 @@ order; outputs are bit-identical in all 96 configurations (`tickbound_runs/2026-
 - **Ours** hides that L under the next group's chains. The predicted saving per iteration is min(L, 8N) / 4 with
   L ≈ 390: 32 / 97 / 97 against measured 28 / 77 / 100. At N = 64 the shortfall comes near the crossover, where the
   two L2 latency classes leave part of L exposed.
-- **With more warps.** At 4 warps per SM the gain is about the same (1.35× in kernel time at N = 128). At 16 warps
-  per SM it vanishes (1.01–1.02× over N = 16–128), because other warps already hide L.
+- **With more warps.** At 4 warps per SM the gain is about the same (1.19–1.47× in kernel time over N = 16–128). At
+  16 warps per SM it vanishes with L2-resident data (1.01–1.02×), because other warps already hide L. With
+  DRAM-resident data (512 MB set) short chains still gained: 1.29× at N = 16, 1.10× at N = 64, 1.03× at N = 128.
 - **Limits.** One microkernel on one GPU. The move crosses a loop branch, so the basic-block checker cannot judge it;
   correctness is by output comparison. Not yet shown on a production kernel.
 

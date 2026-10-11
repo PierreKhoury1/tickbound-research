@@ -33,8 +33,9 @@ correction.
 3. **Reordering: one proven speed-up over the compiler, as predicted (10 Oct).** On an A100 microkernel, issuing the
    next loop iterations' loads before the current work, a move ptxas did not make in this kernel (it moved no load
    across the loop branch), ran 1.24–1.46× faster in kernel time than the compiler's own unrolled schedule at 1 warp
-   per SM, within ~20 cycles per iteration of the prediction (section 5.1). At 16 warps per SM the gain falls to
-   1.01–1.02×, as predicted. Not yet shown on a production kernel. The rest of what we know:
+   per SM (1.19–1.47× at 4), within ~20 cycles per iteration of the prediction (section 5.1). At 16 warps per SM the gain
+   falls to 1.01–1.02× with L2-resident data, as predicted; with DRAM-resident data short chains still gained up to 1.29×.
+   Not yet shown on a production kernel. The rest of what we know:
    - **Latency hiding works.** For each load, hiding work under the load's latency follows the textbook model to
      within 1.5 FFMA.
    - **The compiler already did it.** In our test kernel the compiler had already put the load first.
@@ -169,8 +170,8 @@ atomic ticket is checked in SASS.
 | store + GPU-scope fence | 628 | 1,534 |
 | system-scope fence after the done-flag store | 3,056 | 3,374 |
 
-On the 9 Oct H100 host the system fence cost 2,156 cycles. Fence costs depend on the host, the driver and the store
-target.
+On the 9 Oct H100 host the system fence cost 2,156 cycles, and on the 8× A100-PCIe host 2,405–2,583 cycles (about
+3.0–3.6 µs at its 0.72–0.76 GHz SM clock). Fence costs depend on the host, the driver and the store target.
 
 **Latency per instruction**, in cycles (8 Oct dependent chains):
 
@@ -331,7 +332,8 @@ Each loop iteration loads one value per thread (L2) and runs a chain of N depend
   Ours issues the next group's loads before this group's 4 chains, so the wait runs under them.
 - **Prediction** from measured costs: saving per iteration = min(L, 8N) / 4, with L ≈ 390 cycles (this loop's own
   load wait, measured at N = 0 in the first run: 377–392 cycles) and 8N = 4 chains × N FFMA × 2 cycles of A100 issue.
-  With 16 warps per SM, other warps already hide L, so the gain vanishes, as predicted.
+  With 16 warps per SM, other warps already hide L, so with L2-resident data the gain vanishes, as predicted. With
+  DRAM-resident data (512 MB set) short chains still gained: 1.29× at N = 16, 1.10× at N = 64, 1.03× at N = 128.
 - **Checks.** Outputs are bit-identical in all 96 configurations. Medians of 7 launches. The speed-up column is the
   ratio of kernel times; the cycle counts give the same ratios to within about 0.01.
 - **Limits.** One microkernel, one A100, CUDA 12.6, L2-resident data. The move was written in source (it crosses the
