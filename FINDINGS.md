@@ -1,25 +1,26 @@
-# tickbound findings, 8-9 October 2026 (A100, H100, 8x A100 on one host)
+# tickbound findings, 8-10 October 2026 (A100, H100, 8x A100 on one host)
 
 tickbound measures GPU work from inside the kernel. Each warp reads the SM cycle counter (`clock64`) and the GPU timer
 (`%globaltimer`) at checkpoints. Each run syncs the GPU timer to the host clock (`CLOCK_MONOTONIC_RAW`) before and
 after the work, so every checkpoint lands on the host time axis **with a stated error bound**. The bound is hard under
-assumptions that are named where they matter. The SASS of the binary that measured is checked, so that the
-checkpoints sit where the source says.
+assumptions that are named where they matter; H100 placement across SMs is empirical (section 2). The SASS of the
+binary that measured is checked, so that the checkpoints sit where the source says.
 
 The tool itself lives in a separate repository (not yet published). This repository holds the data, figures, run
 scripts and this write-up.
 
-**Revised on 10 October 2026 after an independent audit.** Several readings of the first version were wrong or
+**Revised on 10 October 2026 after an AI-assisted audit.** Several readings of the first version were wrong or
 overstated; they are corrected in place, and section 8 lists every correction.
 
-Everything below was measured on rented vast.ai machines (8 Oct: $1.07, 9 Oct: $1.59).
+Everything below was measured on rented vast.ai machines (8 Oct: $1.07, 9 Oct: $1.59, 10 Oct: about $0.10).
 
 | date | hardware | toolkit | what ran | data |
 |---|---|---|---|---|
-| 8 Oct | 1x A100-SXM4-40GB | CUDA 12.6 | ktrace profile, FFMA x blocks sweep, instr / co-tenant / MPS | `tickbound_data/2026-10-08_a100_cuda12.6` |
+| 8 Oct | 1x A100-SXM4-40GB | CUDA 12.6 | ktrace probe, FFMA x blocks sweep, instr / co-tenant / MPS | `tickbound_data/2026-10-08_a100_cuda12.6` |
 | 8 Oct | 1x H100 80GB HBM3 | CUDA 12.2 and 12.6 | same | `tickbound_data/2026-10-08_h100_cuda12.2`, `..._h100_cuda12.6` |
 | 9 Oct | 8x A100-PCIE-40GB, one host | CUDA 12.6 and 12.2 | 8-GPU ktrace on one timeline, reorder E1-E7, 30 hand-edited SASS kernels | `tickbound_data/2026-10-09_a100x8_pcie_cuda12.6+12.2` |
-| 9 Oct | 1x H100 80GB HBM3 (another host) | CUDA 12.6 and 12.2 | reorder E1-E7, ktrace profile (timer census) | `tickbound_data/2026-10-09_h100_cuda12.6+12.2` |
+| 9 Oct | 1x H100 80GB HBM3 (another host) | CUDA 12.6 and 12.2 | reorder E1-E7, ktrace probe (timer census) | `tickbound_data/2026-10-09_h100_cuda12.6+12.2` |
+| 10 Oct | 1x A100-PCIE-40GB | CUDA 12.6 | reorder proof (section 5b) | `tickbound_runs/2026-10-10_reorder_proof` |
 
 Some files are kept locally and not committed, because of their size:
 - raw traces (`*.bin`);
@@ -81,10 +82,11 @@ Every analysis result, report, log and gzipped SASS listing is here.
 
 **Data.**
 - `figures_2026-10-09/multi_gpu_instruction_timeline.json` is the figure's data.
-- `figures_2026-10-09/multi_gpu_all_instants.json` holds every instant, launch and pair. It was regenerated on 10 Oct
-  by `tickbound_runs/2026-10-09/recompute_multi.py` from the raw traces.
-- `multi_gpu_order_rules.json` compares the ordering rules. The first committed version of the all-instants file used
-  the chord bound, which gives 15 pairs and is not a hard bound at the instants.
+- `figures_2026-10-09/multi_gpu_all_instants.json` holds every instant and launch, with each GPU's strict and chord
+  bounds. It was regenerated on 10 Oct by `tickbound_runs/2026-10-09/recompute_multi.py` from the raw traces.
+- `figures_2026-10-09/multi_gpu_order_rules.json` compares the ordering rules and lists the proved pairs per rule (11
+  of 1,120 strict, 15 chord). The first committed version of the all-instants file used the chord bound, which is not
+  a hard bound at the instants.
 - Method note: the start barrier and the shared launch grid were a run-time patch to the probe
   (`tickbound_runs/2026-10-09/patches/gputrace_start_barrier_launch_grid.diff`). It is not yet merged into the tool.
 
@@ -95,7 +97,7 @@ Every analysis result, report, log and gzipped SASS listing is here.
 - The bound the fit reported at first (the "chord") was the half-width of the feasible offsets at the fitted rate.
   That is not a worst case.
 - The **strict** bound is the largest deviation, over the gap between the two sync windows, of any feasible line from
-  the fitted estimate, taken at conservative end points. An independent exact recomputation reproduces every value in
+  the fitted estimate, taken at conservative end points. A separate exact recomputation reproduces every value in
   this table.
 
 | data | runs | reported (chord) ± ns | strict ± ns | strict / chord |
@@ -115,8 +117,8 @@ All runs are in `tickbound_data/strict_bounds_2026-10-09.json`.
 **When the strict bound is hard.**
 - It is hard only if the GPU/host clock rate stays constant between the two syncs. The fit cannot detect a rate change
   inside the gap: it only checks that the two sync windows have a common solution, and all 65 runs do.
-- **Short gaps.** Kernel-timing, sweep and most reorder runs have their syncs at most 0.26 s apart. There, any
-  plausible drift adds ≤ 0.33 ns, so ±0.55-1.03 µs is effectively hard.
+- **Short gaps.** Single-GPU kernel-timing, sweep and most reorder runs have their syncs at most 0.26 s apart. There,
+  any plausible drift adds ≤ 0.33 ns, so their ±0.55-0.90 µs is effectively hard.
 - **8-GPU runs.** Their events sit within 0.17 s of the second sync (16 s gap), so the effect is ≤ ~50 ns.
 - **Long gaps.** The 8 Oct instruction / co-tenant / MPS runs had 7-32 s between syncs, and their events spread across
   the gap. Consecutive 8 Oct runs show rate intervals 0.15-0.85 ppm apart. So their values (up to ±1.40 µs) are
@@ -421,7 +423,8 @@ Measured and solid:
 - With dependent chains, the FP32 pipe fills at 2 (A100) or 4 (H100) warps per scheduler.
 - On small test kernels, the checker refused every violation tried and approved only edits that ran correctly.
 
-Not shown: any reordering that makes a kernel faster than ptxas.
+Not shown in sections 4 and 5: any reordering that makes a kernel faster than ptxas (section 5b shows one, on a
+microkernel).
 - Tier B could not show one by design: it only slid one load later, in a kernel that issues that load first.
 - The barrier move made the block slightly slower.
 - E2's fresh-register effect is within ±6 cycles at 1 warp.
@@ -435,7 +438,7 @@ FFMA from it. Variants: the natural loop (`#pragma unroll 1`), a one-lap hoist, 
 ours: unroll 4 with the next group's 4 loads issued before this group's 4 chains. All read the same lines in the same
 order; outputs are bit-identical in all 96 configurations (`tickbound_runs/2026-10-10_reorder_proof/proof.csv`).
 
-| cycles per iteration, 1 warp per SM | natural loop | one-lap hoist | compiler unroll 4 | ours | ours vs compiler |
+| cycles per iteration, 1 warp per SM | natural loop | one-lap hoist | compiler unroll 4 | ours | speedup (kernel time) |
 |---|---|---|---|---|---|
 | N = 16 | 431.2 | 392.9 | 149.1 | 120.9 | 1.24× |
 | N = 64 | 624.4 | 430.5 | 248.0 | 170.7 | 1.46× |
@@ -448,8 +451,8 @@ order; outputs are bit-identical in all 96 configurations (`tickbound_runs/2026-
 - **Ours** hides that L under the next group's chains. The predicted saving per iteration is min(L, 8N) / 4 with
   L ≈ 390: 32 / 97 / 97 against measured 28 / 77 / 100. At N = 64 the shortfall comes near the crossover, where the
   two L2 latency classes leave part of L exposed.
-- **With more warps.** At 4 warps per SM the gain is the same (1.34× at N = 128). At 16 warps per SM it vanishes
-  (1.01×), because other warps already hide L.
+- **With more warps.** At 4 warps per SM the gain is about the same (1.35× in kernel time at N = 128). At 16 warps
+  per SM it vanishes (1.01–1.02× over N = 16–128), because other warps already hide L.
 - **Limits.** One microkernel on one GPU. The move crosses a loop branch, so the basic-block checker cannot judge it;
   correctness is by output comparison. Not yet shown on a production kernel.
 
@@ -461,7 +464,7 @@ On both H100 hosts, `%globaltimer` advances in 32 ns increments.
 - **Published figures agree.**
   - Fusco et al. 2024 measured 32 ns on GH200 (arXiv:2408.11556).
   - NVIDIA's CUTLASS IKET documentation states a 32 ns granularity on SM90 and later.
-- **A100.** 1,024 ns.
+- **A100.** 1,024 ns (default rate).
 
 **Why the census shows larger steps.** The census below comes from the sync loop. The loop re-reads the timer less often
 than every 32 ns, so it reports 32 ns x (1 + the updates it missed). That gives 64, 96 and 128 ns.
@@ -499,7 +502,8 @@ TempoTrace (Elbakoury and Sharma, arXiv:2609.23301) is an unreviewed technical w
 Where this work sits:
 - **A different layer.** It has no spans and no root-cause engine. It measures GPU timing on real A100 and H100
   hardware, with a stated bound on every timestamp, inside kernels and on 8 GPUs of one host, on commodity hardware (no
-  special NIC, no PTP). Those bounds are hard under the assumptions named in sections 1 and 2.
+  special NIC, no PTP). Those bounds are hard under the assumptions named in sections 1 and 2; H100 placement across
+  SMs is empirical.
 - **The numbers.** Our strict per-GPU bound for kernel timing (±0.55-1.03 µs on the host clock) is below TempoTrace's
   2.1 µs software baseline and 2.5-5x wider than its 0.218 µs hardware target. It is one host's clock
   (`CLOCK_MONOTONIC_RAW`), not TAI.
@@ -507,7 +511,8 @@ Where this work sits:
   timestamps matter:
   - the H100 timer's 32 ns step, which confirms published figures;
   - the order-provability threshold of host-clock sync on this A100-PCIe host: about 1.7-2.3 µs, or about 1.66 µs with
-    exact intervals. This is comparable to its 2.1 µs software estimate.
+    exact intervals. Like for like, that is about half its 4.2 µs threshold for two SW_GCC spans (2 x 2.1 µs) and
+    4-5x its 0.44 µs threshold for two GTE spans.
 
 ## 8. Limits and corrections
 
@@ -520,7 +525,8 @@ Where this work sits:
 - **Across SMs.** Placement across SMs assumes all SMs read one `%globaltimer`, which is checked only above about
   0.18-0.48 µs. The H100 values across SMs are empirical.
 - **What was measured.**
-  - Our own probes and microbenchmarks only, no production kernels.
+  - Our own probes and microbenchmarks only, no production kernels. tickbound's mode for profiling other applications
+    has not yet been run on a GPU.
   - The kernel-timing probe is instrumented (80 registers), and no uninstrumented control was run.
   - The 8 Oct samples are small (5 launches per shape).
   - Kernel-timing runs use 256-thread blocks. E2 uses 32 and 1,024 threads, E5 32-1,024, and the Tier B edits one
@@ -530,7 +536,7 @@ Where this work sits:
 - **The 8 Oct write-up.** The Word document `tickbound findings and rules 2026-10-08 (A100 + H100) v2.docx` is
   superseded by this file.
 
-**Corrections of 10 Oct** (after an independent audit that recomputed the results from the raw data):
+**Corrections of 10 Oct** (after an AI-assisted audit that recomputed the results from the raw data):
 1. **H100 timer.** It has a 32 ns step, not 64/96/128 ns (section 6). The H100 placement across SMs is empirical
    (section 2).
 2. **E1.** Its latencies, comparisons and savings were line-mix artefacts. They are restated per latency class
@@ -548,6 +554,8 @@ Where this work sits:
    - The checks are per GPU.
    - The per-instant data file is regenerated with strict bounds (section 1).
 9. **A100 acq_rel.** The open item is closed: 412 cycles with both toolkits (section 4).
+10. **Clock bound.** The chord bound, which the 8 Oct write-up called hard, is not a worst case. The strict bound is
+    hard only if the GPU/host rate is constant between the syncs (section 2).
 
 ## Files
 
@@ -561,3 +569,5 @@ Where this work sits:
   - analysis: `multi_fig.py`, `analyze_9oct.py`, `strict_all.py`, `recompute_multi.py`, `make_findings.py`.
 
   They need the tickbound source (not yet published) and the raw traces (kept locally).
+- `tickbound_runs/2026-10-10_reorder_proof/`: the reorder proof (section 5b), self-contained: `reorder_proof.cu`, the
+  on-box script and log, `proof.csv` (and the first run, `proof_run1_without_p4.csv`) and the gzipped SASS.

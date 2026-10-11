@@ -9,3 +9,7 @@ tickbound_data/**/*.trace.json
 tickbound_data/**/*.sass
 tickbound_data/**/timeline.html
 tickbound_data/**/cubin_runner
+
+# Superseded Word write-ups (kept locally, not published)
+tickbound findings and rules*.docx
+~$*

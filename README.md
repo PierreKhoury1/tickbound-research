@@ -4,14 +4,15 @@ MSc Advanced Computing research, King's College London · Pierre Khoury · statu
 
 This repository holds the research behind **tickbound**, a profiler that timestamps work *inside* GPU kernels with
 the GPU's own hardware counters. It puts every checkpoint, from every SM of every GPU in a machine, on one host clock
-with a stated error bound. The bound is hard under assumptions this README names. With it we measured NVIDIA A100 and
-H100 GPUs (single GPUs, and eight A100s in one host), and tested which instruction reorderings are legal and which
-save time.
+with a stated error bound. The bound is hard under assumptions this README names; H100 placement across SMs is
+empirical. With its own probe kernels we measured NVIDIA A100 and H100 GPUs (single GPUs, and eight A100s in one
+host), and tested which instruction reorderings are legal and which save time. Its mode for profiling other
+applications has not yet been run on a GPU.
 
 The full tables, data paths and limits are in **[FINDINGS.md](FINDINGS.md)**. All GPU measurements ran on rented
-vast.ai machines on 8 and 9 October 2026 ($2.66 in total).
+vast.ai machines on 8, 9 and 10 October 2026 (about $2.76 in total: $1.07, $1.59 and $0.10).
 
-**This version was revised on 10 October 2026 after an independent audit**, which recomputed the results from the raw
+**This version was revised on 10 October 2026 after an AI-assisted audit**, which recomputed the results from the raw
 data. Where the first version was wrong or overstated, the text below is corrected; FINDINGS section 8 lists every
 correction.
 
@@ -22,24 +23,28 @@ correction.
    control was run yet.
 2. **We can place every part of a kernel on one clock, with stated bounds.**
    - **One SM.** Inside one SM, timing is exact to the cycle.
-   - **Host clock.** It is ±0.55–1.03 µs for kernel timing. This is hard if the GPU/host clock rate is constant
-     between the syncs, which holds in practice when the syncs are at most 0.26 s apart.
+   - **Host clock.** It is ±0.55–1.03 µs for kernel timing: ±0.55–0.90 µs where the syncs are at most 0.26 s apart,
+     and ±0.79–1.03 µs in the 8-GPU run (syncs 16 s apart, events within 0.17 s of a sync). It is hard if the
+     GPU/host clock rate is constant between the syncs; at the drift we observed, a change would add at most ~50 ns
+     in these runs.
    - **Across SMs.** ±29–285 ns on A100 (median per run). On H100, ±12–23 ns, but empirical, not proven.
    - **Eight GPUs.** Eight GPUs share one host clock with ±0.85–1.2 µs per GPU. Their start order can be proved only
      when they are more than ~1.7–2.3 µs apart.
 3. **Reordering: one proven speed-up over the compiler, as predicted (10 Oct).** On an A100 microkernel, issuing the
-   next loop iterations' loads before the current work, a move ptxas never makes across a loop branch, ran 1.24–1.46×
-   faster than the compiler's own unrolled schedule, within ~20 cycles per iteration of the prediction (section 5.1).
-   Not yet shown on a production kernel. The rest of what we know:
+   next loop iterations' loads before the current work, a move ptxas did not make in this kernel (it moved no load
+   across the loop branch), ran 1.24–1.46× faster in kernel time than the compiler's own unrolled schedule at 1 warp
+   per SM, within ~20 cycles per iteration of the prediction (section 5.1). At 16 warps per SM the gain falls to
+   1.01–1.02×, as predicted. Not yet shown on a production kernel. The rest of what we know:
    - **Latency hiding works.** For each load, hiding work under the load's latency follows the textbook model to
      within 1.5 FFMA.
    - **The compiler already did it.** In our test kernel the compiler had already put the load first.
    - **Fences.** A fence stalls its warp for a fixed time that the work around it does not hide.
    - **The checker.** Our legality checker refused every deliberate violation it was given and approved only edits
      that ran correctly. But this was on small test kernels only.
-4. **What looks new** (section 6): a hard bound on every in-kernel event, mapped to the host clock across several
-   GPUs; a fence's cost does not shrink when its store has time to drain; and with CUDA 12.6's barrier, register-only
-   work runs free while the warp waits. Per-warp in-kernel tracing itself already exists in other tools.
+4. **What looks new** (section 6): a stated bound on every in-kernel checkpoint, mapped to the host clock across
+   several GPUs (hard under the named assumptions; H100 placement across SMs and widened fits are empirical); a
+   fence's cost does not shrink when its store has time to drain; and with CUDA 12.6's barrier, register-only work
+   runs free while the warp waits. Per-warp in-kernel tracing itself already exists in other tools.
 
 ## 1. Why we are doing this
 
@@ -96,7 +101,8 @@ tickbound keeps the exact cycle counter and adds the layers his method does not 
 
 - **Three clocks.**
   - `clock64` counts cycles exactly on each SM, but each SM's count starts from a different value.
-  - `%globaltimer` is one nanosecond timer per GPU that moves in steps: 1,024 ns on A100 and 32 ns on H100.
+  - `%globaltimer` is one nanosecond timer per GPU that moves in steps: 1,024 ns on A100 (default rate) and 32 ns on
+    H100.
   - The host clock, `CLOCK_MONOTONIC_RAW`, is where the CPU stamps launches, polls and syncs.
 - **Every checkpoint is a bracket.** It reads the timer, then the cycle counter, then the timer again, so the cycle
   value is known to lie inside a window of the timer. Each timed phase ends with an instruction that uses the phase's
@@ -115,9 +121,10 @@ tickbound keeps the exact cycle counter and adds the layers his method does not 
 - **SASS gate.** The binary that measured is disassembled. Each timed step is checked to contain exactly what its
   name says, for example 1 FADD + N FFMA and nothing else. Builds that fail are dropped. This caught CUDA 12.2
   inserting extra waits into timed steps.
-- **Built-in checks.** On every run, three things are checked against the placed times, per GPU: barrier releases,
-  the order of a grid-wide atomic ticket, and when the CPU saw the done-flag. There were 0 violations. These checks
-  confirm the one-timer assumption across SMs only above ~0.2–0.5 µs. Nothing yet checks alignment between GPUs.
+- **Built-in checks.** On every kernel-timing run (32 runs), three things are checked against the placed times, per
+  GPU: barrier releases, the order of a grid-wide atomic ticket, and when the CPU saw the done-flag. There were 0
+  violations. The ticket check confirms the one-timer assumption across SMs only above ~0.2–0.5 µs. Nothing yet checks
+  alignment between GPUs.
 
 ## 4. What we found
 
@@ -295,7 +302,8 @@ What the data show:
    - Once a few warps compete, the FP32 pipe is full: at 2 warps per scheduler on A100 and 4 on H100.
 4. **One free slot.** Register-only work placed after a CUDA 12.6 barrier runs while the warp waits.
 
-What the data do not show is **any kernel made faster than the compiler made it**:
+What the earlier experiments (E1–E7 and Tier B) do not show is **any kernel made faster than the compiler made it**
+(section 5.1 shows one, on a microkernel):
 
 - **Tier B could not show a gain, by design.** It only slid one load later, in a kernel that already issues the load
   first.
@@ -311,20 +319,21 @@ time". The proof experiment below does, for one microkernel.
 
 Each loop iteration loads one value per thread (L2) and runs a chain of N dependent FFMA that starts from it.
 
-| Cycles per iteration, A100-PCIe, 1 warp per SM | compiler, `#pragma unroll 4` | ours: next group's loads hoisted | speedup | predicted saving | measured saving |
+| Cycles per iteration, A100-PCIe, 1 warp per SM | compiler, `#pragma unroll 4` | ours: next group's loads hoisted | speedup (kernel time) | predicted saving | measured saving |
 |---|---|---|---|---|---|
 | N = 16 | 149.1 | 120.9 | 1.24× | 32 | 28 |
 | N = 64 | 248.0 | 170.7 | 1.46× | 97 | 77 |
 | N = 128 | 397.8 | 297.5 | 1.34× | 97 | 100 |
-| N = 128, 16 warps per SM | 1,071.2 | 1,059.2 | 1.01× | ~0 | 12 |
+| N = 128, 16 warps per SM | 1,071.2 | 1,059.2 | 1.02× | ~0 | 12 |
 
 - **What the SASS shows.** The compiler issues the 4 loads of a group back to back, but the next instruction already
-  needs the first one, so the warp stalls about 390 cycles per group. It never moves a load across the loop branch.
+  needs the first one, so the warp stalls about 390 cycles per group. It did not move any load across the loop branch.
   Ours issues the next group's loads before this group's 4 chains, so the wait runs under them.
-- **Prediction** from the cycle table: saving per iteration = min(L, 8N) / 4, with L ≈ 390 and 8N = 4 chains × N FFMA ×
-  2 cycles of A100 issue. With 16 warps per SM, other warps already hide L, so the gain vanishes, as predicted.
-- **Checks.** Outputs are bit-identical in all 96 configurations. Medians of 7 launches; kernel times give the same
-  ratios.
+- **Prediction** from measured costs: saving per iteration = min(L, 8N) / 4, with L ≈ 390 cycles (this loop's own
+  load wait, measured at N = 0 in the first run: 377–392 cycles) and 8N = 4 chains × N FFMA × 2 cycles of A100 issue.
+  With 16 warps per SM, other warps already hide L, so the gain vanishes, as predicted.
+- **Checks.** Outputs are bit-identical in all 96 configurations. Medians of 7 launches. The speed-up column is the
+  ratio of kernel times; the cycle counts give the same ratios to within about 0.01.
 - **Limits.** One microkernel, one A100, CUDA 12.6, L2-resident data. The move was written in source (it crosses the
   loop branch, which our basic-block checker cannot judge), so correctness rests on output comparison.
 - Code, results and SASS: `tickbound_runs/2026-10-10_reorder_proof/`.
@@ -342,7 +351,8 @@ The experiment that decides the optimisation question comes first in section 8.
 maxas, the microbenchmark papers on Volta, Turing, Ampere and Hopper, the intra-kernel tracers above, and TempoTrace.
 A full literature review is still to do.
 
-1. **A hard error bound on every in-kernel event, across GPUs.**
+1. **A stated error bound on every in-kernel checkpoint, across GPUs** (hard under the named assumptions; H100
+   placement across SMs and widened fits are empirical).
    - Each event comes from timer · cycle · timer brackets and is mapped onto the host clock with a strict bound, for
      several GPUs on one host clock.
    - Other intra-kernel tracers place per-warp events on `%globaltimer` without a stated bound. NVIDIA IKET states
@@ -366,16 +376,18 @@ A full literature review is still to do.
   - IMAD.WIDE takes extra issue cycles (NVIDIA forum, 2023).
 - **The FP32 pipe width:** 16 lanes per scheduler on A100, 32 on H100.
 - **Launch and completion overhead** of several µs per kernel.
-- **Cross-GPU ordering.** Ordering through host-clock sync works only above ~2 µs. That is comparable to
-  TempoTrace's 2.1 µs estimate for software correlation.
+- **Cross-GPU ordering.** With our host-clock sync on 8×A100-PCIe, two GPUs could be ordered only when more than
+  ~1.7–2.3 µs apart (each ±0.85–1.2 µs). Like for like, that is about half TempoTrace's pair threshold for its
+  software fallback (2 × 2.1 µs = 4.2 µs) and 4–5× its 0.44 µs pair threshold with hardware (GTE) timestamps.
 
 ## 7. Limits
 
 - **Clocks.** Each run uses one host and its host clock, not TAI, with no external reference clock. All checks are
   internal and per GPU.
 - **The rate assumption.** Bounds are hard if the GPU/host rate is constant between the two syncs. That holds in
-  practice for syncs up to 0.26 s apart. It is not established for the 8 Oct instruction / co-tenant / MPS runs, whose
-  syncs were 7–32 s apart.
+  practice for syncs up to 0.26 s apart. In the 8-GPU run (syncs 16 s apart) the events sit within 0.17 s of a sync,
+  so a rate change would add at most ~50 ns. It is not established for the 8 Oct instruction / co-tenant / MPS runs,
+  whose syncs were 7–32 s apart.
 - **Across SMs.** Placement across SMs assumes all SMs read one `%globaltimer`, which is checked only above
   ~0.2–0.5 µs. H100 placement across SMs is empirical.
 - **Kernels and machines.**
@@ -415,11 +427,12 @@ A full literature review is still to do.
 | `figures_2026-10-09/` | the 8-GPU timeline (PNG, SVG and its data), per-instant results and the ordering rules |
 | `tickbound_data/` | per run: metadata, analysis, log and SASS check results; reports and gzipped SASS per run set. Also strict bounds and the summary for all runs |
 | `tickbound_runs/2026-10-09/` | the scripts that ran on the rented machines and locally, and two patches |
-| `tickbound findings and rules 2026-10-08 (A100 + H100) v2.docx` | the 8 Oct write-up, replaced by FINDINGS |
+| `tickbound_runs/2026-10-10_reorder_proof/` | the reorder proof (section 5.1): source, on-box script, log, results and gzipped SASS |
 | `code/`, `data/`, `demo/`, `gpu_run/`, `storyboard/`, `GPU_Clock_Findings.pptx` | earlier feasibility work (September 2026), from before tickbound |
 
 The raw traces are kept out of git because of their size. tickbound's source code is in a separate repository and is
-not yet published, so the scripts here cannot yet be run from this repository alone.
+not yet published, so the 8–9 Oct scripts cannot yet be run from this repository alone. The 10 Oct reorder proof
+needs only the CUDA toolkit.
 
 ## 10. References
 
