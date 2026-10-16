@@ -1,0 +1,590 @@
+{
+"_gen_module_8fca0a51e31c15ef1a2fc51b196f973bfe90945fe09815842aca856bf63e18a0_rank_1.silu_forward_kernel_rank_1:9364d712874c|(('torch.bfloat16', (65536,)), ('torch.bfloat16', (65536,)), ('i', 1), ('i', 0), ('i', 1), ('i', 0), ('i', 65536), ('i', 65536), ('tiles_per_cta', 1), ('tile_size0', 256), ('one_tile_per_cta', True), ('num_warps', 4))": {
+"chosen": "orig",
+"orig_us": 4.768,
+"best_us": 4.768,
+"deterministic": true
+},
+"_gen_module_2db1a4b4abd581276d447fb6bed28b7774d005312d796173e5e94b0dd03d56d7_rank_1.gelu_none_kernel_rank_1:344c27b74a10|(('torch.bfloat16', (65536,)), ('torch.bfloat16', (65536,)), ('i', 1), ('i', 0), ('i', 1), ('i', 0), ('i', 65536), ('i', 65536), ('tiles_per_cta', 1), ('tile_size0', 256), ('one_tile_per_cta', True), ('num_warps', 4))": {
+"chosen": "orig",
+"orig_us": 4.8,
+"best_us": 4.8,
+"deterministic": true
+},
+"_gen_module_52bbbf078c852aa32a83de23201b310b28a917157e396933196c6e5fb114dcbb_rank_1.exp_func_kernel_rank_1:0927e1f8d6f6|(('torch.bfloat16', (65536,)), ('torch.bfloat16', (65536,)), ('i', 1), ('i', 0), ('i', 1), ('i', 0), ('i', 65536), ('i', 65536), ('tiles_per_cta', 1), ('tile_size0', 256), ('one_tile_per_cta', True), ('num_warps', 4))": {
+"chosen": "orig",
+"orig_us": 4.736,
+"best_us": 4.736,
+"deterministic": true
+},
+"_gen_module_74f66037039c4581e206318d10266ec1fc3e4fa4c2407228172e5d1ac7d61218_rank_1.rsqrt_func_kernel_rank_1:bbcc65c7f411|(('torch.bfloat16', (65536,)), ('torch.bfloat16', (65536,)), ('i', 1), ('i', 0), ('i', 1), ('i', 0), ('i', 65536), ('i', 65536), ('tiles_per_cta', 1), ('tile_size0', 256), ('one_tile_per_cta', True), ('num_warps', 4))": {
+"chosen": "orig",
+"orig_us": 4.768,
+"best_us": 4.768,
+"deterministic": true
+},
+"flag_gems.ops.softmax.softmax_kernel_inner:1dff11a83fbc|((torch.bfloat16, (16, 4096)), (torch.bfloat16, (16, 4096)), ('i', 16), ('i', 4096), ('TILE_N', 4096), ('ONE_TILE_PER_CTA', True), ('num_warps', 16))": {
+"chosen": "orig",
+"orig_us": 5.536,
+"best_us": 5.536,
+"deterministic": true
+},
+"flag_gems.ops.log_softmax.log_softmax_kernel:b1d7b8bd9506|((torch.bfloat16, (16, 4096)), (torch.bfloat16, (16, 4096)), ('i', 16), ('i', 4096), ('i', 1), ('num_warps', 8))": {
+"chosen": "orig@w32",
+"orig_us": 16.864,
+"best_us": 15.232,
+"deterministic": true
+},
+"flag_gems.ops.sum.sum_dim_kernel_inner:b56392405405|((torch.bfloat16, (16, 1)), (torch.bfloat16, (16, 4096)), ('i', 16), ('i', 4096), ('TILE_N', 4096), ('ONE_TILE_PER_CTA', True), ('num_warps', 16))": {
+"chosen": "orig",
+"orig_us": 4.8,
+"best_us": 4.8,
+"deterministic": true
+},
+"flag_gems.ops.mean.mean_dim_kernel_inner:a9ff35c52553|((torch.bfloat16, (16, 1)), (torch.bfloat16, (16, 4096)), ('i', 16), ('i', 4096), ('TILE_N', 4096), ('ONE_TILE_PER_CTA', True), ('num_warps', 16))": {
+"chosen": "orig",
+"orig_us": 4.8,
+"best_us": 4.8,
+"deterministic": true
+},
+"flag_gems.ops.amax.amax_kernel:af04dd43400d|((torch.bfloat16, (16, 4096)), (torch.bfloat16, (16, 1)), ('i', 16), ('i', 4096), ('BLOCK_M', 1), ('BLOCK_N', 1024), ('num_warps', 4), ('num_ctas', 1), ('num_stages', 2))": {
+"chosen": "orig@w8",
+"orig_us": 5.312,
+"best_us": 5.024,
+"deterministic": true
+},
+"flag_gems.ops.argmax.argmax_kernel_inner:9ffa5b6c533c|((torch.bfloat16, (16, 4096)), (torch.int64, (16,)), ('i', 16), ('i', 4096), ('TILE_N', 4096), ('ONE_TILE_PER_CTA', True), ('num_warps', 16))": {
+"chosen": "orig",
+"orig_us": 5.024,
+"best_us": 5.024,
+"deterministic": true
+},
+"flag_gems.ops.cumsum.reduce_then_scan_root_scan_kernel_row:06e69d3b4ffc|((torch.bfloat16, (16, 4096)), (torch.bfloat16, (16, 4096)), ('i', 4096), ('i', 4096), ('num_warps', 8))": {
+"chosen": "orig",
+"orig_us": 5.024,
+"best_us": 5.024,
+"deterministic": true
+},
+"flag_gems.ops.var_mean.var_mean_welford_kernel:6f6889fda801|((torch.bfloat16, (16, 4096)), (torch.bfloat16, (16, 1)), (torch.bfloat16, (16, 1)), ('i', 16), ('i', 4096), ('i', 1), ('BLOCK_M', 1), ('BLOCK_N', 2048), ('num_warps', 8), ('num_ctas', 1), ('num_stages', 2))": {
+"chosen": "orig",
+"orig_us": 5.824,
+"best_us": 5.824,
+"deterministic": true
+},
+"flag_gems.ops.vector_norm.l2_norm_kernel:4f8e3352ba43|((torch.bfloat16, (16, 4096)), (torch.bfloat16, (16, 1)), ('i', 16), ('i', 4096), ('BLOCK_M', 1), ('BLOCK_N', 1024), ('num_warps', 4), ('num_ctas', 1), ('num_stages', 2))": {
+"chosen": "orig@w8",
+"orig_us": 5.376,
+"best_us": 5.056,
+"deterministic": true
+},
+"flag_gems.ops.topk.topk_stage1_kernel:14cb5e8b1766|((torch.bfloat16, (4096,)), (torch.int64, (4096,)), (torch.bfloat16, (16, 4096)), ('i', 64), ('i', 4096), ('i', 1024), True)": {
+"chosen": "orig@w8",
+"orig_us": 30.08,
+"best_us": 27.232,
+"deterministic": true
+},
+"flag_gems.ops.topk.topk_stage2_kernel:b99b08470afd|((torch.bfloat16, (16, 64)), (torch.int64, (16, 64)), (torch.bfloat16, (4096,)), (torch.int64, (4096,)), ('i', 1), ('i', 64), ('i', 256), ('i', 256), True)": {
+"chosen": "orig",
+"orig_us": 6.752,
+"best_us": 6.752,
+"deterministic": true
+},
+"flag_gems.ops.zeros.zeros_kernel:7571645c05a4|((torch.int32, (16, 4, 16)), ('i', 1024), ('BLOCK_SIZE', 1024))": {
+"chosen": "orig",
+"orig_us": 4.352,
+"best_us": 4.352,
+"deterministic": true
+},
+"flag_gems.ops.sort.compute_global_hist_kernel:01dc17baae87|((torch.bfloat16, (16, 4096)), (torch.int32, (16, 4, 16)), ('i', 4), ('i', 16), ('i', 4096), ('i', 8), ('i', 1024), ('i', 16), ('i', 4), False)": {
+"chosen": "orig@w8",
+"orig_us": 27.712,
+"best_us": 21.76,
+"deterministic": true
+},
+"flag_gems.ops.cumsum.reduce_then_scan_root_scan_kernel_row:06e69d3b4ffc|((torch.int32, (16, 4, 16)), (torch.int64, (16, 4, 16)), ('i', 16), ('i', 16), ('num_warps', 4))": {
+"chosen": "orig",
+"orig_us": 4.576,
+"best_us": 4.576,
+"deterministic": true
+},
+"_gen_module_ffd1df8de5fed37a571cc3bc7ebc58501bc629d6bad4be19f75cd3d465f73068_rank_1.sub_func_kernel_rank_1:5179def5af98|(('torch.int64', (1024,)), ('torch.int32', (1024,)), ('i', 1), ('torch.int64', (1024,)), ('i', 1), ('i', 0), ('i', 1), ('i', 0), ('i', 1), ('i', 0), ('i', 1024), ('i', 1024), ('tiles_per_cta', 1), ('tile_size0', 256), ('one_tile_per_cta', True), ('num_warps', 4))": {
+"chosen": "orig",
+"orig_us": 4.576,
+"best_us": 4.576,
+"deterministic": true
+},
+"_gen_module_db884d13b83589e39b9e97530cb4dc00140be614ef7d83c8359509243a8f3bd1_rank_1._to_copy_func_kernel_rank_1:adcb5d7f809d|(('torch.int64', (1024,)), ('torch.uint32', (1024,)), ('i', 1), ('i', 0), ('i', 1), ('i', 0), ('i', 1024), ('i', 1024), ('tiles_per_cta', 1), ('tile_size0', 256), ('one_tile_per_cta', True), ('num_warps', 4))": {
+"chosen": "orig",
+"orig_us": 4.608,
+"best_us": 4.608,
+"deterministic": true
+},
+"_gen_module_5f5fbed32ac4541ff3b2aee07b9aa77bc53ac342b424df5f83cd50df6df46ffa_rank_2._copy_kernel_kernel_rank_2:2dbcc6f69fce|((torch.bfloat16, (16, 4096)), (torch.bfloat16, (16, 4096)), ('i', 4096), ('i', 1), ('i', 1), ('i', 0), ('i', 4096), ('i', 1), ('i', 1), ('i', 0), ('i', 16), ('i', 4096), ('i', 65536), ('tiles_per_cta', 1), ('tile_size0', 1), ('tile_size1', 256), ('one_tile_per_cta', True), ('num_warps', 4))": {
+"chosen": "orig",
+"orig_us": 4.832,
+"best_us": 4.832,
+"deterministic": true
+},
+"flag_gems.ops.arange.arange_func:12afba02ddb2|((torch.int64, (4096,)), ('i', 0), ('i', 4096), ('i', 1), ('i', 4096), ('i', 128))": {
+"chosen": "orig",
+"orig_us": 4.352,
+"best_us": 4.352,
+"deterministic": true
+},
+"_gen_module_5f5fbed32ac4541ff3b2aee07b9aa77bc53ac342b424df5f83cd50df6df46ffa_rank_2._copy_kernel_kernel_rank_2:2dbcc6f69fce|((torch.int64, (16, 4096)), (torch.int64, (16, 4096)), ('i', 0), ('i', 1), ('i', 0), ('i', 1), ('i', 4096), ('i', 1), ('i', 1), ('i', 0), ('i', 16), ('i', 4096), ('i', 65536), ('tiles_per_cta', 1), ('tile_size0', 1), ('tile_size1', 256), ('one_tile_per_cta', True), ('num_warps', 4))": {
+"chosen": "orig",
+"orig_us": 4.832,
+"best_us": 4.832,
+"deterministic": true
+},
+"flag_gems.ops.zeros.zeros_kernel:7571645c05a4|((torch.uint32, (16, 16, 2)), ('i', 512), ('BLOCK_SIZE', 1024))": {
+"chosen": "orig",
+"orig_us": 4.352,
+"best_us": 4.352,
+"deterministic": true
+},
+"flag_gems.ops.sort.sweep:4ff72c8eeff1|((torch.bfloat16, (16, 4096)), (torch.int64, (16, 4096)), (torch.bfloat16, (16, 4096)), (torch.int64, (16, 4096)), (torch.uint32, (16, 4, 16)), (torch.uint32, (16, 16, 2)), ('i', 4), ('i', 0), ('i', 0), ('i', 16), ('i', 4096), ('i', 2), ('i', 2048), ('i', 8), ('i', 4), False)": {
+"chosen": "orig@w8",
+"orig_us": 15.328,
+"best_us": 14.336,
+"deterministic": true
+},
+"flag_gems.ops.sort.sweep:4ff72c8eeff1|((torch.bfloat16, (16, 4096)), (torch.int64, (16, 4096)), (torch.bfloat16, (16, 4096)), (torch.int64, (16, 4096)), (torch.uint32, (16, 4, 16)), (torch.uint32, (16, 16, 2)), ('i', 4), ('i', 1), ('i', 4), ('i', 16), ('i', 4096), ('i', 2), ('i', 2048), ('i', 8), ('i', 4), False)": {
+"chosen": "orig@w8",
+"orig_us": 15.488,
+"best_us": 14.304,
+"deterministic": true
+},
+"flag_gems.ops.sort.sweep:4ff72c8eeff1|((torch.bfloat16, (16, 4096)), (torch.int64, (16, 4096)), (torch.bfloat16, (16, 4096)), (torch.int64, (16, 4096)), (torch.uint32, (16, 4, 16)), (torch.uint32, (16, 16, 2)), ('i', 4), ('i', 2), ('i', 8), ('i', 16), ('i', 4096), ('i', 2), ('i', 2048), ('i', 8), ('i', 4), False)": {
+"chosen": "orig@w8",
+"orig_us": 15.296,
+"best_us": 14.24,
+"deterministic": true
+},
+"flag_gems.ops.sort.sweep:4ff72c8eeff1|((torch.bfloat16, (16, 4096)), (torch.int64, (16, 4096)), (torch.bfloat16, (16, 4096)), (torch.int64, (16, 4096)), (torch.uint32, (16, 4, 16)), (torch.uint32, (16, 16, 2)), ('i', 4), ('i', 3), ('i', 12), ('i', 16), ('i', 4096), ('i', 2), ('i', 2048), ('i', 8), ('i', 4), False)": {
+"chosen": "orig@w8",
+"orig_us": 15.296,
+"best_us": 14.08,
+"deterministic": true
+},
+"flag_gems.ops.layernorm.layer_norm_persistent_kernel:8fd60a18de11|((torch.bfloat16, (16, 4096)), (torch.bfloat16, (16, 4096)), None, None, (torch.bfloat16, (16,)), (torch.bfloat16, (16,)), ('i', 16), ('i', 4096), 'f', ('i', 4096), ('num_warps', 4), ('num_ctas', 1), ('num_stages', 2))": {
+"chosen": "orig",
+"orig_us": 5.312,
+"best_us": 5.312,
+"deterministic": true
+},
+"_gen_module_d7cca4cf21cdd7f5b4b6f2ed0d32349a75254d00759c5fe3176bcf7085f8951d_rank_1.gt_func_scalar_kernel_rank_1:1dae254f37a4|(('torch.bfloat16', (65536,)), 'f', ('torch.bool', (65536,)), ('i', 1), ('i', 0), ('i', 1), ('i', 0), ('i', 65536), ('i', 65536), ('tiles_per_cta', 1), ('tile_size0', 256), ('one_tile_per_cta', True), ('num_warps', 4))": {
+"chosen": "orig",
+"orig_us": 4.576,
+"best_us": 4.576,
+"deterministic": true
+},
+"_gen_module_f5ca803a1e4bf970c39b8e9c0b81b217827c4f36fd12eff7f3947f9c664eb0e8_rank_1.masked_fill_kernel_kernel_rank_1:41b4458fdb70|(('torch.bfloat16', (65536,)), ('torch.bool', (65536,)), 'f', ('torch.bfloat16', (65536,)), ('i', 1), ('i', 0), ('i', 1), ('i', 0), ('i', 1), ('i', 0), ('i', 65536), ('i', 65536), ('tiles_per_cta', 1), ('tile_size0', 256), ('one_tile_per_cta', True), ('num_warps', 4))": {
+"chosen": "orig",
+"orig_us": 4.704,
+"best_us": 4.704,
+"deterministic": true
+},
+"_gen_module_d7cca4cf21cdd7f5b4b6f2ed0d32349a75254d00759c5fe3176bcf7085f8951d_rank_1.gt_func_scalar_kernel_rank_1:1dae254f37a4|(('torch.bfloat16', (65536,)), ('i', 0), ('torch.bool', (65536,)), ('i', 1), ('i', 0), ('i', 1), ('i', 0), ('i', 65536), ('i', 65536), ('tiles_per_cta', 1), ('tile_size0', 256), ('one_tile_per_cta', True), ('num_warps', 4))": {
+"chosen": "orig",
+"orig_us": 4.576,
+"best_us": 4.576,
+"deterministic": true
+},
+"_gen_module_847bdd3d3d8a801b58e6d5f7cc70bddc9604044e95bdd923fdd734971351a6aa_rank_1.neg_func_kernel_rank_1:c86de33c783c|(('torch.bfloat16', (65536,)), ('torch.bfloat16', (65536,)), ('i', 1), ('i', 0), ('i', 1), ('i', 0), ('i', 65536), ('i', 65536), ('tiles_per_cta', 1), ('tile_size0', 256), ('one_tile_per_cta', True), ('num_warps', 4))": {
+"chosen": "orig",
+"orig_us": 4.64,
+"best_us": 4.64,
+"deterministic": true
+},
+"_gen_module_8f687f9dca15d3b584f9259642b0963d1d3e487067b156be9632a0b7d0ff299d_rank_1.where_inner_kernel_rank_1:99e9d14029bf|(('torch.bool', (65536,)), ('torch.bfloat16', (65536,)), ('torch.bfloat16', (65536,)), ('torch.bfloat16', (65536,)), ('i', 1), ('i', 0), ('i', 1), ('i', 0), ('i', 1), ('i', 0), ('i', 1), ('i', 0), ('i', 65536), ('i', 65536), ('tiles_per_cta', 1), ('tile_size0', 256), ('one_tile_per_cta', True), ('num_warps', 4))": {
+"chosen": "orig",
+"orig_us": 4.832,
+"best_us": 4.832,
+"deterministic": true
+},
+"_gen_module_2bc9b7c9bccf066dff32c0794039f88d96959091211cce8bed72e93343970744_rank_1.add_func_kernel_rank_1:054f65605766|(('torch.bfloat16', (65536,)), ('torch.bfloat16', (65536,)), ('i', 1), ('torch.bfloat16', (65536,)), ('i', 1), ('i', 0), ('i', 1), ('i', 0), ('i', 1), ('i', 0), ('i', 65536), ('i', 65536), ('tiles_per_cta', 1), ('tile_size0', 256), ('one_tile_per_cta', True), ('num_warps', 4))": {
+"chosen": "orig",
+"orig_us": 4.736,
+"best_us": 4.736,
+"deterministic": true
+},
+"_gen_module_7d3510d8b9f8c903c3ca948e09584e7fb5e52e85b12250ead657a20f693c3b8f_rank_1.mul_func_scalar_kernel_rank_1:bb9f6f2c1903|(('torch.bfloat16', (65536,)), 'f', ('torch.bfloat16', (65536,)), ('i', 1), ('i', 0), ('i', 1), ('i', 0), ('i', 65536), ('i', 65536), ('tiles_per_cta', 1), ('tile_size0', 256), ('one_tile_per_cta', True), ('num_warps', 4))": {
+"chosen": "orig",
+"orig_us": 4.8,
+"best_us": 4.8,
+"deterministic": true
+},
+"_gen_module_fd9c64c150b0ee91ea5647b530b1f12d1e542f62762a9cda60c22df5ccb94512_rank_1.pow_func_tensor_scalar_kernel_rank_1:9fdf18b8b22a|(('torch.bfloat16', (65536,)), ('i', 2), ('torch.bfloat16', (65536,)), ('i', 1), ('i', 0), ('i', 1), ('i', 0), ('i', 65536), ('i', 65536), ('tiles_per_cta', 1), ('tile_size0', 256), ('one_tile_per_cta', True), ('num_warps', 4))": {
+"chosen": "orig",
+"orig_us": 5.088,
+"best_us": 5.088,
+"deterministic": true
+},
+"_gen_module_6c073c151341473daa7b6a7837c66c983b1ca7ec2b60034066e26298c50c5c31_rank_1.tanh_kernel_kernel_rank_1:fa1d1748be76|(('torch.bfloat16', (65536,)), ('torch.bfloat16', (65536,)), ('i', 1), ('i', 0), ('i', 1), ('i', 0), ('i', 65536), ('i', 65536), ('tiles_per_cta', 1), ('tile_size0', 256), ('one_tile_per_cta', True), ('num_warps', 4))": {
+"chosen": "orig",
+"orig_us": 4.8,
+"best_us": 4.8,
+"deterministic": true
+},
+"_gen_module_8fae3846aeb791025a64642c37a8e2c7864f05eef303520cf10a20d1a4638c5b_rank_1.sigmoid_forward_kernel_rank_1:104be0d2b1cd|(('torch.bfloat16', (65536,)), ('torch.bfloat16', (65536,)), ('i', 1), ('i', 0), ('i', 1), ('i', 0), ('i', 65536), ('i', 65536), ('tiles_per_cta', 1), ('tile_size0', 256), ('one_tile_per_cta', True), ('num_warps', 4))": {
+"chosen": "orig",
+"orig_us": 4.64,
+"best_us": 4.64,
+"deterministic": true
+},
+"hopper.ops.mm.mm_kernel_general_host_tma:c27b5d41182f|('TensorDescriptor', 'TensorDescriptor', 'TensorDescriptor', ('i', 16), ('i', 4096), ('i', 4096), ('i', 4096), ('i', 1), ('i', 4096), ('i', 1), ('i', 4096), ('i', 1), ('GROUP_M', 8), ('A_ROW_MAJOR', True), ('B_ROW_MAJOR', True), ('dtype', 'bfloat16'), ('BLOCK_M', 32), ('BLOCK_N', 64), ('BLOCK_K', 128), ('num_warps', 4), ('num_ctas', 1), ('num_stages', 4))": {
+"chosen": "orig@w2",
+"orig_us": 20.864,
+"best_us": 20.544,
+"deterministic": true
+},
+"flag_gems.ops.addmm.addmm_kernel:ae6e3f3b85da|((torch.bfloat16, (16, 4096)), (torch.bfloat16, (4096, 4096)), (torch.bfloat16, (16, 4096)), (torch.bfloat16, (16, 4096)), ('i', 1), ('i', 1), ('i', 16), ('i', 4096), ('i', 4096), ('i', 4096), ('i', 1), ('i', 4096), ('i', 1), ('i', 0), ('i', 1), ('i', 4096), ('i', 1), ('BLOCK_SIZE_M', 32), ('BLOCK_SIZE_N', 64), ('BLOCK_SIZE_K', 32), ('num_warps', 2), ('num_ctas', 1), ('num_stages', 5))": {
+"chosen": "orig@s6",
+"orig_us": 42.272,
+"best_us": 38.752,
+"deterministic": true
+},
+"flag_gems.ops.embedding.embedding_kernel:641d41a63190|((torch.bfloat16, (16, 4096)), (torch.int64, (16,)), (torch.bfloat16, (32768, 4096)), ('i', 4096), ('i', 4096))": {
+"chosen": "orig",
+"orig_us": 5.472,
+"best_us": 5.472,
+"deterministic": true
+},
+"_gen_module_5f5fbed32ac4541ff3b2aee07b9aa77bc53ac342b424df5f83cd50df6df46ffa_rank_2._copy_kernel_kernel_rank_2:2dbcc6f69fce|((torch.bfloat16, (4096, 32768)), (torch.bfloat16, (4096, 32768)), ('i', 1), ('i', 4096), ('i', 0), ('i', 1), ('i', 32768), ('i', 1), ('i', 1), ('i', 0), ('i', 4096), ('i', 32768), ('i', 134217728), ('tiles_per_cta', 8), ('tile_size0', 1), ('tile_size1', 256), ('one_tile_per_cta', False), ('num_warps', 4))": {
+"chosen": "orig",
+"orig_us": 1950.24,
+"best_us": 1950.24,
+"deterministic": true
+},
+"flag_gems.ops.index_select.index_select_kernel:0625604d69fb|((torch.bfloat16, (4096, 32768)), (torch.bfloat16, (4096, 16)), ('i', 4096), ('i', 32768), (torch.int64, (16,)), ('i', 16), ('BLOCK_M', 1), ('BLOCK_N', 512))": {
+"chosen": "orig",
+"orig_us": 12.128,
+"best_us": 12.128,
+"deterministic": true
+},
+"_gen_module_5f5fbed32ac4541ff3b2aee07b9aa77bc53ac342b424df5f83cd50df6df46ffa_rank_2._copy_kernel_kernel_rank_2:2dbcc6f69fce|((torch.bfloat16, (16, 4096)), (torch.bfloat16, (16, 4096)), ('i', 1), ('i', 16), ('i', 0), ('i', 1), ('i', 4096), ('i', 1), ('i', 1), ('i', 0), ('i', 16), ('i', 4096), ('i', 65536), ('tiles_per_cta', 1), ('tile_size0', 1), ('tile_size1', 256), ('one_tile_per_cta', True), ('num_warps', 4))": {
+"chosen": "orig",
+"orig_us": 4.896,
+"best_us": 4.896,
+"deterministic": true
+},
+"_gen_module_rank_2._gather_flaggems_jit_function:472d21b73098|((torch.bfloat16, (16, 4096)), (torch.int64, (16, 4096)), (torch.bfloat16, (16, 4096)), ('i', 16), ('i', 4096), ('i', 16), ('i', 4096), ('i', 16), ('i', 4096), ('i', 4096), ('i', 0), ('i', 4096), ('i', 1), ('i', 4096), ('i', 1), ('i', 1), ('i', 1), ('i', 65536), ('BLOCK_SIZE_N', 512))": {
+"chosen": "orig",
+"orig_us": 5.504,
+"best_us": 5.504,
+"deterministic": true
+},
+"flag_gems.ops.log_softmax.log_softmax_kernel:b1d7b8bd9506|((torch.bfloat16, (16, 32768)), (torch.bfloat16, (16, 32768)), ('i', 16), ('i', 32768), ('i', 1), ('num_warps', 8))": {
+"chosen": "nc@w32",
+"orig_us": 119.52,
+"best_us": 84.704,
+"deterministic": true
+},
+"flag_gems.ops.zeros.zeros_kernel:7571645c05a4|((torch.float32, (4,)), ('i', 4), ('BLOCK_SIZE', 1024))": {
+"chosen": "orig",
+"orig_us": 4.32,
+"best_us": 4.32,
+"deterministic": true
+},
+"flag_gems.ops.nllloss.nll_loss_forward_kernel:c73b8f29edfe|((torch.bfloat16, (16, 32768)), (torch.int64, (16,)), None, (torch.float32, (4,)), ('i', -100), ('i', 16), ('i', 32768), ('i', 1))": {
+"chosen": "orig",
+"orig_us": 5.536,
+"best_us": 5.536,
+"deterministic": true
+},
+"_gen_module_db884d13b83589e39b9e97530cb4dc00140be614ef7d83c8359509243a8f3bd1_rank_1._to_copy_func_kernel_rank_1:adcb5d7f809d|(('torch.float32', (4,)), ('torch.bfloat16', (4,)), ('i', 1), ('i', 0), ('i', 1), ('i', 0), ('i', 4), ('i', 4), ('tiles_per_cta', 1), ('tile_size0', 4), ('one_tile_per_cta', True), ('num_warps', 4))": {
+"chosen": "orig",
+"orig_us": 4.32,
+"best_us": 4.32,
+"deterministic": true
+},
+"flag_gems.ops.cat.cat_copy_func_kernel_4:52b00dee823f|((torch.bfloat16, (16, 8192)), (torch.bfloat16, (16, 4096)), (torch.bfloat16, (16, 4096)), (torch.bfloat16, (16, 4096)), (torch.bfloat16, (16, 4096)), ('i', 4096), ('i', 4096), ('i', 0), ('i', 0), ('i', 8192), ('i', 1), ('i', 0), ('i', 4096), ('i', 0), ('i', 0), ('i', 65536), ('i', 65536), ('i', 0), ('i', 0), ('BLOCK_X', 1024))": {
+"chosen": "orig",
+"orig_us": 4.8,
+"best_us": 4.8,
+"deterministic": true
+},
+"_gen_module_8fca0a51e31c15ef1a2fc51b196f973bfe90945fe09815842aca856bf63e18a0_rank_1.silu_forward_kernel_rank_1:9364d712874c|(('torch.bfloat16', (16777216,)), ('torch.bfloat16', (16777216,)), ('i', 1), ('i', 0), ('i', 1), ('i', 0), ('i', 16777216), ('i', 16777216), ('tiles_per_cta', 1), ('tile_size0', 256), ('one_tile_per_cta', True), ('num_warps', 4))": {
+"chosen": "orig@w2",
+"orig_us": 50.432,
+"best_us": 48.288,
+"deterministic": true
+},
+"_gen_module_2db1a4b4abd581276d447fb6bed28b7774d005312d796173e5e94b0dd03d56d7_rank_1.gelu_none_kernel_rank_1:344c27b74a10|(('torch.bfloat16', (16777216,)), ('torch.bfloat16', (16777216,)), ('i', 1), ('i', 0), ('i', 1), ('i', 0), ('i', 16777216), ('i', 16777216), ('tiles_per_cta', 1), ('tile_size0', 256), ('one_tile_per_cta', True), ('num_warps', 4))": {
+"chosen": "orig@w2",
+"orig_us": 62.688,
+"best_us": 56.096,
+"deterministic": true
+},
+"_gen_module_52bbbf078c852aa32a83de23201b310b28a917157e396933196c6e5fb114dcbb_rank_1.exp_func_kernel_rank_1:0927e1f8d6f6|(('torch.bfloat16', (16777216,)), ('torch.bfloat16', (16777216,)), ('i', 1), ('i', 0), ('i', 1), ('i', 0), ('i', 16777216), ('i', 16777216), ('tiles_per_cta', 1), ('tile_size0', 256), ('one_tile_per_cta', True), ('num_warps', 4))": {
+"chosen": "orig@w2",
+"orig_us": 49.312,
+"best_us": 47.68,
+"deterministic": true
+},
+"_gen_module_74f66037039c4581e206318d10266ec1fc3e4fa4c2407228172e5d1ac7d61218_rank_1.rsqrt_func_kernel_rank_1:bbcc65c7f411|(('torch.bfloat16', (16777216,)), ('torch.bfloat16', (16777216,)), ('i', 1), ('i', 0), ('i', 1), ('i', 0), ('i', 16777216), ('i', 16777216), ('tiles_per_cta', 1), ('tile_size0', 256), ('one_tile_per_cta', True), ('num_warps', 4))": {
+"chosen": "orig@w2",
+"orig_us": 49.728,
+"best_us": 47.84,
+"deterministic": true
+},
+"flag_gems.ops.softmax.softmax_kernel_inner:1dff11a83fbc|((torch.bfloat16, (4096, 4096)), (torch.bfloat16, (4096, 4096)), ('i', 4096), ('i', 4096), ('TILE_N', 4096), ('ONE_TILE_PER_CTA', True), ('num_warps', 16))": {
+"chosen": "orig",
+"orig_us": 40.032,
+"best_us": 40.032,
+"deterministic": true
+},
+"flag_gems.ops.log_softmax.log_softmax_kernel:b1d7b8bd9506|((torch.bfloat16, (4096, 4096)), (torch.bfloat16, (4096, 4096)), ('i', 4096), ('i', 4096), ('i', 1), ('num_warps', 8))": {
+"chosen": "orig",
+"orig_us": 70.144,
+"best_us": 70.144,
+"deterministic": true
+},
+"flag_gems.ops.sum.sum_dim_kernel_inner:b56392405405|((torch.bfloat16, (4096, 1)), (torch.bfloat16, (4096, 4096)), ('i', 4096), ('i', 4096), ('TILE_N', 4096), ('ONE_TILE_PER_CTA', True), ('num_warps', 16))": {
+"chosen": "orig@w4",
+"orig_us": 24.704,
+"best_us": 17.568,
+"deterministic": true
+},
+"flag_gems.ops.mean.mean_dim_kernel_inner:a9ff35c52553|((torch.bfloat16, (4096, 1)), (torch.bfloat16, (4096, 4096)), ('i', 4096), ('i', 4096), ('TILE_N', 4096), ('ONE_TILE_PER_CTA', True), ('num_warps', 16))": {
+"chosen": "orig@w4",
+"orig_us": 24.768,
+"best_us": 18.016,
+"deterministic": true
+},
+"flag_gems.ops.amax.amax_kernel:af04dd43400d|((torch.bfloat16, (4096, 4096)), (torch.bfloat16, (4096, 1)), ('i', 4096), ('i', 4096), ('BLOCK_M', 1), ('BLOCK_N', 1024), ('num_warps', 4), ('num_ctas', 1), ('num_stages', 2))": {
+"chosen": "orig@w1",
+"orig_us": 18.752,
+"best_us": 16.608,
+"deterministic": true
+},
+"flag_gems.ops.argmax.argmax_kernel_inner:9ffa5b6c533c|((torch.bfloat16, (4096, 4096)), (torch.int64, (4096,)), ('i', 4096), ('i', 4096), ('TILE_N', 4096), ('ONE_TILE_PER_CTA', True), ('num_warps', 16))": {
+"chosen": "orig@w4",
+"orig_us": 26.784,
+"best_us": 19.648,
+"deterministic": true
+},
+"flag_gems.ops.cumsum.reduce_then_scan_root_scan_kernel_row:06e69d3b4ffc|((torch.bfloat16, (4096, 4096)), (torch.bfloat16, (4096, 4096)), ('i', 4096), ('i', 4096), ('num_warps', 8))": {
+"chosen": "orig",
+"orig_us": 39.904,
+"best_us": 39.904,
+"deterministic": true
+},
+"flag_gems.ops.var_mean.var_mean_welford_kernel:6f6889fda801|((torch.bfloat16, (4096, 4096)), (torch.bfloat16, (4096, 1)), (torch.bfloat16, (4096, 1)), ('i', 4096), ('i', 4096), ('i', 1), ('BLOCK_M', 1), ('BLOCK_N', 1024), ('num_warps', 4), ('num_ctas', 1), ('num_stages', 2))": {
+"chosen": "orig",
+"orig_us": 32.0,
+"best_us": 32.0,
+"deterministic": true
+},
+"flag_gems.ops.vector_norm.l2_norm_kernel:4f8e3352ba43|((torch.bfloat16, (4096, 4096)), (torch.bfloat16, (4096, 1)), ('i', 4096), ('i', 4096), ('BLOCK_M', 4), ('BLOCK_N', 1024), ('num_warps', 4), ('num_ctas', 1), ('num_stages', 2))": {
+"chosen": "orig",
+"orig_us": 16.704,
+"best_us": 16.704,
+"deterministic": true
+},
+"flag_gems.ops.zeros.zeros_kernel:7571645c05a4|((torch.int32, (4096, 4, 16)), ('i', 262144), ('BLOCK_SIZE', 1024))": {
+"chosen": "orig",
+"orig_us": 4.448,
+"best_us": 4.448,
+"deterministic": true
+},
+"flag_gems.ops.sort.compute_global_hist_kernel:01dc17baae87|((torch.bfloat16, (4096, 4096)), (torch.int32, (4096, 4, 16)), ('i', 4), ('i', 4096), ('i', 4096), ('i', 8), ('i', 1024), ('i', 16), ('i', 4), False)": {
+"chosen": "orig",
+"orig_us": 588.512,
+"best_us": 588.512,
+"deterministic": true
+},
+"flag_gems.ops.cumsum.reduce_then_scan_root_scan_kernel_row:06e69d3b4ffc|((torch.int32, (4096, 4, 16)), (torch.int64, (4096, 4, 16)), ('i', 16), ('i', 16), ('num_warps', 4))": {
+"chosen": "orig",
+"orig_us": 15.264,
+"best_us": 15.264,
+"deterministic": true
+},
+"_gen_module_ffd1df8de5fed37a571cc3bc7ebc58501bc629d6bad4be19f75cd3d465f73068_rank_1.sub_func_kernel_rank_1:5179def5af98|(('torch.int64', (262144,)), ('torch.int32', (262144,)), ('i', 1), ('torch.int64', (262144,)), ('i', 1), ('i', 0), ('i', 1), ('i', 0), ('i', 1), ('i', 0), ('i', 262144), ('i', 262144), ('tiles_per_cta', 1), ('tile_size0', 256), ('one_tile_per_cta', True), ('num_warps', 4))": {
+"chosen": "orig",
+"orig_us": 5.568,
+"best_us": 5.568,
+"deterministic": true
+},
+"_gen_module_db884d13b83589e39b9e97530cb4dc00140be614ef7d83c8359509243a8f3bd1_rank_1._to_copy_func_kernel_rank_1:adcb5d7f809d|(('torch.int64', (262144,)), ('torch.uint32', (262144,)), ('i', 1), ('i', 0), ('i', 1), ('i', 0), ('i', 262144), ('i', 262144), ('tiles_per_cta', 1), ('tile_size0', 256), ('one_tile_per_cta', True), ('num_warps', 4))": {
+"chosen": "orig",
+"orig_us": 5.12,
+"best_us": 5.12,
+"deterministic": true
+},
+"_gen_module_5f5fbed32ac4541ff3b2aee07b9aa77bc53ac342b424df5f83cd50df6df46ffa_rank_2._copy_kernel_kernel_rank_2:2dbcc6f69fce|((torch.bfloat16, (4096, 4096)), (torch.bfloat16, (4096, 4096)), ('i', 4096), ('i', 1), ('i', 1), ('i', 0), ('i', 4096), ('i', 1), ('i', 1), ('i', 0), ('i', 4096), ('i', 4096), ('i', 16777216), ('tiles_per_cta', 1), ('tile_size0', 1), ('tile_size1', 256), ('one_tile_per_cta', True), ('num_warps', 4))": {
+"chosen": "orig@w2",
+"orig_us": 51.296,
+"best_us": 47.904,
+"deterministic": true
+},
+"_gen_module_5f5fbed32ac4541ff3b2aee07b9aa77bc53ac342b424df5f83cd50df6df46ffa_rank_2._copy_kernel_kernel_rank_2:2dbcc6f69fce|((torch.int64, (4096, 4096)), (torch.int64, (4096, 4096)), ('i', 0), ('i', 1), ('i', 0), ('i', 1), ('i', 4096), ('i', 1), ('i', 1), ('i', 0), ('i', 4096), ('i', 4096), ('i', 16777216), ('tiles_per_cta', 1), ('tile_size0', 1), ('tile_size1', 256), ('one_tile_per_cta', True), ('num_warps', 4))": {
+"chosen": "orig",
+"orig_us": 69.696,
+"best_us": 69.696,
+"deterministic": true
+},
+"flag_gems.ops.zeros.zeros_kernel:7571645c05a4|((torch.uint32, (4096, 16, 2)), ('i', 131072), ('BLOCK_SIZE', 1024))": {
+"chosen": "orig",
+"orig_us": 4.32,
+"best_us": 4.32,
+"deterministic": true
+},
+"flag_gems.ops.sort.sweep:4ff72c8eeff1|((torch.bfloat16, (4096, 4096)), (torch.int64, (4096, 4096)), (torch.bfloat16, (4096, 4096)), (torch.int64, (4096, 4096)), (torch.uint32, (4096, 4, 16)), (torch.uint32, (4096, 16, 2)), ('i', 4), ('i', 0), ('i', 0), ('i', 4096), ('i', 4096), ('i', 2), ('i', 2048), ('i', 8), ('i', 4), False)": {
+"chosen": "nc",
+"orig_us": 702.912,
+"best_us": 680.768,
+"deterministic": true
+},
+"flag_gems.ops.sort.sweep:4ff72c8eeff1|((torch.bfloat16, (4096, 4096)), (torch.int64, (4096, 4096)), (torch.bfloat16, (4096, 4096)), (torch.int64, (4096, 4096)), (torch.uint32, (4096, 4, 16)), (torch.uint32, (4096, 16, 2)), ('i', 4), ('i', 1), ('i', 4), ('i', 4096), ('i', 4096), ('i', 2), ('i', 2048), ('i', 8), ('i', 4), False)": {
+"chosen": "nc",
+"orig_us": 701.792,
+"best_us": 679.936,
+"deterministic": true
+},
+"flag_gems.ops.sort.sweep:4ff72c8eeff1|((torch.bfloat16, (4096, 4096)), (torch.int64, (4096, 4096)), (torch.bfloat16, (4096, 4096)), (torch.int64, (4096, 4096)), (torch.uint32, (4096, 4, 16)), (torch.uint32, (4096, 16, 2)), ('i', 4), ('i', 2), ('i', 8), ('i', 4096), ('i', 4096), ('i', 2), ('i', 2048), ('i', 8), ('i', 4), False)": {
+"chosen": "nc@w8",
+"orig_us": 682.848,
+"best_us": 643.776,
+"deterministic": true
+},
+"flag_gems.ops.sort.sweep:4ff72c8eeff1|((torch.bfloat16, (4096, 4096)), (torch.int64, (4096, 4096)), (torch.bfloat16, (4096, 4096)), (torch.int64, (4096, 4096)), (torch.uint32, (4096, 4, 16)), (torch.uint32, (4096, 16, 2)), ('i', 4), ('i', 3), ('i', 12), ('i', 4096), ('i', 4096), ('i', 2), ('i', 2048), ('i', 8), ('i', 4), False)": {
+"chosen": "nc@w8",
+"orig_us": 678.56,
+"best_us": 637.6,
+"deterministic": true
+},
+"flag_gems.ops.layernorm.layer_norm_persistent_kernel:8fd60a18de11|((torch.bfloat16, (4096, 4096)), (torch.bfloat16, (4096, 4096)), None, None, (torch.bfloat16, (4096,)), (torch.bfloat16, (4096,)), ('i', 4096), ('i', 4096), 'f', ('i', 4096), ('num_warps', 4), ('num_ctas', 1), ('num_stages', 2))": {
+"chosen": "orig",
+"orig_us": 39.328,
+"best_us": 39.328,
+"deterministic": true
+},
+"_gen_module_d7cca4cf21cdd7f5b4b6f2ed0d32349a75254d00759c5fe3176bcf7085f8951d_rank_1.gt_func_scalar_kernel_rank_1:1dae254f37a4|(('torch.bfloat16', (16777216,)), 'f', ('torch.bool', (16777216,)), ('i', 1), ('i', 0), ('i', 1), ('i', 0), ('i', 16777216), ('i', 16777216), ('tiles_per_cta', 1), ('tile_size0', 256), ('one_tile_per_cta', True), ('num_warps', 4))": {
+"chosen": "orig",
+"orig_us": 47.904,
+"best_us": 47.904,
+"deterministic": true
+},
+"_gen_module_f5ca803a1e4bf970c39b8e9c0b81b217827c4f36fd12eff7f3947f9c664eb0e8_rank_1.masked_fill_kernel_kernel_rank_1:41b4458fdb70|(('torch.bfloat16', (16777216,)), ('torch.bool', (16777216,)), 'f', ('torch.bfloat16', (16777216,)), ('i', 1), ('i', 0), ('i', 1), ('i', 0), ('i', 1), ('i', 0), ('i', 16777216), ('i', 16777216), ('tiles_per_cta', 1), ('tile_size0', 256), ('one_tile_per_cta', True), ('num_warps', 4))": {
+"chosen": "orig@w2",
+"orig_us": 59.744,
+"best_us": 54.656,
+"deterministic": true
+},
+"_gen_module_d7cca4cf21cdd7f5b4b6f2ed0d32349a75254d00759c5fe3176bcf7085f8951d_rank_1.gt_func_scalar_kernel_rank_1:1dae254f37a4|(('torch.bfloat16', (16777216,)), ('i', 0), ('torch.bool', (16777216,)), ('i', 1), ('i', 0), ('i', 1), ('i', 0), ('i', 16777216), ('i', 16777216), ('tiles_per_cta', 1), ('tile_size0', 256), ('one_tile_per_cta', True), ('num_warps', 4))": {
+"chosen": "orig",
+"orig_us": 47.872,
+"best_us": 47.872,
+"deterministic": true
+},
+"_gen_module_847bdd3d3d8a801b58e6d5f7cc70bddc9604044e95bdd923fdd734971351a6aa_rank_1.neg_func_kernel_rank_1:c86de33c783c|(('torch.bfloat16', (16777216,)), ('torch.bfloat16', (16777216,)), ('i', 1), ('i', 0), ('i', 1), ('i', 0), ('i', 16777216), ('i', 16777216), ('tiles_per_cta', 1), ('tile_size0', 256), ('one_tile_per_cta', True), ('num_warps', 4))": {
+"chosen": "orig",
+"orig_us": 48.736,
+"best_us": 48.736,
+"deterministic": true
+},
+"_gen_module_8f687f9dca15d3b584f9259642b0963d1d3e487067b156be9632a0b7d0ff299d_rank_1.where_inner_kernel_rank_1:99e9d14029bf|(('torch.bool', (16777216,)), ('torch.bfloat16', (16777216,)), ('torch.bfloat16', (16777216,)), ('torch.bfloat16', (16777216,)), ('i', 1), ('i', 0), ('i', 1), ('i', 0), ('i', 1), ('i', 0), ('i', 1), ('i', 0), ('i', 16777216), ('i', 16777216), ('tiles_per_cta', 1), ('tile_size0', 256), ('one_tile_per_cta', True), ('num_warps', 4))": {
+"chosen": "orig",
+"orig_us": 74.336,
+"best_us": 74.336,
+"deterministic": true
+},
+"_gen_module_2bc9b7c9bccf066dff32c0794039f88d96959091211cce8bed72e93343970744_rank_1.add_func_kernel_rank_1:054f65605766|(('torch.bfloat16', (16777216,)), ('torch.bfloat16', (16777216,)), ('i', 1), ('torch.bfloat16', (16777216,)), ('i', 1), ('i', 0), ('i', 1), ('i', 0), ('i', 1), ('i', 0), ('i', 16777216), ('i', 16777216), ('tiles_per_cta', 1), ('tile_size0', 256), ('one_tile_per_cta', True), ('num_warps', 4))": {
+"chosen": "orig",
+"orig_us": 49.6,
+"best_us": 49.6,
+"deterministic": true
+},
+"_gen_module_7d3510d8b9f8c903c3ca948e09584e7fb5e52e85b12250ead657a20f693c3b8f_rank_1.mul_func_scalar_kernel_rank_1:bb9f6f2c1903|(('torch.bfloat16', (16777216,)), 'f', ('torch.bfloat16', (16777216,)), ('i', 1), ('i', 0), ('i', 1), ('i', 0), ('i', 16777216), ('i', 16777216), ('tiles_per_cta', 1), ('tile_size0', 256), ('one_tile_per_cta', True), ('num_warps', 4))": {
+"chosen": "orig@w2",
+"orig_us": 49.184,
+"best_us": 48.16,
+"deterministic": true
+},
+"_gen_module_fd9c64c150b0ee91ea5647b530b1f12d1e542f62762a9cda60c22df5ccb94512_rank_1.pow_func_tensor_scalar_kernel_rank_1:9fdf18b8b22a|(('torch.bfloat16', (16777216,)), ('i', 2), ('torch.bfloat16', (16777216,)), ('i', 1), ('i', 0), ('i', 1), ('i', 0), ('i', 16777216), ('i', 16777216), ('tiles_per_cta', 1), ('tile_size0', 256), ('one_tile_per_cta', True), ('num_warps', 4))": {
+"chosen": "orig@w2",
+"orig_us": 107.808,
+"best_us": 102.752,
+"deterministic": true
+},
+"_gen_module_6c073c151341473daa7b6a7837c66c983b1ca7ec2b60034066e26298c50c5c31_rank_1.tanh_kernel_kernel_rank_1:fa1d1748be76|(('torch.bfloat16', (16777216,)), ('torch.bfloat16', (16777216,)), ('i', 1), ('i', 0), ('i', 1), ('i', 0), ('i', 16777216), ('i', 16777216), ('tiles_per_cta', 1), ('tile_size0', 256), ('one_tile_per_cta', True), ('num_warps', 4))": {
+"chosen": "orig@w2",
+"orig_us": 55.072,
+"best_us": 48.352,
+"deterministic": true
+},
+"_gen_module_8fae3846aeb791025a64642c37a8e2c7864f05eef303520cf10a20d1a4638c5b_rank_1.sigmoid_forward_kernel_rank_1:104be0d2b1cd|(('torch.bfloat16', (16777216,)), ('torch.bfloat16', (16777216,)), ('i', 1), ('i', 0), ('i', 1), ('i', 0), ('i', 16777216), ('i', 16777216), ('tiles_per_cta', 1), ('tile_size0', 256), ('one_tile_per_cta', True), ('num_warps', 4))": {
+"chosen": "orig@w2",
+"orig_us": 49.504,
+"best_us": 47.872,
+"deterministic": true
+},
+"hopper.ops.mm.mm_kernel_general_host_tma:c27b5d41182f|('TensorDescriptor', 'TensorDescriptor', 'TensorDescriptor', ('i', 4096), ('i', 4096), ('i', 4096), ('i', 4096), ('i', 1), ('i', 4096), ('i', 1), ('i', 4096), ('i', 1), ('GROUP_M', 8), ('A_ROW_MAJOR', True), ('B_ROW_MAJOR', True), ('dtype', 'bfloat16'), ('BLOCK_M', 128), ('BLOCK_N', 128), ('BLOCK_K', 32), ('num_warps', 4), ('num_ctas', 1), ('num_stages', 3))": {
+"chosen": "orig",
+"orig_us": 297.984,
+"best_us": 297.984,
+"deterministic": true
+},
+"flag_gems.ops.addmm.addmm_kernel:ae6e3f3b85da|((torch.bfloat16, (4096, 4096)), (torch.bfloat16, (4096, 4096)), (torch.bfloat16, (4096, 4096)), (torch.bfloat16, (4096, 4096)), ('i', 1), ('i', 1), ('i', 4096), ('i', 4096), ('i', 4096), ('i', 4096), ('i', 1), ('i', 4096), ('i', 1), ('i', 0), ('i', 1), ('i', 4096), ('i', 1), ('BLOCK_SIZE_M', 128), ('BLOCK_SIZE_N', 256), ('BLOCK_SIZE_K', 64), ('num_warps', 8), ('num_ctas', 1), ('num_stages', 3))": {
+"chosen": "orig@s4",
+"orig_us": 342.656,
+"best_us": 310.976,
+"deterministic": true
+},
+"flag_gems.ops.index_select.index_select_kernel:0625604d69fb|((torch.bfloat16, (4096, 32768)), (torch.bfloat16, (4096, 4096)), ('i', 4096), ('i', 32768), (torch.int64, (4096,)), ('i', 4096), ('BLOCK_M', 1), ('BLOCK_N', 512))": {
+"chosen": "orig@w16",
+"orig_us": 518.112,
+"best_us": 488.736,
+"deterministic": true
+},
+"_gen_module_5f5fbed32ac4541ff3b2aee07b9aa77bc53ac342b424df5f83cd50df6df46ffa_rank_2._copy_kernel_kernel_rank_2:2dbcc6f69fce|((torch.bfloat16, (4096, 4096)), (torch.bfloat16, (4096, 4096)), ('i', 1), ('i', 4096), ('i', 0), ('i', 1), ('i', 4096), ('i', 1), ('i', 1), ('i', 0), ('i', 4096), ('i', 4096), ('i', 16777216), ('tiles_per_cta', 1), ('tile_size0', 1), ('tile_size1', 256), ('one_tile_per_cta', True), ('num_warps', 4))": {
+"chosen": "orig@w8",
+"orig_us": 138.848,
+"best_us": 135.456,
+"deterministic": true
+},
+"_gen_module_rank_2._gather_flaggems_jit_function:472d21b73098|((torch.bfloat16, (4096, 4096)), (torch.int64, (4096, 4096)), (torch.bfloat16, (4096, 4096)), ('i', 4096), ('i', 4096), ('i', 4096), ('i', 4096), ('i', 4096), ('i', 4096), ('i', 4096), ('i', 0), ('i', 4096), ('i', 1), ('i', 4096), ('i', 1), ('i', 1), ('i', 1), ('i', 16777216), ('BLOCK_SIZE_N', 512))": {
+"chosen": "orig",
+"orig_us": 122.752,
+"best_us": 122.752,
+"deterministic": true
+},
+"flag_gems.ops.log_softmax.log_softmax_kernel:b1d7b8bd9506|((torch.bfloat16, (4096, 32768)), (torch.bfloat16, (4096, 32768)), ('i', 4096), ('i', 32768), ('i', 1), ('num_warps', 8))": {
+"chosen": "orig",
+"orig_us": 544.096,
+"best_us": 544.096,
+"deterministic": true
+},
+"flag_gems.ops.nllloss.nll_loss_forward_kernel:c73b8f29edfe|((torch.bfloat16, (4096, 32768)), (torch.int64, (4096,)), None, (torch.float32, (4,)), ('i', -100), ('i', 4096), ('i', 32768), ('i', 1))": {
+"chosen": "orig",
+"orig_us": 6.72,
+"best_us": 6.72,
+"deterministic": true
+},
+"flag_gems.ops.cat.cat_copy_func_kernel_4:52b00dee823f|((torch.bfloat16, (4096, 8192)), (torch.bfloat16, (4096, 4096)), (torch.bfloat16, (4096, 4096)), (torch.bfloat16, (4096, 4096)), (torch.bfloat16, (4096, 4096)), ('i', 4096), ('i', 4096), ('i', 0), ('i', 0), ('i', 8192), ('i', 1), ('i', 0), ('i', 4096), ('i', 0), ('i', 0), ('i', 16777216), ('i', 16777216), ('i', 0), ('i', 0), ('BLOCK_X', 1024))": {
+"chosen": "orig",
+"orig_us": 77.088,
+"best_us": 77.088,
+"deterministic": true
+},
+"flag_gems.ops.bmm.bmm_kernel:07862aa6ea98|((torch.bfloat16, (32, 16, 128)), (torch.bfloat16, (32, 128, 2048)), (torch.bfloat16, (32, 16, 2048)), ('i', 16), ('i', 2048), ('i', 128), ('i', 2048), ('i', 128), ('i', 1), ('i', 262144), ('i', 2048), ('i', 1), ('i', 32768), ('i', 2048), ('i', 1), ('TILE_M', 64), ('TILE_N', 64), ('TILE_K', 32), ('GROUP_M', 2), ('num_warps', 4), ('num_ctas', 1), ('num_stages', 3), ('DIVISIBLE_M', False), ('DIVISIBLE_N', True), ('DIVISIBLE_K', True))": {
+"chosen": "orig",
+"orig_us": 11.52,
+"best_us": 11.52,
+"deterministic": true
+},
+"flag_gems.ops.layernorm.layer_norm_persistent_kernel:8fd60a18de11|((torch.bfloat16, (16, 4096)), (torch.bfloat16, (16, 4096)), None, None, (torch.bfloat16, (16,)), (torch.bfloat16, (16,)), ('i', 16), ('i', 4096), 'f', ('i', 4096), ('num_warps', 8), ('num_ctas', 1), ('num_stages', 2))": {
+"chosen": "orig",
+"orig_us": 5.312,
+"best_us": 5.312,
+"deterministic": true
+},
+"flag_gems.ops.var_mean.var_mean_welford_kernel:6f6889fda801|((torch.bfloat16, (16, 4096)), (torch.bfloat16, (16, 1)), (torch.bfloat16, (16, 1)), ('i', 16), ('i', 4096), ('i', 1), ('BLOCK_M', 1), ('BLOCK_N', 2048), ('num_warps', 16), ('num_ctas', 1), ('num_stages', 2))": {
+"chosen": "orig@w8",
+"orig_us": 5.92,
+"best_us": 5.792,
+"deterministic": true
+}
+}

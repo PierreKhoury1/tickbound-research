@@ -1,0 +1,113 @@
+{
+ "ok": true,
+ "pairs": [
+  {
+   "arch": "sm_80",
+   "kernel": "l2SelectMin1<8,256> [orig k=1]",
+   "mangled": "_ZN5faiss3gpu12l2SelectMin1IfLi8ELi256EEEvNS0_6TensorIT_Li2ELb1ElNS0_16DefaultPtrTraitsEEENS2_IS3_Li1ELb1ElS4_EES5_NS2_IlLi2ELb1ElS4_EE",
+   "verdict": "IDENTICAL",
+   "detail": "whole hot-loop region identical",
+   "regs_timing": 49,
+   "regs_trace": 58,
+   "loops": 2,
+   "loop_instr": 100,
+   "ldg": 11
+  },
+  {
+   "arch": "sm_80",
+   "kernel": "l2SelectMin1_ro<8,256,4> [ro k=1]",
+   "mangled": "_ZN5faiss3gpu15l2SelectMin1_roIfLi8ELi256ELi4EEEvNS0_6TensorIT_Li2ELb1ElNS0_16DefaultPtrTraitsEEENS2_IS3_Li1ELb1ElS4_EES5_NS2_IlLi2ELb1ElS4_EE",
+   "verdict": "IDENTICAL",
+   "detail": "whole hot-loop region identical",
+   "regs_timing": 83,
+   "regs_trace": 92,
+   "loops": 4,
+   "loop_instr": 679,
+   "ldg": 88
+  },
+  {
+   "arch": "sm_80",
+   "kernel": "l2SelectMin1_ro<8,256,8> [ro8 k=1]",
+   "mangled": "_ZN5faiss3gpu15l2SelectMin1_roIfLi8ELi256ELi8EEEvNS0_6TensorIT_Li2ELb1ElNS0_16DefaultPtrTraitsEEENS2_IS3_Li1ELb1ElS4_EES5_NS2_IlLi2ELb1ElS4_EE",
+   "verdict": "IDENTICAL",
+   "detail": "whole hot-loop region identical",
+   "regs_timing": 88,
+   "regs_trace": 96,
+   "loops": 4,
+   "loop_instr": 861,
+   "ldg": 108
+  },
+  {
+   "arch": "sm_80",
+   "kernel": "l2SelectMinK<128,3,128> [orig k<=128]",
+   "mangled": "_ZN5faiss3gpu12l2SelectMinKIifLi128ELi3ELi128EEEvNS0_6TensorIT0_Li2ELb1ElNS0_16DefaultPtrTraitsEEENS2_IS3_Li1ELb1ElS4_EES5_NS2_IlLi2ELb1ElS4_EEiS3_",
+   "verdict": "IDENTICAL",
+   "detail": "whole hot-loop region identical",
+   "regs_timing": 82,
+   "regs_trace": 92,
+   "loops": 1,
+   "loop_instr": 1092,
+   "ldg": 2
+  },
+  {
+   "arch": "sm_80",
+   "kernel": "l2SelectMinK<32,2,128> [orig k<=32]",
+   "mangled": "_ZN5faiss3gpu12l2SelectMinKIifLi32ELi2ELi128EEEvNS0_6TensorIT0_Li2ELb1ElNS0_16DefaultPtrTraitsEEENS2_IS3_Li1ELb1ElS4_EES5_NS2_IlLi2ELb1ElS4_EEiS3_",
+   "verdict": "IDENTICAL",
+   "detail": "whole hot-loop region identical",
+   "regs_timing": 47,
+   "regs_trace": 58,
+   "loops": 1,
+   "loop_instr": 549,
+   "ldg": 2
+  },
+  {
+   "arch": "sm_80",
+   "kernel": "l2SelectMinK_ro<128,3,128,4> [ro k<=128]",
+   "mangled": "_ZN5faiss3gpu15l2SelectMinK_roIifLi128ELi3ELi128ELi4EEEvNS0_6TensorIT0_Li2ELb1ElNS0_16DefaultPtrTraitsEEENS2_IS3_Li1ELb1ElS4_EES5_NS2_IlLi2ELb1ElS4_EEiS3_",
+   "verdict": "IDENTICAL",
+   "detail": "whole hot-loop region identical",
+   "regs_timing": 83,
+   "regs_trace": 94,
+   "loops": 2,
+   "loop_instr": 5451,
+   "ldg": 10
+  },
+  {
+   "arch": "sm_80",
+   "kernel": "l2SelectMinK_ro<128,3,128,8> [ro8 k<=128]",
+   "mangled": "_ZN5faiss3gpu15l2SelectMinK_roIifLi128ELi3ELi128ELi8EEEvNS0_6TensorIT0_Li2ELb1ElNS0_16DefaultPtrTraitsEEENS2_IS3_Li1ELb1ElS4_EES5_NS2_IlLi2ELb1ElS4_EEiS3_",
+   "verdict": "IDENTICAL",
+   "detail": "whole hot-loop region identical",
+   "regs_timing": 81,
+   "regs_trace": 92,
+   "loops": 2,
+   "loop_instr": 9805,
+   "ldg": 18
+  },
+  {
+   "arch": "sm_80",
+   "kernel": "l2SelectMinK_ro<32,2,128,4> [ro k<=32]",
+   "mangled": "_ZN5faiss3gpu15l2SelectMinK_roIifLi32ELi2ELi128ELi4EEEvNS0_6TensorIT0_Li2ELb1ElNS0_16DefaultPtrTraitsEEENS2_IS3_Li1ELb1ElS4_EES5_NS2_IlLi2ELb1ElS4_EEiS3_",
+   "verdict": "IDENTICAL",
+   "detail": "whole hot-loop region identical",
+   "regs_timing": 47,
+   "regs_trace": 58,
+   "loops": 2,
+   "loop_instr": 2712,
+   "ldg": 10
+  },
+  {
+   "arch": "sm_80",
+   "kernel": "l2SelectMinK_ro<32,2,128,8> [ro8 k<=32]",
+   "mangled": "_ZN5faiss3gpu15l2SelectMinK_roIifLi32ELi2ELi128ELi8EEEvNS0_6TensorIT0_Li2ELb1ElNS0_16DefaultPtrTraitsEEENS2_IS3_Li1ELb1ElS4_EES5_NS2_IlLi2ELb1ElS4_EEiS3_",
+   "verdict": "IDENTICAL",
+   "detail": "whole hot-loop region identical",
+   "regs_timing": 46,
+   "regs_trace": 56,
+   "loops": 2,
+   "loop_instr": 4896,
+   "ldg": 18
+  }
+ ]
+}

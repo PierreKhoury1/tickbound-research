@@ -1,0 +1,14 @@
+phase 2 triton 3.5.1 stats {}
+  inplace_x2       ref beebea58a378a87b  tune beebea58a378a87b  OK
+  aliased          ref 309800003b37b4bf  tune 309800003b37b4bf  OK
+  atomic_counts    ref f2008cb1d1853571  tune f2008cb1d1853571  OK
+  atomic_total     ref 1048576  tune 1048576  OK
+  rowsum           ref 6e2fd81980dd5497  tune 6e2fd81980dd5497  OK
+  rms_M16          ref 02138dc677c3b7b7  tune 02138dc677c3b7b7  OK
+  rms_M8           ref 99d51d0f7abb5d63  tune 99d51d0f7abb5d63  OK
+  graph_rms_M4     ref 717a853dabbdb7e6  tune 717a853dabbdb7e6  OK
+Traceback (most recent call last):
+  File "/root/b/t_tune.py", line 106, in <module>
+    for l in open(log):
+             ^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/root/res/tunelog_t_tt35_2.jsonl'

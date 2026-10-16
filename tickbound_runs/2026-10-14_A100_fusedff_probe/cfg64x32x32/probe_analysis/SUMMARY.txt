@@ -1,0 +1,85 @@
+loop probe, tags ['tt38__64x32x32_w2_s5.sm80', 'ro__64x32x32_w2_s5.sm80', 'orig__64x32x32_w2_s5.sm80'], step 3, loops {'tt38__64x32x32_w2_s5.sm80': [440, 655, 215], 'ro__64x32x32_w2_s5.sm80': [451, 721, 270], 'orig__64x32x32_w2_s5.sm80': [412, 594, 182]}
+
+== tt38__64x32x32_w2_s5.sm80 m16_n4096_k4096_64x32x32_w2_s5_warm: loop body 215 instructions, 71 probe positions, 256 warps each; last probe issue 673 cycles (p10 666, p90 910)
+   biggest steps (cycles from the previous probe position's issue to this one's):
+     +   15  at body  18  LDS.128 R60, [R28+0x800]   [issue 47]
+     +   12  at body  21  LDSM.16.M88.4 R24, [R25+0x9000]   [issue 59]
+     +   30  at body  30  HMUL2 R102, R54, R114   [issue 101]
+     +  130  at body  39  HMUL2 R114, R50, R114   [issue 244]
+     +   44  at body  64  LDSM.16.M88.4 R112, [R210+0x6000]   [issue 320]
+     +   22  at body 107  LDSM.16.M88.4 R120, [R195+0x8000]   [issue 419]
+     +   19  at body 124  HADD2.F32 R30, -RZ, R51.H1_H1   [issue 459]
+     +   18  at body 168  FFMA R10, R33, R33, R10   [issue 565]
+     +   13  at body 185  LDGSTS.E.BYPASS.128 [R41+0x4400], [R28.64], !P1   [issue 612]
+     +   15  at body 196  FFMA R167, R88, R88, R167   [issue 637]
+
+== tt38__64x32x32_w2_s5.sm80 m512_n512_k1024_64x32x32_w2_s5_warm: loop body 215 instructions, 71 probe positions, 256 warps each; last probe issue 673 cycles (p10 668, p90 1141)
+   biggest steps (cycles from the previous probe position's issue to this one's):
+     +   15  at body  18  LDS.128 R60, [R28+0x800]   [issue 47]
+     +   12  at body  21  LDSM.16.M88.4 R24, [R25+0x9000]   [issue 59]
+     +   30  at body  30  HMUL2 R102, R54, R114   [issue 101]
+     +  130  at body  39  HMUL2 R114, R50, R114   [issue 244]
+     +   44  at body  64  LDSM.16.M88.4 R112, [R210+0x6000]   [issue 320]
+     +   22  at body 107  LDSM.16.M88.4 R120, [R195+0x8000]   [issue 419]
+     +   19  at body 124  HADD2.F32 R30, -RZ, R51.H1_H1   [issue 459]
+     +   18  at body 168  FFMA R10, R33, R33, R10   [issue 565]
+     +   13  at body 185  LDGSTS.E.BYPASS.128 [R41+0x4400], [R28.64], !P1   [issue 612]
+     +   15  at body 196  FFMA R167, R88, R88, R167   [issue 637]
+
+== ro__64x32x32_w2_s5.sm80 m16_n4096_k4096_64x32x32_w2_s5_warm: loop body 270 instructions, 88 probe positions, 256 warps each; last probe issue 643 cycles (p10 642, p90 869)
+   biggest steps (cycles from the previous probe position's issue to this one's):
+     +   10  at body   6  IADD3 R30, P1, R156, UR6, RZ   [issue 21]
+     +   25  at body 120  LDSM.16.M88.4 R152, [R191+0x4000]   [issue 197]
+     +   12  at body 138  LDSM.16.M88.4 R44, [R190+0x4800]   [issue 232]
+     +   20  at body 142  LDSM.16.M88.4 R52, [R235]   [issue 252]
+     +   70  at body 145  HMMA.16816.F32 R72, R132, R68, R72   [issue 322]
+     +   56  at body 152  HMMA.16816.F32 R36, R132, R70, R36   [issue 378]
+     +   15  at body 154  HMMA.16816.F32 R96, R44, R60, R96   [issue 393]
+     +   19  at body 178  SEL R62, R34, RZ, !P0   [issue 457]
+     +   36  at body 186  HMMA.16816.F32 R36, R44, R50, R36   [issue 498]
+     +   12  at body 198  @!PT LDS RZ, [RZ]   [issue 523]
+
+== ro__64x32x32_w2_s5.sm80 m512_n512_k1024_64x32x32_w2_s5_warm: loop body 270 instructions, 88 probe positions, 256 warps each; last probe issue 643 cycles (p10 642, p90 720)
+   biggest steps (cycles from the previous probe position's issue to this one's):
+     +   10  at body   6  IADD3 R30, P1, R156, UR6, RZ   [issue 21]
+     +   25  at body 120  LDSM.16.M88.4 R152, [R191+0x4000]   [issue 197]
+     +   12  at body 138  LDSM.16.M88.4 R44, [R190+0x4800]   [issue 232]
+     +   20  at body 142  LDSM.16.M88.4 R52, [R235]   [issue 252]
+     +   70  at body 145  HMMA.16816.F32 R72, R132, R68, R72   [issue 322]
+     +   56  at body 152  HMMA.16816.F32 R36, R132, R70, R36   [issue 378]
+     +   15  at body 154  HMMA.16816.F32 R96, R44, R60, R96   [issue 393]
+     +   19  at body 178  SEL R62, R34, RZ, !P0   [issue 457]
+     +   36  at body 186  HMMA.16816.F32 R36, R44, R50, R36   [issue 498]
+     +   12  at body 198  @!PT LDS RZ, [RZ]   [issue 523]
+
+== orig__64x32x32_w2_s5.sm80 m16_n4096_k4096_64x32x32_w2_s5_warm: loop body 182 instructions, 61 probe positions, 256 warps each; last probe issue 1206 cycles (p10 1031, p90 1397)
+   biggest steps (cycles from the previous probe position's issue to this one's):
+     +  308  at body  15  HMUL2 R95, R15, R91   [issue 334]
+     +  130  at body  36  HADD2.F32 R93, -RZ, R15.H1_H1   [issue 486]
+     +   90  at body  45  LDSM.16.M88.4 R88, [R149+0x4800]   [issue 524]
+     +   59  at body  73  HMMA.16816.F32 R68, R88, R106, R68   [issue 790]
+     +   58  at body  79  HMMA.16816.F32 R52, R88, R106, R52   [issue 868]
+     +   72  at body 102  HADD2.F32 R13, -RZ, R19.H1_H1   [issue 1015]
+     +   88  at body 108  IADD3.X R93, R4, UR8, RZ, P1, !PT   [issue 1074]
+     +   90  at body 120  HADD2.F32 R13, -RZ, R17.H1_H1   [issue 1108]
+     +   70  at body 129  HADD2.F32 R12, -RZ, R17.H0_H0   [issue 1127]
+     +   75  at body 145  FFMA R124, R15, R15, R124   [issue 1182]
+
+== orig__64x32x32_w2_s5.sm80 m512_n512_k1024_64x32x32_w2_s5_warm: loop body 182 instructions, 61 probe positions, 256 warps each; last probe issue 1036 cycles (p10 1014, p90 1150)
+   biggest steps (cycles from the previous probe position's issue to this one's):
+     +  239  at body  15  HMUL2 R95, R15, R91   [issue 265]
+     +   44  at body  45  LDSM.16.M88.4 R88, [R149+0x4800]   [issue 404]
+     +   60  at body  49  HMMA.16816.F32 R68, R88, R106, R68   [issue 464]
+     +   42  at body  55  HMMA.16816.F32 R52, R88, R106, R52   [issue 520]
+     +   52  at body  58  HMMA.16816.F32 R44, R88, R104, R44   [issue 572]
+     +   42  at body  64  HMMA.16816.F32 R28, R92, R106, R28   [issue 617]
+     +   43  at body  73  HMMA.16816.F32 R68, R88, R106, R68   [issue 686]
+     +   35  at body  79  HMMA.16816.F32 R52, R88, R106, R52   [issue 743]
+     +   48  at body  85  HMMA.16816.F32 R36, R88, R106, R36   [issue 801]
+     +   31  at body  96  HMMA.16816.F32 R28, R92, R106, R28   [issue 848]
+
+perturbation: trace build (with probes) run time / plain build, median over dirs
+   ctl_s5 m512_n512_k1024_64x32x32_w2_s5_warm: 1.100 (min 1.001 max 1.111, n=91)
+   orig   m512_n512_k1024_64x32x32_w2_s5_warm: 1.100 (min 1.005 max 1.110, n=91)
+   ro     m512_n512_k1024_64x32x32_w2_s5_warm: 1.017 (min 1.006 max 1.034, n=91)
+   tt38   m512_n512_k1024_64x32x32_w2_s5_warm: 1.019 (min 0.987 max 1.030, n=91)

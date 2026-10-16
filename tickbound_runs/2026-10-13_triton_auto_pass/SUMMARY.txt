@@ -1,0 +1,83 @@
+== pass v1 (read-only loads) per env/lib, clean-input rerun r2
+2026-10-13T19:09:53Z r2_tt32_cuasmrl_tb_always: 11 ok 2 err 0 crash (10 s)
+2026-10-13T19:10:12Z tt32 cuasmrl always: rewritten-kernel time ratio: n 9, faster 2, slower 0, median 1.005, min 0.994, max 1.161
+2026-10-13T19:11:46Z r2_tt32_liger_tb_always: 32 ok 1 err 0 crash (47 s)
+2026-10-13T19:13:22Z tt32 liger always: rewritten-kernel time ratio: n 44, faster 3, slower 6, median 1.000, min 0.883, max 1.102
+2026-10-13T19:15:02Z r2_tt32_flaggems_tb_always: 61 ok 2 err 0 crash (40 s)
+2026-10-13T19:16:24Z tt32 flaggems always: rewritten-kernel time ratio: n 82, faster 6, slower 3, median 1.000, min 0.923, max 1.328
+2026-10-13T19:16:47Z r2_tt35_cuasmrl_tb_always: 11 ok 2 err 0 crash (9 s)
+2026-10-13T19:17:07Z tt35 cuasmrl always: rewritten-kernel time ratio: n 5, faster 2, slower 0, median 1.002, min 0.994, max 1.161
+2026-10-13T19:18:52Z r2_tt35_liger_tb_always: 33 ok 0 err 0 crash (46 s)
+2026-10-13T19:20:26Z tt35 liger always: rewritten-kernel time ratio: n 46, faster 8, slower 3, median 1.000, min 0.813, max 1.118
+2026-10-13T19:22:01Z r2_tt35_flaggems_tb_always: 61 ok 2 err 0 crash (35 s)
+2026-10-13T19:23:17Z tt35 flaggems always: rewritten-kernel time ratio: n 80, faster 3, slower 5, median 1.000, min 0.001, max 1.069
+2026-10-13T19:23:41Z r2_tt38_cuasmrl_tb_always: 11 ok 2 err 0 crash (10 s)
+2026-10-13T19:24:01Z tt38 cuasmrl always: rewritten-kernel time ratio: n 5, faster 2, slower 1, median 1.008, min 0.909, max 1.429
+2026-10-13T19:25:43Z r2_tt38_liger_tb_always: 33 ok 0 err 0 crash (44 s)
+2026-10-13T19:27:12Z tt38 liger always: rewritten-kernel time ratio: n 46, faster 5, slower 5, median 1.000, min 0.883, max 1.398
+
+== pass v1+v2 (loop prefetch) r3
+2026-10-13T19:27:24Z r3_tt32_cuasmrl_pf: 11 ok 2 err (10 s) | prefetched 1 | rewritten-kernel time ratio: n 9, faster 2, slower 1, median 1.000, min 0.973, max 1.161
+2026-10-13T19:28:11Z r3_tt32_liger_pf: 32 ok 1 err (47 s) | prefetched 5 | rewritten-kernel time ratio: n 44, faster 3, slower 8, median 1.000, min 0.857, max 1.102
+2026-10-13T19:28:50Z r3_tt32_flaggems_pf: 61 ok 2 err (39 s) | prefetched 9 | rewritten-kernel time ratio: n 82, faster 5, slower 9, median 1.000, min 0.630, max 1.324
+2026-10-13T19:29:00Z r3_tt35_cuasmrl_pf: 11 ok 2 err (10 s) | prefetched 3 | rewritten-kernel time ratio: n 5, faster 2, slower 0, median 0.999, min 0.994, max 1.358
+2026-10-13T19:29:46Z r3_tt35_liger_pf: 33 ok 0 err (46 s) | prefetched 5 | rewritten-kernel time ratio: n 46, faster 9, slower 3, median 1.001, min 0.693, max 1.118
+2026-10-13T19:30:22Z r3_tt35_flaggems_pf: 61 ok 2 err (36 s) | prefetched 7 | rewritten-kernel time ratio: n 80, faster 3, slower 7, median 1.000, min 0.001, max 1.084
+2026-10-13T19:30:32Z r3_tt38_cuasmrl_pf: 11 ok 2 err (10 s) | prefetched 3 | rewritten-kernel time ratio: n 5, faster 2, slower 1, median 1.002, min 0.938, max 1.321
+2026-10-13T19:31:16Z r3_tt38_liger_pf: 33 ok 0 err (44 s) | prefetched 5 | rewritten-kernel time ratio: n 46, faster 7, slower 5, median 1.000, min 0.600, max 1.096
+2026-10-13T19:31:16Z PF END
+
+== prefetched kernels, per case (base us, noise=base/base2, v1, v1+v2 ratios; >1 = faster)
+env   case                       kernel                           base us noise  v1    v1+v2  out
+tt32  rmsnorm_kernl_port_M16     rmsnorm_kernl_port                  2.30 1.000 1.161 1.161  IDENT
+tt32  rmsnorm_kernl_port_M4096   rmsnorm_kernl_port                 40.29 0.985 1.057 1.032  IDENT
+tt32  kl_div_M16                 _kldiv_kernel_forward               8.67 1.000 1.000 1.015  IDENT
+tt32  kl_div_M16                 _kldiv_kernel_backward              4.13 1.000 0.992 0.970  IDENT
+tt32  tvd_M16                    _tv_distance_kernel                 5.57 1.000 0.967 0.857  IDENT
+tt32  kl_div_M4096               _kldiv_kernel_forward             549.51 1.001 0.999 0.979  IDENT
+tt32  kl_div_M4096               _kldiv_kernel_backward            566.98 1.000 0.995 0.999  IDENT
+tt32  tvd_M4096                  _tv_distance_kernel               827.11 1.000 0.993 0.998  IDENT
+tt32  softmax_M16                softmax_kernel_inner                2.08 1.000 1.000 1.016  IDENT
+tt32  sum_M16                    sum_dim_kernel_inner                1.41 1.000 1.000 1.000  IDENT
+tt32  mean_M16                   mean_dim_kernel_inner               1.44 1.023 1.023 1.023  IDENT
+tt32  sort_M16                   compute_global_hist_kernel         35.36 1.000 1.008 0.924  IDENT
+tt32  sort_M16                   sweep                              18.66 1.002 1.016 0.821  IDENT
+tt32  mm_M16                     mm_kernel_general                  13.92 1.000 0.998 0.630  IDENT
+tt32  softmax_M4096              softmax_kernel_inner               39.68 0.998 0.989 1.002  IDENT
+tt32  sum_M4096                  sum_dim_kernel_inner               11.68 0.989 0.992 0.992  IDENT
+tt32  mean_M4096                 mean_dim_kernel_inner              12.13 0.995 1.005 1.003  IDENT
+tt32  sort_M4096                 compute_global_hist_kernel        808.87 1.000 1.003 0.898  IDENT
+tt32  sort_M4096                 sweep                            1440.78 1.000 1.004 0.915  IDENT
+tt32  mm_M4096                   mm_kernel_general                 395.18 1.003 1.006 0.707  IDENT
+tt35  rmsnorm_kernl_port_M16     rmsnorm_kernl_port                  2.30 1.000 1.161 1.358  IDENT
+tt35  rmsnorm_kernl_port_M4096   rmsnorm_kernl_port                 39.71 0.977 1.041 1.031  IDENT
+tt35  kl_div_M16                 _kldiv_kernel_forward               7.71 1.000 1.000 1.025  IDENT
+tt35  kl_div_M16                 _kldiv_kernel_backward              4.16 1.000 1.000 1.031  IDENT
+tt35  tvd_M16                    _tv_distance_kernel                 5.15 1.006 0.813 0.941  IDENT
+tt35  kl_div_M4096               _kldiv_kernel_forward             548.07 0.999 1.000 0.999  IDENT
+tt35  kl_div_M4096               _kldiv_kernel_backward            567.65 1.000 0.993 1.002  IDENT
+tt35  tvd_M4096                  _tv_distance_kernel               827.98 1.000 0.995 0.996  IDENT
+tt35  group_norm_B8              _group_norm_forward_kernel          4.77 0.993 0.987 0.693  nondet
+tt35  group_norm_B8              _group_norm_backward_kernel        28.32 1.002 1.009 0.996  nondet
+tt35  softmax_M16                softmax_kernel_inner                2.05 1.000 1.000 1.000  IDENT
+tt35  sum_M16                    sum_dim_kernel_inner                1.41 0.978 0.978 0.978  IDENT
+tt35  mean_M16                   mean_dim_kernel_inner               1.44 1.000 1.000 1.000  IDENT
+tt35  sort_M16                   compute_global_hist_kernel         23.97 1.008 1.000 0.943  IDENT
+tt35  sort_M16                   sweep                              11.87 1.003 1.011 0.989  IDENT
+tt35  softmax_M4096              softmax_kernel_inner               39.74 0.990 0.991 0.999  IDENT
+tt35  sum_M4096                  sum_dim_kernel_inner               11.62 1.000 1.003 0.997  IDENT
+tt35  mean_M4096                 mean_dim_kernel_inner              11.90 1.005 0.995 1.008  IDENT
+tt35  sort_M4096                 compute_global_hist_kernel        579.27 0.998 0.997 0.949  IDENT
+tt35  sort_M4096                 sweep                             692.07 0.999 1.030 0.990  IDENT
+tt38  rmsnorm_kernl_port_M16     rmsnorm_kernl_port                  2.24 1.000 1.429 1.321  IDENT
+tt38  rmsnorm_kernl_port_M4096   rmsnorm_kernl_port                 40.29 0.998 1.055 1.057  IDENT
+tt38  kl_div_M16                 _kldiv_kernel_forward               7.04 1.000 0.987 0.913  IDENT
+tt38  kl_div_M16                 _kldiv_kernel_backward              4.16 1.000 0.985 1.024  IDENT
+tt38  tvd_M16                    _tv_distance_kernel                 5.09 1.000 0.883 0.930  IDENT
+tt38  kl_div_M4096               _kldiv_kernel_forward             551.59 1.001 1.000 1.007  IDENT
+tt38  kl_div_M4096               _kldiv_kernel_backward            567.78 1.001 0.994 1.002  IDENT
+tt38  tvd_M4096                  _tv_distance_kernel               827.21 1.000 0.995 0.994  IDENT
+tt38  group_norm_B8              _group_norm_forward_kernel          4.61 1.000 1.007 0.600  nondet
+tt38  group_norm_B8              _group_norm_backward_kernel        28.26 1.013 1.020 1.030  nondet
+
+prefetched kernel-cases: 50; v1+v2 faster(>1.03) 8, slower(<0.97) 15, median 0.999; noise median 1.000 range 0.977-1.023

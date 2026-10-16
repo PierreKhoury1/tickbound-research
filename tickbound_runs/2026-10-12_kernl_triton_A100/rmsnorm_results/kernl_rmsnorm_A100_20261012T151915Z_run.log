@@ -1,0 +1,54 @@
+device NVIDIA A100-SXM4-40GB, 108 SMs, L2 40 MB, clock 1410 MHz, driver 13020, runtime 12060, flush 101 MB
+  orig N=4096: 32 regs, 16 CTAs/SM
+  orig N=5120: 32 regs, 16 CTAs/SM
+  orig N=8192: 40 regs, 12 CTAs/SM
+  ro   N=4096: 38 regs, 12 CTAs/SM
+  ro   N=5120: 48 regs, 10 CTAs/SM
+  ro   N=8192: 72 regs, 7 CTAs/SM
+  ro2  N=4096: 48 regs, 10 CTAs/SM
+  ro2  N=5120: 60 regs, 8 CTAs/SM
+  ro2  N=8192: 84 regs, 5 CTAs/SM
+  ro3  N=4096: 48 regs, 10 CTAs/SM
+  ro3  N=5120: 58 regs, 8 CTAs/SM
+  ro3  N=8192: 84 regs, 5 CTAs/SM
+SM clock 1.4097 GHz (from %clock64 over 4 ms of %globaltimer), globaltimer tick 1024 ns
+N4096_M1_warm        B=400 orig    2.627 | ro    2.161 (x1.216) | ro2    2.020 (x1.300) | ro3    2.015 (x1.304) us | empty 0.771 | span o/ro2 nan/nan us | bitwise 1111 trace 0000 | ref err 0.00045
+N4096_M4_warm        B=400 orig    2.706 | ro    2.250 (x1.203) | ro2    2.097 (x1.291) | ro3    2.094 (x1.292) us | empty 0.812 | span o/ro2 nan/nan us | bitwise 1111 trace 0000 | ref err 0.00046
+N4096_M16_warm       B=400 orig    2.819 | ro    2.350 (x1.199) | ro2    2.189 (x1.288) | ro3    2.156 (x1.308) us | empty 0.827 | span o/ro2 nan/nan us | bitwise 1111 trace 0000 | ref err 0.00048
+N4096_M64_warm       B=400 orig    3.026 | ro    2.596 (x1.166) | ro2    2.519 (x1.201) | ro3    2.271 (x1.333) us | empty 0.886 | span o/ro2 nan/nan us | bitwise 1111 trace 0000 | ref err 0.00048
+N4096_M256_warm      B=400 orig    3.896 | ro    3.338 (x1.167) | ro2    3.397 (x1.147) | ro3    3.187 (x1.222) us | empty 1.088 | span o/ro2 nan/nan us | bitwise 1111 trace 0000 | ref err 0.00048
+N5120_M1_warm        B=400 orig    3.059 | ro    2.278 (x1.343) | ro2    2.181 (x1.403) | ro3    2.166 (x1.413) us | empty 0.771 | span o/ro2 nan/nan us | bitwise 1111 trace 0000 | ref err 0.00046
+N5120_M4_warm        B=400 orig    3.128 | ro    2.363 (x1.324) | ro2    2.281 (x1.371) | ro3    2.255 (x1.387) us | empty 0.812 | span o/ro2 nan/nan us | bitwise 1111 trace 0000 | ref err 0.00047
+N5120_M16_warm       B=400 orig    3.236 | ro    2.458 (x1.317) | ro2    2.363 (x1.369) | ro3    2.312 (x1.400) us | empty 0.827 | span o/ro2 nan/nan us | bitwise 1111 trace 0000 | ref err 0.00047
+N5120_M64_warm       B=400 orig    3.538 | ro    2.726 (x1.298) | ro2    2.698 (x1.311) | ro3    2.596 (x1.363) us | empty 0.886 | span o/ro2 nan/nan us | bitwise 1111 trace 0000 | ref err 0.00048
+N5120_M256_warm      B=400 orig    4.457 | ro    3.686 (x1.209) | ro2    3.871 (x1.151) | ro3    3.912 (x1.139) us | empty 1.088 | span o/ro2 nan/nan us | bitwise 1111 trace 0000 | ref err 0.00048
+N8192_M1_warm        B=400 orig    3.843 | ro    2.634 (x1.459) | ro2    2.662 (x1.443) | ro3    2.619 (x1.467) us | empty 0.773 | span o/ro2 nan/nan us | bitwise 1111 trace 0000 | ref err 0.00047
+N8192_M4_warm        B=400 orig    3.930 | ro    2.703 (x1.454) | ro2    2.734 (x1.437) | ro3    2.691 (x1.461) us | empty 0.812 | span o/ro2 nan/nan us | bitwise 1111 trace 0000 | ref err 0.00047
+N8192_M16_warm       B=400 orig    4.063 | ro    2.803 (x1.449) | ro2    2.862 (x1.419) | ro3    2.798 (x1.452) us | empty 0.827 | span o/ro2 nan/nan us | bitwise 1111 trace 0000 | ref err 0.00048
+N8192_M64_warm       B=400 orig    4.324 | ro    3.279 (x1.319) | ro2    3.231 (x1.338) | ro3    3.123 (x1.384) us | empty 0.886 | span o/ro2 nan/nan us | bitwise 1111 trace 0000 | ref err 0.00047
+N8192_M256_warm      B=348 orig    5.570 | ro    4.973 (x1.120) | ro2    5.202 (x1.071) | ro3    4.870 (x1.144) us | empty 1.089 | span o/ro2 nan/nan us | bitwise 1111 trace 0000 | ref err 0.00048
+N4096_M1024_warm     B=262 orig    7.520 | ro    7.289 (x1.032) | ro2    7.121 (x1.056) | ro3    6.891 (x1.091) us | empty 1.642 | span o/ro2 nan/nan us | bitwise 1111 trace 0000 | ref err 0.00048
+N4096_M4096_warm     B= 35 orig   56.174 | ro   53.277 (x1.054) | ro2   52.078 (x1.079) | ro3   52.253 (x1.075) us | empty 3.979 | span o/ro2 nan/nan us | bitwise 1111 trace 0000 | ref err 0.00048
+N4096_M1_decode      B= 30 orig    8.397 | ro    7.441 (x1.128) | ro2    7.031 (x1.194) | ro3    6.758 (x1.242) us | empty 5.222 | span o/ro2 nan/nan us | bitwise 1111 trace 0000 | ref err 0.00045
+N4096_M4_decode      B= 30 orig    8.294 | ro    7.475 (x1.110) | ro2    7.031 (x1.180) | ro3    6.963 (x1.191) us | empty 5.120 | span o/ro2 nan/nan us | bitwise 1111 trace 0000 | ref err 0.00046
+N4096_M16_decode     B= 30 orig    8.499 | ro    7.612 (x1.117) | ro2    7.270 (x1.169) | ro3    7.066 (x1.203) us | empty 5.257 | span o/ro2 nan/nan us | bitwise 1111 trace 0000 | ref err 0.00048
+N4096_M64_decode     B= 30 orig    8.841 | ro    8.021 (x1.102) | ro2    7.509 (x1.177) | ro3    7.373 (x1.199) us | empty 5.359 | span o/ro2 nan/nan us | bitwise 1111 trace 0000 | ref err 0.00048
+N4096_M256_decode    B= 30 orig    9.523 | ro    8.738 (x1.090) | ro2    8.738 (x1.090) | ro3    8.567 (x1.112) us | empty 5.427 | span o/ro2 nan/nan us | bitwise 1111 trace 0000 | ref err 0.00048
+N5120_M1_decode      B= 30 orig    9.421 | ro    7.714 (x1.221) | ro2    7.305 (x1.290) | ro3    7.270 (x1.296) us | empty 5.188 | span o/ro2 nan/nan us | bitwise 1111 trace 0000 | ref err 0.00046
+N5120_M4_decode      B= 30 orig    9.114 | ro    7.680 (x1.187) | ro2    7.270 (x1.254) | ro3    7.270 (x1.254) us | empty 5.188 | span o/ro2 nan/nan us | bitwise 1111 trace 0000 | ref err 0.00047
+N5120_M16_decode     B= 30 orig    9.284 | ro    7.817 (x1.188) | ro2    7.339 (x1.265) | ro3    7.407 (x1.253) us | empty 5.188 | span o/ro2 nan/nan us | bitwise 1111 trace 0000 | ref err 0.00047
+N5120_M64_decode     B= 30 orig    9.626 | ro    8.124 (x1.185) | ro2    7.782 (x1.237) | ro3    7.987 (x1.205) us | empty 5.393 | span o/ro2 nan/nan us | bitwise 1111 trace 0000 | ref err 0.00048
+N5120_M256_decode    B= 30 orig   10.342 | ro    9.489 (x1.090) | ro2    9.387 (x1.102) | ro3    9.079 (x1.139) us | empty 5.359 | span o/ro2 nan/nan us | bitwise 1111 trace 0000 | ref err 0.00048
+N8192_M1_decode      B= 30 orig   10.991 | ro    8.055 (x1.364) | ro2    7.714 (x1.425) | ro3    7.612 (x1.444) us | empty 5.154 | span o/ro2 nan/nan us | bitwise 1111 trace 0000 | ref err 0.00047
+N8192_M4_decode      B= 30 orig   10.854 | ro    8.192 (x1.325) | ro2    7.748 (x1.401) | ro3    7.817 (x1.389) us | empty 5.154 | span o/ro2 nan/nan us | bitwise 1111 trace 0000 | ref err 0.00047
+N8192_M16_decode     B= 30 orig   10.786 | ro    8.192 (x1.317) | ro2    7.817 (x1.380) | ro3    7.817 (x1.380) us | empty 5.222 | span o/ro2 nan/nan us | bitwise 1111 trace 0000 | ref err 0.00048
+N8192_M64_decode     B= 30 orig   11.162 | ro    8.738 (x1.277) | ro2    8.158 (x1.368) | ro3    8.226 (x1.357) us | empty 5.291 | span o/ro2 nan/nan us | bitwise 1111 trace 0000 | ref err 0.00047
+N8192_M256_decode    B= 30 orig   12.493 | ro   10.581 (x1.181) | ro2   10.650 (x1.173) | ro3   10.035 (x1.245) us | empty 5.393 | span o/ro2 nan/nan us | bitwise 1111 trace 0000 | ref err 0.00048
+N4096_M1_cold        B= 30 orig    8.499 | ro    7.509 (x1.132) | ro2    7.066 (x1.203) | ro3    6.861 (x1.239) us | empty 4.915 | span o/ro2 nan/nan us | bitwise 1111 trace 0000 | ref err 0.00045
+N4096_M16_cold       B= 30 orig    8.567 | ro    7.646 (x1.121) | ro2    7.236 (x1.184) | ro3    6.997 (x1.224) us | empty 4.847 | span o/ro2 nan/nan us | bitwise 1111 trace 0000 | ref err 0.00048
+N4096_M256_cold      B= 30 orig   10.854 | ro   10.342 (x1.050) | ro2   10.308 (x1.053) | ro3   10.206 (x1.064) us | empty 5.120 | span o/ro2 nan/nan us | bitwise 1111 trace 0000 | ref err 0.00048
+N4096_M1024_cold     B= 30 orig   19.319 | ro   18.876 (x1.024) | ro2   18.705 (x1.033) | ro3   18.671 (x1.035) us | empty 5.666 | span o/ro2 nan/nan us | bitwise 1111 trace 0000 | ref err 0.00048
+N4096_M4096_cold     B= 30 orig   63.010 | ro   59.631 (x1.057) | ro2   58.266 (x1.081) | ro3   58.266 (x1.081) us | empty 7.748 | span o/ro2 nan/nan us | bitwise 1111 trace 0000 | ref err 0.00048
+driver JIT of the PTX (N4096_M16_warm): orig 2.862 | ro 2.345 | ro2 2.186 | ro3 2.161 us, regs 32 38 48 48
+SM clock at the end 1.4100 GHz
+DONE

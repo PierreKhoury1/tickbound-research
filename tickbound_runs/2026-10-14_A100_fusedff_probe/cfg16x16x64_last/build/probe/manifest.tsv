@@ -1,0 +1,4 @@
+variant	cfg	cc	ptx	trace_ptx	entry	num_warps	num_stages	block_m	block_n	block_k	shared_bytes	params	kernel_fn	triton
+orig	16x16x64_w4_s2	80	src/ptx/orig__16x16x64_w4_s2.sm80.ptx	src/ptx/orig__16x16x64_w4_s2.sm80.trace.ptx	tt_ff_0d1d2d3d4d5de6de7de8de9c10c11de12c13de14de15c16c	4	2	16	16	64	6144	a_ptr,w1_ptr,w3_ptr,out_ptr,rms_w_ptr,M,N,K,stride_am,stride_w1n,stride_w3n,stride_outm	tt_ff	2.2.0
+ro	16x16x64_w4_s2	80	src/ptx/ro__16x16x64_w4_s2.sm80.ptx	src/ptx/ro__16x16x64_w4_s2.sm80.trace.ptx	ff_ro_0d1d2d3d4d5de6de7de8de9c10c11de12c13de14de15c16c	4	2	16	16	64	6144	a_ptr,w1_ptr,w3_ptr,out_ptr,rms_w_ptr,M,N,K,stride_am,stride_w1n,stride_w3n,stride_outm	ff_ro	2.2.0
+tt38	16x16x64_w4_s2	80	src/ptx/tt38__16x16x64_w4_s2.sm80.ptx	src/ptx/tt38__16x16x64_w4_s2.sm80.trace.ptx	tt_ff	4	2	16	16	64	8320	a_ptr,w1_ptr,w3_ptr,out_ptr,rms_w_ptr,M,N,K,stride_am,stride_w1n,stride_w3n,stride_outm,scratch0,scratch1	tt_ff	3.8.0

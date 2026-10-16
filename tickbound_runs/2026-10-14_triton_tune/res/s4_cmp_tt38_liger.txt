@@ -1,0 +1,40 @@
+rms_norm_M16                   out IDENT  step x1.646  _rms_norm_forward_kernel x1.019 (noise 1.0, cached x1.0)  _rms_norm_backward_kernel x1.000 (noise 1.0, cached x1.0)
+fused_add_rms_norm_M16         out IDENT  step x0.909  _fused_add_rms_norm_forward_ke x1.000 (noise 1.0, cached x1.0)
+layer_norm_M16                 out IDENT  step x1.645  _layer_norm_forward_kernel x0.999 (noise 0.999, cached x0.999)  _layer_norm_backward_kernel x1.000 (noise 1.0, cached x1.0)
+poly_norm_M16                  out IDENT  step x0.862  _poly_norm_forward_kernel x1.000 (noise 1.0, cached x1.0)
+dyt_M16                        out IDENT  step x1.408  _dyt_fwd_kernel x1.106 (noise 1.0, cached x1.106)  _dyt_bwd_kernel x1.034 (noise 1.022, cached x1.0)
+swiglu_M16                     out IDENT  step x1.507  _swiglu_forward_kernel x1.000 (noise 1.0, cached x1.0)  _swiglu_backward_kernel x1.000 (noise 1.0, cached x1.0)
+geglu_M16                      out IDENT  step x1.293  _geglu_tanh_forward_kernel x1.000 (noise 1.0, cached x1.0)  _geglu_tanh_backward_kernel x0.992 (noise 1.008, cached x0.992)
+relu_squared_M16               out IDENT  step x0.743  _relu_squared_forward_kernel x1.000 (noise 1.0, cached x1.0)
+softmax_M16                    out IDENT  step x0.913  _softmax_single_block_forward_ x1.000 (noise 1.0, cached x1.0)  _softmax_single_block_backward x1.000 (noise 1.0, cached x1.0)
+sparsemax_M16                  out IDENT  step x0.871  _sparsemax_forward_kernel x1.075 (noise 1.0, cached x1.075)
+cross_entropy_M16              out IDENT  step x1.035  liger_cross_entropy_kernel x1.000 (noise 1.0, cached x1.001)
+fused_linear_ce_M16            out IDENT  step x1.012  liger_cross_entropy_kernel x0.983 (noise 1.004, cached x1.004)
+kl_div_M16                     out IDENT  step x1.529  _kldiv_kernel_forward x1.000 (noise 1.0, cached x1.005)  _kldiv_kernel_backward x1.007 (noise 1.008, cached x1.008)
+jsd_M16                        out IDENT  step x1.368  _jsd_kernel x2.508 (noise 1.011, cached x2.531)
+tvd_M16                        out IDENT  step x0.900  _tv_distance_kernel x1.000 (noise 1.0, cached x1.006)
+rms_norm_M4096                 out IDENT  step x1.091  _rms_norm_forward_kernel x0.999 (noise 0.999, cached x1.011)  _rms_norm_backward_kernel x1.000 (noise 1.004, cached x1.0)
+fused_add_rms_norm_M4096       out IDENT  step x0.996  _fused_add_rms_norm_forward_ke x0.997 (noise 1.0, cached x0.998)
+layer_norm_M4096               out IDENT  step x0.546  _layer_norm_forward_kernel x0.998 (noise 0.998, cached x1.005)  _layer_norm_backward_kernel x1.010 (noise 1.006, cached x1.011)
+poly_norm_M4096                out IDENT  step x0.980  _poly_norm_forward_kernel x1.015 (noise 1.014, cached x1.047)
+dyt_M4096                      out IDENT  step x0.550  _dyt_fwd_kernel x1.623 (noise 1.018, cached x1.632)  _dyt_bwd_kernel x1.003 (noise 0.999, cached x1.004)
+swiglu_M4096                   out IDENT  step x0.992  _swiglu_forward_kernel x1.003 (noise 1.0, cached x1.0)  _swiglu_backward_kernel x0.999 (noise 0.999, cached x1.0)
+geglu_M4096                    out IDENT  step x1.042  _geglu_tanh_forward_kernel x1.078 (noise 0.999, cached x1.077)  _geglu_tanh_backward_kernel x1.069 (noise 1.001, cached x1.071)
+relu_squared_M4096             out IDENT  step x1.009  _relu_squared_forward_kernel x0.998 (noise 0.999, cached x0.998)
+softmax_M4096                  out IDENT  step x1.000  _softmax_single_block_forward_ x1.002 (noise 1.002, cached x1.005)  _softmax_single_block_backward x1.000 (noise 1.0, cached x0.999)
+sparsemax_M4096                out IDENT  step x1.001  _sparsemax_forward_kernel x0.993 (noise 0.995, cached x0.996)
+cross_entropy_M4096            out IDENT  step x1.000  liger_cross_entropy_kernel x1.000 (noise 1.0, cached x1.0)
+fused_linear_ce_M4096          out IDENT  step x0.973  liger_cross_entropy_kernel x0.940 (noise 1.002, cached x0.96)
+kl_div_M4096                   out IDENT  step x1.003  _kldiv_kernel_forward x0.999 (noise 0.997, cached x0.999)  _kldiv_kernel_backward x1.001 (noise 1.001, cached x1.001)
+jsd_M4096                      out IDENT  step x0.981  _jsd_kernel x1.000 (noise 1.0, cached x1.003)
+tvd_M4096                      out IDENT  step x1.050  _tv_distance_kernel x1.000 (noise 0.999, cached x0.999)
+rope_S16                       out IDENT  step x1.435  _triton_rope x1.149 (noise 0.982, cached x1.149)
+rope_S2048                     out IDENT  step x0.934  _triton_rope x1.003 (noise 1.006, cached x1.012)
+group_norm_B8                  out nondet  step x0.869  _group_norm_forward_kernel x1.000 (noise 1.0, cached x1.0)  _group_norm_backward_kernel x1.025 (noise 0.992, cached x1.018)
+
+tune kernel ratio: n 48, faster(>1.03) 8, slower(<0.97) 1, median 1.000, geomean 1.040, min 0.940, max 2.508
+tune (cached, 2nd process) kernel ratio: n 48, faster(>1.03) 8, slower(<0.97) 1, median 1.000, geomean 1.042, min 0.960, max 2.531
+noise base/base2: n 48, faster(>1.03) 0, slower(<0.97) 0, median 1.000, geomean 1.001, min 0.982, max 1.022
+whole-step ratio: n 33, faster(>1.03) 12, slower(<0.97) 10, median 1.000, geomean 1.030, min 0.546, max 1.646
+outputs: identical 32, DIFF 0, nondeterministic case 1
+decisions: {'orig': 61, 'nc': 3, 'orig@w8': 4, 'orig@w32': 6, 'orig@w16': 8, 'orig@w4': 1, 'nc+pf': 1}

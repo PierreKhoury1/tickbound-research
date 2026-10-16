@@ -1,0 +1,22 @@
+rmsnorm_kernl_port_M16         out IDENT  step x0.647  rmsnorm_kernl_port x1.449 (noise 1.0, cached x1.449)
+rmsnorm_kernl_port_M4096       out IDENT  step x1.044  rmsnorm_kernl_port x1.064 (noise 1.004, cached x1.07)
+rmsnorm_kernl_M16              base error tune error CompilationError: at 16:15:
+                    N_SIZE: tl.constexpr, eps: tl.constexpr, BLOCK_N_SIZ
+rmsnorm_kernl_M4096            base error tune error CompilationError: at 16:15:
+                    N_SIZE: tl.constexpr, eps: tl.constexpr, BLOCK_N_SIZ
+fused_ff_M512_N512_K1024_64x32x32_w2s5 out IDENT  step x0.983  tt_ff x1.009 (noise 1.0, cached x1.001)
+fused_ff_M16_N11008_K4096_16x16x64_w4s2 out IDENT  step x3.278  tt_ff x3.289 (noise 0.996, cached x3.304)
+fused_ff_M16_N4096_K4096_32x64x32_w2s5 out IDENT  step x1.006  tt_ff x1.011 (noise 1.003, cached x1.003)
+fused_ff_M4096_N11008_K4096_64x128x32_w4s4 out IDENT  step x1.086  tt_ff x0.963 (noise 0.955, cached x1.033)
+softmax_R16_C4096              out IDENT  step x0.654  softmax x0.873 (noise 1.0, cached x1.0)
+softmax_R4096_C4096            out IDENT  step x0.980  softmax x1.002 (noise 1.004, cached x1.016)
+softmax_R4096_C32000           out IDENT  step x0.998  softmax x1.000 (noise 0.999, cached x0.994)
+matmul_leaky_M16               out IDENT  step x0.887  matmul_leaky x1.172 (noise 1.023, cached x1.172)
+matmul_leaky_M4096             out IDENT  step x1.052  matmul_leaky x1.052 (noise 1.009, cached x1.052)
+
+tune kernel ratio: n 11, faster(>1.03) 5, slower(<0.97) 2, median 1.011, geomean 1.165, min 0.873, max 3.289
+tune (cached, 2nd process) kernel ratio: n 11, faster(>1.03) 6, slower(<0.97) 0, median 1.033, geomean 1.188, min 0.994, max 3.304
+noise base/base2: n 11, faster(>1.03) 0, slower(<0.97) 1, median 1.000, geomean 0.999, min 0.955, max 1.023
+whole-step ratio: n 11, faster(>1.03) 4, slower(<0.97) 3, median 0.998, geomean 1.032, min 0.647, max 3.278
+outputs: identical 11, DIFF 0, nondeterministic case 0
+decisions: {'nc': 1, 'nc+pf': 1, 'orig': 8, 'orig@w2@s3': 1, 'orig@s5': 1, 'orig@s3': 1}

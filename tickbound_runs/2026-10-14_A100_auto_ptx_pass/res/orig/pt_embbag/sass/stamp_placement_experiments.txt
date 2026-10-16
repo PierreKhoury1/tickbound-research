@@ -1,0 +1,165 @@
+Where can a trace stamp go without changing the bag loops? (NVRTC 12.6.85 PTX + ptxas 12.6.85, sm_80, earlier 82-slot layout)
+Each experiment injects a subset of stamps into the PTX of the trace build and compares the hot (bag) loops of every
+variant with the timing build (check_trace_sass.py: opcode+operands text, branch targets loop-relative; encodings = both
+64-bit words incl. control bits). Tags: E = entry stamp at the top of the kernel; X = exit stamp after the chunk loop;
+0..4 = per-chunk stamps at chunk_start / validation_start / main_start / main_end / chunk_end (X2-X4: other exit-stamp forms).
+Result: only E keeps every loop byte-identical; any stamp inside or after the chunk loop makes ptxas re-allocate registers
+and re-schedule the bag loops. Hence the trace build = entry stamp in source + exit stamp patched into the binary
+(tools/patch_exits.py), which keeps all loops byte-identical (sass/check_trace_*.txt).
+
+##### E
+  orig  PASS  hot loops timing 2 / trace 2
+      loop @0x1c60 (trace @0x1d40): 102 instr, 12 LDG, text identical, encodings differing 0
+      loop @0x4380 (trace @0x4460): 92 instr, 8 LDG, text identical, encodings differing 0
+  ro    PASS  hot loops timing 4 / trace 4
+      loop @0x1b70 (trace @0x1c50): 94 instr, 12 LDG, text identical, encodings differing 0
+      loop @0x21c0 (trace @0x22a0): 82 instr, 8 LDG, text identical, encodings differing 0
+      loop @0x2ee0 (trace @0x2fc0): 92 instr, 12 LDG, text identical, encodings differing 0
+      loop @0x3a30 (trace @0x3b10): 78 instr, 8 LDG, text identical, encodings differing 0
+  ro2   PASS  hot loops timing 2 / trace 2
+      loop @0x1c60 (trace @0x1d40): 100 instr, 12 LDG, text identical, encodings differing 0
+      loop @0x4330 (trace @0x4410): 90 instr, 8 LDG, text identical, encodings differing 0
+##### X
+  orig  FAIL  hot loops timing 2 / trace 2
+      loop @0x1c60 (trace @0x1c70): 102 instr, 12 LDG, text DIFFERENT, encodings differing 103  first diff at +0: 'IMAD.MOV.U32 R4, RZ, RZ, R8' vs 'LDG.E.64 R10, [R2.64]'
+      loop @0x4380 (trace @0x43b0): 92 instr, 8 LDG, text DIFFERENT, encodings differing 92  first diff at +0: 'LDG.E.64 R8, [R4.64]' vs 'LDG.E.64 R10, [R4.64]'
+  ro    FAIL  hot loops timing 4 / trace 4
+      loop @0x1b70 (trace @0x1b60): 94 instr, 12 LDG, text DIFFERENT, encodings differing 93  first diff at +0: 'IMAD.SHL.U32 R14, R26.reuse, 0x8, RZ' vs 'IMAD.SHL.U32 R0, R26.reuse, 0x8, RZ'
+      loop @0x21c0 (trace @0x21a0): 82 instr, 8 LDG, text DIFFERENT, encodings differing 80  first diff at +0: 'IMAD.SHL.U32 R20, R26.reuse, 0x8, RZ' vs 'IMAD.SHL.U32 R0, R26.reuse, 0x8, RZ'
+      loop @0x2ee0 (trace @0x2ec0): 92 instr, 12 LDG, text DIFFERENT, encodings differing 93  first diff at +0: 'LDG.E.64 R6, [R8.64]' vs 'IMAD.MOV.U32 R4, RZ, RZ, R13'
+      loop @0x3a30 (trace @0x3a20): 78 instr, 8 LDG, text DIFFERENT, encodings differing 70  first diff at +1: 'IMAD.MOV.U32 R40, RZ, RZ, R28' vs 'IMAD.MOV.U32 R42, RZ, RZ, R28'
+  ro2   FAIL  hot loops timing 2 / trace 2
+      loop @0x1c60 (trace @0x1c70): 100 instr, 12 LDG, text DIFFERENT, encodings differing 103  first diff at +0: 'LDG.E.64.CONSTANT R6, [R4.64]' vs 'LDG.E.64.CONSTANT R8, [R6.64]'
+      loop @0x4330 (trace @0x43b0): 90 instr, 8 LDG, text DIFFERENT, encodings differing 90  first diff at +0: 'LDG.E.64.CONSTANT R6, [R4.64]' vs 'LDG.E.64.CONSTANT R8, [R2.64]'
+##### EX
+  orig  FAIL  hot loops timing 2 / trace 2
+      loop @0x1c60 (trace @0x1d50): 102 instr, 12 LDG, text DIFFERENT, encodings differing 103  first diff at +0: 'IMAD.MOV.U32 R4, RZ, RZ, R8' vs 'LDG.E.64 R10, [R2.64]'
+      loop @0x4380 (trace @0x4490): 92 instr, 8 LDG, text DIFFERENT, encodings differing 92  first diff at +0: 'LDG.E.64 R8, [R4.64]' vs 'LDG.E.64 R10, [R4.64]'
+  ro    FAIL  hot loops timing 4 / trace 4
+      loop @0x1b70 (trace @0x1c40): 94 instr, 12 LDG, text DIFFERENT, encodings differing 93  first diff at +0: 'IMAD.SHL.U32 R14, R26.reuse, 0x8, RZ' vs 'IMAD.SHL.U32 R0, R26.reuse, 0x8, RZ'
+      loop @0x21c0 (trace @0x2280): 82 instr, 8 LDG, text DIFFERENT, encodings differing 80  first diff at +0: 'IMAD.SHL.U32 R20, R26.reuse, 0x8, RZ' vs 'IMAD.SHL.U32 R0, R26.reuse, 0x8, RZ'
+      loop @0x2ee0 (trace @0x2fa0): 92 instr, 12 LDG, text DIFFERENT, encodings differing 93  first diff at +0: 'LDG.E.64 R6, [R8.64]' vs 'IMAD.MOV.U32 R4, RZ, RZ, R13'
+      loop @0x3a30 (trace @0x3b00): 78 instr, 8 LDG, text DIFFERENT, encodings differing 70  first diff at +1: 'IMAD.MOV.U32 R40, RZ, RZ, R28' vs 'IMAD.MOV.U32 R42, RZ, RZ, R28'
+  ro2   FAIL  hot loops timing 2 / trace 2
+      loop @0x1c60 (trace @0x1d50): 100 instr, 12 LDG, text DIFFERENT, encodings differing 103  first diff at +0: 'LDG.E.64.CONSTANT R6, [R4.64]' vs 'LDG.E.64.CONSTANT R8, [R6.64]'
+      loop @0x4330 (trace @0x4490): 90 instr, 8 LDG, text DIFFERENT, encodings differing 90  first diff at +0: 'LDG.E.64.CONSTANT R6, [R4.64]' vs 'LDG.E.64.CONSTANT R8, [R2.64]'
+##### E0
+  orig  FAIL  hot loops timing 2 / trace 2
+      loop @0x1c60 (trace @0x1e50): 102 instr, 12 LDG, text DIFFERENT, encodings differing 101  first diff at +0: 'IMAD.MOV.U32 R4, RZ, RZ, R8' vs 'IMAD.MOV.U32 R4, RZ, RZ, R10'
+      loop @0x4380 (trace @0x4650): 92 instr, 8 LDG, text DIFFERENT, encodings differing 81  first diff at +0: 'LDG.E.64 R8, [R4.64]' vs 'LDG.E.64 R10, [R4.64]'
+  ro    PASS  hot loops timing 4 / trace 4
+      loop @0x1b70 (trace @0x1d60): 94 instr, 12 LDG, text identical, encodings differing 0
+      loop @0x21c0 (trace @0x23b0): 82 instr, 8 LDG, text identical, encodings differing 0
+      loop @0x2ee0 (trace @0x30d0): 92 instr, 12 LDG, text identical, encodings differing 0
+      loop @0x3a30 (trace @0x3c20): 78 instr, 8 LDG, text identical, encodings differing 0
+  ro2   FAIL  hot loops timing 2 / trace 2
+      loop @0x1c60 (trace @0x1e70): 100 instr, 12 LDG, text DIFFERENT, encodings differing 104  first diff at +1: 'IMAD.MOV.U32 R36, RZ, RZ, R24' vs '@!P1 LEA R8, P2, R18.reuse, c[0x0][0x180], 0x3'
+      loop @0x4330 (trace @0x46e0): 90 instr, 8 LDG, text DIFFERENT, encodings differing 88  first diff at +1: '@!P1 LEA R10, P2, R18, c[0x0][0x180], 0x3' vs '@!P1 LEA R8, P2, R18, c[0x0][0x180], 0x3'
+##### E1
+  orig  FAIL  hot loops timing 2 / trace 2
+      loop @0x1c60 (trace @0x1e70): 102 instr, 12 LDG, text DIFFERENT, encodings differing 109  first diff at +0: 'IMAD.MOV.U32 R4, RZ, RZ, R8' vs 'IMAD.MOV.U32 R4, RZ, RZ, R10'
+      loop @0x4380 (trace @0x4740): 92 instr, 8 LDG, text DIFFERENT, encodings differing 93  first diff at +0: 'LDG.E.64 R8, [R4.64]' vs 'LDG.E.64 R10, [R4.64]'
+  ro    PASS  hot loops timing 4 / trace 4
+      loop @0x1b70 (trace @0x1d60): 94 instr, 12 LDG, text identical, encodings differing 0
+      loop @0x21c0 (trace @0x23b0): 82 instr, 8 LDG, text identical, encodings differing 1
+      loop @0x2ee0 (trace @0x30d0): 92 instr, 12 LDG, text identical, encodings differing 0
+      loop @0x3a30 (trace @0x3c20): 78 instr, 8 LDG, text identical, encodings differing 0
+  ro2   FAIL  hot loops timing 2 / trace 2
+      loop @0x1c60 (trace @0x1e70): 100 instr, 12 LDG, text DIFFERENT, encodings differing 104  first diff at +1: 'IMAD.MOV.U32 R36, RZ, RZ, R24' vs '@!P1 LEA R8, P2, R18.reuse, c[0x0][0x180], 0x3'
+      loop @0x4330 (trace @0x46e0): 90 instr, 8 LDG, text DIFFERENT, encodings differing 88  first diff at +1: '@!P1 LEA R10, P2, R18, c[0x0][0x180], 0x3' vs '@!P1 LEA R8, P2, R18, c[0x0][0x180], 0x3'
+##### E2
+  orig  FAIL  hot loops timing 2 / trace 2
+      loop @0x1c60 (trace @0x1ea0): 102 instr, 12 LDG, text DIFFERENT, encodings differing 109  first diff at +0: 'IMAD.MOV.U32 R4, RZ, RZ, R8' vs 'IMAD.MOV.U32 R4, RZ, RZ, R10'
+      loop @0x4380 (trace @0x4760): 92 instr, 8 LDG, text DIFFERENT, encodings differing 94  first diff at +0: 'LDG.E.64 R8, [R4.64]' vs 'LDG.E.64 R12, [R6.64]'
+  ro    FAIL  hot loops timing 4 / trace 4
+      loop @0x1b70 (trace @0x1d60): 94 instr, 12 LDG, text DIFFERENT, encodings differing 68  first diff at +1: 'SHF.L.U64.HI R20, R26, 0x3, R27' vs 'SHF.L.U64.HI R26, R26, 0x3, R27'
+      loop @0x21c0 (trace @0x23b0): 82 instr, 8 LDG, text DIFFERENT, encodings differing 37  first diff at +0: 'IMAD.SHL.U32 R20, R26.reuse, 0x8, RZ' vs 'IMAD.SHL.U32 R41, R26.reuse, 0x8, RZ'
+      loop @0x2ee0 (trace @0x30d0): 92 instr, 12 LDG, text DIFFERENT, encodings differing 57  first diff at +1: 'IMAD.MOV.U32 R40, RZ, RZ, R28' vs 'IMAD.MOV.U32 R38, RZ, RZ, R28'
+      loop @0x3a30 (trace @0x3c20): 78 instr, 8 LDG, text DIFFERENT, encodings differing 53  first diff at +1: 'IMAD.MOV.U32 R40, RZ, RZ, R28' vs 'IMAD.MOV.U32 R38, RZ, RZ, R28'
+  ro2   FAIL  hot loops timing 2 / trace 2
+      loop @0x1c60 (trace @0x1ea0): 100 instr, 12 LDG, text DIFFERENT, encodings differing 104  first diff at +1: 'IMAD.MOV.U32 R36, RZ, RZ, R24' vs '@!P1 LEA R8, P2, R18.reuse, c[0x0][0x180], 0x3'
+      loop @0x4330 (trace @0x4700): 90 instr, 8 LDG, text DIFFERENT, encodings differing 86  first diff at +1: '@!P1 LEA R10, P2, R18, c[0x0][0x180], 0x3' vs '@!P1 LEA R8, P2, R18, c[0x0][0x180], 0x3'
+##### E3
+  orig  FAIL  hot loops timing 2 / trace 2
+      loop @0x1c60 (trace @0x1d40): 102 instr, 12 LDG, text DIFFERENT, encodings differing 101  first diff at +0: 'IMAD.MOV.U32 R4, RZ, RZ, R8' vs 'LDG.E.64 R6, [R4.64]'
+      loop @0x4380 (trace @0x4550): 92 instr, 8 LDG, text DIFFERENT, encodings differing 92  first diff at +0: 'LDG.E.64 R8, [R4.64]' vs 'LDG.E.64 R12, [R6.64]'
+  ro    FAIL  hot loops timing 4 / trace 4
+      loop @0x1b70 (trace @0x1c20): 94 instr, 12 LDG, text DIFFERENT, encodings differing 96  first diff at +0: 'IMAD.SHL.U32 R14, R26.reuse, 0x8, RZ' vs 'IMAD.SHL.U32 R38, R26.reuse, 0x8, RZ'
+      loop @0x21c0 (trace @0x2290): 82 instr, 8 LDG, text DIFFERENT, encodings differing 80  first diff at +1: 'SHF.L.U64.HI R42, R26, 0x3, R27' vs 'SHF.L.U64.HI R26, R26, 0x3, R27'
+      loop @0x2ee0 (trace @0x2fb0): 92 instr, 12 LDG, text DIFFERENT, encodings differing 86  first diff at +0: 'LDG.E.64 R6, [R8.64]' vs 'LDG.E.64 R6, [R10.64]'
+      loop @0x3a30 (trace @0x3b00): 78 instr, 8 LDG, text DIFFERENT, encodings differing 72  first diff at +0: 'LDG.E.64 R6, [R10.64]' vs 'LDG.E.64 R8, [R6.64]'
+  ro2   FAIL  hot loops timing 2 / trace 2
+      loop @0x1c60 (trace @0x1d40): 100 instr, 12 LDG, text DIFFERENT, encodings differing 99  first diff at +1: 'IMAD.MOV.U32 R36, RZ, RZ, R24' vs '@!P1 LEA R8, P2, R18, c[0x0][0x180], 0x3'
+      loop @0x4330 (trace @0x44f0): 90 instr, 8 LDG, text DIFFERENT, encodings differing 90  first diff at +1: '@!P1 LEA R10, P2, R18, c[0x0][0x180], 0x3' vs 'LDG.E.64.CONSTANT R8, [R4.64+0x8]'
+##### E4
+  orig  FAIL  hot loops timing 2 / trace 2
+      loop @0x1c60 (trace @0x1d90): 102 instr, 12 LDG, text DIFFERENT, encodings differing 109  first diff at +0: 'IMAD.MOV.U32 R4, RZ, RZ, R8' vs 'LDG.E.64 R12, [R4.64]'
+      loop @0x4380 (trace @0x4650): 92 instr, 8 LDG, text DIFFERENT, encodings differing 95  first diff at +0: 'LDG.E.64 R8, [R4.64]' vs 'LDG.E.64 R8, [R6.64]'
+  ro    FAIL  hot loops timing 4 / trace 4
+      loop @0x1b70 (trace @0x1c30): 94 instr, 12 LDG, text DIFFERENT, encodings differing 96  first diff at +0: 'IMAD.SHL.U32 R14, R26.reuse, 0x8, RZ' vs 'IMAD.SHL.U32 R38, R26.reuse, 0x8, RZ'
+      loop @0x21c0 (trace @0x22a0): 82 instr, 8 LDG, text DIFFERENT, encodings differing 80  first diff at +1: 'SHF.L.U64.HI R42, R26, 0x3, R27' vs 'SHF.L.U64.HI R26, R26, 0x3, R27'
+      loop @0x2ee0 (trace @0x2fc0): 92 instr, 12 LDG, text DIFFERENT, encodings differing 86  first diff at +0: 'LDG.E.64 R6, [R8.64]' vs 'LDG.E.64 R6, [R10.64]'
+      loop @0x3a30 (trace @0x3b10): 78 instr, 8 LDG, text DIFFERENT, encodings differing 72  first diff at +0: 'LDG.E.64 R6, [R10.64]' vs 'LDG.E.64 R8, [R6.64]'
+  ro2   FAIL  hot loops timing 2 / trace 2
+      loop @0x1c60 (trace @0x1d50): 100 instr, 12 LDG, text DIFFERENT, encodings differing 99  first diff at +1: 'IMAD.MOV.U32 R36, RZ, RZ, R24' vs '@!P1 LEA R8, P2, R18, c[0x0][0x180], 0x3'
+      loop @0x4330 (trace @0x4520): 90 instr, 8 LDG, text DIFFERENT, encodings differing 88  first diff at +1: '@!P1 LEA R10, P2, R18, c[0x0][0x180], 0x3' vs 'LDG.E.64.CONSTANT R8, [R4.64+0x8]'
+##### E23
+  orig  FAIL  hot loops timing 2 / trace 2
+      loop @0x1c60 (trace @0x1e90): 102 instr, 12 LDG, text DIFFERENT, encodings differing 109  first diff at +0: 'IMAD.MOV.U32 R4, RZ, RZ, R8' vs 'LDG.E.64 R6, [R4.64]'
+      loop @0x4380 (trace @0x4850): 92 instr, 8 LDG, text DIFFERENT, encodings differing 93  first diff at +0: 'LDG.E.64 R8, [R4.64]' vs 'LDG.E.64 R8, [R6.64]'
+  ro    FAIL  hot loops timing 4 / trace 4
+      loop @0x1b70 (trace @0x1d60): 94 instr, 12 LDG, text DIFFERENT, encodings differing 95  first diff at +0: 'IMAD.SHL.U32 R14, R26.reuse, 0x8, RZ' vs 'IMAD.SHL.U32 R38, R26.reuse, 0x8, RZ'
+      loop @0x21c0 (trace @0x23c0): 82 instr, 8 LDG, text DIFFERENT, encodings differing 80  first diff at +0: 'IMAD.SHL.U32 R20, R26.reuse, 0x8, RZ' vs 'IMAD.SHL.U32 R11, R26.reuse, 0x8, RZ'
+      loop @0x2ee0 (trace @0x30e0): 92 instr, 12 LDG, text DIFFERENT, encodings differing 91  first diff at +0: 'LDG.E.64 R6, [R8.64]' vs 'LDG.E.64 R6, [R12.64]'
+      loop @0x3a30 (trace @0x3c30): 78 instr, 8 LDG, text DIFFERENT, encodings differing 74  first diff at +0: 'LDG.E.64 R6, [R10.64]' vs 'LDG.E.64 R8, [R6.64]'
+  ro2   FAIL  hot loops timing 2 / trace 2
+      loop @0x1c60 (trace @0x1e90): 100 instr, 12 LDG, text DIFFERENT, encodings differing 104  first diff at +1: 'IMAD.MOV.U32 R36, RZ, RZ, R24' vs '@!P1 LEA R8, P2, R18.reuse, c[0x0][0x180], 0x3'
+      loop @0x4330 (trace @0x4820): 90 instr, 8 LDG, text DIFFERENT, encodings differing 90  first diff at +0: 'LDG.E.64.CONSTANT R6, [R4.64]' vs 'LDG.E.64.CONSTANT R20, [R4.64]'
+##### E01234
+  orig  FAIL  hot loops timing 2 / trace 2
+      loop @0x1c60 (trace @0x20c0): 102 instr, 12 LDG, text DIFFERENT, encodings differing 102  first diff at +0: 'IMAD.MOV.U32 R4, RZ, RZ, R8' vs 'LDG.E.64 R6, [R4.64]'
+      loop @0x4380 (trace @0x4d00): 92 instr, 8 LDG, text DIFFERENT, encodings differing 92  first diff at +0: 'LDG.E.64 R8, [R4.64]' vs 'LDG.E.64 R12, [R6.64]'
+  ro    FAIL  hot loops timing 4 / trace 4
+      loop @0x1b70 (trace @0x1f80): 94 instr, 12 LDG, text DIFFERENT, encodings differing 97  first diff at +0: 'IMAD.SHL.U32 R14, R26.reuse, 0x8, RZ' vs 'IMAD.SHL.U32 R36, R24.reuse, 0x8, RZ'
+      loop @0x21c0 (trace @0x2600): 82 instr, 8 LDG, text DIFFERENT, encodings differing 80  first diff at +0: 'IMAD.SHL.U32 R20, R26.reuse, 0x8, RZ' vs 'IMAD.SHL.U32 R11, R24.reuse, 0x8, RZ'
+      loop @0x2ee0 (trace @0x3320): 92 instr, 12 LDG, text DIFFERENT, encodings differing 94  first diff at +0: 'LDG.E.64 R6, [R8.64]' vs 'LDG.E.64 R6, [R12.64]'
+      loop @0x3a30 (trace @0x3e90): 78 instr, 8 LDG, text DIFFERENT, encodings differing 77  first diff at +0: 'LDG.E.64 R6, [R10.64]' vs 'LDG.E.64 R8, [R6.64]'
+  ro2   FAIL  hot loops timing 2 / trace 2
+      loop @0x1c60 (trace @0x20c0): 100 instr, 12 LDG, text DIFFERENT, encodings differing 99  first diff at +1: 'IMAD.MOV.U32 R36, RZ, RZ, R24' vs 'IMAD.MOV.U32 R30, RZ, RZ, R34'
+      loop @0x4330 (trace @0x4d10): 90 instr, 8 LDG, text DIFFERENT, encodings differing 90  first diff at +0: 'LDG.E.64.CONSTANT R6, [R4.64]' vs 'LDG.E.64.CONSTANT R14, [R4.64]'
+##### X2
+  orig  FAIL  hot loops timing 2 / trace 2
+      loop @0x1c60 (trace @0x1d50): 102 instr, 12 LDG, text DIFFERENT, encodings differing 103  first diff at +0: 'IMAD.MOV.U32 R4, RZ, RZ, R8' vs 'LDG.E.64 R10, [R2.64]'
+      loop @0x4380 (trace @0x4490): 92 instr, 8 LDG, text DIFFERENT, encodings differing 92  first diff at +0: 'LDG.E.64 R8, [R4.64]' vs 'LDG.E.64 R10, [R4.64]'
+  ro    FAIL  hot loops timing 4 / trace 4
+      loop @0x1b70 (trace @0x1c40): 94 instr, 12 LDG, text DIFFERENT, encodings differing 93  first diff at +0: 'IMAD.SHL.U32 R14, R26.reuse, 0x8, RZ' vs 'IMAD.SHL.U32 R0, R26.reuse, 0x8, RZ'
+      loop @0x21c0 (trace @0x2280): 82 instr, 8 LDG, text DIFFERENT, encodings differing 80  first diff at +0: 'IMAD.SHL.U32 R20, R26.reuse, 0x8, RZ' vs 'IMAD.SHL.U32 R0, R26.reuse, 0x8, RZ'
+      loop @0x2ee0 (trace @0x2fa0): 92 instr, 12 LDG, text DIFFERENT, encodings differing 93  first diff at +0: 'LDG.E.64 R6, [R8.64]' vs 'IMAD.MOV.U32 R4, RZ, RZ, R13'
+      loop @0x3a30 (trace @0x3b00): 78 instr, 8 LDG, text DIFFERENT, encodings differing 70  first diff at +1: 'IMAD.MOV.U32 R40, RZ, RZ, R28' vs 'IMAD.MOV.U32 R42, RZ, RZ, R28'
+  ro2   FAIL  hot loops timing 2 / trace 2
+      loop @0x1c60 (trace @0x1d50): 100 instr, 12 LDG, text DIFFERENT, encodings differing 103  first diff at +0: 'LDG.E.64.CONSTANT R6, [R4.64]' vs 'LDG.E.64.CONSTANT R8, [R6.64]'
+      loop @0x4330 (trace @0x4490): 90 instr, 8 LDG, text DIFFERENT, encodings differing 90  first diff at +0: 'LDG.E.64.CONSTANT R6, [R4.64]' vs 'LDG.E.64.CONSTANT R8, [R2.64]'
+##### X3
+  orig  FAIL  hot loops timing 2 / trace 2
+      loop @0x1c60 (trace @0x1d50): 102 instr, 12 LDG, text DIFFERENT, encodings differing 103  first diff at +0: 'IMAD.MOV.U32 R4, RZ, RZ, R8' vs 'LDG.E.64 R10, [R2.64]'
+      loop @0x4380 (trace @0x4490): 92 instr, 8 LDG, text DIFFERENT, encodings differing 92  first diff at +0: 'LDG.E.64 R8, [R4.64]' vs 'LDG.E.64 R10, [R4.64]'
+  ro    FAIL  hot loops timing 4 / trace 4
+      loop @0x1b70 (trace @0x1c40): 94 instr, 12 LDG, text DIFFERENT, encodings differing 93  first diff at +0: 'IMAD.SHL.U32 R14, R26.reuse, 0x8, RZ' vs 'IMAD.SHL.U32 R0, R26.reuse, 0x8, RZ'
+      loop @0x21c0 (trace @0x2280): 82 instr, 8 LDG, text DIFFERENT, encodings differing 80  first diff at +0: 'IMAD.SHL.U32 R20, R26.reuse, 0x8, RZ' vs 'IMAD.SHL.U32 R0, R26.reuse, 0x8, RZ'
+      loop @0x2ee0 (trace @0x2fa0): 92 instr, 12 LDG, text DIFFERENT, encodings differing 93  first diff at +0: 'LDG.E.64 R6, [R8.64]' vs 'IMAD.MOV.U32 R4, RZ, RZ, R13'
+      loop @0x3a30 (trace @0x3b00): 78 instr, 8 LDG, text DIFFERENT, encodings differing 70  first diff at +1: 'IMAD.MOV.U32 R40, RZ, RZ, R28' vs 'IMAD.MOV.U32 R42, RZ, RZ, R28'
+  ro2   FAIL  hot loops timing 2 / trace 2
+      loop @0x1c60 (trace @0x1d50): 100 instr, 12 LDG, text DIFFERENT, encodings differing 103  first diff at +0: 'LDG.E.64.CONSTANT R6, [R4.64]' vs 'LDG.E.64.CONSTANT R8, [R6.64]'
+      loop @0x4330 (trace @0x4490): 90 instr, 8 LDG, text DIFFERENT, encodings differing 90  first diff at +0: 'LDG.E.64.CONSTANT R6, [R4.64]' vs 'LDG.E.64.CONSTANT R8, [R2.64]'
+##### X4
+  orig  FAIL  hot loops timing 2 / trace 2
+      loop @0x1c60 (trace @0x1d50): 102 instr, 12 LDG, text DIFFERENT, encodings differing 103  first diff at +0: 'IMAD.MOV.U32 R4, RZ, RZ, R8' vs 'LDG.E.64 R10, [R2.64]'
+      loop @0x4380 (trace @0x4490): 92 instr, 8 LDG, text DIFFERENT, encodings differing 92  first diff at +0: 'LDG.E.64 R8, [R4.64]' vs 'LDG.E.64 R10, [R4.64]'
+  ro    FAIL  hot loops timing 4 / trace 4
+      loop @0x1b70 (trace @0x1c40): 94 instr, 12 LDG, text DIFFERENT, encodings differing 93  first diff at +0: 'IMAD.SHL.U32 R14, R26.reuse, 0x8, RZ' vs 'IMAD.SHL.U32 R0, R26.reuse, 0x8, RZ'
+      loop @0x21c0 (trace @0x2280): 82 instr, 8 LDG, text DIFFERENT, encodings differing 80  first diff at +0: 'IMAD.SHL.U32 R20, R26.reuse, 0x8, RZ' vs 'IMAD.SHL.U32 R0, R26.reuse, 0x8, RZ'
+      loop @0x2ee0 (trace @0x2fa0): 92 instr, 12 LDG, text DIFFERENT, encodings differing 93  first diff at +0: 'LDG.E.64 R6, [R8.64]' vs 'IMAD.MOV.U32 R4, RZ, RZ, R13'
+      loop @0x3a30 (trace @0x3b00): 78 instr, 8 LDG, text DIFFERENT, encodings differing 70  first diff at +1: 'IMAD.MOV.U32 R40, RZ, RZ, R28' vs 'IMAD.MOV.U32 R42, RZ, RZ, R28'
+  ro2   FAIL  hot loops timing 2 / trace 2
+      loop @0x1c60 (trace @0x1d50): 100 instr, 12 LDG, text DIFFERENT, encodings differing 103  first diff at +0: 'LDG.E.64.CONSTANT R6, [R4.64]' vs 'LDG.E.64.CONSTANT R8, [R6.64]'
+      loop @0x4330 (trace @0x4490): 90 instr, 8 LDG, text DIFFERENT, encodings differing 90  first diff at +0: 'LDG.E.64.CONSTANT R6, [R4.64]' vs 'LDG.E.64.CONSTANT R8, [R2.64]'

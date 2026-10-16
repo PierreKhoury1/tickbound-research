@@ -1,0 +1,96 @@
+2026-10-14T04:02:16Z start
+GPU 0: NVIDIA A100-PCIE-40GB (UUID: GPU-273be344-e675-657b-649f-7a6fc249b4bf)
+name, clocks.current.sm [MHz], clocks.max.sm [MHz], driver_version
+NVIDIA A100-PCIE-40GB, 210 MHz, 1410 MHz, 595.91.07
+debconf: delaying package configuration, since apt-utils is not installed
+2026-10-14T04:02:24Z bundles ok
+2026-10-14T04:02:24Z gpu A100 sm_80
+2026-10-14T04:02:24Z ptxas wrapper: Build cuda_12.6.r12.6/compiler.35059454_0
+2026-10-14T04:02:33Z rodinia_pf_orig_build: bash ./build.sh rc=0 (9 s)
+2026-10-14T04:02:49Z rodinia_pf_orig_run: bash ./run.sh A100 rc=0 (16 s)
+2026-10-14T04:02:57Z rodinia_pf_auto_build: bash ./build.sh rc=0 (8 s)
+2026-10-14T04:02:59Z rodinia_pf_auto_run: bash ./run.sh A100 rc=2 (2 s)
+2026-10-14T04:02:59Z rodinia_pf auto pass: 2 ptx files, 6 loops transformed
+2026-10-14T04:02:59Z rodinia_pf COMPARE: 
+2026-10-14T04:03:24Z faiss_kselect_orig_build: bash ./build.sh 80 rc=0 (25 s)
+2026-10-14T04:03:36Z faiss_kselect_orig_run: bash ./run.sh A100 rc=0 (12 s)
+2026-10-14T04:04:06Z faiss_kselect_auto_build: bash ./build.sh 80 rc=0 (30 s)
+2026-10-14T04:04:07Z faiss_kselect_auto_run: bash ./run.sh A100 rc=0 (1 s)
+2026-10-14T04:04:07Z faiss_kselect auto pass: 4 ptx files, 8 loops transformed
+2026-10-14T04:04:07Z faiss_kselect COMPARE: faiss_kselect            n   1  auto median 1.064 (min 1.064 max 1.064) faster 1 slower 0 | hand median 3.155 | output mismatches 0 
+2026-10-14T04:04:15Z pt_embbag_orig_build: bash ./build.sh 80 rc=0 (8 s)
+2026-10-14T04:04:25Z pt_embbag_orig_run: bash ./run.sh A100 rc=0 (10 s)
+2026-10-14T04:04:34Z pt_embbag_auto_build: bash ./build.sh 80 rc=0 (9 s)
+2026-10-14T04:04:36Z pt_embbag_auto_run: bash ./run.sh A100 rc=0 (2 s)
+2026-10-14T04:04:36Z pt_embbag auto pass: 2 ptx files, 6 loops transformed
+2026-10-14T04:04:36Z pt_embbag COMPARE: pt_embbag                n   1  auto median 1.086 (min 1.086 max 1.086) faster 1 slower 0 | hand median 1.167 | output mismatches 0 
+2026-10-14T04:05:01Z llama_rmsnorm_orig_run: bash ./run.sh A100 rc=0 (25 s)
+2026-10-14T04:05:26Z llama_rmsnorm_auto_run: bash ./run.sh A100 rc=0 (25 s)
+2026-10-14T04:05:26Z llama_rmsnorm auto pass: 1 ptx files, 2 loops transformed
+2026-10-14T04:05:26Z llama_rmsnorm COMPARE: llama_rmsnorm            n  72  auto median 0.980 (min 0.705 max 1.322) faster 2 slower 30 | hand median 1.141 | output mismatches 0 
+2026-10-14T04:05:58Z aerial_rssi_orig_build: bash ./build.sh rc=0 (32 s)
+2026-10-14T04:06:06Z aerial_rssi_orig_run: bash ./run.sh A100 rc=1 (8 s)
+2026-10-14T04:06:38Z aerial_rssi_auto_build: bash ./build.sh rc=0 (32 s)
+2026-10-14T04:06:45Z aerial_rssi_auto_run: bash ./run.sh A100 rc=1 (7 s)
+2026-10-14T04:06:45Z aerial_rssi auto pass: 12 ptx files, 2 loops transformed
+2026-10-14T04:06:45Z aerial_rssi COMPARE: cfoTaEstLowMimoKernel    n  22  auto median 1.003 (min 0.907 max 1.024) faster 0 slower 2 | hand median 1.183 | output mismatches 0 
+2026-10-14T04:06:45Z end
+2026-10-14T04:06:45Z finish
+2026-10-14T04:08:23Z start
+GPU 0: NVIDIA A100-PCIE-40GB (UUID: GPU-273be344-e675-657b-649f-7a6fc249b4bf)
+name, clocks.current.sm [MHz], clocks.max.sm [MHz], driver_version
+NVIDIA A100-PCIE-40GB, 210 MHz, 1410 MHz, 595.91.07
+2026-10-14T04:08:28Z bundles ok (modes: auto)
+2026-10-14T04:08:28Z gpu A100 sm_80
+2026-10-14T04:08:28Z ptxas wrapper: Build cuda_12.6.r12.6/compiler.35059454_0
+2026-10-14T04:08:36Z rodinia_pf_auto_build: bash ./build.sh rc=0 (8 s)
+2026-10-14T04:08:50Z rodinia_pf_auto_run: bash ./run.sh A100 rc=0 (14 s)
+2026-10-14T04:08:50Z rodinia_pf auto pass: 2 ptx files, 6 loops transformed
+2026-10-14T04:08:50Z rodinia_pf COMPARE: pf_normalize_weights     n  13  auto median 3.348 (min 2.585 max 4.410) faster 13 slower 0 | hand median 3.763 | output mismatches 0 pf_find_index            n  14  auto median 1.121 (min 1.052 max 2.055) faster 14 slower 0 | hand median 2.630 | output mismatches 0 
+2026-10-14T04:09:21Z faiss_kselect_auto_build: bash ./build.sh 80 rc=0 (31 s)
+2026-10-14T04:09:34Z faiss_kselect_auto_run: bash ./run.sh A100 rc=0 (13 s)
+2026-10-14T04:09:34Z faiss_kselect auto pass: 4 ptx files, 8 loops transformed
+2026-10-14T04:09:35Z faiss_kselect COMPARE: faiss_kselect            n  70  auto median 2.131 (min 0.694 max 3.179) faster 56 slower 14 | hand median 2.618 | output mismatches 0 
+2026-10-14T04:09:43Z pt_embbag_auto_build: bash ./build.sh 80 rc=0 (8 s)
+2026-10-14T04:09:49Z pt_embbag_auto_run: bash ./run.sh A100 rc=0 (6 s)
+2026-10-14T04:09:49Z pt_embbag auto pass: 2 ptx files, 6 loops transformed
+2026-10-14T04:09:49Z pt_embbag COMPARE: pt_embbag                n  31  auto median 1.086 (min 0.926 max 1.327) faster 18 slower 2 | hand median 1.452 | output mismatches 0 
+2026-10-14T04:10:15Z llama_rmsnorm_auto_run: bash ./run.sh A100 rc=0 (26 s)
+2026-10-14T04:10:16Z llama_rmsnorm auto pass: 1 ptx files, 2 loops transformed
+2026-10-14T04:10:16Z llama_rmsnorm COMPARE: llama_rmsnorm            n  72  auto median 0.983 (min 0.716 max 1.330) faster 3 slower 26 | hand median 1.141 | output mismatches 0 
+2026-10-14T04:10:49Z aerial_rssi_auto_build: bash ./build.sh rc=0 (33 s)
+2026-10-14T04:10:56Z aerial_rssi_auto_run: bash ./run.sh A100 rc=1 (7 s)
+2026-10-14T04:10:56Z aerial_rssi auto pass: 12 ptx files, 2 loops transformed
+2026-10-14T04:10:56Z aerial_rssi COMPARE: cfoTaEstLowMimoKernel    n  22  auto median 1.002 (min 0.912 max 1.024) faster 0 slower 1 | hand median 1.183 | output mismatches 0 
+2026-10-14T04:10:56Z end
+2026-10-14T04:10:56Z finish
+2026-10-14T04:14:07Z start
+GPU 0: NVIDIA A100-PCIE-40GB (UUID: GPU-273be344-e675-657b-649f-7a6fc249b4bf)
+name, clocks.current.sm [MHz], clocks.max.sm [MHz], driver_version
+NVIDIA A100-PCIE-40GB, 210 MHz, 1410 MHz, 595.91.07
+2026-10-14T04:14:12Z bundles ok (modes: auto)
+2026-10-14T04:14:12Z gpu A100 sm_80
+2026-10-14T04:14:12Z ptxas wrapper: Build cuda_12.6.r12.6/compiler.35059454_0
+2026-10-14T04:14:20Z rodinia_pf_auto_build: bash ./build.sh rc=0 (8 s)
+2026-10-14T04:14:34Z rodinia_pf_auto_run: bash ./run.sh A100 rc=0 (14 s)
+2026-10-14T04:14:34Z rodinia_pf auto pass: 2 ptx files, 6 loops transformed
+2026-10-14T04:14:34Z rodinia_pf COMPARE: pf_normalize_weights     n  13  auto median 3.348 (min 2.571 max 4.527) faster 13 slower 0 | hand median 3.763 | output mismatches 0 pf_find_index            n  14  auto median 1.121 (min 1.052 max 2.054) faster 14 slower 0 | hand median 2.630 | output mismatches 0 
+2026-10-14T04:15:03Z faiss_kselect_auto_build: bash ./build.sh 80 rc=0 (29 s)
+2026-10-14T04:15:17Z faiss_kselect_auto_run: bash ./run.sh A100 rc=0 (14 s)
+2026-10-14T04:15:17Z faiss_kselect auto pass: 4 ptx files, 8 loops transformed
+2026-10-14T04:15:17Z faiss_kselect COMPARE: faiss_kselect            n  70  auto median 2.130 (min 0.874 max 3.146) faster 56 slower 1 | hand median 2.618 | output mismatches 0 
+2026-10-14T04:15:26Z pt_embbag_auto_build: bash ./build.sh 80 rc=0 (9 s)
+2026-10-14T04:15:32Z pt_embbag_auto_run: bash ./run.sh A100 rc=0 (6 s)
+2026-10-14T04:15:32Z pt_embbag auto pass: 2 ptx files, 6 loops transformed
+2026-10-14T04:15:32Z pt_embbag COMPARE: pt_embbag                n  31  auto median 1.083 (min 0.926 max 1.329) faster 17 slower 2 | hand median 1.452 | output mismatches 0 
+2026-10-14T04:15:58Z llama_rmsnorm_auto_run: bash ./run.sh A100 rc=0 (26 s)
+2026-10-14T04:15:58Z llama_rmsnorm auto pass: 1 ptx files, 2 loops transformed
+2026-10-14T04:15:58Z llama_rmsnorm COMPARE: llama_rmsnorm            n  72  auto median 0.972 (min 0.698 max 1.306) faster 15 slower 35 | hand median 1.141 | output mismatches 0 
+2026-10-14T04:16:30Z aerial_rssi_auto_build: bash ./build.sh rc=0 (32 s)
+2026-10-14T04:16:38Z aerial_rssi_auto_run: bash ./run.sh A100 rc=1 (8 s)
+2026-10-14T04:16:38Z aerial_rssi auto pass: 12 ptx files, 2 loops transformed
+2026-10-14T04:16:38Z aerial_rssi COMPARE: cfoTaEstLowMimoKernel    n  22  auto median 1.002 (min 0.910 max 1.026) faster 0 slower 1 | hand median 1.183 | output mismatches 0 
+2026-10-14T04:16:38Z end
+2026-10-14T04:16:38Z finish
+2026-10-14T04:17:35Z llama_l8 run rc=0
+2026-10-14T04:17:35Z llama_rmsnorm LOADS=8 COMPARE: llama_rmsnorm            n  72  auto median 1.007 (min 0.816 max 1.128) faster 19 slower 10 | hand median 1.141 | output mismatches 0 

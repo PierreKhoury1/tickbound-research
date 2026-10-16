@@ -1,0 +1,5 @@
+ptxas info    : 11 bytes gmem, 8 bytes cmem[4]
+ptxas info    : Compiling entry function 'rmsnorm_cuasmrl_0d1d2d3de4de5c6c7de8de9c' for 'sm_80'
+ptxas info    : Function properties for rmsnorm_cuasmrl_0d1d2d3de4de5c6c7de8de9c
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 46 registers, used 1 barriers, 392 bytes cmem[0]

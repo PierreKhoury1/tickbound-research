@@ -1,0 +1,16 @@
+timing build/eb_bench_sm80.sass vs trace build/trace_sm80.sass:
+  orig  FAIL  hot loops timing 3 / trace 2; trace module's own copy of the timing kernel vs the timing binary: same 1824 instructions, 16 differ only in c[0x4][..] (assert-string addresses)
+      loop @0x19a0 (trace @0x1d70): 102 instr, 12 LDG, text DIFFERENT, encodings differing 102  first diff at +0: 'IMAD.MOV.U32 R6, RZ, RZ, R28' vs 'IMAD.MOV.U32 R4, RZ, RZ, R8'
+      loop @0x3d50 (trace @0x4490): 361 instr, 32 LDG, text DIFFERENT, encodings differing 361  first diff at +0: 'IADD3 R6, P4, R0.reuse, -0x8, RZ' vs 'LDG.E.64 R8, [R4.64]'
+  ro    PASS  hot loops timing 4 / trace 4; trace module's own copy of the timing kernel vs the timing binary: same 1328 instructions, 8 differ only in c[0x4][..] (assert-string addresses)
+      loop @0x1b70 (trace @0x1c80): 94 instr, 12 LDG, text identical, encodings differing 0
+      loop @0x21c0 (trace @0x22d0): 82 instr, 8 LDG, text identical, encodings differing 0
+      loop @0x2ee0 (trace @0x2ff0): 92 instr, 12 LDG, text identical, encodings differing 0
+      loop @0x3a30 (trace @0x3b40): 78 instr, 8 LDG, text identical, encodings differing 0
+  ro2   PASS  hot loops timing 2 / trace 2; trace module's own copy of the timing kernel vs the timing binary: same 1560 instructions, 16 differ only in c[0x4][..] (assert-string addresses)
+      loop @0x1c70 (trace @0x1d80): 98 instr, 12 LDG, text identical, encodings differing 0
+      loop @0x4360 (trace @0x4470): 86 instr, 8 LDG, text identical, encodings differing 0
+  ro3   PASS  hot loops timing 2 / trace 2; trace module's own copy of the timing kernel vs the timing binary: same 1560 instructions, 16 differ only in c[0x4][..] (assert-string addresses)
+      loop @0x1c60 (trace @0x1d70): 100 instr, 12 LDG, text identical, encodings differing 0
+      loop @0x4330 (trace @0x4440): 90 instr, 8 LDG, text identical, encodings differing 0
+RESULT: FAIL

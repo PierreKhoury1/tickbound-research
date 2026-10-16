@@ -1,0 +1,41 @@
+[liger] rms_norm_M16                 ok        617.2 us  kernels 5  new 0  det True
+[liger] fused_add_rms_norm_M16       ok         99.8 us  kernels 2  new 0  det True
+[liger] layer_norm_M16               ok        560.1 us  kernels 5  new 0  det True
+[liger] poly_norm_M16                ok         60.2 us  kernels 1  new 0  det True
+[liger] dyt_M16                      ok        668.1 us  kernels 7  new 0  det True
+[liger] swiglu_M16                   ok        485.8 us  kernels 3  new 0  det False
+[liger] geglu_M16                    ok        467.2 us  kernels 3  new 0  det False
+[liger] relu_squared_M16             ok         38.4 us  kernels 1  new 0  det True
+[liger] softmax_M16                  ok        446.7 us  kernels 3  new 0  det True
+[liger] sparsemax_M16                ok        107.7 us  kernels 5  new 0  det True
+[liger] cross_entropy_M16            ok        494.3 us  kernels 14  new 0  det False
+[liger] fused_linear_ce_M16          ok       6016.7 us  kernels 15  new 0  det True
+[liger] kl_div_M16                   ok        394.7 us  kernels 9  new 0  det True
+Backend impl 'liger_kernel.ops.backends._cutedsl.jsd' for op 'jsd_loss_and_grad' could not be imported: ModuleNotFoundError: No module named 'cuda'
+Backend impl 'liger_kernel.ops.backends._cutile.jsd' for op 'jsd_loss_and_grad' could not be imported: ModuleNotFoundError: No module named 'cuda'
+[liger] jsd_M16                      ok        345.4 us  kernels 8  new 0  det True
+[liger] tvd_M16                      ok        234.2 us  kernels 7  new 0  det True
+[liger] rms_norm_M4096               ok        364.9 us  kernels 5  new 0  det True
+[liger] fused_add_rms_norm_M4096     ok        164.8 us  kernels 2  new 0  det True
+[liger] layer_norm_M4096             ok        363.0 us  kernels 5  new 0  det True
+[liger] poly_norm_M4096              ok         56.5 us  kernels 1  new 0  det True
+[liger] dyt_M4096                    ok        407.4 us  kernels 7  new 0  det True
+[liger] swiglu_M4096                 ok        621.1 us  kernels 3  new 0  det False
+[liger] geglu_M4096                  ok        461.7 us  kernels 3  new 0  det False
+[liger] relu_squared_M4096           ok        105.9 us  kernels 1  new 0  det True
+[liger] softmax_M4096                ok        854.0 us  kernels 3  new 0  det True
+[liger] sparsemax_M4096              ok        248.1 us  kernels 5  new 0  det True
+[liger] cross_entropy_M4096          ok       1822.0 us  kernels 14  new 0  det False
+[liger] fused_linear_ce_M4096        ok      10143.5 us  kernels 15  new 0  det True
+[liger] kl_div_M4096                 ok       1783.0 us  kernels 9  new 0  det True
+[liger] jsd_M4096                    ok       2491.4 us  kernels 8  new 0  det True
+[liger] tvd_M4096                    ok       1005.5 us  kernels 7  new 0  det True
+[liger] rope_S16                     ok        266.7 us  kernels 3  new 0  det True
+[liger] rope_S2048                   ok        269.8 us  kernels 3  new 0  det True
+[liger] group_norm_B8                error CompilationError: at 76:8:
+            )
+
+            x_hat = (X - mean) * rstd
+            dW += tl.sum(UPSTREAM_grad * x_hat)
+            dB += tl.s
+SUITE DONE

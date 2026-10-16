@@ -1,0 +1,90 @@
+2026-10-13T22:55:31Z start
+GPU 0: NVIDIA H100 PCIe (UUID: GPU-8d73a5ff-98e8-79db-01b9-cf93c4ad9c87)
+debconf: delaying package configuration, since apt-utils is not installed
+WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv
+2026-10-13T22:56:02Z tt38 env: 2.14.1+cu130 3.8.0 True (23 s)
+2026-10-13T22:56:07Z tt38 t_tune phase 1: phase 1 triton 3.8.0 stats {'tuned': 6, 'kernels_rewritten': 10, 'applied': 10, 'ast_kernels_unchanged': 2, 'chosen_orig': 4, 'kernels_unchanged': 2, 'chosen_orig@w8': 1, 'ast_kernels_prefetched': 6, 'chosen_nc+pf': 1} RESULT PASS 
+2026-10-13T22:56:10Z tt38 t_tune phase 2: phase 2 triton 3.8.0 stats {} 
+2026-10-13T22:56:22Z tt38_cuasmrl_base: 11 ok 2 err 0 crash (12 s)
+2026-10-13T22:56:50Z tt38_cuasmrl_tune: 11 ok 2 err 0 crash (28 s)
+2026-10-13T22:57:01Z tt38_cuasmrl_base2: 11 ok 2 err 0 crash (11 s)
+2026-10-13T22:57:12Z tt38_cuasmrl_tune2: 11 ok 2 err 0 crash (11 s)
+2026-10-13T22:57:12Z tt38 cuasmrl: tune kernel ratio: n 11, faster(>1.03) 6, slower(<0.97) 1, median 1.033, geomean 1.181, min 0.953, max 3.305 outputs: identical 11, DIFF 0, nondeterministic case 0 decisions: {'nc': 1, 'nc+pf': 1, 'orig': 8, 'orig@w2@s3': 1, 'orig@s5': 1, 'orig@s3': 1} 
+2026-10-13T22:58:01Z tt38_liger_base: 33 ok 0 err 0 crash (49 s)
+2026-10-13T22:59:28Z tt38_liger_tune: 33 ok 0 err 0 crash (87 s)
+2026-10-13T23:00:16Z tt38_liger_base2: 33 ok 0 err 0 crash (48 s)
+2026-10-13T23:01:05Z tt38_liger_tune2: 33 ok 0 err 0 crash (49 s)
+2026-10-13T23:01:05Z tt38 liger: tune kernel ratio: n 48, faster(>1.03) 10, slower(<0.97) 1, median 1.000, geomean 1.039, min 0.945, max 2.508 outputs: identical 32, DIFF 0, nondeterministic case 1 decisions: {'orig': 61, 'nc': 3, 'orig@w8': 4, 'orig@w32': 6, 'orig@w16': 8, 'orig@w4': 1, 'nc+pf': 1} 
+2026-10-13T23:01:35Z tt35 env: 2.9.1+cu128 3.5.1 True (30 s)
+2026-10-13T23:01:40Z tt35 t_tune phase 1: phase 1 triton 3.5.1 stats {'tuned': 6, 'kernels_rewritten': 6, 'applied': 6, 'ast_kernels_unchanged': 2, 'chosen_orig': 3, 'kernels_unchanged': 2, 'chosen_orig@w8': 3, 'ast_kernels_prefetched': 2} RESULT PASS 
+2026-10-13T23:01:43Z tt35 t_tune phase 2: phase 2 triton 3.5.1 stats {} 
+2026-10-13T23:01:55Z tt35_cuasmrl_base: 11 ok 2 err 0 crash (12 s)
+2026-10-13T23:02:20Z tt35_cuasmrl_tune: 11 ok 2 err 0 crash (25 s)
+2026-10-13T23:02:31Z tt35_cuasmrl_base2: 11 ok 2 err 0 crash (11 s)
+2026-10-13T23:02:42Z tt35_cuasmrl_tune2: 11 ok 2 err 0 crash (11 s)
+2026-10-13T23:02:42Z tt35 cuasmrl: tune kernel ratio: n 11, faster(>1.03) 5, slower(<0.97) 0, median 1.016, geomean 1.147, min 0.975, max 2.401 outputs: identical 11, DIFF 0, nondeterministic case 0 decisions: {'nc+pf': 2, 'orig': 7, 'orig@w4': 1, 'orig@w2@s3': 1, 'orig@s6': 1, 'orig@s5': 1} 
+2026-10-13T23:03:33Z tt35_liger_base: 33 ok 0 err 0 crash (51 s)
+2026-10-13T23:05:04Z tt35_liger_tune: 33 ok 0 err 0 crash (90 s)
+2026-10-13T23:05:53Z tt35_liger_base2: 33 ok 0 err 0 crash (49 s)
+2026-10-13T23:06:45Z tt35_liger_tune2: 33 ok 0 err 0 crash (52 s)
+2026-10-13T23:06:45Z tt35 liger: tune kernel ratio: n 48, faster(>1.03) 7, slower(<0.97) 1, median 1.000, geomean 1.039, min 0.969, max 2.514 outputs: identical 32, DIFF 0, nondeterministic case 1 decisions: {'orig': 58, 'nc': 4, 'orig@w16': 10, 'orig@w32': 8, 'orig@w4': 1, 'nc+pf': 1, 'orig@w8': 2} 
+2026-10-13T23:07:53Z tt35_flaggems_base: 61 ok 2 err 0 crash (68 s)
+2026-10-14T00:00:49Z stage2 start (b3 code)
+2026-10-14T00:34:25Z stage2 start (b3 code)
+2026-10-14T00:36:03Z tt35_flaggems_tune: 61 ok 2 err 0 crash (98 s)
+2026-10-14T00:36:41Z tt35_flaggems_base2: 61 ok 2 err 0 crash (38 s)
+2026-10-14T00:37:23Z tt35_flaggems_tune2: 61 ok 2 err 0 crash (42 s)
+2026-10-14T00:37:23Z tt35 flaggems: tune kernel ratio: n 91, faster(>1.03) 19, slower(<0.97) 2, median 1.000, geomean 1.003, min 0.068, max 1.745 outputs: identical 61, DIFF 0, nondeterministic case 0 decisions: {'orig': 63, 'orig@w2': 11, 'orig@w32': 1, 'nc@w32': 1, 'orig@w4': 3, 'orig@w8': 9, 'orig@w1': 1, 'nc': 2, 'nc@w8': 2, 'orig@s6': 1, 'orig@s4': 1, 'orig@w16': 1} 
+2026-10-14T00:37:23Z tt32 t_tune phase 1: 
+2026-10-14T00:37:23Z tt32 t_tune phase 2: 
+2026-10-14T00:37:23Z tt32_cuasmrl_base:  ok  err  crash (0 s)
+2026-10-14T00:37:23Z tt32_cuasmrl_tune:  ok  err  crash (0 s)
+2026-10-14T00:37:23Z tt32_cuasmrl_base2:  ok  err  crash (0 s)
+2026-10-14T00:37:23Z tt32_cuasmrl_tune2:  ok  err  crash (0 s)
+2026-10-14T00:37:23Z tt32 cuasmrl: 
+2026-10-14T00:37:23Z tt32_liger_base:  ok  err  crash (0 s)
+2026-10-14T00:37:23Z tt32_liger_tune:  ok  err  crash (0 s)
+2026-10-14T00:37:23Z tt32_liger_base2:  ok  err  crash (0 s)
+2026-10-14T00:37:23Z tt32_liger_tune2:  ok  err  crash (0 s)
+2026-10-14T00:37:23Z tt32 liger: 
+2026-10-14T00:37:24Z tt32_flaggems_base:  ok  err  crash (1 s)
+2026-10-14T00:37:24Z tt32_flaggems_tune:  ok  err  crash (0 s)
+2026-10-14T00:37:24Z tt32_flaggems_base2:  ok  err  crash (0 s)
+2026-10-14T00:37:24Z tt32_flaggems_tune2:  ok  err  crash (0 s)
+2026-10-14T00:37:24Z tt32 flaggems: 
+2026-10-14T00:37:24Z stage2 END
+2026-10-14T00:40:34Z tt32 env: 2.6.0+cu124 3.2.0 True (13 s)
+2026-10-14T00:40:41Z tt32 t_tune phase 1: phase 1 triton 3.2.0 stats {'tuned': 7, 'kernels_rewritten': 13, 'applied': 13, 'ast_kernels_unchanged': 2, 'chosen_orig': 3, 'kernels_unchanged': 2, 'chosen_orig@w8': 1, 'ast_kernels_prefetched': 9, 'chosen_nc+pf': 1, 'chosen_nc+pf@w8': 2} RESULT PASS 
+2026-10-14T00:40:43Z tt32 t_tune phase 2: phase 2 triton 3.2.0 stats {} RESULT PASS 
+2026-10-14T00:40:54Z tt32_cuasmrl_base: 11 ok 2 err 0 crash (11 s)
+2026-10-14T00:41:27Z tt32_cuasmrl_tune: 11 ok 2 err 0 crash (33 s)
+2026-10-14T00:41:39Z tt32_cuasmrl_base2: 11 ok 2 err 0 crash (12 s)
+2026-10-14T00:41:51Z tt32_cuasmrl_tune2: 11 ok 2 err 0 crash (12 s)
+2026-10-14T00:41:51Z tt32 cuasmrl: tune kernel ratio: n 11, faster(>1.03) 5, slower(<0.97) 0, median 1.016, geomean 1.097, min 0.994, max 1.404 whole-step ratio: n 11, faster(>1.03) 3, slower(<0.97) 2, median 1.011, geomean 1.023, min 0.723, max 1.427 outputs: identical 11, DIFF 0, nondeterministic case 0 decisions: {'nc@w8': 1, 'nc': 1, 'orig': 7, 'orig@w2@s3': 1, 'orig@w4': 1, 'orig@s5': 1, 'orig@w8': 1} 
+2026-10-14T00:42:47Z tt32_liger_base: 32 ok 1 err 0 crash (56 s)
+2026-10-14T00:44:17Z tt32_liger_tune: 32 ok 1 err 0 crash (90 s)
+2026-10-14T00:45:09Z tt32_liger_base2: 32 ok 1 err 0 crash (52 s)
+2026-10-14T00:46:03Z tt32_liger_tune2: 32 ok 1 err 0 crash (54 s)
+2026-10-14T00:46:03Z tt32 liger: tune kernel ratio: n 46, faster(>1.03) 5, slower(<0.97) 1, median 1.000, geomean 1.036, min 0.959, max 2.363 whole-step ratio: n 32, faster(>1.03) 6, slower(<0.97) 15, median 0.993, geomean 0.935, min 0.515, max 1.488 outputs: identical 32, DIFF 0, nondeterministic case 0 decisions: {'orig': 39, 'nc': 3, 'orig@w32': 3, 'orig@w4': 1, 'nc+pf': 1, 'orig@w16': 1, 'orig@w8': 1, 'orig@w2': 1} 
+2026-10-14T00:47:09Z tt32_flaggems_base: 61 ok 2 err 0 crash (66 s)
+2026-10-14T00:49:13Z tt32_flaggems_tune: 61 ok 2 err 0 crash (124 s)
+2026-10-14T00:49:53Z tt32_flaggems_base2: 61 ok 2 err 0 crash (40 s)
+2026-10-14T00:50:38Z tt32_flaggems_tune2: 61 ok 2 err 0 crash (45 s)
+2026-10-14T00:50:38Z tt32 flaggems: tune kernel ratio: n 91, faster(>1.03) 21, slower(<0.97) 3, median 1.000, geomean 1.049, min 0.636, max 2.028 whole-step ratio: n 61, faster(>1.03) 19, slower(<0.97) 11, median 1.005, geomean 1.010, min 0.167, max 2.600 outputs: identical 61, DIFF 0, nondeterministic case 0 decisions: {'orig': 68, 'orig@w2': 10, 'nc@w32': 3, 'nc': 1, 'orig@w4': 3, 'orig@w8': 6, 'orig@w1': 2, 'orig@s5': 1, 'orig@s6': 1, 'orig@w16': 1} 
+2026-10-14T00:50:54Z tt32 overhead: {"mode": "plain", "triton": "3.2.0", "rms_M16_cpu_us": 14.62, "add_4096_cpu_us": 14.3} {"mode": "occupancy", "triton": "3.2.0", "rms_M16_cpu_us": 16.27, "add_4096_cpu_us": 15.66} {"mode": "tune", "triton": "3.2.0", "rms_M16_cpu_us": 18.68, "add_4096_cpu_us": 16.79} {"mode": "plain", "triton": "3.2.0", "rms_M16_cpu_us": 14.65, "add_4096_cpu_us": 14.05} {"mode": "tune", "triton": "3.2.0", "rms_M16_cpu_us": 19.01, "add_4096_cpu_us": 16.49} 
+2026-10-14T00:50:54Z STAGE3 END
+2026-10-14T00:51:11Z tt38 s4 t_tune phase 1: RESULT PASS
+2026-10-14T00:51:14Z tt38 s4 t_tune phase 2: RESULT PASS
+2026-10-14T00:51:22Z tt38 cuasmrl tune4: tune kernel ratio: n 11, faster(>1.03) 6, slower(<0.97) 1, median 1.052, geomean 1.170, min 0.795, max 3.305 whole-step ratio: n 11, faster(>1.03) 4, slower(<0.97) 2, median 0.998, geomean 1.062, min 0.671, max 3.301 outputs: identical 11, DIFF 0, nondeterministic case 0 
+2026-10-14T00:52:02Z tt38 liger tune4: tune kernel ratio: n 48, faster(>1.03) 8, slower(<0.97) 1, median 1.000, geomean 1.040, min 0.940, max 2.508 whole-step ratio: n 33, faster(>1.03) 12, slower(<0.97) 10, median 1.000, geomean 1.030, min 0.546, max 1.646 outputs: identical 32, DIFF 0, nondeterministic case 1 
+2026-10-14T00:52:08Z tt35 s4 t_tune phase 1: RESULT PASS
+2026-10-14T00:52:10Z tt35 s4 t_tune phase 2: RESULT PASS
+2026-10-14T00:52:19Z tt35 cuasmrl tune4: tune kernel ratio: n 11, faster(>1.03) 5, slower(<0.97) 1, median 1.009, geomean 1.126, min 0.768, max 2.410 whole-step ratio: n 11, faster(>1.03) 4, slower(<0.97) 3, median 0.997, geomean 1.050, min 0.732, max 2.339 outputs: identical 11, DIFF 0, nondeterministic case 0 
+2026-10-14T00:52:59Z tt35 liger tune4: tune kernel ratio: n 48, faster(>1.03) 7, slower(<0.97) 0, median 1.000, geomean 1.041, min 0.976, max 2.508 whole-step ratio: n 33, faster(>1.03) 11, slower(<0.97) 9, median 1.007, geomean 1.042, min 0.359, max 1.784 outputs: identical 32, DIFF 0, nondeterministic case 1 
+2026-10-14T00:53:36Z tt35 flaggems tune4: tune kernel ratio: n 91, faster(>1.03) 20, slower(<0.97) 5, median 1.000, geomean 0.955, min 0.001, max 1.721 whole-step ratio: n 61, faster(>1.03) 19, slower(<0.97) 14, median 1.001, geomean 1.018, min 0.242, max 3.032 outputs: identical 61, DIFF 0, nondeterministic case 0 
+2026-10-14T00:53:42Z tt32 s4 t_tune phase 1: RESULT PASS
+2026-10-14T00:53:44Z tt32 s4 t_tune phase 2: RESULT PASS
+2026-10-14T00:53:52Z tt32 cuasmrl tune4: tune kernel ratio: n 11, faster(>1.03) 5, slower(<0.97) 1, median 1.011, geomean 1.085, min 0.901, max 1.404 whole-step ratio: n 11, faster(>1.03) 3, slower(<0.97) 2, median 1.003, geomean 1.000, min 0.690, max 1.443 outputs: identical 11, DIFF 0, nondeterministic case 0 
+2026-10-14T00:54:35Z tt32 liger tune4: tune kernel ratio: n 46, faster(>1.03) 5, slower(<0.97) 0, median 1.000, geomean 1.037, min 0.981, max 2.363 whole-step ratio: n 32, faster(>1.03) 16, slower(<0.97) 5, median 1.031, geomean 1.087, min 0.562, max 2.331 outputs: identical 32, DIFF 0, nondeterministic case 0 
+2026-10-14T00:55:00Z tt32 flaggems tune4: tune kernel ratio: n 91, faster(>1.03) 21, slower(<0.97) 4, median 1.000, geomean 1.048, min 0.636, max 2.024 whole-step ratio: n 61, faster(>1.03) 13, slower(<0.97) 11, median 1.003, geomean 1.004, min 0.354, max 2.467 outputs: identical 61, DIFF 0, nondeterministic case 0 
+2026-10-14T00:55:00Z STAGE4 END

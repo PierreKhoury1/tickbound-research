@@ -1,0 +1,11 @@
+cfoTaEstLowMimoKernel per-PRB loop, H load / shared store order per variant (nvcc 12.6.85 (CUDA 12.6.3, the box's compiler), -O3, no fast math, built locally under WSL)
+H = channel-estimate load (LD.E.64, generic pointer -> global), S = its shared store (STS.64), B = __syncthreads (BAR.SYNC).
+orig: every store waits for the load right before it and the next load is issued only after that store (one exposed L2 trip per H element: 2 per PRB with nCHEST = 2; the 7 H/S pairs are the unrolled runtime nCHEST loop, 2 of them execute);
+ro_r1 (R1): all loads of a PRB in flight before its first store; ro (R1 + R2): the next PRB's loads issued after this PRB's first barrier, stored after the second (compute phase in between).
+
+sm_80 ro_r1  loop 0x08f0-0x18e0  256 instr  order HHSSBB             S1<-H1 same iteration d=9 bar=0; S2<-H2 same iteration d=9 bar=0
+sm_80 ro     loop 0x0a70-0x1ab0  261 instr  order SSBHHB             S1<-H4 previous iteration (loop-carried) d=230 bar=1; S2<-H3 previous iteration (loop-carried) d=239 bar=1
+sm_80 orig   loop 0x0900-0x1f20  355 instr  order HSHSHSHSHSHSHSBB   S1<-H1 same iteration d=12 bar=0; S2<-H2 same iteration d=7 bar=0; S3<-H3 same iteration d=1 bar=0; S4<-H4 same iteration d=1 bar=0; S5<-H5 same iteration d=4 bar=0; S6<-H6 same iteration d=11 bar=0; S7<-H7 same iteration d=1 bar=0
+sm_90 ro_r1  loop 0x0a00-0x1a80  265 instr  order HHSSBB             S1<-H1 same iteration d=12 bar=0; S2<-H2 same iteration d=12 bar=0
+sm_90 ro     loop 0x0b80-0x1c00  265 instr  order SSBHHB             S1<-H4 previous iteration (loop-carried) d=236 bar=1; S2<-H3 previous iteration (loop-carried) d=242 bar=1
+sm_90 orig   loop 0x0a30-0x21c0  378 instr  order HSHSHSHSHSHSHSBB   S1<-H1 same iteration d=13 bar=0; S2<-H2 same iteration d=7 bar=0; S3<-H3 same iteration d=1 bar=0; S4<-H4 same iteration d=1 bar=0; S5<-H5 same iteration d=8 bar=0; S6<-H6 same iteration d=15 bar=0; S7<-H7 same iteration d=1 bar=0

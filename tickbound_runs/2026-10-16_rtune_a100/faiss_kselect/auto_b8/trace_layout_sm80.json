@@ -1,0 +1,610 @@
+{
+ "arch": 80,
+ "rec_bytes": 64,
+ "fields": [
+  "entry",
+  "loop_start",
+  "loop_end",
+  "reduce_start",
+  "reduce_end",
+  "exit",
+  "id",
+  "valid"
+ ],
+ "magic": [
+  2060345024,
+  2060345025
+ ],
+ "kernels": {
+  "_ZN5faiss3gpu15l2SelectMinK_roIifLi128ELi3ELi128ELi8EEEvNS0_6TensorIT0_Li2ELb1ElNS0_16DefaultPtrTraitsEEENS2_IS3_Li1ELb1ElS4_EES5_NS2_IlLi2ELb1ElS4_EEiS3_": {
+   "regcount": 81,
+   "stamp_regs": 92,
+   "phases": [
+    "entry",
+    "loop_start",
+    "loop_end",
+    "reduce_start",
+    "reduce_end"
+   ],
+   "points": [
+    {
+     "phase": "entry",
+     "addr": 0,
+     "instr": "IMAD.MOV.U32 R1, RZ, RZ, c[0x0][0x28]",
+     "mode": "before"
+    },
+    {
+     "phase": "loop_start",
+     "addr": 1024,
+     "instr": "IMAD.MOV.U32 R24, RZ, RZ, c[0x0][0x1f4]",
+     "mode": "before"
+    },
+    {
+     "phase": "loop_end",
+     "addr": 158112,
+     "instr": "ISETP.GE.U32.AND P0, PT, R6, c[0x0][0x180], PT",
+     "mode": "before"
+    },
+    {
+     "phase": "reduce_start",
+     "addr": 177536,
+     "instr": "BAR.SYNC.DEFER_BLOCKING 0x0",
+     "mode": "before"
+    },
+    {
+     "phase": "reduce_end",
+     "addr": 183664,
+     "instr": "BAR.SYNC.DEFER_BLOCKING 0x0",
+     "mode": "after"
+    }
+   ],
+   "exits": [
+    183680,
+    184064
+   ],
+   "exit_tramp": 512448,
+   "tramp_bytes": 880,
+   "hot_loops": [
+    [
+     1040,
+     140240
+    ],
+    [
+     140432,
+     158080
+    ]
+   ]
+  },
+  "_ZN5faiss3gpu15l2SelectMinK_roIifLi128ELi3ELi128ELi4EEEvNS0_6TensorIT0_Li2ELb1ElNS0_16DefaultPtrTraitsEEENS2_IS3_Li1ELb1ElS4_EES5_NS2_IlLi2ELb1ElS4_EEiS3_": {
+   "regcount": 83,
+   "stamp_regs": 94,
+   "phases": [
+    "entry",
+    "loop_start",
+    "loop_end",
+    "reduce_start",
+    "reduce_end"
+   ],
+   "points": [
+    {
+     "phase": "entry",
+     "addr": 0,
+     "instr": "IMAD.MOV.U32 R1, RZ, RZ, c[0x0][0x28]",
+     "mode": "before"
+    },
+    {
+     "phase": "loop_start",
+     "addr": 2336,
+     "instr": "SHF.R.S32.HI R30, RZ, 0x1f, R6",
+     "mode": "before"
+    },
+    {
+     "phase": "loop_end",
+     "addr": 89744,
+     "instr": "ISETP.GE.U32.AND P0, PT, R8, c[0x0][0x180], PT",
+     "mode": "before"
+    },
+    {
+     "phase": "reduce_start",
+     "addr": 109056,
+     "instr": "BAR.SYNC.DEFER_BLOCKING 0x0",
+     "mode": "before"
+    },
+    {
+     "phase": "reduce_end",
+     "addr": 115184,
+     "instr": "BAR.SYNC.DEFER_BLOCKING 0x0",
+     "mode": "after"
+    }
+   ],
+   "exits": [
+    115200,
+    115616
+   ],
+   "exit_tramp": 313664,
+   "tramp_bytes": 880,
+   "hot_loops": [
+    [
+     2352,
+     72000
+    ],
+    [
+     72176,
+     89712
+    ]
+   ]
+  },
+  "_ZN5faiss3gpu12l2SelectMinKIifLi128ELi3ELi128EEEvNS0_6TensorIT0_Li2ELb1ElNS0_16DefaultPtrTraitsEEENS2_IS3_Li1ELb1ElS4_EES5_NS2_IlLi2ELb1ElS4_EEiS3_": {
+   "regcount": 82,
+   "stamp_regs": 92,
+   "phases": [
+    "entry",
+    "loop_start",
+    "loop_end",
+    "reduce_start",
+    "reduce_end"
+   ],
+   "points": [
+    {
+     "phase": "entry",
+     "addr": 0,
+     "instr": "IMAD.MOV.U32 R1, RZ, RZ, c[0x0][0x28]",
+     "mode": "before"
+    },
+    {
+     "phase": "loop_start",
+     "addr": 2304,
+     "instr": "SHF.R.S32.HI R34, RZ, 0x1f, R4",
+     "mode": "before"
+    },
+    {
+     "phase": "loop_end",
+     "addr": 89808,
+     "instr": "ISETP.GE.U32.AND P0, PT, R2, c[0x0][0x180], PT",
+     "mode": "before"
+    },
+    {
+     "phase": "reduce_start",
+     "addr": 109152,
+     "instr": "BAR.SYNC.DEFER_BLOCKING 0x0",
+     "mode": "before"
+    },
+    {
+     "phase": "reduce_end",
+     "addr": 115280,
+     "instr": "BAR.SYNC.DEFER_BLOCKING 0x0",
+     "mode": "after"
+    }
+   ],
+   "exits": [
+    115296,
+    115712
+   ],
+   "exit_tramp": 313792,
+   "tramp_bytes": 880,
+   "hot_loops": [
+    [
+     2320,
+     72224
+    ],
+    [
+     72256,
+     89776
+    ]
+   ]
+  },
+  "_ZN5faiss3gpu15l2SelectMinK_roIifLi32ELi2ELi128ELi8EEEvNS0_6TensorIT0_Li2ELb1ElNS0_16DefaultPtrTraitsEEENS2_IS3_Li1ELb1ElS4_EES5_NS2_IlLi2ELb1ElS4_EEiS3_": {
+   "regcount": 46,
+   "stamp_regs": 56,
+   "phases": [
+    "entry",
+    "loop_start",
+    "loop_end",
+    "reduce_start",
+    "reduce_end"
+   ],
+   "points": [
+    {
+     "phase": "entry",
+     "addr": 0,
+     "instr": "IMAD.MOV.U32 R1, RZ, RZ, c[0x0][0x28]",
+     "mode": "before"
+    },
+    {
+     "phase": "loop_start",
+     "addr": 2192,
+     "instr": "IMAD.MOV.U32 R21, RZ, RZ, c[0x0][0x1f4]",
+     "mode": "before"
+    },
+    {
+     "phase": "loop_end",
+     "addr": 80736,
+     "instr": "ISETP.GE.U32.AND P0, PT, R4, c[0x0][0x180], PT",
+     "mode": "before"
+    },
+    {
+     "phase": "reduce_start",
+     "addr": 90816,
+     "instr": "BAR.SYNC.DEFER_BLOCKING 0x0",
+     "mode": "before"
+    },
+    {
+     "phase": "reduce_end",
+     "addr": 94736,
+     "instr": "BAR.SYNC.DEFER_BLOCKING 0x0",
+     "mode": "after"
+    }
+   ],
+   "exits": [
+    94752,
+    95152
+   ],
+   "exit_tramp": 253376,
+   "tramp_bytes": 880,
+   "hot_loops": [
+    [
+     2208,
+     71664
+    ],
+    [
+     71856,
+     80704
+    ]
+   ]
+  },
+  "_ZN5faiss3gpu15l2SelectMinK_roIifLi32ELi2ELi128ELi4EEEvNS0_6TensorIT0_Li2ELb1ElNS0_16DefaultPtrTraitsEEENS2_IS3_Li1ELb1ElS4_EES5_NS2_IlLi2ELb1ElS4_EEiS3_": {
+   "regcount": 47,
+   "stamp_regs": 58,
+   "phases": [
+    "entry",
+    "loop_start",
+    "loop_end",
+    "reduce_start",
+    "reduce_end"
+   ],
+   "points": [
+    {
+     "phase": "entry",
+     "addr": 0,
+     "instr": "IMAD.MOV.U32 R1, RZ, RZ, c[0x0][0x28]",
+     "mode": "before"
+    },
+    {
+     "phase": "loop_start",
+     "addr": 2304,
+     "instr": "SHF.R.S32.HI R26, RZ, 0x1f, R4",
+     "mode": "before"
+    },
+    {
+     "phase": "loop_end",
+     "addr": 45920,
+     "instr": "ISETP.GE.U32.AND P0, PT, R6, c[0x0][0x180], PT",
+     "mode": "before"
+    },
+    {
+     "phase": "reduce_start",
+     "addr": 56000,
+     "instr": "BAR.SYNC.DEFER_BLOCKING 0x0",
+     "mode": "before"
+    },
+    {
+     "phase": "reduce_end",
+     "addr": 59888,
+     "instr": "BAR.SYNC.DEFER_BLOCKING 0x0",
+     "mode": "after"
+    }
+   ],
+   "exits": [
+    59904,
+    60320
+   ],
+   "exit_tramp": 155840,
+   "tramp_bytes": 880,
+   "hot_loops": [
+    [
+     2320,
+     36896
+    ],
+    [
+     37104,
+     45888
+    ]
+   ]
+  },
+  "_ZN5faiss3gpu12l2SelectMinKIifLi32ELi2ELi128EEEvNS0_6TensorIT0_Li2ELb1ElNS0_16DefaultPtrTraitsEEENS2_IS3_Li1ELb1ElS4_EES5_NS2_IlLi2ELb1ElS4_EEiS3_": {
+   "regcount": 47,
+   "stamp_regs": 58,
+   "phases": [
+    "entry",
+    "loop_start",
+    "loop_end",
+    "reduce_start",
+    "reduce_end"
+   ],
+   "points": [
+    {
+     "phase": "entry",
+     "addr": 0,
+     "instr": "IMAD.MOV.U32 R1, RZ, RZ, c[0x0][0x28]",
+     "mode": "before"
+    },
+    {
+     "phase": "loop_start",
+     "addr": 2304,
+     "instr": "SHF.R.S32.HI R30, RZ, 0x1f, R4",
+     "mode": "before"
+    },
+    {
+     "phase": "loop_end",
+     "addr": 45904,
+     "instr": "ISETP.GE.U32.AND P0, PT, R2, c[0x0][0x180], PT",
+     "mode": "before"
+    },
+    {
+     "phase": "reduce_start",
+     "addr": 55952,
+     "instr": "BAR.SYNC.DEFER_BLOCKING 0x0",
+     "mode": "before"
+    },
+    {
+     "phase": "reduce_end",
+     "addr": 59840,
+     "instr": "BAR.SYNC.DEFER_BLOCKING 0x0",
+     "mode": "after"
+    }
+   ],
+   "exits": [
+    59856,
+    60272
+   ],
+   "exit_tramp": 155840,
+   "tramp_bytes": 880,
+   "hot_loops": [
+    [
+     2320,
+     37088
+    ],
+    [
+     37120,
+     45872
+    ]
+   ]
+  },
+  "_ZN5faiss3gpu15l2SelectMin1_roIfLi8ELi256ELi8EEEvNS0_6TensorIT_Li2ELb1ElNS0_16DefaultPtrTraitsEEENS2_IS3_Li1ELb1ElS4_EES5_NS2_IlLi2ELb1ElS4_EE": {
+   "regcount": 88,
+   "stamp_regs": 96,
+   "phases": [
+    "entry",
+    "loop_start",
+    "loop_end",
+    "reduce_start"
+   ],
+   "points": [
+    {
+     "phase": "entry",
+     "addr": 0,
+     "instr": "IMAD.MOV.U32 R1, RZ, RZ, c[0x0][0x28]",
+     "mode": "before"
+    },
+    {
+     "phase": "loop_start",
+     "addr": 1248,
+     "instr": "IADD3.X R25, R25, c[0x0][0x16c], RZ, P1, !PT",
+     "mode": "before"
+    },
+    {
+     "phase": "loop_end",
+     "addr": 15072,
+     "instr": "SHFL.BFLY PT, R6, R51, 0x10, 0x1f",
+     "mode": "before"
+    },
+    {
+     "phase": "reduce_start",
+     "addr": 28080,
+     "instr": "BAR.SYNC.DEFER_BLOCKING 0x0",
+     "mode": "before"
+    },
+    {
+     "phase": "loop_start",
+     "addr": 44496,
+     "instr": "IMAD.MOV.U32 R15, RZ, RZ, R9",
+     "mode": "before"
+    },
+    {
+     "phase": "loop_end",
+     "addr": 46784,
+     "instr": "SHFL.BFLY PT, R14, R20, 0x10, 0x1f",
+     "mode": "before"
+    },
+    {
+     "phase": "reduce_start",
+     "addr": 48416,
+     "instr": "BAR.SYNC.DEFER_BLOCKING 0x0",
+     "mode": "before"
+    }
+   ],
+   "exits": [
+    42528,
+    43728,
+    43776,
+    50672
+   ],
+   "exit_tramp": 68032,
+   "tramp_bytes": 1008,
+   "hot_loops": [
+    [
+     1264,
+     10592
+    ],
+    [
+     12640,
+     15040
+    ],
+    [
+     44512,
+     46224
+    ],
+    [
+     46480,
+     46752
+    ]
+   ]
+  },
+  "_ZN5faiss3gpu15l2SelectMin1_roIfLi8ELi256ELi4EEEvNS0_6TensorIT_Li2ELb1ElNS0_16DefaultPtrTraitsEEENS2_IS3_Li1ELb1ElS4_EES5_NS2_IlLi2ELb1ElS4_EE": {
+   "regcount": 83,
+   "stamp_regs": 92,
+   "phases": [
+    "entry",
+    "loop_start",
+    "loop_end",
+    "reduce_start"
+   ],
+   "points": [
+    {
+     "phase": "entry",
+     "addr": 0,
+     "instr": "IMAD.MOV.U32 R1, RZ, RZ, c[0x0][0x28]",
+     "mode": "before"
+    },
+    {
+     "phase": "loop_start",
+     "addr": 1040,
+     "instr": "IMAD.IADD R38, R29, 0x1, R38",
+     "mode": "before"
+    },
+    {
+     "phase": "loop_end",
+     "addr": 10512,
+     "instr": "SHFL.BFLY PT, R26, R35, 0x10, 0x1f",
+     "mode": "before"
+    },
+    {
+     "phase": "reduce_start",
+     "addr": 23344,
+     "instr": "BAR.SYNC.DEFER_BLOCKING 0x0",
+     "mode": "before"
+    },
+    {
+     "phase": "loop_start",
+     "addr": 43456,
+     "instr": "IADD3.X R67, R67, UR6, RZ, P1, !PT",
+     "mode": "before"
+    },
+    {
+     "phase": "loop_end",
+     "addr": 47264,
+     "instr": "SHFL.BFLY PT, R62, R59, 0x10, 0x1f",
+     "mode": "before"
+    },
+    {
+     "phase": "reduce_start",
+     "addr": 48896,
+     "instr": "BAR.SYNC.DEFER_BLOCKING 0x0",
+     "mode": "before"
+    }
+   ],
+   "exits": [
+    37792,
+    39024,
+    39072,
+    51152
+   ],
+   "exit_tramp": 69184,
+   "tramp_bytes": 1008,
+   "hot_loops": [
+    [
+     1056,
+     5952
+    ],
+    [
+     8080,
+     10480
+    ],
+    [
+     43472,
+     46672
+    ],
+    [
+     46928,
+     47232
+    ]
+   ]
+  },
+  "_ZN5faiss3gpu12l2SelectMin1IfLi8ELi256EEEvNS0_6TensorIT_Li2ELb1ElNS0_16DefaultPtrTraitsEEENS2_IS3_Li1ELb1ElS4_EES5_NS2_IlLi2ELb1ElS4_EE": {
+   "regcount": 49,
+   "stamp_regs": 58,
+   "phases": [
+    "entry",
+    "loop_start",
+    "loop_end",
+    "reduce_start"
+   ],
+   "points": [
+    {
+     "phase": "entry",
+     "addr": 0,
+     "instr": "IMAD.MOV.U32 R1, RZ, RZ, c[0x0][0x28]",
+     "mode": "before"
+    },
+    {
+     "phase": "loop_start",
+     "addr": 560,
+     "instr": "IMAD.MOV.U32 R27, RZ, RZ, RZ",
+     "mode": "before"
+    },
+    {
+     "phase": "loop_end",
+     "addr": 2224,
+     "instr": "SHFL.BFLY PT, R6, R0, 0x10, 0x1f",
+     "mode": "before"
+    },
+    {
+     "phase": "reduce_start",
+     "addr": 3856,
+     "instr": "BAR.SYNC.DEFER_BLOCKING 0x0",
+     "mode": "before"
+    },
+    {
+     "phase": "loop_start",
+     "addr": 6704,
+     "instr": "IMAD.SHL.U32 R31, R31, 0x4, RZ",
+     "mode": "before"
+    },
+    {
+     "phase": "loop_end",
+     "addr": 7984,
+     "instr": "SHFL.BFLY PT, R18, R26, 0x10, 0x1f",
+     "mode": "before"
+    },
+    {
+     "phase": "reduce_start",
+     "addr": 20816,
+     "instr": "BAR.SYNC.DEFER_BLOCKING 0x0",
+     "mode": "before"
+    }
+   ],
+   "exits": [
+    272,
+    6080,
+    35280,
+    37184
+   ],
+   "exit_tramp": 53568,
+   "tramp_bytes": 1008,
+   "hot_loops": [
+    [
+     576,
+     1824
+    ],
+    [
+     1856,
+     2192
+    ],
+    [
+     6720,
+     7952
+    ]
+   ]
+  }
+ }
+}

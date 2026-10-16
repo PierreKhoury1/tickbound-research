@@ -1,0 +1,15 @@
+CUDA runtime error cudaErrorIllegalInstruction (an illegal instruction was encountered) at /root/b/kernl_rmsnorm/src/harness.cpp:643: cudaStreamSynchronize(C.s)
+device NVIDIA A100-SXM4-40GB, 108 SMs, L2 40 MB, clock 1410 MHz, driver 13020, runtime 12060, flush 101 MB
+  orig N=4096: 32 regs, 16 CTAs/SM | trace build 60 regs, 8 CTAs/SM
+  orig N=5120: 32 regs, 16 CTAs/SM | trace build 60 regs, 8 CTAs/SM
+  orig N=8192: 40 regs, 12 CTAs/SM | trace build 68 regs, 7 CTAs/SM
+  ro   N=4096: 38 regs, 12 CTAs/SM | trace build 68 regs, 7 CTAs/SM
+  ro   N=5120: 48 regs, 10 CTAs/SM | trace build 76 regs, 6 CTAs/SM
+  ro   N=8192: 72 regs, 7 CTAs/SM | trace build 100 regs, 4 CTAs/SM
+  ro2  N=4096: 48 regs, 10 CTAs/SM | trace build 76 regs, 6 CTAs/SM
+  ro2  N=5120: 60 regs, 8 CTAs/SM | trace build 88 regs, 5 CTAs/SM
+  ro2  N=8192: 84 regs, 5 CTAs/SM | trace build 112 regs, 4 CTAs/SM
+  ro3  N=4096: 48 regs, 10 CTAs/SM | trace build 76 regs, 6 CTAs/SM
+  ro3  N=5120: 58 regs, 8 CTAs/SM | trace build 88 regs, 5 CTAs/SM
+  ro3  N=8192: 84 regs, 5 CTAs/SM | trace build 112 regs, 4 CTAs/SM
+SM clock 1.4097 GHz (from %clock64 over 4 ms of %globaltimer), globaltimer tick 1024 ns

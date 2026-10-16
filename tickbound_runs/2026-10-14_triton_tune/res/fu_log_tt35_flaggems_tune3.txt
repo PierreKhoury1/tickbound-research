@@ -1,0 +1,74 @@
+/root/v_tt35/lib/python3.11/site-packages/flag_gems/config.py:153: UserWarning: resolve_user_setting: no exclude ops found; returning empty list
+  warnings.warn(
+/root/v_tt35/lib/python3.11/site-packages/torch/library.py:364: UserWarning: Warning only once for all operators,  other operators may also be overridden.
+  Overriding a previously registered kernel for the same operator and the same dispatch key
+  operator: aten::_assert_async(Tensor self) -> ()
+    registered at /pytorch/build/aten/src/ATen/RegisterSchema.cpp:6
+  dispatch key: CUDA
+  previous kernel: registered at /pytorch/build/aten/src/ATen/RegisterCPU_2.cpp:1164
+       new kernel: registered at /root/v_tt35/lib/python3.11/site-packages/flag_gems/__init__.py:20 (Triggered internally at /pytorch/aten/src/ATen/core/dispatch/OperatorEntry.cpp:218.)
+  self.m.impl(
+[flaggems] silu_M16                     ok         69.3 us  kernels 1  new 0  det True
+[flaggems] gelu_M16                     ok         61.6 us  kernels 1  new 0  det True
+[flaggems] exp_M16                      ok         52.2 us  kernels 1  new 0  det True
+[flaggems] rsqrt_M16                    ok         52.1 us  kernels 1  new 0  det True
+[flaggems] softmax_M16                  ok         28.0 us  kernels 1  new 0  det True
+[flaggems] log_softmax_M16              ok         44.1 us  kernels 1  new 0  det True
+[flaggems] sum_M16                      ok         31.3 us  kernels 1  new 0  det True
+[flaggems] mean_M16                     ok         29.4 us  kernels 1  new 0  det True
+[flaggems] amax_M16                     ok         37.6 us  kernels 1  new 0  det True
+[flaggems] argmax_M16                   ok         27.3 us  kernels 1  new 0  det True
+[flaggems] cumsum_M16                   ok         37.3 us  kernels 1  new 0  det True
+[flaggems] var_mean_M16                 ok         43.5 us  kernels 1  new 0  det True
+[flaggems] vector_norm_M16              ok         33.9 us  kernels 1  new 0  det True
+[flaggems] topk_M16                     ok         57.2 us  kernels 2  new 0  det True
+[flaggems] sort_M16                     ok        603.2 us  kernels 8  new 0  det True
+[flaggems] layer_norm_M16               ok         45.0 us  kernels 1  new 0  det True
+[flaggems] rms_norm_M16                 error TypeError: rms_norm() missing 1 required positional argument: 'weight'
+[flaggems] masked_fill_M16              ok        108.7 us  kernels 2  new 0  det True
+[flaggems] where_M16                    ok        179.7 us  kernels 3  new 0  det True
+[flaggems] add_M16                      ok         60.0 us  kernels 1  new 0  det True
+[flaggems] mul_M16                      ok         62.8 us  kernels 1  new 0  det True
+[flaggems] pow_M16                      ok         63.0 us  kernels 1  new 0  det True
+[flaggems] tanh_M16                     ok         73.8 us  kernels 1  new 0  det True
+[flaggems] sigmoid_M16                  ok         47.8 us  kernels 1  new 0  det True
+[flaggems] mm_M16                       ok         59.2 us  kernels 1  new 0  det True
+[flaggems] addmm_M16                    ok         43.3 us  kernels 1  new 0  det True
+[flaggems] embedding_M16                ok         28.8 us  kernels 1  new 0  det True
+[flaggems] index_select_M16             ok       1976.9 us  kernels 2  new 0  det True
+[flaggems] gather_M16                   ok         36.7 us  kernels 1  new 0  det True
+[flaggems] cross_entropy_M16            ok        174.4 us  kernels 4  new 0  det True
+[flaggems] cat_M16                      ok         44.2 us  kernels 1  new 0  det True
+[flaggems] silu_M4096                   ok         51.9 us  kernels 1  new 0  det True
+[flaggems] gelu_M4096                   ok         53.9 us  kernels 1  new 0  det True
+[flaggems] exp_M4096                    ok         51.8 us  kernels 1  new 0  det True
+[flaggems] rsqrt_M4096                  ok         55.2 us  kernels 1  new 0  det True
+[flaggems] softmax_M4096                ok         43.7 us  kernels 1  new 0  det True
+[flaggems] log_softmax_M4096            ok         70.7 us  kernels 1  new 0  det True
+[flaggems] sum_M4096                    ok         27.4 us  kernels 1  new 0  det True
+[flaggems] mean_M4096                   ok         27.4 us  kernels 1  new 0  det True
+[flaggems] amax_M4096                   ok         42.6 us  kernels 1  new 0  det True
+[flaggems] argmax_M4096                 ok         28.0 us  kernels 1  new 0  det True
+[flaggems] cumsum_M4096                 ok         42.2 us  kernels 1  new 0  det True
+[flaggems] var_mean_M4096               ok         41.1 us  kernels 1  new 0  det True
+[flaggems] vector_norm_M4096            ok         34.1 us  kernels 1  new 0  det True
+[flaggems] topk_M4096                   ok       1491.7 us  kernels 2  new 0  det True
+[flaggems] sort_M4096                   ok       3371.8 us  kernels 8  new 0  det True
+[flaggems] layer_norm_M4096             ok         43.0 us  kernels 1  new 0  det True
+[flaggems] rms_norm_M4096               error TypeError: rms_norm() missing 1 required positional argument: 'weight'
+[flaggems] masked_fill_M4096            ok        107.0 us  kernels 2  new 0  det True
+[flaggems] where_M4096                  ok        227.3 us  kernels 3  new 0  det True
+[flaggems] add_M4096                    ok         59.8 us  kernels 1  new 0  det True
+[flaggems] mul_M4096                    ok         56.2 us  kernels 1  new 0  det True
+[flaggems] pow_M4096                    ok         96.8 us  kernels 1  new 0  det True
+[flaggems] tanh_M4096                   ok         99.1 us  kernels 1  new 0  det True
+[flaggems] sigmoid_M4096                ok         54.5 us  kernels 1  new 0  det True
+[flaggems] mm_M4096                     ok        307.6 us  kernels 1  new 0  det True
+[flaggems] addmm_M4096                  ok        309.1 us  kernels 1  new 0  det True
+[flaggems] embedding_M4096              ok         40.5 us  kernels 1  new 0  det True
+[flaggems] index_select_M4096           ok       2574.3 us  kernels 2  new 0  det True
+[flaggems] gather_M4096                 ok        128.3 us  kernels 1  new 0  det True
+[flaggems] cross_entropy_M4096          ok        555.7 us  kernels 4  new 0  det True
+[flaggems] cat_M4096                    ok         81.0 us  kernels 1  new 0  det True
+[flaggems] bmm_B32                      ok         39.2 us  kernels 1  new 0  det True
+SUITE DONE

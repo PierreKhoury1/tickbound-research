@@ -1,0 +1,15 @@
+
+$ env ARCHS=80 bash ./build.sh
+[build] /usr/local/cuda/bin/ptxas is not ptxas 12.6.77 (Build cuda_12.6.r12.6/compiler.35059454_0); installing the pip wheel nvidia-cuda-nvcc-cu12==12.6.77 into build/pin
+WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv
+[build] Build cuda_12.6.r12.6/compiler.35059454_0
+[build] ptxas: Build cuda_12.6.r12.6/compiler.34841621_0 (ptxas), archs: 80
+selftest: fp16 round trip ok; span true 25.0000 us, placed 24.7550 us, raw 24.5760 us, 3 SMs, missing 0: ok
+selftest: percentile([1,2,3,4], 10/50/90) = 1.30 2.50 3.70, csv_quote = "a""b"
+[build] 180 cubins in build/cubin
+Box SASS vs the local SASS of the predictions: 60 identical, 0 renamed, 0 near, 0 DIFFERENT hot loops, of 60.
+Trace builds (best of the two forms): 50 identical, 0 renamed, 6 near, 4 DIFFERENT hot loops, of 60.
+[build] check_trace_sass: all required checks pass; every box hot loop matches the local SASS
+[build] OK
+
+[rc=0 34s]

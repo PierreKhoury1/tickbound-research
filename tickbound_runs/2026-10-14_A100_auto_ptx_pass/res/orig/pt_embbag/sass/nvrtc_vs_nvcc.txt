@@ -1,0 +1,20 @@
+NVRTC 12.6 (C:\Users\pierr\AppData\Local\Temp\claude\C--Users-pierr\5c9f69cd-4ab2-4054-ba7c-33d14cfa0fa5\scratchpad\realreorder\libs\toolchain\nvrtc126\nvidia\cuda_nvrtc\bin\nvrtc64_120_0.dll)
+sm_80: <scratchpad>/pt_embbag_fix3/nvrtc\eb_trace_tu_sm80.cubin 496896 B
+sm_90: <scratchpad>/pt_embbag_fix3/nvrtc\eb_trace_tu_sm90.cubin 512496 B
+sm_80 orig nopsw: NVRTC loop 92 instr vs nvcc 92 -> identical
+sm_80 orig psw  : NVRTC loop 102 instr vs nvcc 102 -> identical
+sm_80 ro   nopsw: NVRTC loop 82 instr vs nvcc 82 -> identical
+sm_80 ro   psw  : NVRTC loop 94 instr vs nvcc 94 -> identical
+sm_80 ro2  nopsw: NVRTC loop 86 instr vs nvcc 86 -> identical
+sm_80 ro2  psw  : NVRTC loop 98 instr vs nvcc 98 -> identical
+sm_80 ro3  nopsw: NVRTC loop 90 instr vs nvcc 90 -> identical
+sm_80 ro3  psw  : NVRTC loop 100 instr vs nvcc 100 -> identical
+sm_90 orig nopsw: NVRTC loop 98 instr vs nvcc 98 -> identical
+sm_90 orig psw  : NVRTC loop 112 instr vs nvcc 112 -> identical
+sm_90 ro   nopsw: NVRTC loop 90 instr vs nvcc 90 -> identical
+sm_90 ro   psw  : NVRTC loop 108 instr vs nvcc 108 -> identical
+sm_90 ro2  nopsw: NVRTC loop 93 instr vs nvcc 93 -> identical
+sm_90 ro2  psw  : NVRTC loop 105 instr vs nvcc 105 -> identical
+sm_90 ro3  nopsw: NVRTC loop 98 instr vs nvcc 98 -> identical
+sm_90 ro3  psw  : NVRTC loop 110 instr vs nvcc 110 -> identical
+NVRTC vs nvcc bag loops: IDENTICAL

@@ -1,0 +1,2 @@
+{"ptx": "/tmp/tmpxft_0000041c_00000000-7_pf_bench.compute_80.ptx", "k": 0, "loads": 0, "nc_marked": 66, "pass_s": 0.01, "kernels": [], "loops_transformed": 1, "out_sha": "65c479983519a843", "result": "transformed"}
+{"ptx": "/tmp/tmpxft_0000041c_00000000-6_pf_bench.compute_90.ptx", "k": 0, "loads": 0, "nc_marked": 64, "pass_s": 0.01, "kernels": [], "loops_transformed": 1, "out_sha": "0490e9a5c2b0644a", "result": "transformed"}

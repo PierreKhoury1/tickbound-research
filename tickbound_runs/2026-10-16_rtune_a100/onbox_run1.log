@@ -1,0 +1,173 @@
+2026-10-16T00:43:23Z start
+GPU 0: NVIDIA A100-PCIE-40GB (UUID: GPU-2c6ca625-a7f0-3450-05b6-6dd4d0877798)
+name, clocks.current.sm [MHz], clocks.max.sm [MHz], driver_version
+NVIDIA A100-PCIE-40GB, 210 MHz, 1410 MHz, 595.104.02
+debconf: delaying package configuration, since apt-utils is not installed
+2026-10-16T00:43:29Z bundle ok
+2026-10-16T00:43:29Z gpu NVIDIA A100-PCIE-40GB -> A100 sm_80
+2026-10-16T00:43:30Z ptxas wrapper installed, real = /usr/local/cuda/bin/ptxas.real
+2026-10-16T00:43:37Z rodinia_pf/orig: build rc=0 (7s)
+2026-10-16T00:43:38Z rodinia_pf/orig: run rc=0 (1s)
+2026-10-16T00:43:46Z rodinia_pf/auto_nc: build rc=0 (8s)
+2026-10-16T00:43:46Z rodinia_pf/auto_nc: pass log 2 ptx, 2 loops transformed, sha 61470488e0867a24
+2026-10-16T00:43:47Z rodinia_pf/auto_nc: run rc=0 (1s)
+2026-10-16T00:43:55Z rodinia_pf/auto_hoist: build rc=0 (8s)
+2026-10-16T00:43:55Z rodinia_pf/auto_hoist: pass log 2 ptx, 12 loops transformed, sha 673672cdc0183f32
+2026-10-16T00:43:56Z rodinia_pf/auto_hoist: run rc=0 (1s)
+2026-10-16T00:44:04Z rodinia_pf/auto_b4: build rc=0 (8s)
+2026-10-16T00:44:04Z rodinia_pf/auto_b4: pass log 2 ptx, 12 loops transformed, sha 65bd6a7a093e9eec
+2026-10-16T00:44:05Z rodinia_pf/auto_b4: run rc=0 (1s)
+2026-10-16T00:44:13Z rodinia_pf/auto_b8: build rc=0 (8s)
+2026-10-16T00:44:13Z rodinia_pf/auto_b8: pass log 2 ptx, 12 loops transformed, sha 821168895333d0a1
+2026-10-16T00:44:14Z rodinia_pf/auto_b8: run rc=0 (1s)
+2026-10-16T00:44:22Z rodinia_pf/auto_b16: build rc=0 (8s)
+2026-10-16T00:44:22Z rodinia_pf/auto_b16: pass log 2 ptx, 12 loops transformed, sha 48841c2179f48253
+2026-10-16T00:44:23Z rodinia_pf/auto_b16: run rc=0 (1s)
+2026-10-16T00:44:31Z rodinia_pf/auto_b36: build rc=0 (8s)
+2026-10-16T00:44:31Z rodinia_pf/auto_b36: pass log 2 ptx, 12 loops transformed, sha a5cab222ba74957a
+2026-10-16T00:44:32Z rodinia_pf/auto_b36: run rc=0 (1s)
+2026-10-16T00:44:40Z rodinia_pf/auto_b64: build rc=0 (8s)
+2026-10-16T00:44:40Z rodinia_pf/auto_b64: pass log 2 ptx, 12 loops transformed, sha c6941d244480171e
+2026-10-16T00:44:41Z rodinia_pf/auto_b64: run rc=2 (1s)
+2026-10-16T00:44:49Z rodinia_pf/auto_nc_b16: build rc=0 (8s)
+2026-10-16T00:44:49Z rodinia_pf/auto_nc_b16: pass log 2 ptx, 14 loops transformed, sha 95f05f6212a7e9bf
+2026-10-16T00:44:50Z rodinia_pf/auto_nc_b16: run rc=0 (1s)
+2026-10-16T00:45:07Z kernl_rmsnorm/orig: run rc=0 (17s)
+2026-10-16T00:45:24Z kernl_rmsnorm/auto_nc: run rc=0 (17s)
+2026-10-16T00:45:24Z kernl_rmsnorm/auto_nc: pass log 27 ptx, 6 loops transformed, sha 080346f8f5c738c6
+2026-10-16T00:45:41Z kernl_rmsnorm/auto_hoist: run rc=0 (17s)
+2026-10-16T00:45:41Z kernl_rmsnorm/auto_hoist: pass log 27 ptx, 0 loops transformed, sha 47761db603c30f3f
+2026-10-16T00:45:58Z kernl_rmsnorm/auto_b4: run rc=0 (17s)
+2026-10-16T00:45:58Z kernl_rmsnorm/auto_b4: pass log 27 ptx, 0 loops transformed, sha 47761db603c30f3f
+2026-10-16T00:46:15Z kernl_rmsnorm/auto_b8: run rc=0 (17s)
+2026-10-16T00:46:15Z kernl_rmsnorm/auto_b8: pass log 27 ptx, 0 loops transformed, sha 47761db603c30f3f
+2026-10-16T00:46:33Z kernl_rmsnorm/auto_b16: run rc=0 (17s)
+2026-10-16T00:46:33Z kernl_rmsnorm/auto_b16: pass log 27 ptx, 0 loops transformed, sha 47761db603c30f3f
+2026-10-16T00:46:50Z kernl_rmsnorm/auto_b36: run rc=0 (17s)
+2026-10-16T00:46:50Z kernl_rmsnorm/auto_b36: pass log 27 ptx, 0 loops transformed, sha 47761db603c30f3f
+2026-10-16T00:47:07Z kernl_rmsnorm/auto_b64: run rc=0 (17s)
+2026-10-16T00:47:07Z kernl_rmsnorm/auto_b64: pass log 27 ptx, 0 loops transformed, sha 47761db603c30f3f
+2026-10-16T00:47:24Z kernl_rmsnorm/auto_nc_b16: run rc=0 (17s)
+2026-10-16T00:47:24Z kernl_rmsnorm/auto_nc_b16: pass log 27 ptx, 6 loops transformed, sha 080346f8f5c738c6
+2026-10-16T00:47:48Z faiss_kselect/orig: build rc=0 (24s)
+2026-10-16T00:47:49Z faiss_kselect/orig: run rc=0 (1s)
+2026-10-16T00:48:13Z faiss_kselect/auto_nc: build rc=0 (24s)
+2026-10-16T00:48:13Z faiss_kselect/auto_nc: pass log 4 ptx, 0 loops transformed, sha 520ccc30fcd9df76
+2026-10-16T00:48:38Z faiss_kselect/auto_hoist: build rc=0 (25s)
+2026-10-16T00:48:38Z faiss_kselect/auto_hoist: pass log 4 ptx, 8 loops transformed, sha cbcac9dd6184c3a8
+2026-10-16T00:48:39Z faiss_kselect/auto_hoist: run rc=0 (1s)
+2026-10-16T00:49:05Z faiss_kselect/auto_b4: build rc=0 (26s)
+2026-10-16T00:49:05Z faiss_kselect/auto_b4: pass log 4 ptx, 8 loops transformed, sha 620cac40e6915840
+2026-10-16T00:49:06Z faiss_kselect/auto_b4: run rc=0 (1s)
+2026-10-16T00:49:33Z faiss_kselect/auto_b8: build rc=0 (27s)
+2026-10-16T00:49:33Z faiss_kselect/auto_b8: pass log 4 ptx, 8 loops transformed, sha 3792ca400ab45027
+2026-10-16T00:49:34Z faiss_kselect/auto_b8: run rc=0 (1s)
+2026-10-16T00:50:04Z faiss_kselect/auto_b16: build rc=0 (30s)
+2026-10-16T00:50:04Z faiss_kselect/auto_b16: pass log 4 ptx, 8 loops transformed, sha bea8f86c3b778041
+2026-10-16T00:50:05Z faiss_kselect/auto_b16: run rc=0 (1s)
+2026-10-16T00:50:43Z faiss_kselect/auto_b36: build rc=0 (38s)
+2026-10-16T00:50:43Z faiss_kselect/auto_b36: pass log 4 ptx, 8 loops transformed, sha e538e026e8073a84
+2026-10-16T00:50:44Z faiss_kselect/auto_b36: run rc=0 (1s)
+2026-10-16T00:51:23Z faiss_kselect/auto_b64: build rc=0 (39s)
+2026-10-16T00:51:23Z faiss_kselect/auto_b64: pass log 4 ptx, 8 loops transformed, sha 8a97f18a1748463f
+2026-10-16T00:51:24Z faiss_kselect/auto_b64: run rc=0 (1s)
+2026-10-16T00:51:55Z faiss_kselect/auto_nc_b16: build rc=0 (31s)
+2026-10-16T00:51:55Z faiss_kselect/auto_nc_b16: pass log 4 ptx, 8 loops transformed, sha bea8f86c3b778041
+2026-10-16T00:51:55Z faiss_kselect/auto_nc_b16: identical to auto_b16, run skipped
+2026-10-16T00:52:03Z llama_rmsnorm/orig: run rc=0 (8s)
+2026-10-16T00:52:12Z llama_rmsnorm/auto_nc: run rc=0 (8s)
+2026-10-16T00:52:12Z llama_rmsnorm/auto_nc: pass log 1 ptx, 1 loops transformed, sha 95ecf37091a989a5
+2026-10-16T00:52:20Z llama_rmsnorm/auto_hoist: run rc=0 (8s)
+2026-10-16T00:52:20Z llama_rmsnorm/auto_hoist: pass log 1 ptx, 4 loops transformed, sha d347fd43a22348f7
+2026-10-16T00:52:28Z llama_rmsnorm/auto_b4: run rc=0 (8s)
+2026-10-16T00:52:28Z llama_rmsnorm/auto_b4: pass log 1 ptx, 4 loops transformed, sha d347fd43a22348f7
+2026-10-16T00:52:36Z llama_rmsnorm/auto_b8: run rc=0 (8s)
+2026-10-16T00:52:36Z llama_rmsnorm/auto_b8: pass log 1 ptx, 4 loops transformed, sha bcbab7064524272f
+2026-10-16T00:52:45Z llama_rmsnorm/auto_b16: run rc=0 (8s)
+2026-10-16T00:52:45Z llama_rmsnorm/auto_b16: pass log 1 ptx, 4 loops transformed, sha 32907b075366b833
+2026-10-16T00:52:53Z llama_rmsnorm/auto_b36: run rc=0 (8s)
+2026-10-16T00:52:53Z llama_rmsnorm/auto_b36: pass log 1 ptx, 4 loops transformed, sha 08f8267bf76a25d1
+2026-10-16T00:53:00Z llama_rmsnorm/auto_b64: run rc=2 (7s)
+2026-10-16T00:53:00Z llama_rmsnorm/auto_b64: pass log 1 ptx, 4 loops transformed, sha b21d4cf80910c6cd
+2026-10-16T00:53:09Z llama_rmsnorm/auto_nc_b16: run rc=0 (8s)
+2026-10-16T00:53:09Z llama_rmsnorm/auto_nc_b16: pass log 1 ptx, 5 loops transformed, sha 9c951831bd20d7f1
+2026-10-16T00:53:17Z pt_embbag/orig: build rc=0 (8s)
+2026-10-16T00:53:19Z pt_embbag/orig: run rc=0 (2s)
+2026-10-16T00:53:26Z pt_embbag/auto_nc: build rc=0 (8s)
+2026-10-16T00:53:26Z pt_embbag/auto_nc: pass log 2 ptx, 2 loops transformed, sha 4f758191d14a5dc6
+2026-10-16T00:53:27Z pt_embbag/auto_nc: run rc=0 (1s)
+2026-10-16T00:53:35Z pt_embbag/auto_hoist: build rc=0 (8s)
+2026-10-16T00:53:35Z pt_embbag/auto_hoist: pass log 2 ptx, 9 loops transformed, sha b9138216c4b02fe7
+2026-10-16T00:53:37Z pt_embbag/auto_hoist: run rc=0 (2s)
+2026-10-16T00:53:45Z pt_embbag/auto_b4: build rc=0 (8s)
+2026-10-16T00:53:45Z pt_embbag/auto_b4: pass log 2 ptx, 9 loops transformed, sha 8267b4d8c47e1cee
+2026-10-16T00:53:47Z pt_embbag/auto_b4: run rc=0 (2s)
+2026-10-16T00:53:55Z pt_embbag/auto_b8: build rc=0 (8s)
+2026-10-16T00:53:55Z pt_embbag/auto_b8: pass log 2 ptx, 9 loops transformed, sha a8e2ed802103b493
+2026-10-16T00:53:57Z pt_embbag/auto_b8: run rc=0 (2s)
+2026-10-16T00:54:05Z pt_embbag/auto_b16: build rc=0 (8s)
+2026-10-16T00:54:05Z pt_embbag/auto_b16: pass log 2 ptx, 9 loops transformed, sha 7f0c96b7dbf4ddc0
+2026-10-16T00:54:07Z pt_embbag/auto_b16: run rc=0 (2s)
+2026-10-16T00:54:15Z pt_embbag/auto_b36: build rc=0 (8s)
+2026-10-16T00:54:15Z pt_embbag/auto_b36: pass log 2 ptx, 9 loops transformed, sha e30c316b23e86d0e
+2026-10-16T00:54:17Z pt_embbag/auto_b36: run rc=0 (2s)
+2026-10-16T00:54:26Z pt_embbag/auto_b64: build rc=0 (8s)
+2026-10-16T00:54:26Z pt_embbag/auto_b64: pass log 2 ptx, 9 loops transformed, sha 6a94e375ad18195e
+2026-10-16T00:54:27Z pt_embbag/auto_b64: run rc=0 (2s)
+2026-10-16T00:54:36Z pt_embbag/auto_nc_b16: build rc=0 (8s)
+2026-10-16T00:54:36Z pt_embbag/auto_nc_b16: pass log 2 ptx, 11 loops transformed, sha 1b4c316202ff6dda
+2026-10-16T00:54:37Z pt_embbag/auto_nc_b16: run rc=0 (1s)
+2026-10-16T00:55:11Z kernl_fused_ff/orig: build rc=0 (34s)
+2026-10-16T00:55:24Z kernl_fused_ff/orig: run rc=0 (13s)
+2026-10-16T00:55:54Z aerial_rssi/orig: build rc=0 (29s)
+2026-10-16T00:55:55Z aerial_rssi/orig: run rc=0 (1s)
+2026-10-16T00:56:24Z aerial_rssi/auto_nc: build rc=0 (30s)
+2026-10-16T00:56:24Z aerial_rssi/auto_nc: pass log 12 ptx, 0 loops transformed, sha 6c511e73fd845513
+2026-10-16T00:56:54Z aerial_rssi/auto_hoist: build rc=0 (30s)
+2026-10-16T00:56:54Z aerial_rssi/auto_hoist: pass log 12 ptx, 4 loops transformed, sha 293e7a5991033942
+2026-10-16T00:56:55Z aerial_rssi/auto_hoist: run rc=0 (1s)
+2026-10-16T00:57:25Z aerial_rssi/auto_b4: build rc=0 (30s)
+2026-10-16T00:57:25Z aerial_rssi/auto_b4: pass log 12 ptx, 4 loops transformed, sha 3f8a34e59fe9e2b9
+2026-10-16T00:57:26Z aerial_rssi/auto_b4: run rc=0 (1s)
+2026-10-16T00:57:56Z aerial_rssi/auto_b8: build rc=0 (30s)
+2026-10-16T00:57:56Z aerial_rssi/auto_b8: pass log 12 ptx, 4 loops transformed, sha b27f3a737a841022
+2026-10-16T00:57:57Z aerial_rssi/auto_b8: run rc=0 (1s)
+2026-10-16T00:58:27Z aerial_rssi/auto_b16: build rc=0 (30s)
+2026-10-16T00:58:27Z aerial_rssi/auto_b16: pass log 12 ptx, 4 loops transformed, sha 8c2e7403d259f813
+2026-10-16T00:58:28Z aerial_rssi/auto_b16: run rc=0 (1s)
+2026-10-16T00:58:59Z aerial_rssi/auto_b36: build rc=0 (31s)
+2026-10-16T00:58:59Z aerial_rssi/auto_b36: pass log 12 ptx, 4 loops transformed, sha a22fd3828ac44859
+2026-10-16T00:59:00Z aerial_rssi/auto_b36: run rc=0 (1s)
+2026-10-16T00:59:32Z aerial_rssi/auto_b64: build rc=0 (32s)
+2026-10-16T00:59:32Z aerial_rssi/auto_b64: pass log 12 ptx, 4 loops transformed, sha 8f828ce23874d478
+2026-10-16T00:59:32Z aerial_rssi/auto_b64: run rc=0 (1s)
+2026-10-16T01:00:03Z aerial_rssi/auto_nc_b16: build rc=0 (31s)
+2026-10-16T01:00:03Z aerial_rssi/auto_nc_b16: pass log 12 ptx, 4 loops transformed, sha 6f5ee08c7386fa3f
+2026-10-16T01:00:04Z aerial_rssi/auto_nc_b16: run rc=0 (1s)
+2026-10-16T01:00:04Z triton_liger/orig: run rc=0 (0s)
+2026-10-16T01:00:04Z triton_liger/auto_nc: run rc=0 (0s)
+2026-10-16T01:00:04Z triton_liger/auto_nc: pass log 0 ptx, 0 loops transformed, sha None
+2026-10-16T01:00:04Z triton_liger/auto_hoist: run rc=0 (0s)
+2026-10-16T01:00:04Z triton_liger/auto_hoist: pass log 0 ptx, 0 loops transformed, sha None
+2026-10-16T01:00:04Z triton_liger/auto_b4: run rc=0 (0s)
+2026-10-16T01:00:04Z triton_liger/auto_b4: pass log 0 ptx, 0 loops transformed, sha None
+2026-10-16T01:00:04Z triton_liger/auto_b8: run rc=0 (0s)
+2026-10-16T01:00:04Z triton_liger/auto_b8: pass log 0 ptx, 0 loops transformed, sha None
+2026-10-16T01:00:04Z triton_liger/auto_b16: run rc=0 (0s)
+2026-10-16T01:00:04Z triton_liger/auto_b16: pass log 0 ptx, 0 loops transformed, sha None
+2026-10-16T01:00:05Z triton_liger/auto_b36: run rc=0 (0s)
+2026-10-16T01:00:05Z triton_liger/auto_b36: pass log 0 ptx, 0 loops transformed, sha None
+2026-10-16T01:00:05Z triton_liger/auto_b64: run rc=0 (0s)
+2026-10-16T01:00:05Z triton_liger/auto_b64: pass log 0 ptx, 0 loops transformed, sha None
+2026-10-16T01:00:05Z triton_liger/auto_nc_b16: run rc=0 (0s)
+2026-10-16T01:00:05Z triton_liger/auto_nc_b16: pass log 0 ptx, 0 loops transformed, sha None
+2026-10-16T01:00:05Z end
+2026-10-16T01:00:05Z run rc=0
+kernl_rmsnorm  kernl_rmsnorm            cases   5  best-of-all median 1.307 (5 faster)  automatic median 1.232 (5 faster)  picks {'ro3': 4, 'ro2': 1}
+llama_rmsnorm  llama_rmsnorm            cases   9  best-of-all median 1.224 (9 faster)  automatic median 1.068 (7 faster)  picks {'ro': 5, 'auto_b8': 1, 'ro2': 3}
+rodinia_pf     pf_find_index            cases   4  best-of-all median 2.647 (4 faster)  automatic median 1.205 (4 faster)  picks {'ro2': 4}
+rodinia_pf     pf_normalize_weights     cases   4  best-of-all median 2.998 (4 faster)  automatic median 2.988 (4 faster)  picks {'ro': 2, 'auto_b36': 2}
+wrote /root/res/report.html
+2026-10-16T01:00:07Z report rc=0
+2026-10-16T01:00:07Z end
+2026-10-16T01:00:07Z finish

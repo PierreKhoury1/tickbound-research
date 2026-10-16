@@ -1,0 +1,32 @@
+
+$ bash ./run.sh A100
+CUDA error cudaErrorMisalignedAddress (misaligned address) at src/bench_common.h:238: cudaStreamSynchronize(c.s)
+aerial_bench: NVIDIA A100-SXM4-40GB (A100), 108 SMs, L2 41943040 B, cc 8.0, driver 13020, runtime 12060; %globaltimer step 1024 ns (max 1024, 12871 steps); SM clock 1.0950 GHz; flush 83886080 B
+aerial_bench: NVIDIA A100-SXM4-40GB (A100), 108 SMs, L2 41943040 B, cc 8.0, driver 13020, runtime 12060; %globaltimer step 1024 ns (max 1024, 9959 steps); SM clock 1.4100 GHz; flush 83886080 B
+[cfo A100 c1_p273_warm] orig 20.562 us  ro 17.439 us (x1.179)  ro_r1 18.606 us (x1.105)  | span orig 19.925 ro 16.626 ro_r1 17.947 us (x1.198, x1.110) | bitwise ok | ref ok | clk 1.410 GHz | trace/timing orig 1.018 ro 1.015 ro_r1 1.022
+[cfo A100 c1_p273_cold] orig 31.949 us  ro 23.398 us (x1.365)  ro_r1 27.750 us (x1.151)  | span orig 26.101 ro 17.657 ro_r1 22.113 us (x1.478, x1.180) | bitwise ok | ref ok | clk 1.410 GHz | trace/timing orig 1.018 ro 1.015 ro_r1 1.022
+[cfo A100 c2_p273_warm] orig 20.613 us  ro 17.521 us (x1.177)  ro_r1 18.678 us (x1.104)  | span orig 20.020 ro 16.736 ro_r1 18.078 us (x1.196, x1.107) | bitwise ok | ref ok | clk 1.410 GHz | trace/timing orig 1.017 ro 1.016 ro_r1 1.020
+[cfo A100 c2_p273_cold] orig 32.358 us  ro 23.450 us (x1.380)  ro_r1 28.211 us (x1.147)  | span orig 26.901 ro 18.002 ro_r1 22.794 us (x1.494, x1.180) | bitwise ok | ref ok | clk 1.410 GHz | trace/timing orig 1.017 ro 1.016 ro_r1 1.020
+[cfo A100 c4_p273_warm] orig 23.337 us  ro 21.023 us (x1.110)  ro_r1 21.709 us (x1.075)  | span orig 22.854 ro 20.613 ro_r1 21.234 us (x1.109, x1.076) | bitwise ok | ref ok | clk 1.410 GHz | trace/timing orig 1.023 ro 1.022 ro_r1 1.022
+[cfo A100 c4_p273_cold] orig 35.174 us  ro 27.341 us (x1.287)  ro_r1 31.334 us (x1.123)  | span orig 29.552 ro 21.939 ro_r1 26.189 us (x1.347, x1.128) | bitwise ok | ref ok | clk 1.410 GHz | trace/timing orig 1.023 ro 1.022 ro_r1 1.022
+[cfo A100 c8_p273_warm] orig 28.518 us  ro 25.866 us (x1.103)  ro_r1 25.764 us (x1.107)  | span orig 27.914 ro 25.141 ro_r1 25.150 us (x1.110, x1.110) | bitwise ok | ref ok | clk 1.410 GHz | trace/timing orig 1.021 ro 1.015 ro_r1 1.017
+[cfo A100 c8_p273_cold] orig 38.758 us  ro 32.512 us (x1.192)  ro_r1 35.328 us (x1.097)  | span orig 33.645 ro 27.091 ro_r1 30.022 us (x1.242, x1.121) | bitwise ok | ref ok | clk 1.410 GHz | trace/timing orig 1.021 ro 1.015 ro_r1 1.017
+[cfo A100 c16_p273_warm] orig 49.070 us  ro 45.199 us (x1.086)  ro_r1 45.804 us (x1.071)  | span orig 49.460 ro 45.785 ro_r1 46.497 us (x1.080, x1.064) | bitwise ok | ref ok | clk 1.410 GHz | trace/timing orig 1.033 ro 1.037 ro_r1 1.034
+[cfo A100 c16_p273_cold] orig 69.069 us  ro 52.173 us (x1.324)  ro_r1 64.512 us (x1.071)  | span orig 65.910 ro 47.978 ro_r1 58.855 us (x1.374, x1.120) | bitwise ok | ref ok | clk 1.410 GHz | trace/timing orig 1.033 ro 1.037 ro_r1 1.034
+[cfo A100 c1_p100_warm] orig 20.296 us  ro 17.285 us (x1.174)  ro_r1 18.360 us (x1.105)  | span orig 19.985 ro 16.965 ro_r1 18.132 us (x1.178, x1.102) | bitwise ok | ref ok | clk 1.410 GHz | trace/timing orig 1.018 ro 1.017 ro_r1 1.024
+[cfo A100 c1_p100_cold] orig 31.283 us  ro 23.040 us (x1.358)  ro_r1 27.034 us (x1.157)  | span orig 26.047 ro 17.956 ro_r1 21.958 us (x1.451, x1.186) | bitwise ok | ref ok | clk 1.410 GHz | trace/timing orig 1.018 ro 1.017 ro_r1 1.024
+[cfo A100 c2_p100_warm] orig 20.541 us  ro 17.408 us (x1.180)  ro_r1 18.596 us (x1.105)  | span orig 20.018 ro 16.697 ro_r1 18.011 us (x1.199, x1.111) | bitwise ok | ref ok | clk 1.410 GHz | trace/timing orig 1.017 ro 1.018 ro_r1 1.021
+[cfo A100 c2_p100_cold] orig 31.795 us  ro 23.194 us (x1.371)  ro_r1 27.648 us (x1.150)  | span orig 26.471 ro 17.954 ro_r1 22.299 us (x1.474, x1.187) | bitwise ok | ref ok | clk 1.410 GHz | trace/timing orig 1.017 ro 1.018 ro_r1 1.021
+[cfo A100 c4_p100_warm] orig 20.582 us  ro 17.459 us (x1.179)  ro_r1 18.647 us (x1.104)  | span orig 20.232 ro 17.008 ro_r1 18.290 us (x1.190, x1.106) | bitwise ok | ref ok | clk 1.410 GHz | trace/timing orig 1.017 ro 1.018 ro_r1 1.021
+[cfo A100 c4_p100_cold] orig 32.256 us  ro 23.347 us (x1.382)  ro_r1 28.006 us (x1.152)  | span orig 26.855 ro 18.072 ro_r1 22.687 us (x1.486, x1.184) | bitwise ok | ref ok | clk 1.410 GHz | trace/timing orig 1.017 ro 1.018 ro_r1 1.021
+[cfo A100 c8_p100_warm] orig 20.736 us  ro 17.644 us (x1.175)  ro_r1 18.811 us (x1.102)  | span orig 20.065 ro 16.894 ro_r1 18.171 us (x1.188, x1.104) | bitwise ok | ref ok | clk 1.410 GHz | trace/timing orig 1.015 ro 1.014 ro_r1 1.020
+[cfo A100 c8_p100_cold] orig 32.973 us  ro 23.910 us (x1.379)  ro_r1 28.621 us (x1.152)  | span orig 27.453 ro 18.165 ro_r1 23.200 us (x1.511, x1.183) | bitwise ok | ref ok | clk 1.410 GHz | trace/timing orig 1.015 ro 1.014 ro_r1 1.020
+[cfo A100 c16_p100_warm] orig 23.398 us  ro 21.105 us (x1.109)  ro_r1 21.729 us (x1.077)  | span orig 22.792 ro 20.431 ro_r1 21.184 us (x1.116, x1.076) | bitwise ok | ref ok | clk 1.410 GHz | trace/timing orig 1.025 ro 1.023 ro_r1 1.022
+[cfo A100 c16_p100_cold] orig 35.379 us  ro 27.853 us (x1.270)  ro_r1 31.539 us (x1.122)  | span orig 30.170 ro 22.208 ro_r1 26.210 us (x1.359, x1.151) | bitwise ok | ref ok | clk 1.410 GHz | trace/timing orig 1.025 ro 1.023 ro_r1 1.022
+[cfo A100 f08_2c59_warm] orig 20.480 us  ro 17.940 us (x1.142)  ro_r1 18.555 us (x1.104)  | span orig 19.848 ro 17.355 ro_r1 17.958 us (x1.144, x1.105) | bitwise ok | ref ok | clk 1.410 GHz | trace/timing orig 1.015 ro 1.019 ro_r1 1.019
+[cfo A100 f08_2c59_cold] orig 31.846 us  ro 24.166 us (x1.318)  ro_r1 27.750 us (x1.148)  | span orig 26.467 ro 18.521 ro_r1 22.457 us (x1.429, x1.179) | bitwise ok | ref ok | clk 1.410 GHz | trace/timing orig 1.015 ro 1.019 ro_r1 1.019
+aerial_bench: finished
+run.sh: status: rssi=FAILED(rc=2) cfo=ok
+DONE
+
+[rc=1 7s]

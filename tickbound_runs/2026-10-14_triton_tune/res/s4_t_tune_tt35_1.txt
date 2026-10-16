@@ -1,0 +1,64 @@
+phase 1 triton 3.5.1 stats {'tuned': 7, 'kernels_rewritten': 10, 'applied': 10, 'ast_kernels_unchanged': 2, 'chosen_orig': 3, 'kernels_unchanged': 2, 'chosen_orig@w8': 3, 'ast_kernels_prefetched': 6, 'chosen_nc+pf': 1}
+  inplace_x2       ref beebea58a378a87b  tune beebea58a378a87b  OK
+  aliased          ref 309800003b37b4bf  tune 309800003b37b4bf  OK
+  kwargs_k1        ref beebea58a378a87b  tune beebea58a378a87b  OK
+  kwargs_k2        ref 0bcf3a223c838d95  tune 0bcf3a223c838d95  OK
+  atomic_counts    ref f2008cb1d1853571  tune f2008cb1d1853571  OK
+  atomic_total     ref 1048576  tune 1048576  OK
+  rowsum           ref 6e2fd81980dd5497  tune 6e2fd81980dd5497  OK
+  rms_M16          ref 02138dc677c3b7b7  tune 02138dc677c3b7b7  OK
+  rms_M8           ref 99d51d0f7abb5d63  tune 99d51d0f7abb5d63  OK
+  graph_rms_M4     ref 717a853dabbdb7e6  tune 717a853dabbdb7e6  OK
+  TUNE add_inplace  chosen orig           speedup 1.0 det True 289.6 ms  
+         {'v': 'nc+pf', 'verdict': 'same_cubin_as_nc'}
+         {'v': 'nc', 'vs': 'orig', 'ratio_med': 1.0, 'wins': '20/41', 'p': 0.62239, 'us_med': 6.528, 'verdict': 'no_gain'}
+         {'v': 'orig@w2', 'vs': 'orig', 'ratio_med': 0.9561, 'wins': '6/15', 'p': 0.84912, 'us_med': 6.848, 'verdict': 'no_gain'}
+         {'v': 'orig@w8', 'vs': 'orig', 'ratio_med': 0.9809, 'wins': '5/15', 'p': 0.94077, 'us_med': 6.72, 'verdict': 'no_gain'}
+         {'v': 'orig@s2', 'verdict': 'same_cubin_as_orig'}
+         {'v': 'orig@s4', 'verdict': 'same_cubin_as_orig'}
+  TUNE add_inplace  chosen orig           speedup 1.0 det True 43.3 ms  
+         {'v': 'nc+pf', 'verdict': 'same_cubin_as_nc'}
+         {'v': 'nc', 'vs': 'orig', 'ratio_med': 1.0087, 'wins': '22/41', 'p': 0.37761, 'us_med': 6.624, 'verdict': 'no_gain'}
+         {'v': 'orig@w2', 'vs': 'orig', 'ratio_med': 1.0, 'wins': '7/15', 'p': 0.69638, 'us_med': 6.912, 'verdict': 'no_gain'}
+         {'v': 'orig@w8', 'vs': 'orig', 'ratio_med': 0.981, 'wins': '17/41', 'p': 0.89449, 'us_med': 6.848, 'verdict': 'no_gain'}
+         {'v': 'orig@s2', 'verdict': 'same_cubin_as_orig'}
+         {'v': 'orig@s4', 'verdict': 'same_cubin_as_orig'}
+  TUNE count_atomic chosen orig@w8        speedup 1.0263 det True 381.1 ms  
+         {'v': 'nc', 'verdict': 'same_cubin_as_orig'}
+         {'v': 'nc+pf', 'verdict': 'same_cubin_as_orig'}
+         {'v': 'orig@w2', 'vs': 'orig', 'ratio_med': 0.9905, 'wins': '0/15', 'p': 1.0, 'us_med': 108.352, 'verdict': 'no_gain'}
+         {'v': 'orig@w8', 'vs': 'orig', 'ratio_med': 1.0282, 'wins': '41/41', 'p': 0.0, 'us_med': 104.352, 'verdict': 'win'}
+         {'v': 'orig@w16', 'vs': 'orig@w8', 'ratio_med': 1.0009, 'wins': '23/41', 'p': 0.26635, 'us_med': 104.416, 'verdict': 'no_gain'}
+         {'v': 'orig@w8@s2', 'verdict': 'same_cubin_as_orig@w8'}
+         {'v': 'orig@w8@s4', 'verdict': 'same_cubin_as_orig@w8'}
+  TUNE rowsum       chosen nc+pf          speedup 1.0245 det True 459.1 ms  
+         {'v': 'nc', 'vs': 'orig', 'ratio_med': 1.0, 'wins': '7/15', 'p': 0.69638, 'us_med': 6.72, 'verdict': 'no_gain'}
+         {'v': 'nc+pf', 'vs': 'orig', 'ratio_med': 1.0343, 'wins': '35/41', 'p': 0.0, 'us_med': 6.496, 'verdict': 'win'}
+         {'v': 'nc+pf@w2', 'verdict': 'output_differs'}
+         {'v': 'nc+pf@w8', 'verdict': 'output_differs'}
+         {'v': 'nc+pf@s2', 'verdict': 'same_cubin_as_nc+pf'}
+         {'v': 'nc+pf@s4', 'verdict': 'same_cubin_as_nc+pf'}
+  TUNE rms          chosen orig           speedup 1.0 det True 666.0 ms  
+         {'v': 'nc', 'vs': 'orig', 'ratio_med': 1.0, 'wins': '18/41', 'p': 0.82556, 'us_med': 7.776, 'verdict': 'no_gain'}
+         {'v': 'nc+pf', 'vs': 'orig', 'ratio_med': 0.9451, 'wins': '0/15', 'p': 1.0, 'us_med': 8.192, 'verdict': 'no_gain'}
+         {'v': 'orig@w2', 'verdict': 'output_differs'}
+         {'v': 'orig@w8', 'verdict': 'output_differs'}
+         {'v': 'orig@s2', 'verdict': 'same_cubin_as_orig'}
+         {'v': 'orig@s4', 'verdict': 'same_cubin_as_orig'}
+  TUNE rms          chosen orig@w8        speedup 1.0789 det True 295.8 ms  
+         {'v': 'nc', 'vs': 'orig', 'ratio_med': 1.0, 'wins': '3/15', 'p': 0.99631, 'us_med': 7.872, 'verdict': 'no_gain'}
+         {'v': 'nc+pf', 'vs': 'orig', 'ratio_med': 0.9457, 'wins': '0/15', 'p': 1.0, 'us_med': 8.256, 'verdict': 'no_gain'}
+         {'v': 'orig@w2', 'vs': 'orig', 'ratio_med': 0.7321, 'wins': '0/15', 'p': 1.0, 'us_med': 10.72, 'verdict': 'no_gain'}
+         {'v': 'orig@w8', 'vs': 'orig', 'ratio_med': 1.0752, 'wins': '15/15', 'p': 3e-05, 'us_med': 7.232, 'verdict': 'win'}
+         {'v': 'orig@w16', 'vs': 'orig@w8', 'ratio_med': 1.0, 'wins': '19/41', 'p': 0.73365, 'us_med': 7.232, 'verdict': 'no_gain'}
+         {'v': 'orig@w8@s2', 'verdict': 'same_cubin_as_orig@w8'}
+         {'v': 'orig@w8@s4', 'verdict': 'same_cubin_as_orig@w8'}
+  TUNE rms          chosen orig@w8        speedup 1.0711 det True 26.1 ms  
+         {'v': 'nc', 'vs': 'orig', 'ratio_med': 0.9919, 'wins': '19/41', 'p': 0.73365, 'us_med': 7.776, 'verdict': 'no_gain'}
+         {'v': 'nc+pf', 'vs': 'orig', 'ratio_med': 0.9305, 'wins': '1/15', 'p': 0.99997, 'us_med': 8.384, 'verdict': 'no_gain'}
+         {'v': 'orig@w2', 'vs': 'orig', 'ratio_med': 0.7275, 'wins': '0/15', 'p': 1.0, 'us_med': 10.752, 'verdict': 'no_gain'}
+         {'v': 'orig@w8', 'vs': 'orig', 'ratio_med': 1.0714, 'wins': '15/15', 'p': 3e-05, 'us_med': 7.2, 'verdict': 'win'}
+         {'v': 'orig@w16', 'vs': 'orig@w8', 'ratio_med': 0.9956, 'wins': '4/15', 'p': 0.98242, 'us_med': 7.2, 'verdict': 'no_gain'}
+         {'v': 'orig@w8@s2', 'verdict': 'same_cubin_as_orig@w8'}
+         {'v': 'orig@w8@s4', 'verdict': 'same_cubin_as_orig@w8'}
+RESULT PASS

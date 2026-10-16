@@ -1,0 +1,1 @@
+llama_rmsnorm            n  72  auto median 0.972 (min 0.698 max 1.306) faster 15 slower 35 | hand median 1.141 | output mismatches 0

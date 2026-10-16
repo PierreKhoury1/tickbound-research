@@ -1,0 +1,16 @@
+timing build/eb_bench_sm90.sass vs trace build/trace_sm90.sass:
+  orig  PASS  hot loops timing 2 / trace 2; trace module's own copy of the timing kernel vs the timing binary: same 1632 instructions, 8 differ only in c[0x4][..] (assert-string addresses)
+      loop @0x1cf0 (trace @0x1e00): 112 instr, 12 LDG, text identical, encodings differing 0
+      loop @0x4630 (trace @0x4740): 98 instr, 8 LDG, text identical, encodings differing 0
+  ro    PASS  hot loops timing 4 / trace 4; trace module's own copy of the timing kernel vs the timing binary: same 1400 instructions, 4 differ only in c[0x4][..] (assert-string addresses)
+      loop @0x1bf0 (trace @0x1d00): 108 instr, 12 LDG, text identical, encodings differing 0
+      loop @0x2320 (trace @0x2430): 90 instr, 8 LDG, text identical, encodings differing 0
+      loop @0x3160 (trace @0x3270): 97 instr, 12 LDG, text identical, encodings differing 0
+      loop @0x3d80 (trace @0x3e90): 83 instr, 8 LDG, text identical, encodings differing 0
+  ro2   PASS  hot loops timing 2 / trace 2; trace module's own copy of the timing kernel vs the timing binary: same 1624 instructions, 8 differ only in c[0x4][..] (assert-string addresses)
+      loop @0x1cf0 (trace @0x1e00): 105 instr, 12 LDG, text identical, encodings differing 0
+      loop @0x45e0 (trace @0x46f0): 93 instr, 8 LDG, text identical, encodings differing 0
+  ro3   PASS  hot loops timing 2 / trace 2; trace module's own copy of the timing kernel vs the timing binary: same 1632 instructions, 8 differ only in c[0x4][..] (assert-string addresses)
+      loop @0x1d20 (trace @0x1e30): 110 instr, 12 LDG, text identical, encodings differing 0
+      loop @0x4610 (trace @0x4720): 98 instr, 8 LDG, text identical, encodings differing 0
+RESULT: PASS

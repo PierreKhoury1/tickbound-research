@@ -1,0 +1,115 @@
+2026-10-16T01:34:03Z start
+GPU 0: NVIDIA A100-PCIE-40GB (UUID: GPU-01888e70-deb4-9799-fc0e-7cdea83ff532)
+name, clocks.current.sm [MHz], clocks.max.sm [MHz], driver_version
+NVIDIA A100-PCIE-40GB, 210 MHz, 1410 MHz, 595.71.05
+debconf: delaying package configuration, since apt-utils is not installed
+2026-10-16T01:34:13Z bundle ok
+2026-10-16T01:34:13Z gpu NVIDIA A100-PCIE-40GB -> A100 sm_80
+2026-10-16T01:34:13Z ptxas wrapper installed, real = /usr/local/cuda/bin/ptxas.real
+2026-10-16T01:34:46Z faiss_kselect/orig: build rc=0 (33s)
+2026-10-16T01:34:58Z faiss_kselect/orig: run rc=0 (12s)
+2026-10-16T01:35:31Z faiss_kselect/auto_nc: build rc=0 (33s)
+2026-10-16T01:35:31Z faiss_kselect/auto_nc: pass log 4 ptx, 0 loops transformed, sha 520ccc30fcd9df76
+2026-10-16T01:36:05Z faiss_kselect/auto_hoist: build rc=0 (34s)
+2026-10-16T01:36:05Z faiss_kselect/auto_hoist: pass log 4 ptx, 8 loops transformed, sha cbcac9dd6184c3a8
+2026-10-16T01:36:17Z faiss_kselect/auto_hoist: run rc=0 (12s)
+2026-10-16T01:36:55Z faiss_kselect/auto_b8: build rc=0 (38s)
+2026-10-16T01:36:55Z faiss_kselect/auto_b8: pass log 4 ptx, 8 loops transformed, sha 3792ca400ab45027
+2026-10-16T01:37:08Z faiss_kselect/auto_b8: run rc=0 (13s)
+2026-10-16T01:37:51Z faiss_kselect/auto_b16: build rc=0 (43s)
+2026-10-16T01:37:51Z faiss_kselect/auto_b16: pass log 4 ptx, 8 loops transformed, sha bea8f86c3b778041
+2026-10-16T01:38:05Z faiss_kselect/auto_b16: run rc=0 (14s)
+2026-10-16T01:39:00Z faiss_kselect/auto_b36: build rc=0 (55s)
+2026-10-16T01:39:00Z faiss_kselect/auto_b36: pass log 4 ptx, 8 loops transformed, sha e538e026e8073a84
+2026-10-16T01:39:14Z faiss_kselect/auto_b36: run rc=0 (14s)
+2026-10-16T01:39:57Z faiss_kselect/auto_nc_b16: build rc=0 (43s)
+2026-10-16T01:39:57Z faiss_kselect/auto_nc_b16: pass log 4 ptx, 8 loops transformed, sha bea8f86c3b778041
+2026-10-16T01:39:57Z faiss_kselect/auto_nc_b16: identical to auto_b16, run skipped
+2026-10-16T01:40:07Z pt_embbag/orig: build rc=0 (10s)
+2026-10-16T01:40:16Z pt_embbag/orig: run rc=0 (9s)
+2026-10-16T01:40:26Z pt_embbag/auto_nc: build rc=0 (10s)
+2026-10-16T01:40:26Z pt_embbag/auto_nc: pass log 2 ptx, 2 loops transformed, sha 4f758191d14a5dc6
+2026-10-16T01:40:32Z pt_embbag/auto_nc: run rc=0 (6s)
+2026-10-16T01:40:41Z pt_embbag/auto_hoist: build rc=0 (10s)
+2026-10-16T01:40:41Z pt_embbag/auto_hoist: pass log 2 ptx, 9 loops transformed, sha b9138216c4b02fe7
+2026-10-16T01:40:51Z pt_embbag/auto_hoist: run rc=0 (10s)
+2026-10-16T01:41:01Z pt_embbag/auto_b8: build rc=0 (10s)
+2026-10-16T01:41:01Z pt_embbag/auto_b8: pass log 2 ptx, 9 loops transformed, sha a8e2ed802103b493
+2026-10-16T01:41:10Z pt_embbag/auto_b8: run rc=0 (10s)
+2026-10-16T01:41:21Z pt_embbag/auto_b16: build rc=0 (10s)
+2026-10-16T01:41:21Z pt_embbag/auto_b16: pass log 2 ptx, 9 loops transformed, sha 7f0c96b7dbf4ddc0
+2026-10-16T01:41:30Z pt_embbag/auto_b16: run rc=0 (10s)
+2026-10-16T01:41:41Z pt_embbag/auto_b36: build rc=0 (10s)
+2026-10-16T01:41:41Z pt_embbag/auto_b36: pass log 2 ptx, 9 loops transformed, sha e30c316b23e86d0e
+2026-10-16T01:41:50Z pt_embbag/auto_b36: run rc=0 (9s)
+2026-10-16T01:42:00Z pt_embbag/auto_nc_b16: build rc=0 (10s)
+2026-10-16T01:42:00Z pt_embbag/auto_nc_b16: pass log 2 ptx, 11 loops transformed, sha 1b4c316202ff6dda
+2026-10-16T01:42:06Z pt_embbag/auto_nc_b16: run rc=0 (6s)
+2026-10-16T01:42:41Z aerial_rssi/orig: build rc=0 (35s)
+2026-10-16T01:42:42Z aerial_rssi/orig: run rc=0 (1s)
+2026-10-16T01:43:18Z aerial_rssi/auto_nc: build rc=0 (36s)
+2026-10-16T01:43:18Z aerial_rssi/auto_nc: pass log 12 ptx, 0 loops transformed, sha 6c511e73fd845513
+2026-10-16T01:43:54Z aerial_rssi/auto_hoist: build rc=0 (36s)
+2026-10-16T01:43:54Z aerial_rssi/auto_hoist: pass log 12 ptx, 4 loops transformed, sha 293e7a5991033942
+2026-10-16T01:43:54Z aerial_rssi/auto_hoist: run rc=0 (1s)
+2026-10-16T01:44:30Z aerial_rssi/auto_b8: build rc=0 (36s)
+2026-10-16T01:44:30Z aerial_rssi/auto_b8: pass log 12 ptx, 4 loops transformed, sha b27f3a737a841022
+2026-10-16T01:44:31Z aerial_rssi/auto_b8: run rc=0 (1s)
+2026-10-16T01:45:08Z aerial_rssi/auto_b16: build rc=0 (37s)
+2026-10-16T01:45:08Z aerial_rssi/auto_b16: pass log 12 ptx, 4 loops transformed, sha 8c2e7403d259f813
+2026-10-16T01:45:09Z aerial_rssi/auto_b16: run rc=0 (1s)
+2026-10-16T01:45:46Z aerial_rssi/auto_b36: build rc=0 (37s)
+2026-10-16T01:45:46Z aerial_rssi/auto_b36: pass log 12 ptx, 4 loops transformed, sha a22fd3828ac44859
+2026-10-16T01:45:47Z aerial_rssi/auto_b36: run rc=0 (1s)
+2026-10-16T01:46:23Z aerial_rssi/auto_nc_b16: build rc=0 (36s)
+2026-10-16T01:46:23Z aerial_rssi/auto_nc_b16: pass log 12 ptx, 4 loops transformed, sha 6f5ee08c7386fa3f
+2026-10-16T01:46:24Z aerial_rssi/auto_nc_b16: run rc=0 (1s)
+2026-10-16T01:49:04Z triton_liger/orig: run rc=0 (160s)
+2026-10-16T01:49:06Z triton_liger/auto_nc: run rc=0 (3s)
+2026-10-16T01:49:06Z triton_liger/auto_nc: pass log 0 ptx, 0 loops transformed, sha None
+2026-10-16T01:49:09Z triton_liger/auto_hoist: run rc=0 (3s)
+2026-10-16T01:49:09Z triton_liger/auto_hoist: pass log 0 ptx, 0 loops transformed, sha None
+2026-10-16T01:49:12Z triton_liger/auto_b8: run rc=0 (3s)
+2026-10-16T01:49:12Z triton_liger/auto_b8: pass log 0 ptx, 0 loops transformed, sha None
+2026-10-16T01:49:15Z triton_liger/auto_b16: run rc=0 (3s)
+2026-10-16T01:49:15Z triton_liger/auto_b16: pass log 0 ptx, 0 loops transformed, sha None
+2026-10-16T01:49:18Z triton_liger/auto_b36: run rc=0 (3s)
+2026-10-16T01:49:18Z triton_liger/auto_b36: pass log 0 ptx, 0 loops transformed, sha None
+2026-10-16T01:49:21Z triton_liger/auto_nc_b16: run rc=0 (3s)
+2026-10-16T01:49:21Z triton_liger/auto_nc_b16: pass log 0 ptx, 0 loops transformed, sha None
+2026-10-16T01:49:55Z kernl_fused_ff/orig: build rc=0 (34s)
+2026-10-16T01:53:19Z kernl_fused_ff/orig: run rc=0 (204s)
+2026-10-16T01:53:19Z end
+2026-10-16T01:53:19Z run rc=0
+faiss_kselect  faiss_kselect            cases  70  best-of-all median 2.662 (70 faster)  automatic median 2.514 (70 faster)  picks {'ro8': 32, 'auto_b36': 27, 'ro': 11}
+kernl_fused_ff kernl_fused_ff           cases 280  best-of-all median 1.228 (239 faster)  automatic median 1.000 (0 faster)  picks {'tt38': 10, 'ro_tt32': 78, 'ro': 57, 'ctl_s5': 31, 'ro_clamp': 44, 'orig': 41, 'ro_full_tt32': 8, 'tt32': 8, 'ctl_s2': 3}
+pt_embbag      pt_embbag                cases  31  best-of-all median 1.457 (31 faster)  automatic median 1.122 (24 faster)  picks {'ro': 28, 'auto_b16': 1, 'auto_nc_b16': 2}
+wrote /root/res/report.html
+2026-10-16T01:53:21Z report rc=0
+2026-10-16T01:53:21Z end
+2026-10-16T01:53:21Z finish
+2026-10-16T01:53:54Z gpu NVIDIA A100-PCIE-40GB -> A100 sm_80
+2026-10-16T01:53:54Z ptxas wrapper installed, real = /usr/local/cuda/bin/ptxas.real
+2026-10-16T01:54:29Z aerial_rssi/orig: build rc=0 (35s)
+2026-10-16T01:54:36Z aerial_rssi/orig: run rc=1 (7s)
+2026-10-16T01:55:12Z aerial_rssi/auto_hoist: build rc=0 (36s)
+2026-10-16T01:55:12Z aerial_rssi/auto_hoist: pass log 12 ptx, 4 loops transformed, sha 293e7a5991033942
+2026-10-16T01:55:20Z aerial_rssi/auto_hoist: run rc=1 (7s)
+2026-10-16T01:55:56Z aerial_rssi/auto_b8: build rc=0 (36s)
+2026-10-16T01:55:56Z aerial_rssi/auto_b8: pass log 12 ptx, 4 loops transformed, sha b27f3a737a841022
+2026-10-16T01:56:03Z aerial_rssi/auto_b8: run rc=1 (7s)
+2026-10-16T01:56:39Z aerial_rssi/auto_b16: build rc=0 (36s)
+2026-10-16T01:56:39Z aerial_rssi/auto_b16: pass log 12 ptx, 4 loops transformed, sha 8c2e7403d259f813
+2026-10-16T01:56:47Z aerial_rssi/auto_b16: run rc=1 (7s)
+2026-10-16T01:57:24Z aerial_rssi/auto_b36: build rc=0 (37s)
+2026-10-16T01:57:24Z aerial_rssi/auto_b36: pass log 12 ptx, 4 loops transformed, sha a22fd3828ac44859
+2026-10-16T01:57:31Z aerial_rssi/auto_b36: run rc=1 (7s)
+2026-10-16T01:58:08Z aerial_rssi/auto_nc_b16: build rc=0 (37s)
+2026-10-16T01:58:08Z aerial_rssi/auto_nc_b16: pass log 12 ptx, 4 loops transformed, sha 6f5ee08c7386fa3f
+2026-10-16T01:58:15Z aerial_rssi/auto_nc_b16: run rc=1 (7s)
+2026-10-16T01:58:15Z end
+aerial_rssi    cfoTaEstLowMimoKernel    cases  22  best-of-all median 1.179 (22 faster)  automatic median 1.000 (2 faster)  picks {'ro': 21, 'ro_r1': 1}
+faiss_kselect  faiss_kselect            cases  70  best-of-all median 2.662 (70 faster)  automatic median 2.514 (70 faster)  picks {'ro8': 32, 'auto_b36': 27, 'ro': 11}
+kernl_fused_ff kernl_fused_ff           cases 280  best-of-all median 1.228 (239 faster)  automatic median 1.000 (0 faster)  picks {'tt38': 10, 'ro_tt32': 78, 'ro': 57, 'ctl_s5': 31, 'ro_clamp': 44, 'orig': 41, 'ro_full_tt32': 8, 'tt32': 8, 'ctl_s2': 3}
+pt_embbag      pt_embbag                cases  31  best-of-all median 1.457 (31 faster)  automatic median 1.122 (24 faster)  picks {'ro': 28, 'auto_b16': 1, 'auto_nc_b16': 2}
+wrote /root/res/report.html

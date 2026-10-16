@@ -1,0 +1,20 @@
+check_trace_sass.py  timing: ks_bench_sm90  trace: trace_sm90.cubin  (cuobjdump: C:\Users\pierr\AppData\Local\Temp\claude\C--Users-pierr\5c9f69cd-4ab2-4054-ba7c-33d14cfa0fa5\scratchpad\toolchain\cuobjdump\cuda_cuobjdump-windows-x86_64-12.9.82-archive\bin\cuobjdump.exe)
+sm_90 l2SelectMin1<8,256> [orig k=1]               IDENTICAL 2 hot loop(s), 102 instr, 11 LDG, no-merge path 22+80 instr; regs 48/56; whole hot-loop region identical
+      loop0: 22 instr, LDG at [7, 11]; loop1: 80 instr, LDG at [11, 16, 19, 22, 25, 30, 32, 33, 34]
+sm_90 l2SelectMin1_ro<8,256,4> [ro k=1]            IDENTICAL 4 hot loop(s), 724 instr, 88 LDG, no-merge path 354+149+201+20 instr; regs 80/88; whole hot-loop region identical
+      loop0: 354 instr, LDG at [1, 8, 11, 14, 17, 19, 40, 46, 59, 63, 67, 72, 80, 85, 90, 92] ...; loop1: 149 instr, LDG at [7, 11, 16, 23, 28, 31, 34, 38, 41, 44, 47, 50, 53, 56, 59, 61] ...; loop2: 201 instr, LDG at [2, 5, 8, 12, 28, 29, 35, 38, 43, 45, 65, 66, 69, 73, 89, 90] ...; loop3: 20 instr, LDG at [2, 5]
+sm_90 l2SelectMin1_ro<8,256,8> [ro8 k=1]           IDENTICAL 4 hot loop(s), 967 instr, 108 LDG, no-merge path 688+151+109+19 instr; regs 104/112; whole hot-loop region identical
+      loop0: 688 instr, LDG at [9, 11, 22, 28, 31, 35, 38, 42, 45, 46, 49, 55, 60, 63, 66, 68] ...; loop1: 151 instr, LDG at [7, 14, 19, 23, 30, 33, 36, 40, 43, 46, 49, 52, 55, 58, 61, 63] ...; loop2: 109 instr, LDG at [4, 6, 10, 13, 18, 19, 24, 25, 30, 31, 34, 35, 40, 41, 46, 47]; loop3: 19 instr, LDG at [3, 4]
+sm_90 l2SelectMinK<128,3,128> [orig k<=128]        IDENTICAL 1 hot loop(s), 1281 instr, 2 LDG, no-merge path 33 instr; regs 122/132; whole hot-loop region identical
+      loop0: 1281 instr, LDG at [7, 11]
+sm_90 l2SelectMinK<32,2,128> [orig k<=32]          IDENTICAL 1 hot loop(s), 578 instr, 2 LDG, no-merge path 31 instr; regs 56/66; whole hot-loop region identical
+      loop0: 578 instr, LDG at [7, 11]
+sm_90 l2SelectMinK_ro<128,3,128,4> [ro k<=128]     IDENTICAL 2 hot loop(s), 6294 instr, 10 LDG, no-merge path 90+31 instr; regs 125/136; whole hot-loop region identical
+      loop0: 5039 instr, LDG at [11, 12, 16, 18, 22, 24, 25, 26]; loop1: 1255 instr, LDG at [7, 11]
+sm_90 l2SelectMinK_ro<128,3,128,8> [ro8 k<=128]    IDENTICAL 2 hot loop(s), 10595 instr, 18 LDG, no-merge path 171+32 instr; regs 127/138; whole hot-loop region identical
+      loop0: 9326 instr, LDG at [12, 15, 17, 19, 21, 23, 25, 27, 29, 31, 33, 35, 37, 39, 40, 41]; loop1: 1269 instr, LDG at [7, 11]
+sm_90 l2SelectMinK_ro<32,2,128,4> [ro k<=32]       IDENTICAL 2 hot loop(s), 2614 instr, 10 LDG, no-merge path 82+29 instr; regs 40/50; whole hot-loop region identical
+      loop0: 2086 instr, LDG at [8, 11, 14, 17, 19, 20, 23, 24]; loop1: 528 instr, LDG at [10, 11]
+sm_90 l2SelectMinK_ro<32,2,128,8> [ro8 k<=32]      IDENTICAL 2 hot loop(s), 4751 instr, 18 LDG, no-merge path 172+30 instr; regs 38/48; whole hot-loop region identical
+      loop0: 4216 instr, LDG at [11, 12, 17, 20, 23, 27, 31, 33, 36, 39, 42, 44, 47, 49, 52, 53]; loop1: 535 instr, LDG at [7, 11]
+PASS: 9 timing/trace kernel pairs; 9 hot loops identical instruction for instruction, 0 with an identical no-merge path (differences only in the rarely run merge/sort code), 0 not identical

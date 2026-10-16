@@ -1,0 +1,20 @@
+
+$ bash ./run.sh A100
+[run] A100 (sm_80), stamp 20261016T005253Z
+Cuda compilation tools, release 12.6, V12.6.85
+Build cuda_12.6.r12.6/compiler.35059454_0
+[build] sm_80
+REG:31 STACK:0 REG:30 STACK:0 REG:32 STACK:0 REG:32 STACK:0 REG:32 STACK:440 REG:96 STACK:0 
+[build] WARNING: check_trace_sass gates failed, see sass/box/check_trace_sass.txt
+[build] OK
+[run] WARNING: box SASS differs from sass/nvcc_local, see results/llama_rmsnorm_A100_20261016T005253Z_box/sass_identity.txt
+[run] WARNING: check_trace_sass gates failed, see results/llama_rmsnorm_A100_20261016T005253Z_box/check_trace_sass.txt
+CUDA error cudaErrorLaunchOutOfResources (too many resources requested for launch) at src/bench.cu:159 in cudaGetLastError()
+device NVIDIA A100-SXM4-40GB, cc 80, 108 SMs, L2 40 MB, driver 13020, runtime 12060; binary built for sm_80
+  orig regs 96 (trace build 32), max blocks/SM 0 (trace build 2)
+  ro   regs 32 (trace build 32), max blocks/SM 2 (trace build 2)
+  ro2  regs 30 (trace build 31), max blocks/SM 2 (trace build 2)
+  PDL cases (n_embd 4096 warm, llama.cpp's Hopper launch): no (cc 80, PTX 80)
+globaltimer update period 1024 ns, SM clock 1.0949 GHz, L2 flush 84 MB, 9 cases, reps 5, warm batch 100, cold batch 20, trace reps 3
+
+[rc=2 7s]

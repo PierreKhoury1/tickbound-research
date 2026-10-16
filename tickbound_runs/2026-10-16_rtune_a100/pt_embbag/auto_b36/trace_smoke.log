@@ -1,0 +1,12 @@
+device: NVIDIA A100-SXM4-40GB (sm_80), 108 SMs, L2 40 MB, SM clock 1.410 GHz (max), mem 1215 MHz x 5120 bit, driver 13020, runtime 12060 -> GPU tag A100
+trace module: loaded build/trace_sm80.cubin
+  orig timing build: 108 regs, 2 blocks/SM (16 warps/SM); trace build: same regs
+  ro   timing build: 48 regs, 5 blocks/SM (40 warps/SM); trace build: same regs
+  ro2  timing build: 48 regs, 5 blocks/SM (40 warps/SM); trace build: same regs
+  ro3  timing build: 40 regs, 6 blocks/SM (48 warps/SM); trace build: same regs
+buffers: table 512 MB, indices 4.0 MB, flush 120 MB
+[ 0] b32_s32_d128_r32k_sum          n=1024     chunks=128    batch=128 | orig 9.47 us | ro 6.50 us (x1.46) | ro2 6.95 us (x1.36) | ro3 9.25 us (x1.02) | span 8.58/6.02/6.66/8.83 us | ref ok | 0.4 s
+[ 1] b16384_s32_d128_r1m_sum        n=524288   chunks=65536  batch=4   | orig 699.90 us | ro 248.06 us (x2.82) | ro2 256.51 us (x2.73) | ro3 359.55 us (x1.95) | span 699.01/247.68/256.38/358.91 us | ref ok | 0.2 s
+wrote build/smoke_trace/results/pt_embbag_A100_20261016_014141.csv
+wrote build/smoke_trace/results/pt_embbag_A100_20261016_014141_meta.json
+all variants bitwise equal to orig: yes

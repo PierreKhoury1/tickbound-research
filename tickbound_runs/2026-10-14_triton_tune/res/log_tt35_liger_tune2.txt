@@ -1,0 +1,36 @@
+[liger] rms_norm_M16                 ok        451.2 us  kernels 5  new 0  det True
+[liger] fused_add_rms_norm_M16       ok        128.5 us  kernels 2  new 0  det True
+[liger] layer_norm_M16               ok        701.5 us  kernels 5  new 0  det True
+[liger] poly_norm_M16                ok         98.8 us  kernels 1  new 0  det True
+[liger] dyt_M16                      ok        691.0 us  kernels 7  new 0  det True
+[liger] swiglu_M16                   ok        614.5 us  kernels 3  new 0  det False
+[liger] geglu_M16                    ok        396.6 us  kernels 3  new 0  det False
+[liger] relu_squared_M16             ok        253.4 us  kernels 1  new 0  det True
+[liger] softmax_M16                  ok        565.2 us  kernels 3  new 0  det True
+[liger] sparsemax_M16                ok         99.8 us  kernels 5  new 0  det True
+[liger] cross_entropy_M16            ok        545.7 us  kernels 14  new 0  det False
+[liger] fused_linear_ce_M16          ok       6053.9 us  kernels 16  new 0  det True
+[liger] kl_div_M16                   ok        836.4 us  kernels 9  new 0  det True
+Backend impl 'liger_kernel.ops.backends._cutedsl.jsd' for op 'jsd_loss_and_grad' could not be imported: ModuleNotFoundError: No module named 'cuda'
+Backend impl 'liger_kernel.ops.backends._cutile.jsd' for op 'jsd_loss_and_grad' could not be imported: ModuleNotFoundError: No module named 'cuda'
+[liger] jsd_M16                      ok        441.6 us  kernels 8  new 0  det True
+[liger] tvd_M16                      ok        425.0 us  kernels 7  new 0  det True
+[liger] rms_norm_M4096               ok        500.4 us  kernels 5  new 0  det True
+[liger] fused_add_rms_norm_M4096     ok        165.5 us  kernels 2  new 0  det True
+[liger] layer_norm_M4096             ok        726.7 us  kernels 5  new 0  det True
+[liger] poly_norm_M4096              ok         58.5 us  kernels 1  new 0  det True
+[liger] dyt_M4096                    ok        672.7 us  kernels 7  new 0  det True
+[liger] swiglu_M4096                 ok        452.0 us  kernels 3  new 0  det False
+[liger] geglu_M4096                  ok        463.9 us  kernels 3  new 0  det False
+[liger] relu_squared_M4096           ok        105.5 us  kernels 1  new 0  det True
+[liger] softmax_M4096                ok        853.7 us  kernels 3  new 0  det True
+[liger] sparsemax_M4096              ok        252.4 us  kernels 5  new 0  det True
+[liger] cross_entropy_M4096          ok       1925.1 us  kernels 14  new 0  det False
+[liger] fused_linear_ce_M4096        ok       9473.6 us  kernels 16  new 0  det True
+[liger] kl_div_M4096                 ok       1859.3 us  kernels 9  new 0  det True
+[liger] jsd_M4096                    ok       2610.3 us  kernels 8  new 0  det True
+[liger] tvd_M4096                    ok       1118.7 us  kernels 7  new 0  det True
+[liger] rope_S16                     ok        627.0 us  kernels 3  new 0  det True
+[liger] rope_S2048                   ok        597.1 us  kernels 3  new 0  det True
+[liger] group_norm_B8                ok        773.9 us  kernels 3  new 0  det False
+SUITE DONE

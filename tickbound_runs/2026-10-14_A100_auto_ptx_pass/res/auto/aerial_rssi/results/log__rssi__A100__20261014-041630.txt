@@ -1,0 +1,2 @@
+CUDA error cudaErrorMisalignedAddress (misaligned address) at src/bench_common.h:238: cudaStreamSynchronize(c.s)
+aerial_bench: NVIDIA A100-PCIE-40GB (A100), 108 SMs, L2 41943040 B, cc 8.0, driver 13020, runtime 12060; %globaltimer step 1024 ns (max 1024, 17175 steps); SM clock 0.8250 GHz; flush 83886080 B

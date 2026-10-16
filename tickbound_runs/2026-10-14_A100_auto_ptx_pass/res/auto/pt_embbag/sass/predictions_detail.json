@@ -1,0 +1,3806 @@
+{
+ "arch": {
+  "A100": {
+   "sm": "sm_80",
+   "sms": 108,
+   "ghz": [
+    1.3,
+    1.41
+   ],
+   "l2": [
+    220,
+    374
+   ],
+   "dram": [
+    493,
+    645
+   ],
+   "l2_mb": 40.0,
+   "l2_use": [
+    0.5,
+    0.9
+   ],
+   "l2_tbs": [
+    3.0,
+    4.5
+   ],
+   "dram_tbs": [
+    0.95,
+    1.35
+   ],
+   "F_us": [
+    2.0,
+    4.5
+   ],
+   "Fcold_us": [
+    2.5,
+    5.5
+   ]
+  },
+  "H100": {
+   "sm": "sm_90",
+   "sms": 114,
+   "ghz": [
+    1.56,
+    1.755
+   ],
+   "l2": [
+    280,
+    472
+   ],
+   "dram": [
+    572,
+    774
+   ],
+   "l2_mb": 50.0,
+   "l2_use": [
+    0.5,
+    0.9
+   ],
+   "l2_tbs": [
+    4.0,
+    6.5
+   ],
+   "dram_tbs": [
+    1.2,
+    1.8
+   ],
+   "F_us": [
+    1.6,
+    4.0
+   ],
+   "Fcold_us": [
+    2.2,
+    5.0
+   ]
+  }
+ },
+ "co": [
+  150.0,
+  500.0
+ ],
+ "i_other": 120,
+ "p_far": [
+  0.25,
+  0.75
+ ],
+ "lat_scale": [
+  0.95,
+  1.3
+ ],
+ "issue_scale": [
+  1.0,
+  1.25
+ ],
+ "n_draws": 4000,
+ "cases": [
+  {
+   "case_id": "b32_s8_d128_r32k_sum",
+   "gpu": "A100",
+   "last_draw": {
+    "orig": {
+     "us": 5.016,
+     "work_us": 2.297,
+     "waves": [
+      8
+     ],
+     "bps": 6,
+     "L": 294.377,
+     "t1": 1070.13,
+     "h": 1.0,
+     "touched_mb": 0.125,
+     "batched": false
+    },
+    "ro": {
+     "us": 4.156,
+     "work_us": 1.437,
+     "waves": [
+      8
+     ],
+     "bps": 5,
+     "L": 371.835,
+     "t1": 501.835,
+     "h": 1.0,
+     "touched_mb": 0.125,
+     "batched": true
+    },
+    "ro2": {
+     "us": 4.138,
+     "work_us": 1.419,
+     "waves": [
+      8
+     ],
+     "bps": 5,
+     "L": 371.835,
+     "t1": 490.835,
+     "h": 1.0,
+     "touched_mb": 0.125,
+     "batched": true
+    },
+    "ro3": {
+     "us": 4.953,
+     "work_us": 2.234,
+     "waves": [
+      8
+     ],
+     "bps": 6,
+     "L": 294.377,
+     "t1": 1028.13,
+     "h": 1.0,
+     "touched_mb": 0.125,
+     "batched": false
+    }
+   }
+  },
+  {
+   "case_id": "b32_s32_d128_r32k_sum",
+   "gpu": "A100",
+   "last_draw": {
+    "orig": {
+     "us": 10.299,
+     "work_us": 7.58,
+     "waves": [
+      8
+     ],
+     "bps": 6,
+     "L": 294.377,
+     "t1": 1070.13,
+     "h": 1.0,
+     "touched_mb": 0.492,
+     "batched": false
+    },
+    "ro": {
+     "us": 6.858,
+     "work_us": 4.139,
+     "waves": [
+      8
+     ],
+     "bps": 5,
+     "L": 371.835,
+     "t1": 501.835,
+     "h": 1.0,
+     "touched_mb": 0.492,
+     "batched": true
+    },
+    "ro2": {
+     "us": 6.788,
+     "work_us": 4.069,
+     "waves": [
+      8
+     ],
+     "bps": 5,
+     "L": 371.835,
+     "t1": 490.835,
+     "h": 1.0,
+     "touched_mb": 0.492,
+     "batched": true
+    },
+    "ro3": {
+     "us": 10.048,
+     "work_us": 7.329,
+     "waves": [
+      8
+     ],
+     "bps": 6,
+     "L": 294.377,
+     "t1": 1028.13,
+     "h": 1.0,
+     "touched_mb": 0.492,
+     "batched": false
+    }
+   }
+  },
+  {
+   "case_id": "b32_s128_d128_r32k_sum",
+   "gpu": "A100",
+   "last_draw": {
+    "orig": {
+     "us": 31.811,
+     "work_us": 29.092,
+     "waves": [
+      8
+     ],
+     "bps": 6,
+     "L": 294.377,
+     "t1": 1070.13,
+     "h": 1.0,
+     "touched_mb": 1.88,
+     "batched": false
+    },
+    "ro": {
+     "us": 18.047,
+     "work_us": 15.328,
+     "waves": [
+      8
+     ],
+     "bps": 5,
+     "L": 371.835,
+     "t1": 501.835,
+     "h": 1.0,
+     "touched_mb": 1.88,
+     "batched": true
+    },
+    "ro2": {
+     "us": 17.766,
+     "work_us": 15.048,
+     "waves": [
+      8
+     ],
+     "bps": 5,
+     "L": 371.835,
+     "t1": 490.835,
+     "h": 1.0,
+     "touched_mb": 1.88,
+     "batched": true
+    },
+    "ro3": {
+     "us": 30.808,
+     "work_us": 28.089,
+     "waves": [
+      8
+     ],
+     "bps": 6,
+     "L": 294.377,
+     "t1": 1028.13,
+     "h": 1.0,
+     "touched_mb": 1.88,
+     "batched": false
+    }
+   }
+  },
+  {
+   "case_id": "b256_s8_d128_r32k_sum",
+   "gpu": "A100",
+   "last_draw": {
+    "orig": {
+     "us": 5.016,
+     "work_us": 2.297,
+     "waves": [
+      16
+     ],
+     "bps": 6,
+     "L": 294.377,
+     "t1": 1070.13,
+     "h": 1.0,
+     "touched_mb": 0.969,
+     "batched": false
+    },
+    "ro": {
+     "us": 4.156,
+     "work_us": 1.437,
+     "waves": [
+      16
+     ],
+     "bps": 5,
+     "L": 371.835,
+     "t1": 501.835,
+     "h": 1.0,
+     "touched_mb": 0.969,
+     "batched": true
+    },
+    "ro2": {
+     "us": 4.138,
+     "work_us": 1.419,
+     "waves": [
+      16
+     ],
+     "bps": 5,
+     "L": 371.835,
+     "t1": 490.835,
+     "h": 1.0,
+     "touched_mb": 0.969,
+     "batched": true
+    },
+    "ro3": {
+     "us": 4.953,
+     "work_us": 2.234,
+     "waves": [
+      16
+     ],
+     "bps": 6,
+     "L": 294.377,
+     "t1": 1028.13,
+     "h": 1.0,
+     "touched_mb": 0.969,
+     "batched": false
+    }
+   }
+  },
+  {
+   "case_id": "b256_s32_d128_r32k_sum",
+   "gpu": "A100",
+   "last_draw": {
+    "orig": {
+     "us": 10.299,
+     "work_us": 7.58,
+     "waves": [
+      16
+     ],
+     "bps": 6,
+     "L": 294.377,
+     "t1": 1070.13,
+     "h": 1.0,
+     "touched_mb": 3.539,
+     "batched": false
+    },
+    "ro": {
+     "us": 6.858,
+     "work_us": 4.139,
+     "waves": [
+      16
+     ],
+     "bps": 5,
+     "L": 371.835,
+     "t1": 501.835,
+     "h": 1.0,
+     "touched_mb": 3.539,
+     "batched": true
+    },
+    "ro2": {
+     "us": 6.803,
+     "work_us": 4.084,
+     "waves": [
+      16
+     ],
+     "bps": 5,
+     "L": 371.835,
+     "t1": 490.835,
+     "h": 1.0,
+     "touched_mb": 3.539,
+     "batched": true
+    },
+    "ro3": {
+     "us": 10.048,
+     "work_us": 7.329,
+     "waves": [
+      16
+     ],
+     "bps": 6,
+     "L": 294.377,
+     "t1": 1028.13,
+     "h": 1.0,
+     "touched_mb": 3.539,
+     "batched": false
+    }
+   }
+  },
+  {
+   "case_id": "b256_s128_d128_r32k_sum",
+   "gpu": "A100",
+   "last_draw": {
+    "orig": {
+     "us": 31.811,
+     "work_us": 29.092,
+     "waves": [
+      16
+     ],
+     "bps": 6,
+     "L": 294.377,
+     "t1": 1070.13,
+     "h": 1.0,
+     "touched_mb": 10.114,
+     "batched": false
+    },
+    "ro": {
+     "us": 18.047,
+     "work_us": 15.328,
+     "waves": [
+      16
+     ],
+     "bps": 5,
+     "L": 371.835,
+     "t1": 501.835,
+     "h": 1.0,
+     "touched_mb": 10.114,
+     "batched": true
+    },
+    "ro2": {
+     "us": 17.766,
+     "work_us": 15.048,
+     "waves": [
+      16
+     ],
+     "bps": 5,
+     "L": 371.835,
+     "t1": 490.835,
+     "h": 1.0,
+     "touched_mb": 10.114,
+     "batched": true
+    },
+    "ro3": {
+     "us": 30.808,
+     "work_us": 28.089,
+     "waves": [
+      16
+     ],
+     "bps": 6,
+     "L": 294.377,
+     "t1": 1028.13,
+     "h": 1.0,
+     "touched_mb": 10.114,
+     "batched": false
+    }
+   }
+  },
+  {
+   "case_id": "b2048_s8_d128_r32k_sum",
+   "gpu": "A100",
+   "last_draw": {
+    "orig": {
+     "us": 9.471,
+     "work_us": 6.752,
+     "waves": [
+      48,
+      32
+     ],
+     "bps": 6,
+     "L": 294.377,
+     "t1": 1070.13,
+     "h": 1.0,
+     "touched_mb": 6.296,
+     "batched": false
+    },
+    "ro": {
+     "us": 9.105,
+     "work_us": 6.386,
+     "waves": [
+      40,
+      40
+     ],
+     "bps": 5,
+     "L": 371.835,
+     "t1": 501.835,
+     "h": 1.0,
+     "touched_mb": 6.296,
+     "batched": true
+    },
+    "ro2": {
+     "us": 9.471,
+     "work_us": 6.752,
+     "waves": [
+      40,
+      40
+     ],
+     "bps": 5,
+     "L": 371.835,
+     "t1": 490.835,
+     "h": 1.0,
+     "touched_mb": 6.296,
+     "batched": true
+    },
+    "ro3": {
+     "us": 9.471,
+     "work_us": 6.752,
+     "waves": [
+      48,
+      32
+     ],
+     "bps": 6,
+     "L": 294.377,
+     "t1": 1028.13,
+     "h": 1.0,
+     "touched_mb": 6.296,
+     "batched": false
+    }
+   }
+  },
+  {
+   "case_id": "b2048_s32_d128_r32k_sum",
+   "gpu": "A100",
+   "last_draw": {
+    "orig": {
+     "us": 23.14,
+     "work_us": 20.421,
+     "waves": [
+      48,
+      32
+     ],
+     "bps": 6,
+     "L": 294.377,
+     "t1": 1070.13,
+     "h": 1.0,
+     "touched_mb": 13.835,
+     "batched": false
+    },
+    "ro": {
+     "us": 21.676,
+     "work_us": 18.957,
+     "waves": [
+      40,
+      40
+     ],
+     "bps": 5,
+     "L": 371.835,
+     "t1": 501.835,
+     "h": 1.0,
+     "touched_mb": 13.835,
+     "batched": true
+    },
+    "ro2": {
+     "us": 23.14,
+     "work_us": 20.421,
+     "waves": [
+      40,
+      40
+     ],
+     "bps": 5,
+     "L": 371.835,
+     "t1": 490.835,
+     "h": 1.0,
+     "touched_mb": 13.835,
+     "batched": true
+    },
+    "ro3": {
+     "us": 23.14,
+     "work_us": 20.421,
+     "waves": [
+      48,
+      32
+     ],
+     "bps": 6,
+     "L": 294.377,
+     "t1": 1028.13,
+     "h": 1.0,
+     "touched_mb": 13.835,
+     "batched": false
+    }
+   }
+  },
+  {
+   "case_id": "b2048_s128_d128_r32k_sum",
+   "gpu": "A100",
+   "last_draw": {
+    "orig": {
+     "us": 77.815,
+     "work_us": 75.097,
+     "waves": [
+      48,
+      32
+     ],
+     "bps": 6,
+     "L": 294.377,
+     "t1": 1070.13,
+     "h": 1.0,
+     "touched_mb": 15.995,
+     "batched": false
+    },
+    "ro": {
+     "us": 71.96,
+     "work_us": 69.241,
+     "waves": [
+      40,
+      40
+     ],
+     "bps": 5,
+     "L": 371.835,
+     "t1": 501.835,
+     "h": 1.0,
+     "touched_mb": 15.995,
+     "batched": true
+    },
+    "ro2": {
+     "us": 77.815,
+     "work_us": 75.097,
+     "waves": [
+      40,
+      40
+     ],
+     "bps": 5,
+     "L": 371.835,
+     "t1": 490.835,
+     "h": 1.0,
+     "touched_mb": 15.995,
+     "batched": true
+    },
+    "ro3": {
+     "us": 77.815,
+     "work_us": 75.097,
+     "waves": [
+      48,
+      32
+     ],
+     "bps": 6,
+     "L": 294.377,
+     "t1": 1028.13,
+     "h": 1.0,
+     "touched_mb": 15.995,
+     "batched": false
+    }
+   }
+  },
+  {
+   "case_id": "b16384_s8_d128_r32k_sum",
+   "gpu": "A100",
+   "last_draw": {
+    "orig": {
+     "us": 56.736,
+     "work_us": 54.017,
+     "waves": [
+      48,
+      32
+     ],
+     "bps": 6,
+     "L": 294.377,
+     "t1": 1070.13,
+     "h": 1.0,
+     "touched_mb": 15.707,
+     "batched": false
+    },
+    "ro": {
+     "us": 53.808,
+     "work_us": 51.089,
+     "waves": [
+      40,
+      40
+     ],
+     "bps": 5,
+     "L": 371.835,
+     "t1": 501.835,
+     "h": 1.0,
+     "touched_mb": 15.707,
+     "batched": true
+    },
+    "ro2": {
+     "us": 56.736,
+     "work_us": 54.017,
+     "waves": [
+      40,
+      40
+     ],
+     "bps": 5,
+     "L": 371.835,
+     "t1": 490.835,
+     "h": 1.0,
+     "touched_mb": 15.707,
+     "batched": true
+    },
+    "ro3": {
+     "us": 56.736,
+     "work_us": 54.017,
+     "waves": [
+      48,
+      32
+     ],
+     "bps": 6,
+     "L": 294.377,
+     "t1": 1028.13,
+     "h": 1.0,
+     "touched_mb": 15.707,
+     "batched": false
+    }
+   }
+  },
+  {
+   "case_id": "b16384_s32_d128_r32k_sum",
+   "gpu": "A100",
+   "last_draw": {
+    "orig": {
+     "us": 166.087,
+     "work_us": 163.368,
+     "waves": [
+      48,
+      32
+     ],
+     "bps": 6,
+     "L": 294.377,
+     "t1": 1070.13,
+     "h": 1.0,
+     "touched_mb": 16.0,
+     "batched": false
+    },
+    "ro": {
+     "us": 154.376,
+     "work_us": 151.657,
+     "waves": [
+      40,
+      40
+     ],
+     "bps": 5,
+     "L": 371.835,
+     "t1": 501.835,
+     "h": 1.0,
+     "touched_mb": 16.0,
+     "batched": true
+    },
+    "ro2": {
+     "us": 166.087,
+     "work_us": 163.368,
+     "waves": [
+      40,
+      40
+     ],
+     "bps": 5,
+     "L": 371.835,
+     "t1": 490.835,
+     "h": 1.0,
+     "touched_mb": 16.0,
+     "batched": true
+    },
+    "ro3": {
+     "us": 166.087,
+     "work_us": 163.368,
+     "waves": [
+      48,
+      32
+     ],
+     "bps": 6,
+     "L": 294.377,
+     "t1": 1028.13,
+     "h": 1.0,
+     "touched_mb": 16.0,
+     "batched": false
+    }
+   }
+  },
+  {
+   "case_id": "b16384_s128_d128_r32k_sum",
+   "gpu": "A100",
+   "last_draw": {
+    "orig": {
+     "us": 603.492,
+     "work_us": 600.773,
+     "waves": [
+      48,
+      32
+     ],
+     "bps": 6,
+     "L": 294.377,
+     "t1": 1070.13,
+     "h": 1.0,
+     "touched_mb": 16.0,
+     "batched": false
+    },
+    "ro": {
+     "us": 556.648,
+     "work_us": 553.93,
+     "waves": [
+      40,
+      40
+     ],
+     "bps": 5,
+     "L": 371.835,
+     "t1": 501.835,
+     "h": 1.0,
+     "touched_mb": 16.0,
+     "batched": true
+    },
+    "ro2": {
+     "us": 603.492,
+     "work_us": 600.773,
+     "waves": [
+      40,
+      40
+     ],
+     "bps": 5,
+     "L": 371.835,
+     "t1": 490.835,
+     "h": 1.0,
+     "touched_mb": 16.0,
+     "batched": true
+    },
+    "ro3": {
+     "us": 603.492,
+     "work_us": 600.773,
+     "waves": [
+      48,
+      32
+     ],
+     "bps": 6,
+     "L": 294.377,
+     "t1": 1028.13,
+     "h": 1.0,
+     "touched_mb": 16.0,
+     "batched": false
+    }
+   }
+  },
+  {
+   "case_id": "b256_s32_d64_r32k_sum",
+   "gpu": "A100",
+   "last_draw": {
+    "orig": {
+     "us": 10.299,
+     "work_us": 7.58,
+     "waves": [
+      8
+     ],
+     "bps": 6,
+     "L": 294.377,
+     "t1": 1070.13,
+     "h": 1.0,
+     "touched_mb": 1.77,
+     "batched": false
+    },
+    "ro": {
+     "us": 6.858,
+     "work_us": 4.139,
+     "waves": [
+      8
+     ],
+     "bps": 5,
+     "L": 371.835,
+     "t1": 501.835,
+     "h": 1.0,
+     "touched_mb": 1.77,
+     "batched": true
+    },
+    "ro2": {
+     "us": 6.788,
+     "work_us": 4.069,
+     "waves": [
+      8
+     ],
+     "bps": 5,
+     "L": 371.835,
+     "t1": 490.835,
+     "h": 1.0,
+     "touched_mb": 1.77,
+     "batched": true
+    },
+    "ro3": {
+     "us": 10.048,
+     "work_us": 7.329,
+     "waves": [
+      8
+     ],
+     "bps": 6,
+     "L": 294.377,
+     "t1": 1028.13,
+     "h": 1.0,
+     "touched_mb": 1.77,
+     "batched": false
+    }
+   }
+  },
+  {
+   "case_id": "b256_s32_d256_r32k_sum",
+   "gpu": "A100",
+   "last_draw": {
+    "orig": {
+     "us": 10.299,
+     "work_us": 7.58,
+     "waves": [
+      24
+     ],
+     "bps": 6,
+     "L": 294.377,
+     "t1": 1070.13,
+     "h": 1.0,
+     "touched_mb": 7.078,
+     "batched": false
+    },
+    "ro": {
+     "us": 8.406,
+     "work_us": 5.687,
+     "waves": [
+      24
+     ],
+     "bps": 5,
+     "L": 371.835,
+     "t1": 501.835,
+     "h": 1.0,
+     "touched_mb": 7.078,
+     "batched": true
+    },
+    "ro2": {
+     "us": 8.845,
+     "work_us": 6.126,
+     "waves": [
+      24
+     ],
+     "bps": 5,
+     "L": 371.835,
+     "t1": 490.835,
+     "h": 1.0,
+     "touched_mb": 7.078,
+     "batched": true
+    },
+    "ro3": {
+     "us": 10.048,
+     "work_us": 7.329,
+     "waves": [
+      24
+     ],
+     "bps": 6,
+     "L": 294.377,
+     "t1": 1028.13,
+     "h": 1.0,
+     "touched_mb": 7.078,
+     "batched": false
+    }
+   }
+  },
+  {
+   "case_id": "b32_s32_d128_r1m_sum",
+   "gpu": "A100",
+   "last_draw": {
+    "orig": {
+     "us": 10.299,
+     "work_us": 7.58,
+     "waves": [
+      8
+     ],
+     "bps": 6,
+     "L": 294.377,
+     "t1": 1070.13,
+     "h": 1.0,
+     "touched_mb": 0.5,
+     "batched": false
+    },
+    "ro": {
+     "us": 6.858,
+     "work_us": 4.139,
+     "waves": [
+      8
+     ],
+     "bps": 5,
+     "L": 371.835,
+     "t1": 501.835,
+     "h": 1.0,
+     "touched_mb": 0.5,
+     "batched": true
+    },
+    "ro2": {
+     "us": 6.788,
+     "work_us": 4.069,
+     "waves": [
+      8
+     ],
+     "bps": 5,
+     "L": 371.835,
+     "t1": 490.835,
+     "h": 1.0,
+     "touched_mb": 0.5,
+     "batched": true
+    },
+    "ro3": {
+     "us": 10.048,
+     "work_us": 7.329,
+     "waves": [
+      8
+     ],
+     "bps": 6,
+     "L": 294.377,
+     "t1": 1028.13,
+     "h": 1.0,
+     "touched_mb": 0.5,
+     "batched": false
+    }
+   }
+  },
+  {
+   "case_id": "b256_s32_d128_r1m_sum",
+   "gpu": "A100",
+   "last_draw": {
+    "orig": {
+     "us": 10.299,
+     "work_us": 7.58,
+     "waves": [
+      16
+     ],
+     "bps": 6,
+     "L": 294.377,
+     "t1": 1070.13,
+     "h": 1.0,
+     "touched_mb": 3.984,
+     "batched": false
+    },
+    "ro": {
+     "us": 6.858,
+     "work_us": 4.139,
+     "waves": [
+      16
+     ],
+     "bps": 5,
+     "L": 371.835,
+     "t1": 501.835,
+     "h": 1.0,
+     "touched_mb": 3.984,
+     "batched": true
+    },
+    "ro2": {
+     "us": 6.803,
+     "work_us": 4.084,
+     "waves": [
+      16
+     ],
+     "bps": 5,
+     "L": 371.835,
+     "t1": 490.835,
+     "h": 1.0,
+     "touched_mb": 3.984,
+     "batched": true
+    },
+    "ro3": {
+     "us": 10.048,
+     "work_us": 7.329,
+     "waves": [
+      16
+     ],
+     "bps": 6,
+     "L": 294.377,
+     "t1": 1028.13,
+     "h": 1.0,
+     "touched_mb": 3.984,
+     "batched": false
+    }
+   }
+  },
+  {
+   "case_id": "b256_s128_d128_r1m_sum",
+   "gpu": "A100",
+   "last_draw": {
+    "orig": {
+     "us": 31.811,
+     "work_us": 29.092,
+     "waves": [
+      16
+     ],
+     "bps": 6,
+     "L": 294.377,
+     "t1": 1070.13,
+     "h": 1.0,
+     "touched_mb": 15.753,
+     "batched": false
+    },
+    "ro": {
+     "us": 18.047,
+     "work_us": 15.328,
+     "waves": [
+      16
+     ],
+     "bps": 5,
+     "L": 371.835,
+     "t1": 501.835,
+     "h": 1.0,
+     "touched_mb": 15.753,
+     "batched": true
+    },
+    "ro2": {
+     "us": 17.766,
+     "work_us": 15.048,
+     "waves": [
+      16
+     ],
+     "bps": 5,
+     "L": 371.835,
+     "t1": 490.835,
+     "h": 1.0,
+     "touched_mb": 15.753,
+     "batched": true
+    },
+    "ro3": {
+     "us": 30.808,
+     "work_us": 28.089,
+     "waves": [
+      16
+     ],
+     "bps": 6,
+     "L": 294.377,
+     "t1": 1028.13,
+     "h": 1.0,
+     "touched_mb": 15.753,
+     "batched": false
+    }
+   }
+  },
+  {
+   "case_id": "b2048_s32_d128_r1m_sum",
+   "gpu": "A100",
+   "last_draw": {
+    "orig": {
+     "us": 23.587,
+     "work_us": 20.868,
+     "waves": [
+      48,
+      32
+     ],
+     "bps": 6,
+     "L": 352.214,
+     "t1": 1243.643,
+     "h": 0.8,
+     "touched_mb": 31.021,
+     "batched": false
+    },
+    "ro": {
+     "us": 21.676,
+     "work_us": 18.957,
+     "waves": [
+      40,
+      40
+     ],
+     "bps": 5,
+     "L": 504.471,
+     "t1": 634.471,
+     "h": 0.8,
+     "touched_mb": 31.021,
+     "batched": true
+    },
+    "ro2": {
+     "us": 23.14,
+     "work_us": 20.421,
+     "waves": [
+      40,
+      40
+     ],
+     "bps": 5,
+     "L": 504.471,
+     "t1": 623.471,
+     "h": 0.8,
+     "touched_mb": 31.021,
+     "batched": true
+    },
+    "ro3": {
+     "us": 23.336,
+     "work_us": 20.617,
+     "waves": [
+      48,
+      32
+     ],
+     "bps": 6,
+     "L": 352.214,
+     "t1": 1201.643,
+     "h": 0.8,
+     "touched_mb": 31.021,
+     "batched": false
+    }
+   }
+  },
+  {
+   "case_id": "b2048_s32_d256_r1m_sum",
+   "gpu": "A100",
+   "last_draw": {
+    "orig": {
+     "us": 48.609,
+     "work_us": 45.89,
+     "waves": [
+      48,
+      32
+     ],
+     "bps": 6,
+     "L": 468.224,
+     "t1": 1591.672,
+     "h": 0.4,
+     "touched_mb": 62.041,
+     "batched": false
+    },
+    "ro": {
+     "us": 40.633,
+     "work_us": 37.914,
+     "waves": [
+      40,
+      40
+     ],
+     "bps": 5,
+     "L": 622.877,
+     "t1": 752.877,
+     "h": 0.4,
+     "touched_mb": 62.041,
+     "batched": true
+    },
+    "ro2": {
+     "us": 43.561,
+     "work_us": 40.842,
+     "waves": [
+      40,
+      40
+     ],
+     "bps": 5,
+     "L": 622.877,
+     "t1": 741.877,
+     "h": 0.4,
+     "touched_mb": 62.041,
+     "batched": true
+    },
+    "ro3": {
+     "us": 48.108,
+     "work_us": 45.389,
+     "waves": [
+      48,
+      32
+     ],
+     "bps": 6,
+     "L": 468.224,
+     "t1": 1549.672,
+     "h": 0.4,
+     "touched_mb": 62.041,
+     "batched": false
+    }
+   }
+  },
+  {
+   "case_id": "b16384_s32_d128_r1m_sum",
+   "gpu": "A100",
+   "last_draw": {
+    "orig": {
+     "us": 230.476,
+     "work_us": 227.758,
+     "waves": [
+      48,
+      32
+     ],
+     "bps": 6,
+     "L": 548.507,
+     "t1": 1832.522,
+     "h": 0.123,
+     "touched_mb": 201.456,
+     "batched": false
+    },
+    "ro": {
+     "us": 220.581,
+     "work_us": 217.862,
+     "waves": [
+      40,
+      40
+     ],
+     "bps": 5,
+     "L": 652.389,
+     "t1": 782.389,
+     "h": 0.123,
+     "touched_mb": 201.456,
+     "batched": true
+    },
+    "ro2": {
+     "us": 220.581,
+     "work_us": 217.862,
+     "waves": [
+      40,
+      40
+     ],
+     "bps": 5,
+     "L": 652.389,
+     "t1": 771.389,
+     "h": 0.123,
+     "touched_mb": 201.456,
+     "batched": true
+    },
+    "ro3": {
+     "us": 228.471,
+     "work_us": 225.752,
+     "waves": [
+      48,
+      32
+     ],
+     "bps": 6,
+     "L": 548.507,
+     "t1": 1790.522,
+     "h": 0.123,
+     "touched_mb": 201.456,
+     "batched": false
+    }
+   }
+  },
+  {
+   "case_id": "b32_s32_d128_r1m_sum_cold",
+   "gpu": "A100",
+   "last_draw": {
+    "orig": {
+     "us": 17.319,
+     "work_us": 13.416,
+     "waves": [
+      8
+     ],
+     "bps": 6,
+     "L": 584.093,
+     "t1": 1939.278,
+     "h": 0.0,
+     "touched_mb": 0.5,
+     "batched": false
+    },
+    "ro": {
+     "us": 10.415,
+     "work_us": 6.511,
+     "waves": [
+      8
+     ],
+     "bps": 5,
+     "L": 660.656,
+     "t1": 790.656,
+     "h": 0.0,
+     "touched_mb": 0.5,
+     "batched": true
+    },
+    "ro2": {
+     "us": 10.345,
+     "work_us": 6.441,
+     "waves": [
+      8
+     ],
+     "bps": 5,
+     "L": 660.656,
+     "t1": 779.656,
+     "h": 0.0,
+     "touched_mb": 0.5,
+     "batched": true
+    },
+    "ro3": {
+     "us": 17.069,
+     "work_us": 13.165,
+     "waves": [
+      8
+     ],
+     "bps": 6,
+     "L": 584.093,
+     "t1": 1897.278,
+     "h": 0.0,
+     "touched_mb": 0.5,
+     "batched": false
+    }
+   }
+  },
+  {
+   "case_id": "b256_s32_d128_r1m_sum_cold",
+   "gpu": "A100",
+   "last_draw": {
+    "orig": {
+     "us": 17.302,
+     "work_us": 13.398,
+     "waves": [
+      16
+     ],
+     "bps": 6,
+     "L": 583.105,
+     "t1": 1936.314,
+     "h": 0.004,
+     "touched_mb": 3.984,
+     "batched": false
+    },
+    "ro": {
+     "us": 10.413,
+     "work_us": 6.51,
+     "waves": [
+      16
+     ],
+     "bps": 5,
+     "L": 660.45,
+     "t1": 790.45,
+     "h": 0.004,
+     "touched_mb": 3.984,
+     "batched": true
+    },
+    "ro2": {
+     "us": 10.343,
+     "work_us": 6.44,
+     "waves": [
+      16
+     ],
+     "bps": 5,
+     "L": 660.45,
+     "t1": 779.45,
+     "h": 0.004,
+     "touched_mb": 3.984,
+     "batched": true
+    },
+    "ro3": {
+     "us": 17.051,
+     "work_us": 13.148,
+     "waves": [
+      16
+     ],
+     "bps": 6,
+     "L": 583.105,
+     "t1": 1894.314,
+     "h": 0.004,
+     "touched_mb": 3.984,
+     "batched": false
+    }
+   }
+  },
+  {
+   "case_id": "b256_s32_d128_r32k_mean",
+   "gpu": "A100",
+   "last_draw": {
+    "orig": {
+     "us": 10.299,
+     "work_us": 7.58,
+     "waves": [
+      16
+     ],
+     "bps": 6,
+     "L": 294.377,
+     "t1": 1070.13,
+     "h": 1.0,
+     "touched_mb": 3.539,
+     "batched": false
+    },
+    "ro": {
+     "us": 6.858,
+     "work_us": 4.139,
+     "waves": [
+      16
+     ],
+     "bps": 5,
+     "L": 371.835,
+     "t1": 501.835,
+     "h": 1.0,
+     "touched_mb": 3.539,
+     "batched": true
+    },
+    "ro2": {
+     "us": 6.803,
+     "work_us": 4.084,
+     "waves": [
+      16
+     ],
+     "bps": 5,
+     "L": 371.835,
+     "t1": 490.835,
+     "h": 1.0,
+     "touched_mb": 3.539,
+     "batched": true
+    },
+    "ro3": {
+     "us": 10.048,
+     "work_us": 7.329,
+     "waves": [
+      16
+     ],
+     "bps": 6,
+     "L": 294.377,
+     "t1": 1028.13,
+     "h": 1.0,
+     "touched_mb": 3.539,
+     "batched": false
+    }
+   }
+  },
+  {
+   "case_id": "b256_s32_d128_r32k_psw",
+   "gpu": "A100",
+   "last_draw": {
+    "orig": {
+     "us": 12.825,
+     "work_us": 10.107,
+     "waves": [
+      16
+     ],
+     "bps": 6,
+     "L": 294.377,
+     "t1": 1493.507,
+     "h": 1.0,
+     "touched_mb": 3.539,
+     "batched": false
+    },
+    "ro": {
+     "us": 8.337,
+     "work_us": 5.619,
+     "waves": [
+      16
+     ],
+     "bps": 5,
+     "L": 294.377,
+     "t1": 749.754,
+     "h": 1.0,
+     "touched_mb": 3.539,
+     "batched": false
+    },
+    "ro2": {
+     "us": 8.172,
+     "work_us": 5.453,
+     "waves": [
+      16
+     ],
+     "bps": 5,
+     "L": 294.377,
+     "t1": 722.754,
+     "h": 1.0,
+     "touched_mb": 3.539,
+     "batched": false
+    },
+    "ro3": {
+     "us": 12.235,
+     "work_us": 9.516,
+     "waves": [
+      16
+     ],
+     "bps": 6,
+     "L": 294.377,
+     "t1": 1394.507,
+     "h": 1.0,
+     "touched_mb": 3.539,
+     "batched": false
+    }
+   }
+  },
+  {
+   "case_id": "b2048_s32_d128_r32k_psw",
+   "gpu": "A100",
+   "last_draw": {
+    "orig": {
+     "us": 26.483,
+     "work_us": 23.765,
+     "waves": [
+      48,
+      32
+     ],
+     "bps": 6,
+     "L": 294.377,
+     "t1": 1493.507,
+     "h": 1.0,
+     "touched_mb": 13.835,
+     "batched": false
+    },
+    "ro": {
+     "us": 23.433,
+     "work_us": 20.714,
+     "waves": [
+      40,
+      40
+     ],
+     "bps": 5,
+     "L": 294.377,
+     "t1": 749.754,
+     "h": 1.0,
+     "touched_mb": 13.835,
+     "batched": false
+    },
+    "ro2": {
+     "us": 25.482,
+     "work_us": 22.763,
+     "waves": [
+      40,
+      40
+     ],
+     "bps": 5,
+     "L": 294.377,
+     "t1": 722.754,
+     "h": 1.0,
+     "touched_mb": 13.835,
+     "batched": false
+    },
+    "ro3": {
+     "us": 25.893,
+     "work_us": 23.174,
+     "waves": [
+      48,
+      32
+     ],
+     "bps": 6,
+     "L": 294.377,
+     "t1": 1394.507,
+     "h": 1.0,
+     "touched_mb": 13.835,
+     "batched": false
+    }
+   }
+  },
+  {
+   "case_id": "b16384_s32_d128_r1m_psw",
+   "gpu": "A100",
+   "last_draw": {
+    "orig": {
+     "us": 262.825,
+     "work_us": 260.106,
+     "waves": [
+      48,
+      32
+     ],
+     "bps": 6,
+     "L": 548.507,
+     "t1": 2510.029,
+     "h": 0.123,
+     "touched_mb": 201.456,
+     "batched": false
+    },
+    "ro": {
+     "us": 220.581,
+     "work_us": 217.862,
+     "waves": [
+      40,
+      40
+     ],
+     "bps": 5,
+     "L": 548.507,
+     "t1": 1258.015,
+     "h": 0.123,
+     "touched_mb": 201.456,
+     "batched": false
+    },
+    "ro2": {
+     "us": 220.581,
+     "work_us": 217.862,
+     "waves": [
+      40,
+      40
+     ],
+     "bps": 5,
+     "L": 548.507,
+     "t1": 1231.015,
+     "h": 0.123,
+     "touched_mb": 201.456,
+     "batched": false
+    },
+    "ro3": {
+     "us": 258.098,
+     "work_us": 255.379,
+     "waves": [
+      48,
+      32
+     ],
+     "bps": 6,
+     "L": 548.507,
+     "t1": 2411.029,
+     "h": 0.123,
+     "touched_mb": 201.456,
+     "batched": false
+    }
+   }
+  },
+  {
+   "case_id": "b2048_v32_d128_r32k_mean_pad",
+   "gpu": "A100",
+   "last_draw": {
+    "orig": {
+     "us": 27.715,
+     "work_us": 24.997,
+     "waves": [
+      48,
+      32
+     ],
+     "bps": 6,
+     "L": 294.377,
+     "t1": 1070.13,
+     "h": 1.0,
+     "touched_mb": 13.835,
+     "batched": false
+    },
+    "ro": {
+     "us": 25.884,
+     "work_us": 23.165,
+     "waves": [
+      40,
+      40
+     ],
+     "bps": 5,
+     "L": 371.835,
+     "t1": 501.835,
+     "h": 1.0,
+     "touched_mb": 13.835,
+     "batched": true
+    },
+    "ro2": {
+     "us": 27.715,
+     "work_us": 24.997,
+     "waves": [
+      40,
+      40
+     ],
+     "bps": 5,
+     "L": 371.835,
+     "t1": 490.835,
+     "h": 1.0,
+     "touched_mb": 13.835,
+     "batched": true
+    },
+    "ro3": {
+     "us": 27.715,
+     "work_us": 24.997,
+     "waves": [
+      48,
+      32
+     ],
+     "bps": 6,
+     "L": 294.377,
+     "t1": 1028.13,
+     "h": 1.0,
+     "touched_mb": 13.835,
+     "batched": false
+    }
+   }
+  },
+  {
+   "case_id": "b32_s32_d128_r32k_sum_cold",
+   "gpu": "A100",
+   "last_draw": {
+    "orig": {
+     "us": 17.241,
+     "work_us": 13.338,
+     "waves": [
+      8
+     ],
+     "bps": 6,
+     "L": 579.752,
+     "t1": 1926.255,
+     "h": 0.015,
+     "touched_mb": 0.492,
+     "batched": false
+    },
+    "ro": {
+     "us": 10.409,
+     "work_us": 6.506,
+     "waves": [
+      8
+     ],
+     "bps": 5,
+     "L": 659.741,
+     "t1": 789.741,
+     "h": 0.015,
+     "touched_mb": 0.492,
+     "batched": true
+    },
+    "ro2": {
+     "us": 10.339,
+     "work_us": 6.436,
+     "waves": [
+      8
+     ],
+     "bps": 5,
+     "L": 659.741,
+     "t1": 778.741,
+     "h": 0.015,
+     "touched_mb": 0.492,
+     "batched": true
+    },
+    "ro3": {
+     "us": 16.991,
+     "work_us": 13.088,
+     "waves": [
+      8
+     ],
+     "bps": 6,
+     "L": 579.752,
+     "t1": 1884.255,
+     "h": 0.015,
+     "touched_mb": 0.492,
+     "batched": false
+    }
+   }
+  },
+  {
+   "case_id": "b256_s32_d128_r32k_sum_cold",
+   "gpu": "A100",
+   "last_draw": {
+    "orig": {
+     "us": 16.724,
+     "work_us": 12.821,
+     "waves": [
+      16
+     ],
+     "bps": 6,
+     "L": 550.842,
+     "t1": 1839.525,
+     "h": 0.115,
+     "touched_mb": 3.539,
+     "batched": false
+    },
+    "ro": {
+     "us": 10.369,
+     "work_us": 6.466,
+     "waves": [
+      16
+     ],
+     "bps": 5,
+     "L": 652.99,
+     "t1": 782.99,
+     "h": 0.115,
+     "touched_mb": 3.539,
+     "batched": true
+    },
+    "ro2": {
+     "us": 10.299,
+     "work_us": 6.396,
+     "waves": [
+      16
+     ],
+     "bps": 5,
+     "L": 652.99,
+     "t1": 771.99,
+     "h": 0.115,
+     "touched_mb": 3.539,
+     "batched": true
+    },
+    "ro3": {
+     "us": 16.473,
+     "work_us": 12.57,
+     "waves": [
+      16
+     ],
+     "bps": 6,
+     "L": 550.842,
+     "t1": 1797.525,
+     "h": 0.115,
+     "touched_mb": 3.539,
+     "batched": false
+    }
+   }
+  },
+  {
+   "case_id": "b2048_s32_d128_r32k_sum_cold",
+   "gpu": "A100",
+   "last_draw": {
+    "orig": {
+     "us": 26.628,
+     "work_us": 22.725,
+     "waves": [
+      48,
+      32
+     ],
+     "bps": 6,
+     "L": 419.691,
+     "t1": 1446.074,
+     "h": 0.568,
+     "touched_mb": 13.835,
+     "batched": false
+    },
+    "ro": {
+     "us": 22.86,
+     "work_us": 18.957,
+     "waves": [
+      40,
+      40
+     ],
+     "bps": 5,
+     "L": 589.698,
+     "t1": 719.698,
+     "h": 0.568,
+     "touched_mb": 13.835,
+     "batched": true
+    },
+    "ro2": {
+     "us": 24.324,
+     "work_us": 20.421,
+     "waves": [
+      40,
+      40
+     ],
+     "bps": 5,
+     "L": 589.698,
+     "t1": 708.698,
+     "h": 0.568,
+     "touched_mb": 13.835,
+     "batched": true
+    },
+    "ro3": {
+     "us": 26.378,
+     "work_us": 22.474,
+     "waves": [
+      48,
+      32
+     ],
+     "bps": 6,
+     "L": 419.691,
+     "t1": 1404.074,
+     "h": 0.568,
+     "touched_mb": 13.835,
+     "batched": false
+    }
+   }
+  },
+  {
+   "case_id": "b16384_s32_d128_r32k_sum_cold",
+   "gpu": "A100",
+   "last_draw": {
+    "orig": {
+     "us": 170.348,
+     "work_us": 166.445,
+     "waves": [
+      48,
+      32
+     ],
+     "bps": 6,
+     "L": 312.493,
+     "t1": 1124.479,
+     "h": 0.938,
+     "touched_mb": 16.0,
+     "batched": false
+    },
+    "ro": {
+     "us": 155.56,
+     "work_us": 151.657,
+     "waves": [
+      40,
+      40
+     ],
+     "bps": 5,
+     "L": 420.992,
+     "t1": 550.992,
+     "h": 0.938,
+     "touched_mb": 16.0,
+     "batched": true
+    },
+    "ro2": {
+     "us": 167.271,
+     "work_us": 163.368,
+     "waves": [
+      40,
+      40
+     ],
+     "bps": 5,
+     "L": 420.992,
+     "t1": 539.992,
+     "h": 0.938,
+     "touched_mb": 16.0,
+     "batched": true
+    },
+    "ro3": {
+     "us": 168.343,
+     "work_us": 164.44,
+     "waves": [
+      48,
+      32
+     ],
+     "bps": 6,
+     "L": 312.493,
+     "t1": 1082.479,
+     "h": 0.938,
+     "touched_mb": 16.0,
+     "batched": false
+    }
+   }
+  },
+  {
+   "case_id": "b32_s8_d128_r32k_sum",
+   "gpu": "H100",
+   "last_draw": {
+    "orig": {
+     "us": 4.917,
+     "work_us": 1.708,
+     "waves": [
+      8
+     ],
+     "bps": 6,
+     "L": 395.008,
+     "t1": 887.016,
+     "h": 1.0,
+     "touched_mb": 0.125,
+     "batched": false
+    },
+    "ro": {
+     "us": 4.613,
+     "work_us": 1.403,
+     "waves": [
+      8
+     ],
+     "bps": 5,
+     "L": 491.644,
+     "t1": 629.644,
+     "h": 1.0,
+     "touched_mb": 0.125,
+     "batched": true
+    },
+    "ro2": {
+     "us": 4.94,
+     "work_us": 1.73,
+     "waves": [
+      8
+     ],
+     "bps": 6,
+     "L": 395.008,
+     "t1": 907.016,
+     "h": 1.0,
+     "touched_mb": 0.125,
+     "batched": false
+    },
+    "ro3": {
+     "us": 4.965,
+     "work_us": 1.755,
+     "waves": [
+      8
+     ],
+     "bps": 6,
+     "L": 395.008,
+     "t1": 928.016,
+     "h": 1.0,
+     "touched_mb": 0.125,
+     "batched": false
+    }
+   }
+  },
+  {
+   "case_id": "b32_s32_d128_r32k_sum",
+   "gpu": "H100",
+   "last_draw": {
+    "orig": {
+     "us": 8.452,
+     "work_us": 5.242,
+     "waves": [
+      8
+     ],
+     "bps": 6,
+     "L": 395.008,
+     "t1": 887.016,
+     "h": 1.0,
+     "touched_mb": 0.492,
+     "batched": false
+    },
+    "ro": {
+     "us": 7.232,
+     "work_us": 4.022,
+     "waves": [
+      8
+     ],
+     "bps": 5,
+     "L": 491.644,
+     "t1": 629.644,
+     "h": 1.0,
+     "touched_mb": 0.492,
+     "batched": true
+    },
+    "ro2": {
+     "us": 8.541,
+     "work_us": 5.331,
+     "waves": [
+      8
+     ],
+     "bps": 6,
+     "L": 395.008,
+     "t1": 907.016,
+     "h": 1.0,
+     "touched_mb": 0.492,
+     "batched": false
+    },
+    "ro3": {
+     "us": 8.644,
+     "work_us": 5.434,
+     "waves": [
+      8
+     ],
+     "bps": 6,
+     "L": 395.008,
+     "t1": 928.016,
+     "h": 1.0,
+     "touched_mb": 0.492,
+     "batched": false
+    }
+   }
+  },
+  {
+   "case_id": "b32_s128_d128_r32k_sum",
+   "gpu": "H100",
+   "last_draw": {
+    "orig": {
+     "us": 23.005,
+     "work_us": 19.795,
+     "waves": [
+      8
+     ],
+     "bps": 6,
+     "L": 395.008,
+     "t1": 887.016,
+     "h": 1.0,
+     "touched_mb": 1.88,
+     "batched": false
+    },
+    "ro": {
+     "us": 18.127,
+     "work_us": 14.917,
+     "waves": [
+      8
+     ],
+     "bps": 5,
+     "L": 491.644,
+     "t1": 629.644,
+     "h": 1.0,
+     "touched_mb": 1.88,
+     "batched": true
+    },
+    "ro2": {
+     "us": 23.361,
+     "work_us": 20.151,
+     "waves": [
+      8
+     ],
+     "bps": 6,
+     "L": 395.008,
+     "t1": 907.016,
+     "h": 1.0,
+     "touched_mb": 1.88,
+     "batched": false
+    },
+    "ro3": {
+     "us": 23.773,
+     "work_us": 20.563,
+     "waves": [
+      8
+     ],
+     "bps": 6,
+     "L": 395.008,
+     "t1": 928.016,
+     "h": 1.0,
+     "touched_mb": 1.88,
+     "batched": false
+    }
+   }
+  },
+  {
+   "case_id": "b256_s8_d128_r32k_sum",
+   "gpu": "H100",
+   "last_draw": {
+    "orig": {
+     "us": 4.917,
+     "work_us": 1.708,
+     "waves": [
+      16
+     ],
+     "bps": 6,
+     "L": 395.008,
+     "t1": 887.016,
+     "h": 1.0,
+     "touched_mb": 0.969,
+     "batched": false
+    },
+    "ro": {
+     "us": 4.613,
+     "work_us": 1.403,
+     "waves": [
+      16
+     ],
+     "bps": 5,
+     "L": 491.644,
+     "t1": 629.644,
+     "h": 1.0,
+     "touched_mb": 0.969,
+     "batched": true
+    },
+    "ro2": {
+     "us": 4.94,
+     "work_us": 1.73,
+     "waves": [
+      16
+     ],
+     "bps": 6,
+     "L": 395.008,
+     "t1": 907.016,
+     "h": 1.0,
+     "touched_mb": 0.969,
+     "batched": false
+    },
+    "ro3": {
+     "us": 4.965,
+     "work_us": 1.755,
+     "waves": [
+      16
+     ],
+     "bps": 6,
+     "L": 395.008,
+     "t1": 928.016,
+     "h": 1.0,
+     "touched_mb": 0.969,
+     "batched": false
+    }
+   }
+  },
+  {
+   "case_id": "b256_s32_d128_r32k_sum",
+   "gpu": "H100",
+   "last_draw": {
+    "orig": {
+     "us": 8.452,
+     "work_us": 5.242,
+     "waves": [
+      16
+     ],
+     "bps": 6,
+     "L": 395.008,
+     "t1": 887.016,
+     "h": 1.0,
+     "touched_mb": 3.539,
+     "batched": false
+    },
+    "ro": {
+     "us": 7.232,
+     "work_us": 4.022,
+     "waves": [
+      16
+     ],
+     "bps": 5,
+     "L": 491.644,
+     "t1": 629.644,
+     "h": 1.0,
+     "touched_mb": 3.539,
+     "batched": true
+    },
+    "ro2": {
+     "us": 8.541,
+     "work_us": 5.331,
+     "waves": [
+      16
+     ],
+     "bps": 6,
+     "L": 395.008,
+     "t1": 907.016,
+     "h": 1.0,
+     "touched_mb": 3.539,
+     "batched": false
+    },
+    "ro3": {
+     "us": 8.644,
+     "work_us": 5.434,
+     "waves": [
+      16
+     ],
+     "bps": 6,
+     "L": 395.008,
+     "t1": 928.016,
+     "h": 1.0,
+     "touched_mb": 3.539,
+     "batched": false
+    }
+   }
+  },
+  {
+   "case_id": "b256_s128_d128_r32k_sum",
+   "gpu": "H100",
+   "last_draw": {
+    "orig": {
+     "us": 23.005,
+     "work_us": 19.795,
+     "waves": [
+      16
+     ],
+     "bps": 6,
+     "L": 395.008,
+     "t1": 887.016,
+     "h": 1.0,
+     "touched_mb": 10.114,
+     "batched": false
+    },
+    "ro": {
+     "us": 18.127,
+     "work_us": 14.917,
+     "waves": [
+      16
+     ],
+     "bps": 5,
+     "L": 491.644,
+     "t1": 629.644,
+     "h": 1.0,
+     "touched_mb": 10.114,
+     "batched": true
+    },
+    "ro2": {
+     "us": 23.361,
+     "work_us": 20.151,
+     "waves": [
+      16
+     ],
+     "bps": 6,
+     "L": 395.008,
+     "t1": 907.016,
+     "h": 1.0,
+     "touched_mb": 10.114,
+     "batched": false
+    },
+    "ro3": {
+     "us": 23.773,
+     "work_us": 20.563,
+     "waves": [
+      16
+     ],
+     "bps": 6,
+     "L": 395.008,
+     "t1": 928.016,
+     "h": 1.0,
+     "touched_mb": 10.114,
+     "batched": false
+    }
+   }
+  },
+  {
+   "case_id": "b2048_s8_d128_r32k_sum",
+   "gpu": "H100",
+   "last_draw": {
+    "orig": {
+     "us": 8.201,
+     "work_us": 4.991,
+     "waves": [
+      48,
+      24
+     ],
+     "bps": 6,
+     "L": 395.008,
+     "t1": 887.016,
+     "h": 1.0,
+     "touched_mb": 6.296,
+     "batched": false
+    },
+    "ro": {
+     "us": 7.929,
+     "work_us": 4.719,
+     "waves": [
+      40,
+      32
+     ],
+     "bps": 5,
+     "L": 491.644,
+     "t1": 629.644,
+     "h": 1.0,
+     "touched_mb": 6.296,
+     "batched": true
+    },
+    "ro2": {
+     "us": 8.137,
+     "work_us": 4.927,
+     "waves": [
+      48,
+      24
+     ],
+     "bps": 6,
+     "L": 395.008,
+     "t1": 907.016,
+     "h": 1.0,
+     "touched_mb": 6.296,
+     "batched": false
+    },
+    "ro3": {
+     "us": 8.249,
+     "work_us": 5.039,
+     "waves": [
+      48,
+      24
+     ],
+     "bps": 6,
+     "L": 395.008,
+     "t1": 928.016,
+     "h": 1.0,
+     "touched_mb": 6.296,
+     "batched": false
+    }
+   }
+  },
+  {
+   "case_id": "b2048_s32_d128_r32k_sum",
+   "gpu": "H100",
+   "last_draw": {
+    "orig": {
+     "us": 18.484,
+     "work_us": 15.274,
+     "waves": [
+      48,
+      24
+     ],
+     "bps": 6,
+     "L": 395.008,
+     "t1": 887.016,
+     "h": 1.0,
+     "touched_mb": 13.835,
+     "batched": false
+    },
+    "ro": {
+     "us": 17.431,
+     "work_us": 14.221,
+     "waves": [
+      40,
+      32
+     ],
+     "bps": 5,
+     "L": 491.644,
+     "t1": 629.644,
+     "h": 1.0,
+     "touched_mb": 13.835,
+     "batched": true
+    },
+    "ro2": {
+     "us": 18.228,
+     "work_us": 15.018,
+     "waves": [
+      48,
+      24
+     ],
+     "bps": 6,
+     "L": 395.008,
+     "t1": 907.016,
+     "h": 1.0,
+     "touched_mb": 13.835,
+     "batched": false
+    },
+    "ro3": {
+     "us": 18.676,
+     "work_us": 15.466,
+     "waves": [
+      48,
+      24
+     ],
+     "bps": 6,
+     "L": 395.008,
+     "t1": 928.016,
+     "h": 1.0,
+     "touched_mb": 13.835,
+     "batched": false
+    }
+   }
+  },
+  {
+   "case_id": "b2048_s128_d128_r32k_sum",
+   "gpu": "H100",
+   "last_draw": {
+    "orig": {
+     "us": 60.033,
+     "work_us": 56.823,
+     "waves": [
+      48,
+      24
+     ],
+     "bps": 6,
+     "L": 395.008,
+     "t1": 887.016,
+     "h": 1.0,
+     "touched_mb": 15.995,
+     "batched": false
+    },
+    "ro": {
+     "us": 55.441,
+     "work_us": 52.231,
+     "waves": [
+      40,
+      32
+     ],
+     "bps": 5,
+     "L": 491.644,
+     "t1": 629.644,
+     "h": 1.0,
+     "touched_mb": 15.995,
+     "batched": true
+    },
+    "ro2": {
+     "us": 59.009,
+     "work_us": 55.799,
+     "waves": [
+      48,
+      24
+     ],
+     "bps": 6,
+     "L": 395.008,
+     "t1": 907.016,
+     "h": 1.0,
+     "touched_mb": 15.995,
+     "batched": false
+    },
+    "ro3": {
+     "us": 60.8,
+     "work_us": 57.59,
+     "waves": [
+      48,
+      24
+     ],
+     "bps": 6,
+     "L": 395.008,
+     "t1": 928.016,
+     "h": 1.0,
+     "touched_mb": 15.995,
+     "batched": false
+    }
+   }
+  },
+  {
+   "case_id": "b16384_s8_d128_r32k_sum",
+   "gpu": "H100",
+   "last_draw": {
+    "orig": {
+     "us": 43.141,
+     "work_us": 39.931,
+     "waves": [
+      48,
+      24
+     ],
+     "bps": 6,
+     "L": 395.008,
+     "t1": 887.016,
+     "h": 1.0,
+     "touched_mb": 15.707,
+     "batched": false
+    },
+    "ro": {
+     "us": 40.961,
+     "work_us": 37.751,
+     "waves": [
+      40,
+      32
+     ],
+     "bps": 5,
+     "L": 491.644,
+     "t1": 629.644,
+     "h": 1.0,
+     "touched_mb": 15.707,
+     "batched": true
+    },
+    "ro2": {
+     "us": 42.629,
+     "work_us": 39.419,
+     "waves": [
+      48,
+      24
+     ],
+     "bps": 6,
+     "L": 395.008,
+     "t1": 907.016,
+     "h": 1.0,
+     "touched_mb": 15.707,
+     "batched": false
+    },
+    "ro3": {
+     "us": 43.525,
+     "work_us": 40.315,
+     "waves": [
+      48,
+      24
+     ],
+     "bps": 6,
+     "L": 395.008,
+     "t1": 928.016,
+     "h": 1.0,
+     "touched_mb": 15.707,
+     "batched": false
+    }
+   }
+  },
+  {
+   "case_id": "b16384_s32_d128_r32k_sum",
+   "gpu": "H100",
+   "last_draw": {
+    "orig": {
+     "us": 125.405,
+     "work_us": 122.195,
+     "waves": [
+      48,
+      24
+     ],
+     "bps": 6,
+     "L": 395.008,
+     "t1": 887.016,
+     "h": 1.0,
+     "touched_mb": 16.0,
+     "batched": false
+    },
+    "ro": {
+     "us": 116.981,
+     "work_us": 113.771,
+     "waves": [
+      40,
+      32
+     ],
+     "bps": 5,
+     "L": 491.644,
+     "t1": 629.644,
+     "h": 1.0,
+     "touched_mb": 16.0,
+     "batched": true
+    },
+    "ro2": {
+     "us": 123.358,
+     "work_us": 120.148,
+     "waves": [
+      48,
+      24
+     ],
+     "bps": 6,
+     "L": 395.008,
+     "t1": 907.016,
+     "h": 1.0,
+     "touched_mb": 16.0,
+     "batched": false
+    },
+    "ro3": {
+     "us": 126.939,
+     "work_us": 123.729,
+     "waves": [
+      48,
+      24
+     ],
+     "bps": 6,
+     "L": 395.008,
+     "t1": 928.016,
+     "h": 1.0,
+     "touched_mb": 16.0,
+     "batched": false
+    }
+   }
+  },
+  {
+   "case_id": "b16384_s128_d128_r32k_sum",
+   "gpu": "H100",
+   "last_draw": {
+    "orig": {
+     "us": 457.791,
+     "work_us": 454.581,
+     "waves": [
+      48,
+      24
+     ],
+     "bps": 6,
+     "L": 395.008,
+     "t1": 887.016,
+     "h": 1.0,
+     "touched_mb": 16.0,
+     "batched": false
+    },
+    "ro": {
+     "us": 421.06,
+     "work_us": 417.85,
+     "waves": [
+      40,
+      32
+     ],
+     "bps": 5,
+     "L": 491.644,
+     "t1": 629.644,
+     "h": 1.0,
+     "touched_mb": 16.0,
+     "batched": true
+    },
+    "ro2": {
+     "us": 449.604,
+     "work_us": 446.394,
+     "waves": [
+      48,
+      24
+     ],
+     "bps": 6,
+     "L": 395.008,
+     "t1": 907.016,
+     "h": 1.0,
+     "touched_mb": 16.0,
+     "batched": false
+    },
+    "ro3": {
+     "us": 463.93,
+     "work_us": 460.72,
+     "waves": [
+      48,
+      24
+     ],
+     "bps": 6,
+     "L": 395.008,
+     "t1": 928.016,
+     "h": 1.0,
+     "touched_mb": 16.0,
+     "batched": false
+    }
+   }
+  },
+  {
+   "case_id": "b256_s32_d64_r32k_sum",
+   "gpu": "H100",
+   "last_draw": {
+    "orig": {
+     "us": 8.452,
+     "work_us": 5.242,
+     "waves": [
+      8
+     ],
+     "bps": 6,
+     "L": 395.008,
+     "t1": 887.016,
+     "h": 1.0,
+     "touched_mb": 1.77,
+     "batched": false
+    },
+    "ro": {
+     "us": 7.232,
+     "work_us": 4.022,
+     "waves": [
+      8
+     ],
+     "bps": 5,
+     "L": 491.644,
+     "t1": 629.644,
+     "h": 1.0,
+     "touched_mb": 1.77,
+     "batched": true
+    },
+    "ro2": {
+     "us": 8.541,
+     "work_us": 5.331,
+     "waves": [
+      8
+     ],
+     "bps": 6,
+     "L": 395.008,
+     "t1": 907.016,
+     "h": 1.0,
+     "touched_mb": 1.77,
+     "batched": false
+    },
+    "ro3": {
+     "us": 8.644,
+     "work_us": 5.434,
+     "waves": [
+      8
+     ],
+     "bps": 6,
+     "L": 395.008,
+     "t1": 928.016,
+     "h": 1.0,
+     "touched_mb": 1.77,
+     "batched": false
+    }
+   }
+  },
+  {
+   "case_id": "b256_s32_d256_r32k_sum",
+   "gpu": "H100",
+   "last_draw": {
+    "orig": {
+     "us": 8.452,
+     "work_us": 5.242,
+     "waves": [
+      24
+     ],
+     "bps": 6,
+     "L": 395.008,
+     "t1": 887.016,
+     "h": 1.0,
+     "touched_mb": 7.078,
+     "batched": false
+    },
+    "ro": {
+     "us": 7.95,
+     "work_us": 4.74,
+     "waves": [
+      24
+     ],
+     "bps": 5,
+     "L": 491.644,
+     "t1": 629.644,
+     "h": 1.0,
+     "touched_mb": 7.078,
+     "batched": true
+    },
+    "ro2": {
+     "us": 8.541,
+     "work_us": 5.331,
+     "waves": [
+      24
+     ],
+     "bps": 6,
+     "L": 395.008,
+     "t1": 907.016,
+     "h": 1.0,
+     "touched_mb": 7.078,
+     "batched": false
+    },
+    "ro3": {
+     "us": 8.644,
+     "work_us": 5.434,
+     "waves": [
+      24
+     ],
+     "bps": 6,
+     "L": 395.008,
+     "t1": 928.016,
+     "h": 1.0,
+     "touched_mb": 7.078,
+     "batched": false
+    }
+   }
+  },
+  {
+   "case_id": "b32_s32_d128_r1m_sum",
+   "gpu": "H100",
+   "last_draw": {
+    "orig": {
+     "us": 8.452,
+     "work_us": 5.242,
+     "waves": [
+      8
+     ],
+     "bps": 6,
+     "L": 395.008,
+     "t1": 887.016,
+     "h": 1.0,
+     "touched_mb": 0.5,
+     "batched": false
+    },
+    "ro": {
+     "us": 7.232,
+     "work_us": 4.022,
+     "waves": [
+      8
+     ],
+     "bps": 5,
+     "L": 491.644,
+     "t1": 629.644,
+     "h": 1.0,
+     "touched_mb": 0.5,
+     "batched": true
+    },
+    "ro2": {
+     "us": 8.541,
+     "work_us": 5.331,
+     "waves": [
+      8
+     ],
+     "bps": 6,
+     "L": 395.008,
+     "t1": 907.016,
+     "h": 1.0,
+     "touched_mb": 0.5,
+     "batched": false
+    },
+    "ro3": {
+     "us": 8.644,
+     "work_us": 5.434,
+     "waves": [
+      8
+     ],
+     "bps": 6,
+     "L": 395.008,
+     "t1": 928.016,
+     "h": 1.0,
+     "touched_mb": 0.5,
+     "batched": false
+    }
+   }
+  },
+  {
+   "case_id": "b256_s32_d128_r1m_sum",
+   "gpu": "H100",
+   "last_draw": {
+    "orig": {
+     "us": 8.452,
+     "work_us": 5.242,
+     "waves": [
+      16
+     ],
+     "bps": 6,
+     "L": 395.008,
+     "t1": 887.016,
+     "h": 1.0,
+     "touched_mb": 3.984,
+     "batched": false
+    },
+    "ro": {
+     "us": 7.232,
+     "work_us": 4.022,
+     "waves": [
+      16
+     ],
+     "bps": 5,
+     "L": 491.644,
+     "t1": 629.644,
+     "h": 1.0,
+     "touched_mb": 3.984,
+     "batched": true
+    },
+    "ro2": {
+     "us": 8.541,
+     "work_us": 5.331,
+     "waves": [
+      16
+     ],
+     "bps": 6,
+     "L": 395.008,
+     "t1": 907.016,
+     "h": 1.0,
+     "touched_mb": 3.984,
+     "batched": false
+    },
+    "ro3": {
+     "us": 8.644,
+     "work_us": 5.434,
+     "waves": [
+      16
+     ],
+     "bps": 6,
+     "L": 395.008,
+     "t1": 928.016,
+     "h": 1.0,
+     "touched_mb": 3.984,
+     "batched": false
+    }
+   }
+  },
+  {
+   "case_id": "b256_s128_d128_r1m_sum",
+   "gpu": "H100",
+   "last_draw": {
+    "orig": {
+     "us": 23.005,
+     "work_us": 19.795,
+     "waves": [
+      16
+     ],
+     "bps": 6,
+     "L": 395.008,
+     "t1": 887.016,
+     "h": 1.0,
+     "touched_mb": 15.753,
+     "batched": false
+    },
+    "ro": {
+     "us": 18.127,
+     "work_us": 14.917,
+     "waves": [
+      16
+     ],
+     "bps": 5,
+     "L": 491.644,
+     "t1": 629.644,
+     "h": 1.0,
+     "touched_mb": 15.753,
+     "batched": true
+    },
+    "ro2": {
+     "us": 23.361,
+     "work_us": 20.151,
+     "waves": [
+      16
+     ],
+     "bps": 6,
+     "L": 395.008,
+     "t1": 907.016,
+     "h": 1.0,
+     "touched_mb": 15.753,
+     "batched": false
+    },
+    "ro3": {
+     "us": 23.773,
+     "work_us": 20.563,
+     "waves": [
+      16
+     ],
+     "bps": 6,
+     "L": 395.008,
+     "t1": 928.016,
+     "h": 1.0,
+     "touched_mb": 15.753,
+     "batched": false
+    }
+   }
+  },
+  {
+   "case_id": "b2048_s32_d128_r1m_sum",
+   "gpu": "H100",
+   "last_draw": {
+    "orig": {
+     "us": 18.484,
+     "work_us": 15.274,
+     "waves": [
+      48,
+      24
+     ],
+     "bps": 6,
+     "L": 395.008,
+     "t1": 887.016,
+     "h": 1.0,
+     "touched_mb": 31.021,
+     "batched": false
+    },
+    "ro": {
+     "us": 17.431,
+     "work_us": 14.221,
+     "waves": [
+      40,
+      32
+     ],
+     "bps": 5,
+     "L": 491.644,
+     "t1": 629.644,
+     "h": 1.0,
+     "touched_mb": 31.021,
+     "batched": true
+    },
+    "ro2": {
+     "us": 18.228,
+     "work_us": 15.018,
+     "waves": [
+      48,
+      24
+     ],
+     "bps": 6,
+     "L": 395.008,
+     "t1": 907.016,
+     "h": 1.0,
+     "touched_mb": 31.021,
+     "batched": false
+    },
+    "ro3": {
+     "us": 18.676,
+     "work_us": 15.466,
+     "waves": [
+      48,
+      24
+     ],
+     "bps": 6,
+     "L": 395.008,
+     "t1": 928.016,
+     "h": 1.0,
+     "touched_mb": 31.021,
+     "batched": false
+    }
+   }
+  },
+  {
+   "case_id": "b2048_s32_d256_r1m_sum",
+   "gpu": "H100",
+   "last_draw": {
+    "orig": {
+     "us": 36.663,
+     "work_us": 33.453,
+     "waves": [
+      48,
+      24
+     ],
+     "bps": 6,
+     "L": 550.204,
+     "t1": 1197.408,
+     "h": 0.518,
+     "touched_mb": 62.041,
+     "batched": false
+    },
+    "ro": {
+     "us": 31.653,
+     "work_us": 28.443,
+     "waves": [
+      40,
+      32
+     ],
+     "bps": 5,
+     "L": 746.059,
+     "t1": 884.059,
+     "h": 0.518,
+     "touched_mb": 62.041,
+     "batched": true
+    },
+    "ro2": {
+     "us": 36.152,
+     "work_us": 32.942,
+     "waves": [
+      48,
+      24
+     ],
+     "bps": 6,
+     "L": 550.204,
+     "t1": 1217.408,
+     "h": 0.518,
+     "touched_mb": 62.041,
+     "batched": false
+    },
+    "ro3": {
+     "us": 37.047,
+     "work_us": 33.837,
+     "waves": [
+      48,
+      24
+     ],
+     "bps": 6,
+     "L": 550.204,
+     "t1": 1238.408,
+     "h": 0.518,
+     "touched_mb": 62.041,
+     "batched": false
+    }
+   }
+  },
+  {
+   "case_id": "b16384_s32_d128_r1m_sum",
+   "gpu": "H100",
+   "last_draw": {
+    "orig": {
+     "us": 180.477,
+     "work_us": 177.267,
+     "waves": [
+      48,
+      24
+     ],
+     "bps": 6,
+     "L": 665.673,
+     "t1": 1428.345,
+     "h": 0.16,
+     "touched_mb": 201.456,
+     "batched": false
+    },
+    "ro": {
+     "us": 175.813,
+     "work_us": 172.603,
+     "waves": [
+      40,
+      32
+     ],
+     "bps": 5,
+     "L": 805.448,
+     "t1": 943.448,
+     "h": 0.16,
+     "touched_mb": 201.456,
+     "batched": true
+    },
+    "ro2": {
+     "us": 181.188,
+     "work_us": 177.978,
+     "waves": [
+      48,
+      24
+     ],
+     "bps": 6,
+     "L": 665.673,
+     "t1": 1448.345,
+     "h": 0.16,
+     "touched_mb": 201.456,
+     "batched": false
+    },
+    "ro3": {
+     "us": 182.012,
+     "work_us": 178.802,
+     "waves": [
+      48,
+      24
+     ],
+     "bps": 6,
+     "L": 665.673,
+     "t1": 1469.345,
+     "h": 0.16,
+     "touched_mb": 201.456,
+     "batched": false
+    }
+   }
+  },
+  {
+   "case_id": "b32_s32_d128_r1m_sum_cold",
+   "gpu": "H100",
+   "last_draw": {
+    "orig": {
+     "us": 13.571,
+     "work_us": 8.819,
+     "waves": [
+      8
+     ],
+     "bps": 6,
+     "L": 716.9,
+     "t1": 1530.8,
+     "h": 0.0,
+     "touched_mb": 0.5,
+     "batched": false
+    },
+    "ro": {
+     "us": 10.869,
+     "work_us": 6.118,
+     "waves": [
+      8
+     ],
+     "bps": 5,
+     "L": 818.692,
+     "t1": 956.692,
+     "h": 0.0,
+     "touched_mb": 0.5,
+     "batched": true
+    },
+    "ro2": {
+     "us": 13.659,
+     "work_us": 8.908,
+     "waves": [
+      8
+     ],
+     "bps": 6,
+     "L": 716.9,
+     "t1": 1550.8,
+     "h": 0.0,
+     "touched_mb": 0.5,
+     "batched": false
+    },
+    "ro3": {
+     "us": 13.762,
+     "work_us": 9.011,
+     "waves": [
+      8
+     ],
+     "bps": 6,
+     "L": 716.9,
+     "t1": 1571.8,
+     "h": 0.0,
+     "touched_mb": 0.5,
+     "batched": false
+    }
+   }
+  },
+  {
+   "case_id": "b256_s32_d128_r1m_sum_cold",
+   "gpu": "H100",
+   "last_draw": {
+    "orig": {
+     "us": 13.56,
+     "work_us": 8.809,
+     "waves": [
+      16
+     ],
+     "bps": 6,
+     "L": 715.802,
+     "t1": 1528.605,
+     "h": 0.004,
+     "touched_mb": 3.984,
+     "batched": false
+    },
+    "ro": {
+     "us": 10.868,
+     "work_us": 6.117,
+     "waves": [
+      16
+     ],
+     "bps": 5,
+     "L": 818.456,
+     "t1": 956.456,
+     "h": 0.004,
+     "touched_mb": 3.984,
+     "batched": true
+    },
+    "ro2": {
+     "us": 13.649,
+     "work_us": 8.898,
+     "waves": [
+      16
+     ],
+     "bps": 6,
+     "L": 715.802,
+     "t1": 1548.605,
+     "h": 0.004,
+     "touched_mb": 3.984,
+     "batched": false
+    },
+    "ro3": {
+     "us": 13.752,
+     "work_us": 9.001,
+     "waves": [
+      16
+     ],
+     "bps": 6,
+     "L": 715.802,
+     "t1": 1569.605,
+     "h": 0.004,
+     "touched_mb": 3.984,
+     "batched": false
+    }
+   }
+  },
+  {
+   "case_id": "b256_s32_d128_r32k_mean",
+   "gpu": "H100",
+   "last_draw": {
+    "orig": {
+     "us": 8.452,
+     "work_us": 5.242,
+     "waves": [
+      16
+     ],
+     "bps": 6,
+     "L": 395.008,
+     "t1": 887.016,
+     "h": 1.0,
+     "touched_mb": 3.539,
+     "batched": false
+    },
+    "ro": {
+     "us": 7.232,
+     "work_us": 4.022,
+     "waves": [
+      16
+     ],
+     "bps": 5,
+     "L": 491.644,
+     "t1": 629.644,
+     "h": 1.0,
+     "touched_mb": 3.539,
+     "batched": true
+    },
+    "ro2": {
+     "us": 8.541,
+     "work_us": 5.331,
+     "waves": [
+      16
+     ],
+     "bps": 6,
+     "L": 395.008,
+     "t1": 907.016,
+     "h": 1.0,
+     "touched_mb": 3.539,
+     "batched": false
+    },
+    "ro3": {
+     "us": 8.644,
+     "work_us": 5.434,
+     "waves": [
+      16
+     ],
+     "bps": 6,
+     "L": 395.008,
+     "t1": 928.016,
+     "h": 1.0,
+     "touched_mb": 3.539,
+     "batched": false
+    }
+   }
+  },
+  {
+   "case_id": "b256_s32_d128_r32k_psw",
+   "gpu": "H100",
+   "last_draw": {
+    "orig": {
+     "us": 10.782,
+     "work_us": 7.572,
+     "waves": [
+      16
+     ],
+     "bps": 6,
+     "L": 395.008,
+     "t1": 1385.024,
+     "h": 1.0,
+     "touched_mb": 3.539,
+     "batched": false
+    },
+    "ro": {
+     "us": 7.424,
+     "work_us": 4.214,
+     "waves": [
+      16
+     ],
+     "bps": 5,
+     "L": 491.644,
+     "t1": 670.644,
+     "h": 1.0,
+     "touched_mb": 3.539,
+     "batched": true
+    },
+    "ro2": {
+     "us": 10.576,
+     "work_us": 7.366,
+     "waves": [
+      16
+     ],
+     "bps": 6,
+     "L": 395.008,
+     "t1": 1342.024,
+     "h": 1.0,
+     "touched_mb": 3.539,
+     "batched": false
+    },
+    "ro3": {
+     "us": 10.609,
+     "work_us": 7.399,
+     "waves": [
+      16
+     ],
+     "bps": 6,
+     "L": 395.008,
+     "t1": 1348.024,
+     "h": 1.0,
+     "touched_mb": 3.539,
+     "batched": false
+    }
+   }
+  },
+  {
+   "case_id": "b2048_s32_d128_r32k_psw",
+   "gpu": "H100",
+   "last_draw": {
+    "orig": {
+     "us": 21.78,
+     "work_us": 18.57,
+     "waves": [
+      48,
+      24
+     ],
+     "bps": 6,
+     "L": 395.008,
+     "t1": 1385.024,
+     "h": 1.0,
+     "touched_mb": 13.835,
+     "batched": false
+    },
+    "ro": {
+     "us": 19.293,
+     "work_us": 16.083,
+     "waves": [
+      40,
+      32
+     ],
+     "bps": 5,
+     "L": 491.644,
+     "t1": 670.644,
+     "h": 1.0,
+     "touched_mb": 13.835,
+     "batched": true
+    },
+    "ro2": {
+     "us": 21.298,
+     "work_us": 18.088,
+     "waves": [
+      48,
+      24
+     ],
+     "bps": 6,
+     "L": 395.008,
+     "t1": 1342.024,
+     "h": 1.0,
+     "touched_mb": 13.835,
+     "batched": false
+    },
+    "ro3": {
+     "us": 21.469,
+     "work_us": 18.259,
+     "waves": [
+      48,
+      24
+     ],
+     "bps": 6,
+     "L": 395.008,
+     "t1": 1348.024,
+     "h": 1.0,
+     "touched_mb": 13.835,
+     "batched": false
+    }
+   }
+  },
+  {
+   "case_id": "b16384_s32_d128_r1m_psw",
+   "gpu": "H100",
+   "last_draw": {
+    "orig": {
+     "us": 209.251,
+     "work_us": 206.041,
+     "waves": [
+      48,
+      24
+     ],
+     "bps": 6,
+     "L": 665.673,
+     "t1": 2197.018,
+     "h": 0.16,
+     "touched_mb": 201.456,
+     "batched": false
+    },
+    "ro": {
+     "us": 175.813,
+     "work_us": 172.603,
+     "waves": [
+      40,
+      32
+     ],
+     "bps": 5,
+     "L": 805.448,
+     "t1": 984.448,
+     "h": 0.16,
+     "touched_mb": 201.456,
+     "batched": true
+    },
+    "ro2": {
+     "us": 207.604,
+     "work_us": 204.394,
+     "waves": [
+      48,
+      24
+     ],
+     "bps": 6,
+     "L": 665.673,
+     "t1": 2154.018,
+     "h": 0.16,
+     "touched_mb": 201.456,
+     "batched": false
+    },
+    "ro3": {
+     "us": 207.866,
+     "work_us": 204.656,
+     "waves": [
+      48,
+      24
+     ],
+     "bps": 6,
+     "L": 665.673,
+     "t1": 2160.018,
+     "h": 0.16,
+     "touched_mb": 201.456,
+     "batched": false
+    }
+   }
+  },
+  {
+   "case_id": "b2048_v32_d128_r32k_mean_pad",
+   "gpu": "H100",
+   "last_draw": {
+    "orig": {
+     "us": 24.566,
+     "work_us": 21.356,
+     "waves": [
+      48,
+      24
+     ],
+     "bps": 6,
+     "L": 395.008,
+     "t1": 887.016,
+     "h": 1.0,
+     "touched_mb": 13.835,
+     "batched": false
+    },
+    "ro": {
+     "us": 22.971,
+     "work_us": 19.761,
+     "waves": [
+      40,
+      32
+     ],
+     "bps": 5,
+     "L": 491.644,
+     "t1": 629.644,
+     "h": 1.0,
+     "touched_mb": 13.835,
+     "batched": true
+    },
+    "ro2": {
+     "us": 24.198,
+     "work_us": 20.988,
+     "waves": [
+      48,
+      24
+     ],
+     "bps": 6,
+     "L": 395.008,
+     "t1": 907.016,
+     "h": 1.0,
+     "touched_mb": 13.835,
+     "batched": false
+    },
+    "ro3": {
+     "us": 24.842,
+     "work_us": 21.632,
+     "waves": [
+      48,
+      24
+     ],
+     "bps": 6,
+     "L": 395.008,
+     "t1": 928.016,
+     "h": 1.0,
+     "touched_mb": 13.835,
+     "batched": false
+    }
+   }
+  },
+  {
+   "case_id": "b32_s32_d128_r32k_sum_cold",
+   "gpu": "H100",
+   "last_draw": {
+    "orig": {
+     "us": 13.525,
+     "work_us": 8.774,
+     "waves": [
+      8
+     ],
+     "bps": 6,
+     "L": 712.077,
+     "t1": 1521.154,
+     "h": 0.015,
+     "touched_mb": 0.492,
+     "batched": false
+    },
+    "ro": {
+     "us": 10.864,
+     "work_us": 6.113,
+     "waves": [
+      8
+     ],
+     "bps": 5,
+     "L": 817.641,
+     "t1": 955.641,
+     "h": 0.015,
+     "touched_mb": 0.492,
+     "batched": true
+    },
+    "ro2": {
+     "us": 13.614,
+     "work_us": 8.863,
+     "waves": [
+      8
+     ],
+     "bps": 6,
+     "L": 712.077,
+     "t1": 1541.154,
+     "h": 0.015,
+     "touched_mb": 0.492,
+     "batched": false
+    },
+    "ro3": {
+     "us": 13.717,
+     "work_us": 8.966,
+     "waves": [
+      8
+     ],
+     "bps": 6,
+     "L": 712.077,
+     "t1": 1562.154,
+     "h": 0.015,
+     "touched_mb": 0.492,
+     "batched": false
+    }
+   }
+  },
+  {
+   "case_id": "b256_s32_d128_r32k_sum_cold",
+   "gpu": "H100",
+   "last_draw": {
+    "orig": {
+     "us": 13.225,
+     "work_us": 8.474,
+     "waves": [
+      16
+     ],
+     "bps": 6,
+     "L": 679.956,
+     "t1": 1456.912,
+     "h": 0.115,
+     "touched_mb": 3.539,
+     "batched": false
+    },
+    "ro": {
+     "us": 10.827,
+     "work_us": 6.075,
+     "waves": [
+      16
+     ],
+     "bps": 5,
+     "L": 809.643,
+     "t1": 947.643,
+     "h": 0.115,
+     "touched_mb": 3.539,
+     "batched": true
+    },
+    "ro2": {
+     "us": 13.314,
+     "work_us": 8.562,
+     "waves": [
+      16
+     ],
+     "bps": 6,
+     "L": 679.956,
+     "t1": 1476.912,
+     "h": 0.115,
+     "touched_mb": 3.539,
+     "batched": false
+    },
+    "ro3": {
+     "us": 13.417,
+     "work_us": 8.665,
+     "waves": [
+      16
+     ],
+     "bps": 6,
+     "L": 679.956,
+     "t1": 1497.912,
+     "h": 0.115,
+     "touched_mb": 3.539,
+     "batched": false
+    }
+   }
+  },
+  {
+   "case_id": "b2048_s32_d128_r32k_sum_cold",
+   "gpu": "H100",
+   "last_draw": {
+    "orig": {
+     "us": 21.894,
+     "work_us": 17.142,
+     "waves": [
+      48,
+      24
+     ],
+     "bps": 6,
+     "L": 534.24,
+     "t1": 1165.481,
+     "h": 0.568,
+     "touched_mb": 13.835,
+     "batched": false
+    },
+    "ro": {
+     "us": 18.973,
+     "work_us": 14.221,
+     "waves": [
+      40,
+      32
+     ],
+     "bps": 5,
+     "L": 732.19,
+     "t1": 870.19,
+     "h": 0.568,
+     "touched_mb": 13.835,
+     "batched": true
+    },
+    "ro2": {
+     "us": 21.638,
+     "work_us": 16.887,
+     "waves": [
+      48,
+      24
+     ],
+     "bps": 6,
+     "L": 534.24,
+     "t1": 1185.481,
+     "h": 0.568,
+     "touched_mb": 13.835,
+     "batched": false
+    },
+    "ro3": {
+     "us": 22.086,
+     "work_us": 17.334,
+     "waves": [
+      48,
+      24
+     ],
+     "bps": 6,
+     "L": 534.24,
+     "t1": 1206.481,
+     "h": 0.568,
+     "touched_mb": 13.835,
+     "batched": false
+    }
+   }
+  },
+  {
+   "case_id": "b16384_s32_d128_r32k_sum_cold",
+   "gpu": "H100",
+   "last_draw": {
+    "orig": {
+     "us": 132.974,
+     "work_us": 128.222,
+     "waves": [
+      48,
+      24
+     ],
+     "bps": 6,
+     "L": 415.136,
+     "t1": 927.272,
+     "h": 0.938,
+     "touched_mb": 16.0,
+     "batched": false
+    },
+    "ro": {
+     "us": 118.522,
+     "work_us": 113.771,
+     "waves": [
+      40,
+      32
+     ],
+     "bps": 5,
+     "L": 544.121,
+     "t1": 682.121,
+     "h": 0.938,
+     "touched_mb": 16.0,
+     "batched": true
+    },
+    "ro2": {
+     "us": 130.927,
+     "work_us": 126.175,
+     "waves": [
+      48,
+      24
+     ],
+     "bps": 6,
+     "L": 415.136,
+     "t1": 947.272,
+     "h": 0.938,
+     "touched_mb": 16.0,
+     "batched": false
+    },
+    "ro3": {
+     "us": 134.508,
+     "work_us": 129.757,
+     "waves": [
+      48,
+      24
+     ],
+     "bps": 6,
+     "L": 415.136,
+     "t1": 968.272,
+     "h": 0.938,
+     "touched_mb": 16.0,
+     "batched": false
+    }
+   }
+  }
+ ]
+}

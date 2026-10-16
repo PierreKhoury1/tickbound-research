@@ -1,0 +1,110 @@
+ptxas info    : 33 bytes gmem, 24 bytes cmem[3], 80 bytes cmem[4]
+ptxas info    : Compiling entry function '_ZN13cfo_ro_r1_val10cfo_ta_est21cfoTaEstLowMimoKernelIfffLj4ELj4ELj2ELj32ELj2ELj8EEEv23puschRxCfoTaEstDynDescr' for 'sm_80'
+ptxas info    : Function properties for _ZN13cfo_ro_r1_val10cfo_ta_est21cfoTaEstLowMimoKernelIfffLj4ELj4ELj2ELj32ELj2ELj8EEEv23puschRxCfoTaEstDynDescr
+    32 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 55 registers, used 1 barriers, 32 bytes cumulative stack size, 3184 bytes smem, 376 bytes cmem[0], 168 bytes cmem[2]
+ptxas info    : Function properties for __internal_accurate_pow
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Compiling entry function '_ZN10cfo_ro_val10cfo_ta_est21cfoTaEstLowMimoKernelIfffLj4ELj4ELj2ELj32ELj2ELj8EEEv23puschRxCfoTaEstDynDescr' for 'sm_80'
+ptxas info    : Function properties for _ZN10cfo_ro_val10cfo_ta_est21cfoTaEstLowMimoKernelIfffLj4ELj4ELj2ELj32ELj2ELj8EEEv23puschRxCfoTaEstDynDescr
+    32 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 57 registers, used 1 barriers, 32 bytes cumulative stack size, 3184 bytes smem, 376 bytes cmem[0], 168 bytes cmem[2]
+ptxas info    : Function properties for __internal_accurate_pow
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Compiling entry function '_ZN12cfo_orig_val10cfo_ta_est21cfoTaEstLowMimoKernelIfffLj4ELj4ELj2ELj32ELj2ELj8EEEv23puschRxCfoTaEstDynDescr' for 'sm_80'
+ptxas info    : Function properties for _ZN12cfo_orig_val10cfo_ta_est21cfoTaEstLowMimoKernelIfffLj4ELj4ELj2ELj32ELj2ELj8EEEv23puschRxCfoTaEstDynDescr
+    32 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 56 registers, used 1 barriers, 32 bytes cumulative stack size, 3184 bytes smem, 376 bytes cmem[0], 168 bytes cmem[2]
+ptxas info    : Function properties for __internal_accurate_pow
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Compiling entry function '_ZN15cfo_ro_r1_trace10cfo_ta_est21cfoTaEstLowMimoKernelIfffLj4ELj4ELj2ELj32ELj2ELj8EEEv23puschRxCfoTaEstDynDescr' for 'sm_80'
+ptxas info    : Function properties for _ZN15cfo_ro_r1_trace10cfo_ta_est21cfoTaEstLowMimoKernelIfffLj4ELj4ELj2ELj32ELj2ELj8EEEv23puschRxCfoTaEstDynDescr
+    32 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 54 registers, used 1 barriers, 32 bytes cumulative stack size, 3184 bytes smem, 376 bytes cmem[0], 168 bytes cmem[2]
+ptxas info    : Function properties for __internal_accurate_pow
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Compiling entry function '_ZN12cfo_ro_trace10cfo_ta_est21cfoTaEstLowMimoKernelIfffLj4ELj4ELj2ELj32ELj2ELj8EEEv23puschRxCfoTaEstDynDescr' for 'sm_80'
+ptxas info    : Function properties for _ZN12cfo_ro_trace10cfo_ta_est21cfoTaEstLowMimoKernelIfffLj4ELj4ELj2ELj32ELj2ELj8EEEv23puschRxCfoTaEstDynDescr
+    32 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 54 registers, used 1 barriers, 32 bytes cumulative stack size, 3184 bytes smem, 376 bytes cmem[0], 168 bytes cmem[2]
+ptxas info    : Function properties for __internal_accurate_pow
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Compiling entry function '_ZN14cfo_orig_trace10cfo_ta_est21cfoTaEstLowMimoKernelIfffLj4ELj4ELj2ELj32ELj2ELj8EEEv23puschRxCfoTaEstDynDescr' for 'sm_80'
+ptxas info    : Function properties for _ZN14cfo_orig_trace10cfo_ta_est21cfoTaEstLowMimoKernelIfffLj4ELj4ELj2ELj32ELj2ELj8EEEv23puschRxCfoTaEstDynDescr
+    32 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 54 registers, used 1 barriers, 32 bytes cumulative stack size, 3184 bytes smem, 376 bytes cmem[0], 168 bytes cmem[2]
+ptxas info    : Function properties for __internal_accurate_pow
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Compiling entry function '_ZN14cfo_ro_r1_time10cfo_ta_est21cfoTaEstLowMimoKernelIfffLj4ELj4ELj2ELj32ELj2ELj8EEEv23puschRxCfoTaEstDynDescr' for 'sm_80'
+ptxas info    : Function properties for _ZN14cfo_ro_r1_time10cfo_ta_est21cfoTaEstLowMimoKernelIfffLj4ELj4ELj2ELj32ELj2ELj8EEEv23puschRxCfoTaEstDynDescr
+    32 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 54 registers, used 1 barriers, 32 bytes cumulative stack size, 3184 bytes smem, 376 bytes cmem[0], 168 bytes cmem[2]
+ptxas info    : Function properties for __internal_accurate_pow
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Compiling entry function '_ZN11cfo_ro_time10cfo_ta_est21cfoTaEstLowMimoKernelIfffLj4ELj4ELj2ELj32ELj2ELj8EEEv23puschRxCfoTaEstDynDescr' for 'sm_80'
+ptxas info    : Function properties for _ZN11cfo_ro_time10cfo_ta_est21cfoTaEstLowMimoKernelIfffLj4ELj4ELj2ELj32ELj2ELj8EEEv23puschRxCfoTaEstDynDescr
+    32 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 54 registers, used 1 barriers, 32 bytes cumulative stack size, 3184 bytes smem, 376 bytes cmem[0], 168 bytes cmem[2]
+ptxas info    : Function properties for __internal_accurate_pow
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Compiling entry function '_ZN13cfo_orig_time10cfo_ta_est21cfoTaEstLowMimoKernelIfffLj4ELj4ELj2ELj32ELj2ELj8EEEv23puschRxCfoTaEstDynDescr' for 'sm_80'
+ptxas info    : Function properties for _ZN13cfo_orig_time10cfo_ta_est21cfoTaEstLowMimoKernelIfffLj4ELj4ELj2ELj32ELj2ELj8EEEv23puschRxCfoTaEstDynDescr
+    32 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 48 registers, used 1 barriers, 32 bytes cumulative stack size, 3184 bytes smem, 376 bytes cmem[0], 168 bytes cmem[2]
+ptxas info    : Function properties for __internal_accurate_pow
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : 33 bytes gmem
+ptxas info    : Compiling entry function '_ZN13cfo_ro_r1_val10cfo_ta_est21cfoTaEstLowMimoKernelIfffLj4ELj4ELj2ELj32ELj2ELj8EEEv23puschRxCfoTaEstDynDescr' for 'sm_90'
+ptxas info    : Function properties for _ZN13cfo_ro_r1_val10cfo_ta_est21cfoTaEstLowMimoKernelIfffLj4ELj4ELj2ELj32ELj2ELj8EEEv23puschRxCfoTaEstDynDescr
+    32 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 56 registers, used 1 barriers, 32 bytes cumulative stack size, 3184 bytes smem
+ptxas info    : Function properties for __internal_accurate_pow
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Compiling entry function '_ZN10cfo_ro_val10cfo_ta_est21cfoTaEstLowMimoKernelIfffLj4ELj4ELj2ELj32ELj2ELj8EEEv23puschRxCfoTaEstDynDescr' for 'sm_90'
+ptxas info    : Function properties for _ZN10cfo_ro_val10cfo_ta_est21cfoTaEstLowMimoKernelIfffLj4ELj4ELj2ELj32ELj2ELj8EEEv23puschRxCfoTaEstDynDescr
+    32 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 56 registers, used 1 barriers, 32 bytes cumulative stack size, 3184 bytes smem
+ptxas info    : Function properties for __internal_accurate_pow
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Compiling entry function '_ZN12cfo_orig_val10cfo_ta_est21cfoTaEstLowMimoKernelIfffLj4ELj4ELj2ELj32ELj2ELj8EEEv23puschRxCfoTaEstDynDescr' for 'sm_90'
+ptxas info    : Function properties for _ZN12cfo_orig_val10cfo_ta_est21cfoTaEstLowMimoKernelIfffLj4ELj4ELj2ELj32ELj2ELj8EEEv23puschRxCfoTaEstDynDescr
+    32 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 49 registers, used 1 barriers, 32 bytes cumulative stack size, 3184 bytes smem
+ptxas info    : Function properties for __internal_accurate_pow
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Compiling entry function '_ZN15cfo_ro_r1_trace10cfo_ta_est21cfoTaEstLowMimoKernelIfffLj4ELj4ELj2ELj32ELj2ELj8EEEv23puschRxCfoTaEstDynDescr' for 'sm_90'
+ptxas info    : Function properties for _ZN15cfo_ro_r1_trace10cfo_ta_est21cfoTaEstLowMimoKernelIfffLj4ELj4ELj2ELj32ELj2ELj8EEEv23puschRxCfoTaEstDynDescr
+    32 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 57 registers, used 1 barriers, 32 bytes cumulative stack size, 3184 bytes smem
+ptxas info    : Function properties for __internal_accurate_pow
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Compiling entry function '_ZN12cfo_ro_trace10cfo_ta_est21cfoTaEstLowMimoKernelIfffLj4ELj4ELj2ELj32ELj2ELj8EEEv23puschRxCfoTaEstDynDescr' for 'sm_90'
+ptxas info    : Function properties for _ZN12cfo_ro_trace10cfo_ta_est21cfoTaEstLowMimoKernelIfffLj4ELj4ELj2ELj32ELj2ELj8EEEv23puschRxCfoTaEstDynDescr
+    32 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 56 registers, used 1 barriers, 32 bytes cumulative stack size, 3184 bytes smem
+ptxas info    : Function properties for __internal_accurate_pow
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Compiling entry function '_ZN14cfo_orig_trace10cfo_ta_est21cfoTaEstLowMimoKernelIfffLj4ELj4ELj2ELj32ELj2ELj8EEEv23puschRxCfoTaEstDynDescr' for 'sm_90'
+ptxas info    : Function properties for _ZN14cfo_orig_trace10cfo_ta_est21cfoTaEstLowMimoKernelIfffLj4ELj4ELj2ELj32ELj2ELj8EEEv23puschRxCfoTaEstDynDescr
+    32 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 50 registers, used 1 barriers, 32 bytes cumulative stack size, 3184 bytes smem
+ptxas info    : Function properties for __internal_accurate_pow
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Compiling entry function '_ZN14cfo_ro_r1_time10cfo_ta_est21cfoTaEstLowMimoKernelIfffLj4ELj4ELj2ELj32ELj2ELj8EEEv23puschRxCfoTaEstDynDescr' for 'sm_90'
+ptxas info    : Function properties for _ZN14cfo_ro_r1_time10cfo_ta_est21cfoTaEstLowMimoKernelIfffLj4ELj4ELj2ELj32ELj2ELj8EEEv23puschRxCfoTaEstDynDescr
+    32 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 56 registers, used 1 barriers, 32 bytes cumulative stack size, 3184 bytes smem
+ptxas info    : Function properties for __internal_accurate_pow
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Compiling entry function '_ZN11cfo_ro_time10cfo_ta_est21cfoTaEstLowMimoKernelIfffLj4ELj4ELj2ELj32ELj2ELj8EEEv23puschRxCfoTaEstDynDescr' for 'sm_90'
+ptxas info    : Function properties for _ZN11cfo_ro_time10cfo_ta_est21cfoTaEstLowMimoKernelIfffLj4ELj4ELj2ELj32ELj2ELj8EEEv23puschRxCfoTaEstDynDescr
+    32 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 49 registers, used 1 barriers, 32 bytes cumulative stack size, 3184 bytes smem
+ptxas info    : Function properties for __internal_accurate_pow
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Compiling entry function '_ZN13cfo_orig_time10cfo_ta_est21cfoTaEstLowMimoKernelIfffLj4ELj4ELj2ELj32ELj2ELj8EEEv23puschRxCfoTaEstDynDescr' for 'sm_90'
+ptxas info    : Function properties for _ZN13cfo_orig_time10cfo_ta_est21cfoTaEstLowMimoKernelIfffLj4ELj4ELj2ELj32ELj2ELj8EEEv23puschRxCfoTaEstDynDescr
+    32 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 47 registers, used 1 barriers, 32 bytes cumulative stack size, 3184 bytes smem
+ptxas info    : Function properties for __internal_accurate_pow
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads

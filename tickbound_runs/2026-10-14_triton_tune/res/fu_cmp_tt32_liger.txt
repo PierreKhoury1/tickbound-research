@@ -1,0 +1,1 @@
+/root/b3/followup.sh: line 24: /root/v_tt32/bin/python: No such file or directory

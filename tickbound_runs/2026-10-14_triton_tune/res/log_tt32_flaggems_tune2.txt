@@ -1,0 +1,102 @@
+/root/v_tt32/lib/python3.11/site-packages/flag_gems/config.py:153: UserWarning: resolve_user_setting: no exclude ops found; returning empty list
+  warnings.warn(
+/root/v_tt32/lib/python3.11/site-packages/torch/library.py:349: UserWarning: Warning only once for all operators,  other operators may also be overridden.
+  Overriding a previously registered kernel for the same operator and the same dispatch key
+  operator: aten::_assert_async(Tensor self) -> ()
+    registered at /pytorch/build/aten/src/ATen/RegisterSchema.cpp:6
+  dispatch key: CUDA
+  previous kernel: registered at /pytorch/build/aten/src/ATen/RegisterCPU.cpp:30477
+       new kernel: registered at /dev/null:241 (Triggered internally at /pytorch/aten/src/ATen/core/dispatch/OperatorEntry.cpp:154.)
+  self.m.impl(
+[flaggems] silu_M16                     ok         45.5 us  kernels 1  new 0  det True
+[flaggems] gelu_M16                     ok         47.6 us  kernels 1  new 0  det True
+[flaggems] exp_M16                      ok         46.0 us  kernels 1  new 0  det True
+[flaggems] rsqrt_M16                    ok         45.3 us  kernels 1  new 0  det True
+[flaggems] softmax_M16                  ok         36.9 us  kernels 1  new 0  det True
+[flaggems] log_softmax_M16              ok         28.8 us  kernels 1  new 0  det True
+[flaggems] sum_M16                      ok         30.4 us  kernels 1  new 0  det True
+[flaggems] mean_M16                     ok         30.8 us  kernels 1  new 0  det True
+[flaggems] amax_M16                     ok         34.6 us  kernels 1  new 0  det True
+[flaggems] argmax_M16                   ok         30.5 us  kernels 1  new 0  det True
+[flaggems] cumsum_M16                   ok         33.1 us  kernels 1  new 0  det True
+[flaggems] var_mean_M16                 ok         43.4 us  kernels 1  new 0  det True
+[flaggems] vector_norm_M16              ok         36.6 us  kernels 1  new 0  det True
+/root/v_tt32/lib/python3.11/site-packages/triton/language/semantic.py:1586: UserWarning: tl.where with a non-boolean condition is deprecated and will error out in a future triton release. Got int32
+  warnings.warn(
+/root/v_tt32/lib/python3.11/site-packages/triton/language/semantic.py:1586: UserWarning: tl.where with a non-boolean condition is deprecated and will error out in a future triton release. Got int32
+  warnings.warn(
+/root/v_tt32/lib/python3.11/site-packages/triton/language/semantic.py:1586: UserWarning: tl.where with a non-boolean condition is deprecated and will error out in a future triton release. Got int32
+  warnings.warn(
+/root/v_tt32/lib/python3.11/site-packages/triton/language/semantic.py:1586: UserWarning: tl.where with a non-boolean condition is deprecated and will error out in a future triton release. Got int32
+  warnings.warn(
+/root/v_tt32/lib/python3.11/site-packages/triton/language/semantic.py:1586: UserWarning: tl.where with a non-boolean condition is deprecated and will error out in a future triton release. Got int32
+  warnings.warn(
+/root/v_tt32/lib/python3.11/site-packages/triton/language/semantic.py:1586: UserWarning: tl.where with a non-boolean condition is deprecated and will error out in a future triton release. Got int32
+  warnings.warn(
+/root/v_tt32/lib/python3.11/site-packages/triton/language/semantic.py:1586: UserWarning: tl.where with a non-boolean condition is deprecated and will error out in a future triton release. Got int32
+  warnings.warn(
+/root/v_tt32/lib/python3.11/site-packages/triton/language/semantic.py:1586: UserWarning: tl.where with a non-boolean condition is deprecated and will error out in a future triton release. Got int32
+  warnings.warn(
+/root/v_tt32/lib/python3.11/site-packages/triton/language/semantic.py:1586: UserWarning: tl.where with a non-boolean condition is deprecated and will error out in a future triton release. Got int32
+  warnings.warn(
+/root/v_tt32/lib/python3.11/site-packages/triton/language/semantic.py:1586: UserWarning: tl.where with a non-boolean condition is deprecated and will error out in a future triton release. Got int32
+  warnings.warn(
+/root/v_tt32/lib/python3.11/site-packages/triton/language/semantic.py:1586: UserWarning: tl.where with a non-boolean condition is deprecated and will error out in a future triton release. Got int32
+  warnings.warn(
+/root/v_tt32/lib/python3.11/site-packages/triton/language/semantic.py:1586: UserWarning: tl.where with a non-boolean condition is deprecated and will error out in a future triton release. Got int32
+  warnings.warn(
+/root/v_tt32/lib/python3.11/site-packages/triton/language/semantic.py:1586: UserWarning: tl.where with a non-boolean condition is deprecated and will error out in a future triton release. Got int32
+  warnings.warn(
+/root/v_tt32/lib/python3.11/site-packages/triton/language/semantic.py:1586: UserWarning: tl.where with a non-boolean condition is deprecated and will error out in a future triton release. Got int32
+  warnings.warn(
+[flaggems] topk_M16                     ok         55.6 us  kernels 2  new 0  det True
+[flaggems] sort_M16                     ok        659.7 us  kernels 8  new 0  det True
+[flaggems] layer_norm_M16               ok         39.3 us  kernels 1  new 0  det True
+[flaggems] rms_norm_M16                 error TypeError: rms_norm() missing 1 required positional argument: 'weight'
+[flaggems] masked_fill_M16              ok         97.8 us  kernels 2  new 0  det True
+[flaggems] where_M16                    ok        154.5 us  kernels 3  new 0  det True
+[flaggems] add_M16                      ok         59.3 us  kernels 1  new 0  det True
+[flaggems] mul_M16                      ok         51.2 us  kernels 1  new 0  det True
+[flaggems] pow_M16                      ok         47.7 us  kernels 1  new 0  det True
+[flaggems] tanh_M16                     ok         43.0 us  kernels 1  new 0  det True
+[flaggems] sigmoid_M16                  ok         42.2 us  kernels 1  new 0  det True
+[flaggems] mm_M16                       ok         62.8 us  kernels 1  new 0  det True
+[flaggems] addmm_M16                    ok         41.2 us  kernels 1  new 0  det True
+[flaggems] embedding_M16                ok         28.1 us  kernels 1  new 0  det True
+[flaggems] index_select_M16             ok       1943.3 us  kernels 2  new 0  det True
+[flaggems] gather_M16                   ok         33.9 us  kernels 1  new 0  det True
+[flaggems] cross_entropy_M16            ok        194.0 us  kernels 4  new 0  det True
+[flaggems] cat_M16                      ok         55.1 us  kernels 1  new 0  det True
+[flaggems] silu_M4096                   ok         50.1 us  kernels 1  new 0  det True
+[flaggems] gelu_M4096                   ok         54.7 us  kernels 1  new 0  det True
+[flaggems] exp_M4096                    ok         50.4 us  kernels 1  new 0  det True
+[flaggems] rsqrt_M4096                  ok         50.4 us  kernels 1  new 0  det True
+[flaggems] softmax_M4096                ok         43.8 us  kernels 1  new 0  det True
+[flaggems] log_softmax_M4096            ok         65.8 us  kernels 1  new 0  det True
+[flaggems] sum_M4096                    ok         31.2 us  kernels 1  new 0  det True
+[flaggems] mean_M4096                   ok         31.2 us  kernels 1  new 0  det True
+[flaggems] amax_M4096                   ok         39.7 us  kernels 1  new 0  det True
+[flaggems] argmax_M4096                 ok         31.0 us  kernels 1  new 0  det True
+[flaggems] cumsum_M4096                 ok         42.6 us  kernels 1  new 0  det True
+[flaggems] var_mean_M4096               ok         44.5 us  kernels 1  new 0  det True
+[flaggems] vector_norm_M4096            ok         37.6 us  kernels 1  new 0  det True
+[flaggems] topk_M4096                   ok       1528.3 us  kernels 2  new 0  det True
+[flaggems] sort_M4096                   ok       6241.5 us  kernels 8  new 0  det True
+[flaggems] layer_norm_M4096             ok         43.5 us  kernels 1  new 0  det True
+[flaggems] rms_norm_M4096               error TypeError: rms_norm() missing 1 required positional argument: 'weight'
+[flaggems] masked_fill_M4096            ok        101.1 us  kernels 2  new 0  det True
+[flaggems] where_M4096                  ok        167.5 us  kernels 3  new 0  det True
+[flaggems] add_M4096                    ok         52.9 us  kernels 1  new 0  det True
+[flaggems] mul_M4096                    ok         53.7 us  kernels 1  new 0  det True
+[flaggems] pow_M4096                    ok         77.5 us  kernels 1  new 0  det True
+[flaggems] tanh_M4096                   ok         51.3 us  kernels 1  new 0  det True
+[flaggems] sigmoid_M4096                ok         51.1 us  kernels 1  new 0  det True
+[flaggems] mm_M4096                     ok        392.6 us  kernels 1  new 0  det True
+[flaggems] addmm_M4096                  ok        313.6 us  kernels 1  new 0  det True
+[flaggems] embedding_M4096              ok         41.0 us  kernels 1  new 0  det True
+[flaggems] index_select_M4096           ok       2554.2 us  kernels 2  new 0  det True
+[flaggems] gather_M4096                 ok        129.7 us  kernels 1  new 0  det True
+[flaggems] cross_entropy_M4096          ok        605.7 us  kernels 4  new 0  det True
+[flaggems] cat_M4096                    ok         82.8 us  kernels 1  new 0  det True
+[flaggems] bmm_B32                      ok         36.3 us  kernels 1  new 0  det True
+SUITE DONE

@@ -1,0 +1,20 @@
+
+$ bash ./run.sh A100 --quick
+pf_bench: NVIDIA A100-SXM4-40GB (sm_80, 108 SMs, L2 41943040 B, clock 1410000 kHz), driver 13020, runtime 12060, QUICK
+SM clock (clock64 / globaltimer over ~2 ms): 1.0948 GHz
+trace build stamps: normalize events 0x65 (with %smid), find_index events 0x11
+video 128x128x10: byte sum 16470152, countOnes 69, seed[0] after videoSequence -1510014976, start (64.0, 64.0)
+CUDA error cudaErrorLaunchOutOfResources (too many resources requested for launch) at src/pf_bench.cu:388: cudaGetLastError()
+run.sh: pf_bench exit 2 after 1 s; files:
+   results:
+   nvidia-smi_A100_20261016T004440Z.txt
+   pf_find_index_A100_20261016T004441Z.csv
+   pf_normalize_weights_A100_20261016T004441Z.csv
+   pf_run_A100_20261016T004441Z.log
+   trace_sass_check_A100_20261016T004440Z.json
+   
+   traces:
+STATUS FAILED (pf_bench exit 2)
+DONE
+
+[rc=2 1s]

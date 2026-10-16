@@ -1,0 +1,51 @@
+tickbound SASS search in CuAsmRL's action space vs CuAsmRL's claims - A100 80GB PCIe, 14 Oct 2026
+(vast 55842702, ~2 h; Triton 2.1.0 + torch 2.1.2 = CuAsmRL's Triton; ptxas 12.1 (Triton's), CuAssembler 96a9f72)
+
+SETUP
+- Kernels: CuAsmRL's six, verbatim from its repo (cuasmrl@fed7fb14 benchmarks, extracted by make_suite.py ->
+  cuasmrl6.py): fused_ff, mmLeakyReLu, bmm, flash-attention, softmax, rmsnorm, at the paper's Table 2 shapes, Triton's
+  best config of CuAsmRL's own config lists.
+- Edit space = CuAsmRL's: move memory instructions (LDG/LDGSTS/STG/LDS/STS/LDSM) inside a basic block, checked by
+  tickbound sass_edit (register, scoreboard, stall-table, LDGSTS and boundary rules). Two memory modes:
+  strict = may-alias load/store pairs keep their order (provably safe); cuasmrl = no memory rule (CuAsmRL's masks).
+- Every candidate assembled, swapped into Triton's compiled kernel (verified: a null handle makes launches fail),
+  outputs byte-compared to the original on the real inputs + 2 random input sets, timed with CUDA graphs (20
+  launches per replay, paired, sign test). Search: greedy (all legal moves up to 1000/round) and CuAsmRL-style
+  episodes (320 random sequences of up to 32 legal moves per round).
+
+RESULTS (graph timing = GPU time; significant = sign test p < 0.01)
+ kernel           strict (greedy)        cuasmrl rule (greedy)      episodes (cuasmrl rule)
+ softmax          1.00 (36 moves)        1.00                       1.00 (315 correct episodes)
+ rmsnorm          1.014x (1 move)        1.014x (same move)         1.00 (142 correct, 178 WRONG output)
+ fused_ff         1.00 (174 moves)       1.00 (220)                 1.00 (318 correct)
+ mmLeakyReLu      1.00 (298-322)         1.00                       not searched (autotuner picked a config
+                                                                     CuAssembler cannot reassemble)
+ bmm              1.022x (1 move)        1.022x (same move)         1.021x (32-move episode; no better)
+ flash-attention  1.00 (632)             1.009x (1 may-alias move)  stopped (GPU handed to CuAsmRL build)
+=> In CuAsmRL's action space, measured soundly, the real gain is <= 2.2 % on these kernels.
+
+CUASMRL'S TIMING METHOD (CUDA events around 100 back-to-back launches, mean of 5; its paper's method)
+- Unchanged kernel vs itself (no edit applied) reported as: softmax 1.13-1.32x, mmLeakyReLu 1.10-1.33x,
+  fused_ff 1.08-1.16x, bmm 1.08-1.16x. Its paper: fused_ff 1.155x, "2-26 %, 9 % average".
+- Cause: Triton 2.1's CPU launch cost exceeds the kernels' GPU time (graph vs its method: softmax 7.3 vs 27.6 us,
+  mmLeakyReLu 17.3 vs 55.4, bmm 44 vs 80, fused_ff 67 vs 88, rmsnorm 71 vs 90 us), so the method times the CPU.
+  Even Triton's autotuner, timed this way, picks different configs from run to run (mmLeakyReLu, bmm).
+
+OTHER FINDINGS
+- 6 checker-legal moves (bmm 4, mmLeakyReLu 2) changed output bytes in strict mode; 178/320 random episodes on
+  rmsnorm under CuAsmRL's masks gave wrong outputs: static legality is not enough, outputs must be compared.
+- CuAssembler round trip of every kernel: .text byte-identical (it adds 4 bytes to .nv.info); A/A control 1.00.
+
+CUASMRL ITSELF (built exactly as published on the same box, then destroyed)
+- Its Triton fork (reproduce @ fed7fb14) builds in 10 min (ptxas 12.3.52 from its setup.py). Its published code does
+  not run as is: its CuAssembler fork comments out `from sympy import Matrix` but eval()s its default repository,
+  which contains Matrix(...): every assembly fails (UnboundLocalError in get_init_perf). One-line fix -> runs.
+- Step rate: ~1 step/s (fused_ff); defaults = 200 iterations x 64 steps = 12,800 steps = ~3.6 h per kernel.
+- Its RL saves a "best" cubin whenever one noisy do_bench measurement beats the previous best (after 1000 steps):
+  the saved best is partly the luckiest measurement (winner's curse).
+- Head-to-head (their trained cubins re-timed with graphs + byte check): ready to run (tb-triton/hh/cuasmrl_full.sh),
+  needs ~$8 of GPU time.
+
+Files: res.tgz (all logs + JSON per kernel/mode), cuasmrl_probe.tgz (CuAsmRL build + probe logs).
+Code: tickbound/src/tickbound/triton/sass_search.py, tickbound/src/tickbound/tools/sass_edit.py (TB_SASS_MEMORY_RULE),
+tb-triton/sass (make_suite.py, cuasmrl6.py, run6.py, eval_cuasmrl.py), tb-triton/hh (head-to-head bundle).

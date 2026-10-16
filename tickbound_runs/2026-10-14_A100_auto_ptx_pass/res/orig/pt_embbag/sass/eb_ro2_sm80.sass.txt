@@ -1,0 +1,1569 @@
+// ro2: _ZN2at6native7eb_time3ro240EmbeddingBag_updateOutputKernel_sum_meanIflEEvPKT0_S6_PKT_PS7_PS4_llllliSB_S9_lS4_l
+// sm_80, nvcc 12.6.85 timing build (eb_bench_sm80.sass), 1560 instructions, 48 registers
+// control code = [B wait-mask : R read-SB : W write-SB : S stall cycles]
+// 2 hot loops (innermost loops with a 32-bit global load and an FADD/FFMA); the steady-state one(s): psw @0x1c70, nopsw @0x4360
+
+  /*0000*/ [B------:R-:W-:S02]    IMAD.MOV.U32 R1, RZ, RZ, c[0x0][0x28]
+  /*0010*/ [B------:R-:W-:S05]    IMAD.MOV.U32 R33, RZ, RZ, c[0x0][0x0]
+  /*0020*/ [B------:R-:W-:S04]    IADD3 R33, P0, R33, c[0x0][0x198], RZ
+  /*0030*/ [B------:R-:W-:S01]    IADD3 R33, P1, R33, -0x1, RZ
+  /*0040*/ [B------:R-:W-:S05]    IMAD.X R35, RZ, RZ, c[0x0][0x19c], P0
+  /*0050*/ [B------:R-:W-:S04]    IADD3.X R35, R35, -0x1, RZ, P1, !PT
+  /*0060*/ [B------:R-:W-:S13]    ISETP.NE.U32.AND P0, PT, R35, RZ, PT
+  /*0070*/ [B------:R-:W-:S05]    @!P0 BRA 0xf0
+  /*0080*/ [B------:R-:W-:S01]    IMAD.MOV.U32 R6, RZ, RZ, c[0x0][0x0]
+  /*0090*/ [B------:R-:W-:S01]    MOV R0, 0xc0
+  /*00a0*/ [B------:R-:W-:S02]    IMAD.MOV.U32 R3, RZ, RZ, RZ
+  /*00b0*/ [B------:R-:W-:S05]    CALL.REL.NOINC 0x5040
+  /*00c0*/ [B------:R-:W-:S02]    IMAD.MOV.U32 R30, RZ, RZ, R22
+  /*00d0*/ [B------:R-:W-:S01]    IMAD.MOV.U32 R31, RZ, RZ, R23
+  /*00e0*/ [B------:R-:W-:S05]    BRA 0x220
+  /*00f0*/ [B------:R-:W0:S01]    I2F.U32.RP R0, c[0x0][0x0]
+  /*0100*/ [B------:R-:W-:S01]    ISETP.NE.U32.AND P2, PT, RZ, c[0x0][0x0], PT
+  /*0110*/ [B------:R-:W-:S06]    IMAD.MOV.U32 R31, RZ, RZ, RZ
+  /*0120*/ [B0-----:R-:W0:S02]    MUFU.RCP R0, R0
+  /*0130*/ [B0-----:R-:W-:S06]    IADD3 R2, R0, 0xffffffe, RZ
+  /*0140*/ [B------:R0:W1:S02]    F2I.FTZ.U32.TRUNC.NTZ R3, R2
+  /*0150*/ [B0-----:R-:W-:S02]    IMAD.MOV.U32 R2, RZ, RZ, RZ
+  /*0160*/ [B-1----:R-:W-:S04]    IMAD.MOV R5, RZ, RZ, -R3
+  /*0170*/ [B------:R-:W-:S04]    IMAD R5, R5, c[0x0][0x0], RZ
+  /*0180*/ [B------:R-:W-:S06]    IMAD.HI.U32 R3, R3, R5, R2
+  /*0190*/ [B------:R-:W-:S04]    IMAD.HI.U32 R30, R3, R33, RZ
+  /*01a0*/ [B------:R-:W-:S04]    IMAD.MOV R4, RZ, RZ, -R30
+  /*01b0*/ [B------:R-:W-:S05]    IMAD R3, R4, c[0x0][0x0], R33
+  /*01c0*/ [B------:R-:W-:S13]    ISETP.GE.U32.AND P0, PT, R3, c[0x0][0x0], PT
+  /*01d0*/ [B------:R-:W-:S02]    @P0 IADD3 R3, R3, -c[0x0][0x0], RZ
+  /*01e0*/ [B------:R-:W-:S02]    @P0 IADD3 R30, R30, 0x1, RZ
+  /*01f0*/ [B------:R-:W-:S13]    ISETP.GE.U32.AND P1, PT, R3, c[0x0][0x0], PT
+  /*0200*/ [B------:R-:W-:S02]    @P1 IADD3 R30, R30, 0x1, RZ
+  /*0210*/ [B------:R-:W-:S02]    @!P2 LOP3.LUT R30, RZ, c[0x0][0x0], RZ, 0x33, !PT
+  /*0220*/ [B------:R-:W0:S01]    S2R R33, SR_CTAID.X
+  /*0230*/ [B------:R-:W-:S02]    IMAD R3, R31, c[0x0][0x190], RZ
+  /*0240*/ [B------:R-:W-:S01]    IMAD.WIDE.U32 R16, R30.reuse, c[0x0][0x190], RZ
+  /*0250*/ [B------:R-:W0:S03]    S2R R0, SR_TID.Y
+  /*0260*/ [B------:R-:W-:S04]    IMAD R3, R30, c[0x0][0x194], R3
+  /*0270*/ [B------:R-:W-:S02]    IMAD.IADD R2, R17, 0x1, R3
+  /*0280*/ [B0-----:R-:W-:S05]    IMAD R33, R33, c[0x0][0x4], R0
+  /*0290*/ [B------:R-:W-:S04]    ISETP.GT.U32.AND P0, PT, R16, R33, PT
+  /*02a0*/ [B------:R-:W-:S13]    ISETP.GT.AND.EX P0, PT, R2, RZ, PT, P0
+  /*02b0*/ [B------:R-:W-:S05]    @!P0 EXIT
+  /*02c0*/ [B------:R-:W0:S01]    S2R R32, SR_TID.X
+  /*02d0*/ [B------:R-:W-:S01]    ISETP.NE.U32.AND P0, PT, RZ, c[0x0][0x1c0], PT
+  /*02e0*/ [B------:R-:W-:S01]    UMOV UR41, 0x1
+  /*02f0*/ [B------:R-:W-:S01]    IMAD.MOV.U32 R35, RZ, RZ, RZ
+  /*0300*/ [B------:R-:W-:S01]    ULDC.64 UR4, c[0x0][0x190]
+  /*0310*/ [B------:R-:W-:S01]    ISETP.NE.AND.EX P0, PT, RZ, c[0x0][0x1c4], PT, P0
+  /*0320*/ [B------:R-:W-:S02]    UIADD3 UR41, UP0, -UR41, UR4, URZ
+  /*0330*/ [B------:R-:W-:S02]    ULDC UR38, c[0x0][0xc]
+  /*0340*/ [B------:R-:W-:S02]    ULDC UR4, c[0x0][0x4]
+  /*0350*/ [B------:R-:W-:S02]    UIADD3.X UR42, UR5, -0x1, URZ, UP0, !UPT
+  /*0360*/ [B------:R-:W-:S02]    UIMAD UR38, UR38, UR4, URZ
+  /*0370*/ [B------:R-:W-:S02]    ULDC.64 UR36, c[0x0][0x118]
+  /*0380*/ [B------:R-:W-:S05]    @!P0 BRA 0x2ae0
+  /*0390*/ [B------:R-:W-:S02]    UMOV UR40, 0x2
+  /*03a0*/ [B------:R-:W-:S02]    ULDC.64 UR4, c[0x0][0x1c8]
+  /*03b0*/ [B------:R-:W-:S02]    USHF.L.U64.HI UR40, UR4, UR40, UR5
+  /*03c0*/ [B------:R-:W-:S02]    USHF.L.U32 UR39, UR4, 0x2, URZ
+  /*03d0*/ [B------:R-:W-:S01]    LOP3.LUT R0, R35, R31, RZ, 0xfc, !PT
+  /*03e0*/ [B------:R-:W-:S03]    BSSY B0, 0x590
+  /*03f0*/ [B------:R-:W-:S13]    ISETP.NE.U32.AND P1, PT, R0, RZ, PT
+  /*0400*/ [B0-----:R-:W-:S05]    @!P1 BRA 0x460
+  /*0410*/ [B------:R-:W-:S01]    IMAD.MOV.U32 R6, RZ, RZ, R30
+  /*0420*/ [B------:R-:W-:S01]    MOV R0, 0x450
+  /*0430*/ [B------:R-:W-:S02]    IMAD.MOV.U32 R3, RZ, RZ, R31
+  /*0440*/ [B0-----:R-:W-:S05]    CALL.REL.NOINC 0x5580
+  /*0450*/ [B------:R-:W-:S05]    BRA 0x580
+  /*0460*/ [B------:R-:W1:S01]    I2F.U32.RP R0, R30
+  /*0470*/ [B------:R-:W-:S01]    ISETP.NE.U32.AND P2, PT, R30, RZ, PT
+  /*0480*/ [B------:R-:W-:S06]    IMAD.MOV.U32 R19, RZ, RZ, RZ
+  /*0490*/ [B-1----:R-:W1:S02]    MUFU.RCP R0, R0
+  /*04a0*/ [B-1----:R-:W-:S06]    IADD3 R4, R0, 0xffffffe, RZ
+  /*04b0*/ [B------:R1:W2:S02]    F2I.FTZ.U32.TRUNC.NTZ R5, R4
+  /*04c0*/ [B-1----:R-:W-:S02]    IMAD.MOV.U32 R4, RZ, RZ, RZ
+  /*04d0*/ [B--2---:R-:W-:S04]    IMAD.MOV R3, RZ, RZ, -R5
+  /*04e0*/ [B------:R-:W-:S04]    IMAD R3, R3, R30, RZ
+  /*04f0*/ [B------:R-:W-:S06]    IMAD.HI.U32 R6, R5, R3, R4
+  /*0500*/ [B------:R-:W-:S04]    IMAD.HI.U32 R6, R6, R33, RZ
+  /*0510*/ [B------:R-:W-:S04]    IMAD.MOV R6, RZ, RZ, -R6
+  /*0520*/ [B------:R-:W-:S05]    IMAD R18, R30, R6, R33
+  /*0530*/ [B------:R-:W-:S13]    ISETP.GE.U32.AND P0, PT, R18, R30, PT
+  /*0540*/ [B------:R-:W-:S05]    @P0 IMAD.IADD R18, R18, 0x1, -R30
+  /*0550*/ [B------:R-:W-:S13]    ISETP.GE.U32.AND P0, PT, R18, R30, PT
+  /*0560*/ [B------:R-:W-:S01]    @P0 IMAD.IADD R18, R18, 0x1, -R30
+  /*0570*/ [B------:R-:W-:S02]    @!P2 LOP3.LUT R18, RZ, R30, RZ, 0x33, !PT
+  /*0580*/ [B------:R-:W-:S05]    BSYNC B0
+  /*0590*/ [B0-----:R-:W-:S01]    IMAD.MOV.U32 R4, RZ, RZ, R32
+  /*05a0*/ [B------:R-:W-:S01]    BSSY B6, 0x2a70
+  /*05b0*/ [B------:R-:W-:S02]    IMAD.MOV.U32 R5, RZ, RZ, RZ
+  /*05c0*/ [B------:R-:W-:S02]    IMAD R37, R19, c[0x0][0x0], RZ
+  /*05d0*/ [B------:R-:W-:S04]    IMAD.WIDE.U32 R18, R18, c[0x0][0x0], R4
+  /*05e0*/ [B------:R-:W-:S01]    IMAD.IADD R37, R19, 0x1, R37
+  /*05f0*/ [B------:R-:W-:S04]    ISETP.GE.U32.AND P0, PT, R18, c[0x0][0x198], PT
+  /*0600*/ [B------:R-:W-:S13]    ISETP.GE.AND.EX P0, PT, R37, c[0x0][0x19c], PT, P0
+  /*0610*/ [B------:R-:W-:S05]    @P0 BRA 0x2a60
+  /*0620*/ [B------:R-:W-:S01]    BSSY B0, 0x7d0
+  /*0630*/ [B------:R-:W-:S05]    @!P1 BRA 0x690
+  /*0640*/ [B------:R-:W-:S01]    IMAD.MOV.U32 R6, RZ, RZ, R30
+  /*0650*/ [B------:R-:W-:S01]    MOV R0, 0x680
+  /*0660*/ [B------:R-:W-:S02]    IMAD.MOV.U32 R3, RZ, RZ, R31
+  /*0670*/ [B------:R-:W-:S05]    CALL.REL.NOINC 0x5040
+  /*0680*/ [B------:R-:W-:S05]    BRA 0x7c0
+  /*0690*/ [B------:R-:W0:S01]    I2F.U32.RP R0, R30
+  /*06a0*/ [B------:R-:W-:S01]    ISETP.NE.U32.AND P2, PT, R30, RZ, PT
+  /*06b0*/ [B------:R-:W-:S06]    IMAD.MOV.U32 R23, RZ, RZ, RZ
+  /*06c0*/ [B0-----:R-:W0:S02]    MUFU.RCP R0, R0
+  /*06d0*/ [B0-----:R-:W-:S06]    IADD3 R4, R0, 0xffffffe, RZ
+  /*06e0*/ [B------:R0:W1:S02]    F2I.FTZ.U32.TRUNC.NTZ R5, R4
+  /*06f0*/ [B0-----:R-:W-:S02]    IMAD.MOV.U32 R4, RZ, RZ, RZ
+  /*0700*/ [B-1----:R-:W-:S04]    IMAD.MOV R3, RZ, RZ, -R5
+  /*0710*/ [B------:R-:W-:S04]    IMAD R3, R3, R30, RZ
+  /*0720*/ [B------:R-:W-:S06]    IMAD.HI.U32 R6, R5, R3, R4
+  /*0730*/ [B------:R-:W-:S04]    IMAD.HI.U32 R22, R6, R33, RZ
+  /*0740*/ [B------:R-:W-:S04]    IMAD.MOV R3, RZ, RZ, -R22
+  /*0750*/ [B------:R-:W-:S05]    IMAD R3, R30, R3, R33
+  /*0760*/ [B------:R-:W-:S13]    ISETP.GE.U32.AND P0, PT, R3, R30, PT
+  /*0770*/ [B------:R-:W-:S01]    @P0 IMAD.IADD R3, R3, 0x1, -R30
+  /*0780*/ [B------:R-:W-:S04]    @P0 IADD3 R22, R22, 0x1, RZ
+  /*0790*/ [B------:R-:W-:S13]    ISETP.GE.U32.AND P1, PT, R3, R30, PT
+  /*07a0*/ [B------:R-:W-:S02]    @P1 IADD3 R22, R22, 0x1, RZ
+  /*07b0*/ [B------:R-:W-:S02]    @!P2 LOP3.LUT R22, RZ, R30, RZ, 0x33, !PT
+  /*07c0*/ [B------:R-:W-:S05]    BSYNC B0
+  /*07d0*/ [B------:R-:W-:S01]    ISETP.GE.U32.AND P1, PT, R22.reuse, UR41, PT
+  /*07e0*/ [B------:R-:W-:S01]    IMAD.MOV.U32 R24, RZ, RZ, c[0x0][0x188]
+  /*07f0*/ [B------:R-:W-:S01]    ISETP.NE.U32.AND P0, PT, R22.reuse, RZ, PT
+  /*0800*/ [B------:R-:W-:S01]    IMAD.MOV.U32 R25, RZ, RZ, c[0x0][0x18c]
+  /*0810*/ [B------:R-:W-:S01]    ISETP.GE.AND.EX P1, PT, R23.reuse, UR42, PT, P1
+  /*0820*/ [B------:R-:W-:S01]    CS2R R26, SRZ
+  /*0830*/ [B------:R-:W-:S02]    ISETP.NE.AND.EX P0, PT, R23, RZ, PT, P0
+  /*0840*/ [B------:R-:W-:S04]    LEA R4, P2, R22, c[0x0][0x168], 0x3
+  /*0850*/ [B------:R-:W-:S05]    LEA.HI.X R5, R22, c[0x0][0x16c], R23, 0x3, P2
+  /*0860*/ [B------:R-:W2:S04]    @!P1 LDG.E.64 R24, [R4.64+0x8]
+  /*0870*/ [B------:R-:W2:S01]    @P0 LDG.E.64 R26, [R4.64]
+  /*0880*/ [B------:R-:W-:S01]    IMAD R3, R37, c[0x0][0x1a8], RZ
+  /*0890*/ [B------:R-:W-:S01]    BSSY B7, 0xa40
+  /*08a0*/ [B------:R-:W-:S04]    IMAD.WIDE.U32 R28, R18, c[0x0][0x1a8], RZ
+  /*08b0*/ [B------:R-:W-:S04]    IMAD R3, R18, c[0x0][0x1ac], R3
+  /*08c0*/ [B------:R-:W-:S01]    IMAD.IADD R39, R29, 0x1, R3
+  /*08d0*/ [B--2---:R-:W-:S04]    ISETP.GE.U32.AND P0, PT, R24, R26, PT
+  /*08e0*/ [B------:R-:W-:S13]    ISETP.GE.AND.EX P0, PT, R25, R27, PT, P0
+  /*08f0*/ [B------:R-:W-:S05]    @P0 BRA 0xa30
+  /*0900*/ [B------:R-:W-:S01]    MOV R14, 0x0
+  /*0910*/ [B------:R-:W-:S02]    IMAD.MOV.U32 R4, RZ, RZ, c[0x4][0x40]
+  /*0920*/ [B------:R-:W-:S02]    IMAD.MOV.U32 R5, RZ, RZ, c[0x4][0x44]
+  /*0930*/ [B------:R-:W-:S01]    IMAD.MOV.U32 R6, RZ, RZ, c[0x4][0x60]
+  /*0940*/ [B------:R-:W0:S01]    LDC.64 R14, c[0x4][R14]
+  /*0950*/ [B------:R-:W-:S02]    IMAD.MOV.U32 R7, RZ, RZ, c[0x4][0x64]
+  /*0960*/ [B------:R-:W-:S02]    IMAD.MOV.U32 R8, RZ, RZ, 0x22
+  /*0970*/ [B------:R-:W-:S02]    IMAD.MOV.U32 R10, RZ, RZ, c[0x4][0x30]
+  /*0980*/ [B------:R-:W-:S02]    IMAD.MOV.U32 R11, RZ, RZ, c[0x4][0x34]
+  /*0990*/ [B------:R-:W-:S02]    IMAD.MOV.U32 R12, RZ, RZ, 0x1
+  /*09a0*/ [B------:R-:W-:S02]    IMAD.MOV.U32 R13, RZ, RZ, RZ
+  /*09b0*/ [B------:R-:W-:S01]    LEPC R20
+  /*09c0*/ [B------:R-:W-:S02]    MOV R3, 0xa30
+  /*09d0*/ [B------:R-:W-:S02]    MOV R0, 0x9b0
+  /*09e0*/ [B------:R-:W-:S02]    MOV R9, 0x0
+  /*09f0*/ [B------:R-:W-:S02]    MOV R34, 0x0
+  /*0a00*/ [B------:R-:W-:S04]    IADD3 R20, P0, P1, -R0, R3, R20
+  /*0a10*/ [B------:R-:W-:S04]    IADD3.X R21, ~R34, R9, R21, P0, P1
+  /*0a20*/ [B0-----:R-:W-:S05]    CALL.ABS.NOINC R14
+  /*0a30*/ [B------:R-:W-:S05]    BSYNC B7
+  /*0a40*/ [B------:R-:W-:S01]    ISETP.GT.U32.AND P0, PT, R24, R26, PT
+  /*0a50*/ [B------:R-:W-:S01]    BSSY B0, 0x18d0
+  /*0a60*/ [B------:R-:W-:S02]    PRMT R38, RZ, 0x7610, R38
+  /*0a70*/ [B------:R-:W-:S13]    ISETP.GT.AND.EX P0, PT, R25, R27, PT, P0
+  /*0a80*/ [B------:R-:W-:S05]    @!P0 BRA 0x18c0
+  /*0a90*/ [B------:R-:W-:S01]    LOP3.LUT R3, RZ, R26, RZ, 0x33, !PT
+  /*0aa0*/ [B------:R-:W-:S01]    BSSY B1, 0x16e0
+  /*0ab0*/ [B------:R-:W-:S01]    PRMT R38, RZ, 0x7610, R38
+  /*0ac0*/ [B------:R-:W-:S01]    IMAD.MOV.U32 R45, RZ, RZ, R27
+  /*0ad0*/ [B------:R-:W-:S02]    IADD3 R0, P1, R24, R3, RZ
+  /*0ae0*/ [B------:R-:W-:S02]    LOP3.LUT R3, RZ, R27, RZ, 0x33, !PT
+  /*0af0*/ [B------:R-:W-:S03]    ISETP.GE.U32.AND P0, PT, R0, 0x3, PT
+  /*0b00*/ [B------:R-:W-:S01]    IMAD.X R0, R25, 0x1, R3, P1
+  /*0b10*/ [B------:R-:W-:S04]    IADD3 R3, P2, R24, -R26, RZ
+  /*0b20*/ [B------:R-:W-:S01]    ISETP.GE.U32.AND.EX P0, PT, R0, RZ, PT, P0
+  /*0b30*/ [B------:R-:W-:S12]    IMAD.MOV.U32 R0, RZ, RZ, R26
+  /*0b40*/ [B------:R-:W-:S05]    @!P0 BRA 0x16d0
+  /*0b50*/ [B------:R-:W-:S01]    LOP3.LUT R36, R3, 0x3, RZ, 0xc0, !PT
+  /*0b60*/ [B------:R-:W-:S01]    BSSY B2, 0x1500
+  /*0b70*/ [B------:R-:W-:S01]    PRMT R38, RZ, 0x7610, R38
+  /*0b80*/ [B------:R-:W-:S01]    IMAD.MOV.U32 R0, RZ, RZ, R26
+  /*0b90*/ [B------:R-:W-:S01]    IADD3 R36, P1, -R36, R3, RZ
+  /*0ba0*/ [B------:R-:W-:S03]    IMAD.MOV.U32 R45, RZ, RZ, R27
+  /*0bb0*/ [B------:R-:W-:S02]    ISETP.GT.U32.AND P0, PT, R36, RZ, PT
+  /*0bc0*/ [B------:R-:W-:S04]    IADD3.X R34, R25, -0x1, ~R27, P1, P2
+  /*0bd0*/ [B------:R-:W-:S13]    ISETP.GT.AND.EX P0, PT, R34, RZ, PT, P0
+  /*0be0*/ [B------:R-:W-:S05]    @!P0 BRA 0x14f0
+  /*0bf0*/ [B------:R-:W-:S01]    ISETP.GT.U32.AND P1, PT, R36, 0xc, PT
+  /*0c00*/ [B------:R-:W-:S01]    BSSY B3, 0x1190
+  /*0c10*/ [B------:R-:W-:S02]    PLOP3.LUT P0, PT, PT, PT, PT, 0x80, 0x0
+  /*0c20*/ [B------:R-:W-:S13]    ISETP.GT.AND.EX P1, PT, R34, RZ, PT, P1
+  /*0c30*/ [B------:R-:W-:S05]    @!P1 BRA 0x1180
+  /*0c40*/ [B------:R-:W-:S02]    PLOP3.LUT P0, PT, PT, PT, PT, 0x8, 0x0
+  /*0c50*/ [B------:R-:W-:S04]    LEA R40, P1, R0, c[0x0][0x160], 0x3
+  /*0c60*/ [B------:R-:W-:S05]    LEA.HI.X R41, R0, c[0x0][0x164], R45, 0x3, P1
+  /*0c70*/ [B------:R-:W2:S04]    LDG.E.64.CONSTANT R6, [R40.64]
+  /*0c80*/ [B------:R-:W3:S04]    LDG.E.64.CONSTANT R20, [R40.64+0x8]
+  /*0c90*/ [B------:R-:W4:S04]    LDG.E.64.CONSTANT R14, [R40.64+0x10]
+  /*0ca0*/ [B------:R-:W5:S04]    LDG.E.64.CONSTANT R12, [R40.64+0x18]
+  /*0cb0*/ [B------:R-:W4:S04]    LDG.E.64.CONSTANT R10, [R40.64+0x20]
+  /*0cc0*/ [B------:R-:W5:S04]    LDG.E.64.CONSTANT R4, [R40.64+0x28]
+  /*0cd0*/ [B------:R-:W5:S01]    LDG.E.64.CONSTANT R8, [R40.64+0x38]
+  /*0ce0*/ [B------:R-:W-:S03]    LOP3.LUT P5, RZ, R38, 0xff, RZ, 0xc0, !PT
+  /*0cf0*/ [B------:R-:W5:S01]    LDG.E.64.CONSTANT R42, [R40.64+0x78]
+  /*0d00*/ [B--2---:R-:W-:S04]    ISETP.GE.U32.AND P2, PT, R6, c[0x0][0x1d8], PT
+  /*0d10*/ [B------:R-:W-:S04]    ISETP.GE.AND.EX P2, PT, R7, c[0x0][0x1dc], PT, P2
+  /*0d20*/ [B------:R-:W-:S02]    ISETP.LT.OR P2, PT, R7, RZ, P2
+  /*0d30*/ [B------:R-:W2:S01]    LDG.E.64.CONSTANT R6, [R40.64+0x30]
+  /*0d40*/ [B---3--:R-:W-:S04]    ISETP.GE.U32.AND P1, PT, R20, c[0x0][0x1d8], PT
+  /*0d50*/ [B------:R-:W-:S02]    ISETP.GE.AND.EX P1, PT, R21.reuse, c[0x0][0x1dc], PT, P1
+  /*0d60*/ [B----4-:R-:W-:S02]    ISETP.GE.U32.AND P6, PT, R14, c[0x0][0x1d8], PT
+  /*0d70*/ [B------:R-:W-:S02]    ISETP.LT.OR P1, PT, R21, RZ, P1
+  /*0d80*/ [B-----5:R-:W-:S01]    ISETP.GE.U32.AND P4, PT, R12, c[0x0][0x1d8], PT
+  /*0d90*/ [B------:R-:W3:S01]    LDG.E.64.CONSTANT R20, [R40.64+0x68]
+  /*0da0*/ [B------:R-:W-:S02]    PLOP3.LUT P2, PT, P1, P5, P2, 0xfe, 0x0
+  /*0db0*/ [B------:R-:W-:S02]    ISETP.GE.AND.EX P6, PT, R15, c[0x0][0x1dc], PT, P6
+  /*0dc0*/ [B------:R-:W-:S02]    ISETP.GE.U32.AND P3, PT, R10, c[0x0][0x1d8], PT
+  /*0dd0*/ [B------:R-:W-:S02]    ISETP.GE.U32.AND P5, PT, R4, c[0x0][0x1d8], PT
+  /*0de0*/ [B------:R-:W-:S02]    ISETP.GE.AND.EX P4, PT, R13, c[0x0][0x1dc], PT, P4
+  /*0df0*/ [B------:R-:W-:S02]    ISETP.LT.OR P6, PT, R15, RZ, P6
+  /*0e00*/ [B------:R-:W-:S01]    ISETP.GE.AND.EX P3, PT, R11, c[0x0][0x1dc], PT, P3
+  /*0e10*/ [B------:R-:W4:S01]    LDG.E.64.CONSTANT R14, [R40.64+0x40]
+  /*0e20*/ [B------:R-:W-:S02]    ISETP.GE.AND.EX P5, PT, R5, c[0x0][0x1dc], PT, P5
+  /*0e30*/ [B------:R-:W-:S02]    ISETP.LT.OR P4, PT, R13, RZ, P4
+  /*0e40*/ [B------:R-:W5:S01]    LDG.E.64.CONSTANT R12, [R40.64+0x48]
+  /*0e50*/ [B------:R-:W-:S02]    ISETP.LT.OR P3, PT, R11, RZ, P3
+  /*0e60*/ [B------:R-:W-:S01]    ISETP.LT.OR P5, PT, R5, RZ, P5
+  /*0e70*/ [B------:R-:W3:S01]    LDG.E.64.CONSTANT R10, [R40.64+0x50]
+  /*0e80*/ [B------:R-:W-:S03]    PLOP3.LUT P6, PT, P4, P2, P6, 0xfe, 0x0
+  /*0e90*/ [B------:R-:W3:S01]    LDG.E.64.CONSTANT R4, [R40.64+0x58]
+  /*0ea0*/ [B------:R-:W-:S04]    ISETP.GE.U32.AND P4, PT, R8, c[0x0][0x1d8], PT
+  /*0eb0*/ [B------:R-:W-:S04]    ISETP.GE.AND.EX P4, PT, R9, c[0x0][0x1dc], PT, P4
+  /*0ec0*/ [B------:R-:W-:S02]    ISETP.LT.OR P4, PT, R9, RZ, P4
+  /*0ed0*/ [B------:R-:W3:S01]    LDG.E.64.CONSTANT R8, [R40.64+0x70]
+  /*0ee0*/ [B--2---:R-:W-:S04]    ISETP.GE.U32.AND P1, PT, R6, c[0x0][0x1d8], PT
+  /*0ef0*/ [B------:R-:W-:S04]    ISETP.GE.AND.EX P1, PT, R7, c[0x0][0x1dc], PT, P1
+  /*0f00*/ [B------:R-:W-:S02]    ISETP.LT.OR P2, PT, R7, RZ, P1
+  /*0f10*/ [B------:R-:W2:S01]    LDG.E.64.CONSTANT R6, [R40.64+0x60]
+  /*0f20*/ [B------:R-:W-:S04]    PLOP3.LUT P6, PT, P5, P6, P3, 0xfe, 0x0
+  /*0f30*/ [B------:R-:W-:S02]    PLOP3.LUT P2, PT, P4, P6, P2, 0xfe, 0x0
+  /*0f40*/ [B----4-:R-:W-:S02]    ISETP.GE.U32.AND P1, PT, R14, c[0x0][0x1d8], PT
+  /*0f50*/ [B-----5:R-:W-:S02]    ISETP.GE.U32.AND P3, PT, R12, c[0x0][0x1d8], PT
+  /*0f60*/ [B------:R-:W-:S02]    ISETP.GE.AND.EX P1, PT, R15, c[0x0][0x1dc], PT, P1
+  /*0f70*/ [B---3--:R-:W-:S02]    ISETP.GE.U32.AND P5, PT, R10, c[0x0][0x1d8], PT
+  /*0f80*/ [B------:R-:W-:S02]    ISETP.GE.AND.EX P3, PT, R13, c[0x0][0x1dc], PT, P3
+  /*0f90*/ [B------:R-:W-:S02]    ISETP.GE.U32.AND P4, PT, R4, c[0x0][0x1d8], PT
+  /*0fa0*/ [B------:R-:W-:S02]    ISETP.LT.OR P1, PT, R15, RZ, P1
+  /*0fb0*/ [B------:R-:W-:S02]    ISETP.GE.AND.EX P5, PT, R11, c[0x0][0x1dc], PT, P5
+  /*0fc0*/ [B------:R-:W-:S02]    ISETP.GE.AND.EX P4, PT, R5, c[0x0][0x1dc], PT, P4
+  /*0fd0*/ [B------:R-:W-:S02]    ISETP.LT.OR P3, PT, R13, RZ, P3
+  /*0fe0*/ [B------:R-:W-:S02]    ISETP.LT.OR P5, PT, R11, RZ, P5
+  /*0ff0*/ [B------:R-:W-:S02]    ISETP.LT.OR P4, PT, R5, RZ, P4
+  /*1000*/ [B------:R-:W-:S02]    PLOP3.LUT P3, PT, P3, P2, P1, 0xfe, 0x0
+  /*1010*/ [B------:R-:W-:S02]    ISETP.GE.U32.AND P2, PT, R20, c[0x0][0x1d8], PT
+  /*1020*/ [B------:R-:W-:S02]    PLOP3.LUT P4, PT, P4, P3, P5, 0xfe, 0x0
+  /*1030*/ [B------:R-:W-:S02]    ISETP.GE.U32.AND P1, PT, R8, c[0x0][0x1d8], PT
+  /*1040*/ [B------:R-:W-:S02]    ISETP.GE.U32.AND P3, PT, R42, c[0x0][0x1d8], PT
+  /*1050*/ [B------:R-:W-:S02]    ISETP.GE.AND.EX P2, PT, R21, c[0x0][0x1dc], PT, P2
+  /*1060*/ [B------:R-:W-:S02]    ISETP.GE.AND.EX P1, PT, R9, c[0x0][0x1dc], PT, P1
+  /*1070*/ [B------:R-:W-:S02]    ISETP.GE.AND.EX P3, PT, R43, c[0x0][0x1dc], PT, P3
+  /*1080*/ [B------:R-:W-:S02]    ISETP.LT.OR P2, PT, R21, RZ, P2
+  /*1090*/ [B------:R-:W-:S02]    IADD3 R36, P5, R36, -0x10, RZ
+  /*10a0*/ [B------:R-:W-:S02]    ISETP.LT.OR P1, PT, R9, RZ, P1
+  /*10b0*/ [B------:R-:W-:S02]    ISETP.LT.OR P3, PT, R43, RZ, P3
+  /*10c0*/ [B------:R-:W-:S02]    IADD3.X R34, R34, -0x1, RZ, P5, !PT
+  /*10d0*/ [B--2---:R-:W-:S04]    ISETP.GE.U32.AND P6, PT, R6, c[0x0][0x1d8], PT
+  /*10e0*/ [B------:R-:W-:S04]    ISETP.GE.AND.EX P6, PT, R7, c[0x0][0x1dc], PT, P6
+  /*10f0*/ [B------:R-:W-:S04]    ISETP.LT.OR P6, PT, R7, RZ, P6
+  /*1100*/ [B------:R-:W-:S02]    PLOP3.LUT P2, PT, P2, P4, P6, 0xfe, 0x0
+  /*1110*/ [B------:R-:W-:S02]    ISETP.GT.U32.AND P4, PT, R36, 0xc, PT
+  /*1120*/ [B------:R-:W-:S02]    PLOP3.LUT P1, PT, P3, P2, P1, 0xfe, 0x0
+  /*1130*/ [B------:R-:W-:S02]    ISETP.GT.AND.EX P2, PT, R34, RZ, PT, P4
+  /*1140*/ [B------:R-:W-:S02]    IADD3 R0, P3, R0, 0x10, RZ
+  /*1150*/ [B------:R-:W-:S03]    SEL R38, RZ, 0x1, !P1
+  /*1160*/ [B------:R-:W-:S06]    IMAD.X R45, RZ, RZ, R45, P3
+  /*1170*/ [B------:R-:W-:S05]    @P2 BRA 0xc50
+  /*1180*/ [B------:R-:W-:S05]    BSYNC B3
+  /*1190*/ [B------:R-:W-:S01]    ISETP.GT.U32.AND P1, PT, R36, 0x4, PT
+  /*11a0*/ [B------:R-:W-:S03]    BSSY B3, 0x14b0
+  /*11b0*/ [B------:R-:W-:S13]    ISETP.GT.AND.EX P1, PT, R34, RZ, PT, P1
+  /*11c0*/ [B------:R-:W-:S05]    @!P1 BRA 0x14a0
+  /*11d0*/ [B------:R-:W-:S04]    LEA R40, P0, R0, c[0x0][0x160], 0x3
+  /*11e0*/ [B------:R-:W-:S05]    LEA.HI.X R41, R0, c[0x0][0x164], R45, 0x3, P0
+  /*11f0*/ [B------:R-:W2:S04]    LDG.E.64.CONSTANT R20, [R40.64]
+  /*1200*/ [B------:R-:W3:S04]    LDG.E.64.CONSTANT R14, [R40.64+0x8]
+  /*1210*/ [B------:R-:W4:S04]    LDG.E.64.CONSTANT R12, [R40.64+0x10]
+  /*1220*/ [B------:R-:W5:S04]    LDG.E.64.CONSTANT R10, [R40.64+0x18]
+  /*1230*/ [B------:R-:W5:S04]    LDG.E.64.CONSTANT R8, [R40.64+0x20]
+  /*1240*/ [B------:R-:W5:S04]    LDG.E.64.CONSTANT R6, [R40.64+0x28]
+  /*1250*/ [B------:R-:W5:S04]    LDG.E.64.CONSTANT R4, [R40.64+0x30]
+  /*1260*/ [B------:R-:W5:S01]    LDG.E.64.CONSTANT R42, [R40.64+0x38]
+  /*1270*/ [B------:R-:W-:S02]    LOP3.LUT P5, RZ, R38, 0xff, RZ, 0xc0, !PT
+  /*1280*/ [B--2---:R-:W-:S02]    ISETP.GE.U32.AND P6, PT, R20, c[0x0][0x1d8], PT
+  /*1290*/ [B---3--:R-:W-:S02]    ISETP.GE.U32.AND P4, PT, R14, c[0x0][0x1d8], PT
+  /*12a0*/ [B------:R-:W-:S02]    ISETP.GE.AND.EX P6, PT, R21, c[0x0][0x1dc], PT, P6
+  /*12b0*/ [B------:R-:W-:S02]    ISETP.GE.AND.EX P4, PT, R15, c[0x0][0x1dc], PT, P4
+  /*12c0*/ [B----4-:R-:W-:S02]    ISETP.GE.U32.AND P0, PT, R12, c[0x0][0x1d8], PT
+  /*12d0*/ [B-----5:R-:W-:S02]    ISETP.GE.U32.AND P1, PT, R10, c[0x0][0x1d8], PT
+  /*12e0*/ [B------:R-:W-:S02]    ISETP.LT.OR P6, PT, R21, RZ, P6
+  /*12f0*/ [B------:R-:W-:S02]    ISETP.LT.OR P4, PT, R15, RZ, P4
+  /*1300*/ [B------:R-:W-:S02]    ISETP.GE.AND.EX P0, PT, R13, c[0x0][0x1dc], PT, P0
+  /*1310*/ [B------:R-:W-:S02]    ISETP.GE.AND.EX P1, PT, R11, c[0x0][0x1dc], PT, P1
+  /*1320*/ [B------:R-:W-:S02]    ISETP.GE.U32.AND P2, PT, R8, c[0x0][0x1d8], PT
+  /*1330*/ [B------:R-:W-:S02]    ISETP.GE.U32.AND P3, PT, R6, c[0x0][0x1d8], PT
+  /*1340*/ [B------:R-:W-:S02]    PLOP3.LUT P6, PT, P4, P5, P6, 0xfe, 0x0
+  /*1350*/ [B------:R-:W-:S02]    ISETP.LT.OR P0, PT, R13, RZ, P0
+  /*1360*/ [B------:R-:W-:S02]    ISETP.LT.OR P1, PT, R11, RZ, P1
+  /*1370*/ [B------:R-:W-:S02]    ISETP.GE.AND.EX P2, PT, R9, c[0x0][0x1dc], PT, P2
+  /*1380*/ [B------:R-:W-:S02]    ISETP.GE.AND.EX P3, PT, R7, c[0x0][0x1dc], PT, P3
+  /*1390*/ [B------:R-:W-:S02]    ISETP.GE.U32.AND P4, PT, R4, c[0x0][0x1d8], PT
+  /*13a0*/ [B------:R-:W-:S02]    ISETP.GE.U32.AND P5, PT, R42, c[0x0][0x1d8], PT
+  /*13b0*/ [B------:R-:W-:S02]    ISETP.LT.OR P2, PT, R9, RZ, P2
+  /*13c0*/ [B------:R-:W-:S02]    ISETP.LT.OR P3, PT, R7, RZ, P3
+  /*13d0*/ [B------:R-:W-:S02]    ISETP.GE.AND.EX P4, PT, R5, c[0x0][0x1dc], PT, P4
+  /*13e0*/ [B------:R-:W-:S02]    ISETP.GE.AND.EX P5, PT, R43, c[0x0][0x1dc], PT, P5
+  /*13f0*/ [B------:R-:W-:S02]    PLOP3.LUT P0, PT, P1, P6, P0, 0xfe, 0x0
+  /*1400*/ [B------:R-:W-:S02]    ISETP.LT.OR P4, PT, R5, RZ, P4
+  /*1410*/ [B------:R-:W-:S02]    ISETP.LT.OR P5, PT, R43, RZ, P5
+  /*1420*/ [B------:R-:W-:S02]    PLOP3.LUT P0, PT, P3, P0, P2, 0xfe, 0x0
+  /*1430*/ [B------:R-:W-:S02]    IADD3 R0, P1, R0, 0x8, RZ
+  /*1440*/ [B------:R-:W-:S02]    IADD3 R36, P2, R36, -0x8, RZ
+  /*1450*/ [B------:R-:W-:S01]    PLOP3.LUT P4, PT, P5, P0, P4, 0xfe, 0x0
+  /*1460*/ [B------:R-:W-:S01]    IMAD.X R45, RZ, RZ, R45, P1
+  /*1470*/ [B------:R-:W-:S02]    PLOP3.LUT P0, PT, PT, PT, PT, 0x8, 0x0
+  /*1480*/ [B------:R-:W-:S02]    SEL R38, RZ, 0x1, !P4
+  /*1490*/ [B------:R-:W-:S04]    IADD3.X R34, R34, -0x1, RZ, P2, !PT
+  /*14a0*/ [B------:R-:W-:S05]    BSYNC B3
+  /*14b0*/ [B------:R-:W-:S04]    ISETP.NE.U32.AND P1, PT, R36, RZ, PT
+  /*14c0*/ [B------:R-:W-:S13]    ISETP.NE.OR.EX P0, PT, R34, RZ, P0, P1
+  /*14d0*/ [B------:R-:W-:S01]    @!P0 BREAK B2
+  /*14e0*/ [B------:R-:W-:S05]    @!P0 BRA 0x16d0
+  /*14f0*/ [B------:R-:W-:S05]    BSYNC B2
+  /*1500*/ [B------:R-:W-:S04]    LEA R12, P0, R0, c[0x0][0x160], 0x3
+  /*1510*/ [B------:R-:W-:S05]    LEA.HI.X R13, R0, c[0x0][0x164], R45, 0x3, P0
+  /*1520*/ [B------:R-:W2:S04]    LDG.E.64.CONSTANT R10, [R12.64]
+  /*1530*/ [B------:R-:W3:S04]    LDG.E.64.CONSTANT R4, [R12.64+0x8]
+  /*1540*/ [B------:R-:W4:S04]    LDG.E.64.CONSTANT R6, [R12.64+0x10]
+  /*1550*/ [B------:R-:W5:S01]    LDG.E.64.CONSTANT R8, [R12.64+0x18]
+  /*1560*/ [B------:R-:W-:S02]    LOP3.LUT P1, RZ, R38, 0xff, RZ, 0xc0, !PT
+  /*1570*/ [B--2---:R-:W-:S02]    ISETP.GE.U32.AND P0, PT, R10, c[0x0][0x1d8], PT
+  /*1580*/ [B---3--:R-:W-:S02]    ISETP.GE.U32.AND P3, PT, R4, c[0x0][0x1d8], PT
+  /*1590*/ [B------:R-:W-:S02]    ISETP.GE.AND.EX P2, PT, R11, c[0x0][0x1dc], PT, P0
+  /*15a0*/ [B----4-:R-:W-:S02]    ISETP.GE.U32.AND P5, PT, R6, c[0x0][0x1d8], PT
+  /*15b0*/ [B------:R-:W-:S02]    ISETP.GE.AND.EX P0, PT, R5, c[0x0][0x1dc], PT, P3
+  /*15c0*/ [B------:R-:W-:S02]    ISETP.LT.OR P2, PT, R11, RZ, P2
+  /*15d0*/ [B------:R-:W-:S02]    ISETP.GE.AND.EX P3, PT, R7, c[0x0][0x1dc], PT, P5
+  /*15e0*/ [B------:R-:W-:S02]    ISETP.LT.OR P0, PT, R5, RZ, P0
+  /*15f0*/ [B------:R-:W-:S02]    IADD3 R36, P5, R36, -0x4, RZ
+  /*1600*/ [B------:R-:W-:S02]    PLOP3.LUT P1, PT, P0, P1, P2, 0xfe, 0x0
+  /*1610*/ [B------:R-:W-:S02]    IADD3.X R34, R34, -0x1, RZ, P5, !PT
+  /*1620*/ [B------:R-:W-:S02]    ISETP.NE.U32.AND P0, PT, R36, RZ, PT
+  /*1630*/ [B-----5:R-:W-:S02]    ISETP.GE.U32.AND P4, PT, R8, c[0x0][0x1d8], PT
+  /*1640*/ [B------:R-:W-:S02]    ISETP.NE.AND.EX P0, PT, R34, RZ, PT, P0
+  /*1650*/ [B------:R-:W-:S02]    ISETP.GE.AND.EX P4, PT, R9, c[0x0][0x1dc], PT, P4
+  /*1660*/ [B------:R-:W-:S02]    ISETP.LT.OR P3, PT, R7, RZ, P3
+  /*1670*/ [B------:R-:W-:S02]    ISETP.LT.OR P4, PT, R9, RZ, P4
+  /*1680*/ [B------:R-:W-:S02]    IADD3 R0, P2, R0, 0x4, RZ
+  /*1690*/ [B------:R-:W-:S03]    PLOP3.LUT P1, PT, P4, P1, P3, 0xfe, 0x0
+  /*16a0*/ [B------:R-:W-:S01]    IMAD.X R45, RZ, RZ, R45, P2
+  /*16b0*/ [B------:R-:W-:S01]    SEL R38, RZ, 0x1, !P1
+  /*16c0*/ [B------:R-:W-:S05]    @P0 BRA 0x1500
+  /*16d0*/ [B------:R-:W-:S05]    BSYNC B1
+  /*16e0*/ [B------:R-:W-:S05]    IMAD.IADD R4, R24, 0x1, -R26
+  /*16f0*/ [B------:R-:W-:S13]    LOP3.LUT P0, RZ, R4, 0x3, RZ, 0xc0, !PT
+  /*1700*/ [B------:R-:W-:S05]    @!P0 BRA 0x18c0
+  /*1710*/ [B------:R-:W-:S04]    LEA R4, P0, R0, c[0x0][0x160], 0x3
+  /*1720*/ [B------:R-:W-:S05]    LEA.HI.X R5, R0, c[0x0][0x164], R45, 0x3, P0
+  /*1730*/ [B------:R-:W2:S01]    LDG.E.64.CONSTANT R6, [R4.64]
+  /*1740*/ [B------:R-:W-:S01]    LOP3.LUT R3, R3, 0x3, RZ, 0xc0, !PT
+  /*1750*/ [B------:R-:W-:S01]    BSSY B1, 0x18b0
+  /*1760*/ [B------:R-:W-:S02]    PRMT R0, R38, 0x9910, RZ
+  /*1770*/ [B------:R-:W-:S04]    ISETP.NE.U32.AND P1, PT, R3, 0x1, PT
+  /*1780*/ [B------:R-:W-:S02]    ISETP.NE.AND.EX P1, PT, RZ, RZ, PT, P1
+  /*1790*/ [B--2---:R-:W-:S04]    ISETP.GE.U32.AND P0, PT, R6, c[0x0][0x1d8], PT
+  /*17a0*/ [B------:R-:W-:S04]    ISETP.GE.AND.EX P0, PT, R7, c[0x0][0x1dc], PT, P0
+  /*17b0*/ [B------:R-:W-:S04]    ISETP.LT.OR P0, PT, R7, RZ, P0
+  /*17c0*/ [B------:R-:W-:S01]    ISETP.NE.OR P0, PT, R0, RZ, P0
+  /*17d0*/ [B------:R-:W-:S07]    @!P1 BRA 0x18a0
+  /*17e0*/ [B------:R-:W-:S01]    ISETP.NE.U32.AND P1, PT, R3, 0x2, PT
+  /*17f0*/ [B------:R-:W2:S03]    LDG.E.64.CONSTANT R8, [R4.64+0x8]
+  /*1800*/ [B------:R-:W-:S13]    ISETP.NE.AND.EX P1, PT, RZ, RZ, PT, P1
+  /*1810*/ [B------:R-:W3:S01]    @P1 LDG.E.64.CONSTANT R6, [R4.64+0x10]
+  /*1820*/ [B--2---:R-:W-:S04]    ISETP.GE.U32.AND P2, PT, R8, c[0x0][0x1d8], PT
+  /*1830*/ [B------:R-:W-:S04]    ISETP.GE.AND.EX P2, PT, R9, c[0x0][0x1dc], PT, P2
+  /*1840*/ [B------:R-:W-:S02]    ISETP.LT.OR P2, PT, R9, RZ, P2
+  /*1850*/ [B---3--:R-:W-:S04]    @P1 ISETP.GE.U32.AND P3, PT, R6, c[0x0][0x1d8], PT
+  /*1860*/ [B------:R-:W-:S02]    @P1 ISETP.GE.AND.EX P3, PT, R7.reuse, c[0x0][0x1dc], PT, P3
+  /*1870*/ [B------:R-:W-:S02]    PLOP3.LUT P0, PT, P0, P2, PT, 0xa8, 0x0
+  /*1880*/ [B------:R-:W-:S04]    @P1 ISETP.LT.OR P3, PT, R7, RZ, P3
+  /*1890*/ [B------:R-:W-:S08]    @P1 PLOP3.LUT P0, PT, P0, P3, PT, 0xa8, 0x0
+  /*18a0*/ [B------:R-:W-:S05]    BSYNC B1
+  /*18b0*/ [B------:R-:W-:S02]    SEL R38, RZ, 0x1, !P0
+  /*18c0*/ [B------:R-:W-:S05]    BSYNC B0
+  /*18d0*/ [B------:R-:W-:S01]    LOP3.LUT P0, RZ, R38, 0xff, RZ, 0xc0, !PT
+  /*18e0*/ [B------:R-:W-:S12]    BSSY B7, 0x1a40
+  /*18f0*/ [B------:R-:W-:S05]    @!P0 BRA 0x1a30
+  /*1900*/ [B------:R-:W-:S01]    MOV R14, 0x0
+  /*1910*/ [B------:R-:W-:S02]    IMAD.MOV.U32 R4, RZ, RZ, c[0x4][0x50]
+  /*1920*/ [B------:R-:W-:S02]    IMAD.MOV.U32 R5, RZ, RZ, c[0x4][0x54]
+  /*1930*/ [B------:R-:W-:S01]    IMAD.MOV.U32 R6, RZ, RZ, c[0x4][0x60]
+  /*1940*/ [B------:R-:W0:S01]    LDC.64 R14, c[0x4][R14]
+  /*1950*/ [B------:R-:W-:S02]    IMAD.MOV.U32 R7, RZ, RZ, c[0x4][0x64]
+  /*1960*/ [B------:R-:W-:S02]    IMAD.MOV.U32 R8, RZ, RZ, 0x2d
+  /*1970*/ [B------:R-:W-:S02]    IMAD.MOV.U32 R10, RZ, RZ, c[0x4][0x30]
+  /*1980*/ [B------:R-:W-:S02]    IMAD.MOV.U32 R11, RZ, RZ, c[0x4][0x34]
+  /*1990*/ [B------:R-:W-:S02]    IMAD.MOV.U32 R12, RZ, RZ, 0x1
+  /*19a0*/ [B------:R-:W-:S02]    IMAD.MOV.U32 R13, RZ, RZ, RZ
+  /*19b0*/ [B------:R-:W-:S01]    LEPC R20
+  /*19c0*/ [B------:R-:W-:S02]    MOV R3, 0x1a30
+  /*19d0*/ [B------:R-:W-:S02]    MOV R0, 0x19b0
+  /*19e0*/ [B------:R-:W-:S02]    MOV R9, 0x0
+  /*19f0*/ [B------:R-:W-:S02]    MOV R34, 0x0
+  /*1a00*/ [B------:R-:W-:S04]    IADD3 R20, P0, P1, -R0, R3, R20
+  /*1a10*/ [B------:R-:W-:S04]    IADD3.X R21, ~R34, R9, R21, P0, P1
+  /*1a20*/ [B0-----:R-:W-:S05]    CALL.ABS.NOINC R14
+  /*1a30*/ [B------:R-:W-:S05]    BSYNC B7
+  /*1a40*/ [B------:R-:W-:S01]    ISETP.GT.U32.AND P0, PT, R24, R26, PT
+  /*1a50*/ [B------:R-:W-:S01]    BSSY B0, 0x2840
+  /*1a60*/ [B------:R-:W-:S01]    CS2R R4, SRZ
+  /*1a70*/ [B------:R-:W-:S01]    IMAD.MOV.U32 R42, RZ, RZ, RZ
+  /*1a80*/ [B------:R-:W-:S13]    ISETP.GT.AND.EX P0, PT, R25, R27, PT, P0
+  /*1a90*/ [B------:R-:W-:S05]    @!P0 BRA 0x2830
+  /*1aa0*/ [B------:R-:W-:S01]    LOP3.LUT R3, RZ, R26.reuse, RZ, 0x33, !PT
+  /*1ab0*/ [B------:R-:W-:S01]    BSSY B1, 0x22a0
+  /*1ac0*/ [B------:R-:W-:S01]    IADD3 R9, P2, R24.reuse, -R26, RZ
+  /*1ad0*/ [B------:R-:W-:S01]    IMAD.MOV.U32 R42, RZ, RZ, RZ
+  /*1ae0*/ [B------:R-:W-:S02]    IADD3 R4, P0, R24, R3, RZ
+  /*1af0*/ [B------:R-:W-:S01]    LOP3.LUT R3, RZ, R27, RZ, 0x33, !PT
+  /*1b00*/ [B------:R-:W-:S01]    IMAD.X R24, R25, 0x1, ~R27, P2
+  /*1b10*/ [B------:R-:W-:S02]    ISETP.GE.U32.AND P1, PT, R4, 0x3, PT
+  /*1b20*/ [B------:R-:W-:S01]    LOP3.LUT R0, R9, 0x3, RZ, 0xc0, !PT
+  /*1b30*/ [B------:R-:W-:S01]    IMAD.X R3, R25, 0x1, R3, P0
+  /*1b40*/ [B------:R-:W-:S02]    CS2R R4, SRZ
+  /*1b50*/ [B------:R-:W-:S02]    ISETP.NE.U32.AND P0, PT, R0, RZ, PT
+  /*1b60*/ [B------:R-:W-:S02]    ISETP.GE.U32.AND.EX P1, PT, R3, RZ, PT, P1
+  /*1b70*/ [B------:R-:W-:S11]    ISETP.NE.AND.EX P0, PT, RZ, RZ, PT, P0
+  /*1b80*/ [B------:R-:W-:S05]    @!P1 BRA 0x2290
+  /*1b90*/ [B------:R-:W-:S01]    IMAD R3, R27, c[0x0][0x1c8], RZ
+  /*1ba0*/ [B------:R-:W-:S01]    ISETP.NE.U32.AND P1, PT, R18, RZ, PT
+  /*1bb0*/ [B------:R-:W-:S01]    IMAD.WIDE.U32 R4, R26, c[0x0][0x1c8], RZ
+  /*1bc0*/ [B------:R-:W-:S02]    IADD3 R34, P2, -R0, R9, RZ
+  /*1bd0*/ [B------:R-:W-:S01]    LEA R14, P4, R26.reuse, c[0x0][0x160], 0x3
+  /*1be0*/ [B------:R-:W-:S01]    IMAD R3, R26, c[0x0][0x1cc], R3
+  /*1bf0*/ [B------:R-:W-:S01]    LEA R6, P3, R4, c[0x0][0x1c0], 0x2
+  /*1c00*/ [B------:R-:W-:S01]    IMAD.MOV.U32 R42, RZ, RZ, RZ
+  /*1c10*/ [B------:R-:W-:S01]    ISETP.NE.AND.EX P1, PT, R37, RZ, PT, P1
+  /*1c20*/ [B------:R-:W-:S01]    IMAD.IADD R7, R5, 0x1, R3
+  /*1c30*/ [B------:R-:W-:S02]    IADD3.X R36, R24, -0x1, RZ, P2, !PT
+  /*1c40*/ [B------:R-:W-:S02]    LEA.HI.X R15, R26, c[0x0][0x164], R27, 0x3, P4
+  /*1c50*/ [B------:R-:W-:S02]    LEA.HI.X R7, R4, c[0x0][0x1c4], R7, 0x2, P3
+  /*1c60*/ [B------:R-:W-:S02]    CS2R R4, SRZ
+        >>> HOT LOOP @0x1c70-0x2280 (98 instr, with per_sample_weights, STEADY STATE (psw)) [I I P G S P I I S P S G P S G G]
+  /*1c70*/ [B------:R-:W2:S01]    LDG.E.64.CONSTANT R10, [R14.64]    <-- IDX
+  /*1c80*/ [B------:R-:W-:S03]    IMAD.MOV.U32 R38, RZ, RZ, R28
+  /*1c90*/ [B------:R-:W3:S04]    LDG.E.64.CONSTANT R20, [R14.64+0x8]    <-- IDX
+  /*1ca0*/ [B------:R0:W4:S01]    LDG.E R43, [R6.64]    <-- PSW
+  /*1cb0*/ [B--2---:R-:W-:S02]    IMAD R3, R11, c[0x0][0x1a0], RZ
+  /*1cc0*/ [B------:R-:W-:S04]    IMAD.WIDE.U32 R8, R10, c[0x0][0x1a0], R38
+  /*1cd0*/ [B------:R-:W-:S01]    IMAD R3, R10, c[0x0][0x1a4], R3
+  /*1ce0*/ [B------:R-:W-:S03]    LEA R24, P2, R8, c[0x0][0x170], 0x2
+  /*1cf0*/ [B------:R-:W-:S05]    IMAD.IADD R3, R9, 0x1, R3
+  /*1d00*/ [B------:R-:W-:S05]    LEA.HI.X R25, R8, c[0x0][0x174], R3, 0x2, P2
+  /*1d10*/ [B------:R1:W2:S01]    LDG.E.CONSTANT R41, [R24.64]    <-- GATHER
+  /*1d20*/ [B------:R-:W-:S04]    @!P1 LEA R12, P2, R26, c[0x0][0x180], 0x3
+  /*1d30*/ [B------:R-:W-:S02]    @!P1 LEA.HI.X R13, R26, c[0x0][0x184], R27, 0x3, P2
+  /*1d40*/ [B------:R-:W-:S03]    IADD3 R8, P2, R6, UR39, RZ
+  /*1d50*/ [B------:R5:W-:S01]    @!P1 STG.E.64 [R12.64], R22
+  /*1d60*/ [B------:R-:W-:S02]    IADD3.X R9, R7, UR40, RZ, P2, !PT
+  /*1d70*/ [B0-----:R-:W-:S03]    IADD3 R6, P2, R8, UR39, RZ
+  /*1d80*/ [B------:R0:W4:S01]    LDG.E R3, [R8.64]    <-- PSW
+  /*1d90*/ [B------:R-:W-:S03]    IADD3.X R7, R9, UR40, RZ, P2, !PT
+  /*1da0*/ [B-----5:R-:W5:S04]    LDG.E.64.CONSTANT R12, [R14.64+0x10]    <-- IDX
+  /*1db0*/ [B0-----:R-:W4:S01]    LDG.E.64.CONSTANT R8, [R14.64+0x18]    <-- IDX
+  /*1dc0*/ [B------:R-:W-:S04]    @!P1 LEA R44, P3, R26, c[0x0][0x180], 0x3
+  /*1dd0*/ [B------:R-:W-:S02]    @!P1 LEA.HI.X R45, R26.reuse, c[0x0][0x184], R27.reuse, 0x3, P3
+  /*1de0*/ [B-1----:R-:W-:S02]    @!P1 LEA R24, P3, R26, c[0x0][0x180], 0x3
+  /*1df0*/ [B------:R-:W-:S02]    ISETP.NE.U32.AND P2, PT, R10, c[0x0][0x1d0], PT
+  /*1e00*/ [B------:R-:W-:S02]    @!P1 LEA.HI.X R25, R26, c[0x0][0x184], R27, 0x3, P3
+  /*1e10*/ [B------:R-:W-:S02]    ISETP.NE.U32.AND P3, PT, R10, c[0x0][0x1d0], PT
+  /*1e20*/ [B------:R-:W-:S02]    ISETP.NE.AND.EX P2, PT, R11, c[0x0][0x1d4], PT, P2
+  /*1e30*/ [B------:R-:W-:S01]    ISETP.NE.AND.EX P3, PT, R11, c[0x0][0x1d4], PT, P3
+  /*1e40*/ [B---3--:R-:W-:S01]    IMAD R11, R21, c[0x0][0x1a0], RZ
+  /*1e50*/ [B------:R-:W-:S04]    @!P1 STG.E.64 [R44.64+0x8], R22
+  /*1e60*/ [B------:R0:W3:S01]    LDG.E R40, [R6.64]    <-- PSW
+  /*1e70*/ [B------:R-:W-:S03]    IMAD R11, R20, c[0x0][0x1a4], R11
+  /*1e80*/ [B------:R1:W-:S02]    @!P1 STG.E.64 [R24.64+0x10], R22
+  /*1e90*/ [B-1----:R-:W-:S04]    IMAD.WIDE.U32 R24, R20, c[0x0][0x1a0], R38
+  /*1ea0*/ [B------:R-:W-:S01]    IMAD.IADD R11, R25, 0x1, R11
+  /*1eb0*/ [B------:R-:W-:S04]    ISETP.NE.U32.AND P4, PT, R20, c[0x0][0x1d0], PT
+  /*1ec0*/ [B------:R-:W-:S02]    ISETP.NE.AND.EX P4, PT, R21, c[0x0][0x1d4], PT, P4
+  /*1ed0*/ [B--2---:R-:W-:S02]    FSEL R41, R41, RZ, P2
+  /*1ee0*/ [B------:R-:W-:S04]    LEA R10, P2, R24, c[0x0][0x170], 0x2
+  /*1ef0*/ [B------:R-:W-:S02]    LEA.HI.X R11, R24, c[0x0][0x174], R11, 0x2, P2
+  /*1f00*/ [B0-----:R-:W-:S03]    IADD3 R6, P2, R6, UR39, RZ
+  /*1f10*/ [B------:R0:W2:S01]    LDG.E.CONSTANT R10, [R10.64]    <-- GATHER
+  /*1f20*/ [B------:R-:W-:S02]    IADD3.X R7, R7, UR40, RZ, P2, !PT
+  /*1f30*/ [B------:R-:W-:S04]    @!P1 LEA R24, P2, R26, c[0x0][0x180], 0x3
+  /*1f40*/ [B------:R-:W-:S02]    @!P1 LEA.HI.X R25, R26, c[0x0][0x184], R27, 0x3, P2
+  /*1f50*/ [B------:R-:W-:S04]    ISETP.NE.U32.AND P2, PT, R20, c[0x0][0x1d0], PT
+  /*1f60*/ [B------:R-:W-:S01]    ISETP.NE.AND.EX P2, PT, R21, c[0x0][0x1d4], PT, P2
+  /*1f70*/ [B-----5:R-:W-:S02]    IMAD R21, R13, c[0x0][0x1a0], RZ
+  /*1f80*/ [B----4-:R-:W-:S02]    FFMA R42, R41, R43, R42
+  /*1f90*/ [B------:R-:W-:S01]    IMAD R21, R12.reuse, c[0x0][0x1a4], R21
+  /*1fa0*/ [B------:R1:W4:S01]    LDG.E R41, [R6.64]    <-- PSW
+  /*1fb0*/ [B------:R-:W-:S04]    IMAD.WIDE.U32 R44, R12, c[0x0][0x1a0], R38
+  /*1fc0*/ [B------:R-:W-:S01]    IMAD R43, R9, c[0x0][0x1a0], RZ
+  /*1fd0*/ [B------:R5:W-:S01]    @!P1 STG.E.64 [R24.64+0x18], R22
+  /*1fe0*/ [B------:R-:W-:S01]    IMAD.IADD R21, R45, 0x1, R21
+  /*1ff0*/ [B------:R-:W-:S01]    LEA R20, P5, R44, c[0x0][0x170], 0x2
+  /*2000*/ [B------:R-:W-:S03]    IMAD R43, R8, c[0x0][0x1a4], R43
+  /*2010*/ [B------:R-:W-:S05]    LEA.HI.X R21, R44, c[0x0][0x174], R21, 0x2, P5
+  /*2020*/ [B------:R-:W3:S01]    LDG.E.CONSTANT R20, [R20.64]    <-- GATHER
+  /*2030*/ [B-----5:R-:W-:S04]    IMAD.WIDE.U32 R24, R8, c[0x0][0x1a0], R38
+  /*2040*/ [B------:R-:W-:S01]    IMAD.IADD R25, R25, 0x1, R43
+  /*2050*/ [B------:R-:W-:S04]    LEA R44, P5, R24, c[0x0][0x170], 0x2
+  /*2060*/ [B------:R-:W-:S05]    LEA.HI.X R45, R24, c[0x0][0x174], R25, 0x2, P5
+  /*2070*/ [B------:R-:W5:S01]    LDG.E.CONSTANT R44, [R44.64]    <-- GATHER
+  /*2080*/ [B------:R-:W-:S02]    IADD3 R14, P5, R14, 0x20, RZ
+  /*2090*/ [B------:R-:W-:S03]    ISETP.NE.U32.AND P6, PT, R12, c[0x0][0x1d0], PT
+  /*20a0*/ [B------:R-:W-:S01]    IMAD.X R15, RZ, RZ, R15, P5
+  /*20b0*/ [B------:R-:W-:S02]    ISETP.NE.U32.AND P5, PT, R8.reuse, c[0x0][0x1d0], PT
+  /*20c0*/ [B0-----:R-:W-:S02]    SEL R11, RZ, 0x1, !P2
+  /*20d0*/ [B------:R-:W-:S02]    ISETP.NE.AND.EX P5, PT, R9.reuse, c[0x0][0x1d4], PT, P5
+  /*20e0*/ [B------:R-:W-:S02]    ISETP.NE.U32.AND P2, PT, R8, c[0x0][0x1d0], PT
+  /*20f0*/ [B------:R-:W-:S02]    SEL R8, RZ, 0x1, !P5
+  /*2100*/ [B------:R-:W-:S02]    ISETP.NE.AND.EX P2, PT, R9, c[0x0][0x1d4], PT, P2
+  /*2110*/ [B--2---:R-:W-:S05]    FSEL R10, R10, RZ, P4
+  /*2120*/ [B------:R-:W-:S01]    FFMA R42, R10, R3, R42
+  /*2130*/ [B------:R-:W-:S02]    SEL R10, RZ, 0x1, !P3
+  /*2140*/ [B------:R-:W-:S02]    ISETP.NE.AND.EX P3, PT, R13, c[0x0][0x1d4], PT, P6
+  /*2150*/ [B------:R-:W-:S02]    IADD3 R34, P6, R34, -0x4, RZ
+  /*2160*/ [B------:R-:W-:S02]    ISETP.NE.U32.AND P4, PT, R12, c[0x0][0x1d0], PT
+  /*2170*/ [B------:R-:W-:S02]    IADD3.X R36, R36, -0x1, RZ, P6, !PT
+  /*2180*/ [B------:R-:W-:S02]    ISETP.NE.U32.AND P5, PT, R34, RZ, PT
+  /*2190*/ [B------:R-:W-:S02]    ISETP.NE.AND.EX P4, PT, R13, c[0x0][0x1d4], PT, P4
+  /*21a0*/ [B------:R-:W-:S02]    ISETP.NE.AND.EX P5, PT, R36, RZ, PT, P5
+  /*21b0*/ [B------:R-:W-:S02]    SEL R12, RZ, 0x1, !P3
+  /*21c0*/ [B-1----:R-:W-:S02]    IADD3 R6, P6, R6, UR39, RZ
+  /*21d0*/ [B---3--:R-:W-:S02]    FSEL R3, R20, RZ, P4
+  /*21e0*/ [B------:R-:W-:S03]    IADD3 R11, P3, P4, R11, R4, R10
+  /*21f0*/ [B------:R-:W-:S01]    FFMA R42, R3, R40, R42
+  /*2200*/ [B------:R-:W-:S02]    IADD3.X R5, RZ, R5, RZ, P3, P4
+  /*2210*/ [B------:R-:W-:S02]    IADD3 R4, P3, P4, R8, R11, R12
+  /*2220*/ [B------:R-:W-:S02]    IADD3.X R7, R7, UR40, RZ, P6, !PT
+  /*2230*/ [B-----5:R-:W-:S02]    FSEL R44, R44, RZ, P2
+  /*2240*/ [B------:R-:W-:S02]    IADD3 R26, P2, R26, 0x4, RZ
+  /*2250*/ [B------:R-:W-:S01]    IADD3.X R5, RZ, R5, RZ, P3, P4
+  /*2260*/ [B----4-:R-:W-:S02]    FFMA R42, R44, R41, R42
+  /*2270*/ [B------:R-:W-:S01]    IMAD.X R27, RZ, RZ, R27, P2
+  /*2280*/ [B------:R-:W-:S05]    @P5 BRA 0x1c70
+        <<< END HOT LOOP @0x1c70 (backward branch)
+  /*2290*/ [B------:R-:W-:S05]    BSYNC B1
+  /*22a0*/ [B------:R-:W-:S05]    @!P0 BRA 0x2830
+  /*22b0*/ [B------:R-:W-:S01]    IMAD.SHL.U32 R3, R26.reuse, 0x8, RZ
+  /*22c0*/ [B------:R-:W-:S04]    SHF.L.U64.HI R25, R26, 0x3, R27
+  /*22d0*/ [B------:R-:W-:S04]    IADD3 R6, P0, R3, c[0x0][0x160], RZ
+  /*22e0*/ [B------:R-:W-:S05]    IADD3.X R7, R25, c[0x0][0x164], RZ, P0, !PT
+  /*22f0*/ [B------:R-:W2:S01]    LDG.E.64.CONSTANT R8, [R6.64]
+  /*2300*/ [B------:R-:W-:S02]    IMAD.MOV.U32 R38, RZ, RZ, R28
+  /*2310*/ [B------:R-:W-:S02]    IMAD R27, R27, c[0x0][0x1c8], RZ
+  /*2320*/ [B------:R-:W-:S04]    IMAD.WIDE.U32 R12, R26, c[0x0][0x1c8], RZ
+  /*2330*/ [B------:R-:W-:S01]    IMAD R27, R26, c[0x0][0x1cc], R27
+  /*2340*/ [B------:R-:W-:S01]    LEA R10, P1, R12, c[0x0][0x1c0], 0x2
+  /*2350*/ [B--2---:R-:W-:S02]    IMAD R11, R9, c[0x0][0x1a0], RZ
+  /*2360*/ [B------:R-:W-:S04]    IMAD.WIDE.U32 R14, R8, c[0x0][0x1a0], R38
+  /*2370*/ [B------:R-:W-:S01]    IMAD R11, R8, c[0x0][0x1a4], R11
+  /*2380*/ [B------:R-:W-:S03]    LEA R20, P0, R14, c[0x0][0x170], 0x2
+  /*2390*/ [B------:R-:W-:S02]    IMAD.IADD R15, R15, 0x1, R11
+  /*23a0*/ [B------:R-:W-:S03]    IMAD.IADD R11, R13, 0x1, R27
+  /*23b0*/ [B------:R-:W-:S02]    LEA.HI.X R21, R14, c[0x0][0x174], R15, 0x2, P0
+  /*23c0*/ [B------:R-:W-:S03]    LEA.HI.X R11, R12, c[0x0][0x1c4], R11, 0x2, P1
+  /*23d0*/ [B------:R-:W2:S04]    LDG.E.CONSTANT R20, [R20.64]
+  /*23e0*/ [B------:R-:W3:S01]    LDG.E R24, [R10.64]
+  /*23f0*/ [B------:R-:W-:S02]    ISETP.NE.U32.AND P0, PT, R18, RZ, PT
+  /*2400*/ [B------:R-:W-:S02]    IADD3 R12, P1, R3, c[0x0][0x180], RZ
+  /*2410*/ [B------:R-:W-:S02]    ISETP.NE.AND.EX P0, PT, R37, RZ, PT, P0
+  /*2420*/ [B------:R-:W-:S02]    IADD3.X R13, R25, c[0x0][0x184], RZ, P1, !PT
+  /*2430*/ [B------:R-:W-:S02]    ISETP.NE.U32.AND P1, PT, R8.reuse, c[0x0][0x1d0], PT
+  /*2440*/ [B------:R-:W-:S02]    ISETP.NE.U32.AND P2, PT, R8, c[0x0][0x1d0], PT
+  /*2450*/ [B------:R-:W-:S02]    ISETP.NE.AND.EX P1, PT, R9.reuse, c[0x0][0x1d4], PT, P1
+  /*2460*/ [B------:R-:W-:S02]    ISETP.NE.U32.AND P3, PT, R0, 0x1, PT
+  /*2470*/ [B------:R-:W-:S01]    SEL R3, RZ, 0x1, !P1
+  /*2480*/ [B------:R-:W-:S01]    @!P0 IMAD.MOV.U32 R14, RZ, RZ, R22
+  /*2490*/ [B------:R-:W-:S01]    ISETP.NE.AND.EX P1, PT, R9, c[0x0][0x1d4], PT, P2
+  /*24a0*/ [B------:R-:W-:S01]    @!P0 IMAD.MOV.U32 R15, RZ, RZ, R23
+  /*24b0*/ [B------:R-:W-:S02]    ISETP.NE.AND.EX P2, PT, RZ, RZ, PT, P3
+  /*24c0*/ [B------:R-:W-:S02]    IADD3 R4, P4, R3, R4, RZ
+  /*24d0*/ [B------:R0:W-:S03]    @!P0 STG.E.64 [R12.64], R14
+  /*24e0*/ [B------:R-:W-:S01]    IMAD.X R5, RZ, RZ, R5, P4
+  /*24f0*/ [B--2---:R-:W-:S05]    FSEL R3, R20, RZ, P1
+  /*2500*/ [B---3--:R-:W-:S01]    FFMA R42, R3, R24, R42
+  /*2510*/ [B------:R-:W-:S05]    @!P2 BRA 0x2830
+  /*2520*/ [B0-----:R-:W2:S01]    LDG.E.64.CONSTANT R14, [R6.64+0x8]
+  /*2530*/ [B------:R-:W-:S04]    IADD3 R8, P2, R10, UR39, RZ
+  /*2540*/ [B------:R-:W-:S01]    IADD3.X R9, R11, UR40, RZ, P2, !PT
+  /*2550*/ [B--2---:R-:W-:S02]    IMAD R3, R15, c[0x0][0x1a0], RZ
+  /*2560*/ [B------:R-:W-:S04]    IMAD.WIDE.U32 R20, R14, c[0x0][0x1a0], R38
+  /*2570*/ [B------:R-:W-:S01]    IMAD R3, R14, c[0x0][0x1a4], R3
+  /*2580*/ [B------:R-:W-:S03]    LEA R24, P1, R20, c[0x0][0x170], 0x2
+  /*2590*/ [B------:R-:W-:S05]    IMAD.IADD R3, R21, 0x1, R3
+  /*25a0*/ [B------:R-:W-:S02]    LEA.HI.X R25, R20, c[0x0][0x174], R3, 0x2, P1
+  /*25b0*/ [B------:R-:W2:S04]    LDG.E R20, [R8.64]
+  /*25c0*/ [B------:R-:W3:S01]    LDG.E.CONSTANT R24, [R24.64]
+  /*25d0*/ [B------:R-:W-:S01]    ISETP.NE.U32.AND P1, PT, R14, c[0x0][0x1d0], PT
+  /*25e0*/ [B------:R-:W-:S02]    @!P0 IMAD.MOV.U32 R10, RZ, RZ, R22
+  /*25f0*/ [B------:R-:W-:S01]    @!P0 IMAD.MOV.U32 R11, RZ, RZ, R23
+  /*2600*/ [B------:R-:W-:S02]    ISETP.NE.AND.EX P1, PT, R15, c[0x0][0x1d4], PT, P1
+  /*2610*/ [B------:R-:W-:S02]    ISETP.NE.U32.AND P2, PT, R14, c[0x0][0x1d0], PT
+  /*2620*/ [B------:R0:W-:S01]    @!P0 STG.E.64 [R12.64+0x8], R10
+  /*2630*/ [B------:R-:W-:S02]    ISETP.NE.U32.AND P3, PT, R0, 0x2, PT
+  /*2640*/ [B------:R-:W-:S02]    SEL R3, RZ, 0x1, !P1
+  /*2650*/ [B------:R-:W-:S02]    ISETP.NE.AND.EX P1, PT, R15, c[0x0][0x1d4], PT, P2
+  /*2660*/ [B------:R-:W-:S02]    ISETP.NE.AND.EX P2, PT, RZ, RZ, PT, P3
+  /*2670*/ [B------:R-:W-:S05]    IADD3 R4, P4, R3, R4, RZ
+  /*2680*/ [B------:R-:W-:S01]    IMAD.X R5, RZ, RZ, R5, P4
+  /*2690*/ [B---3--:R-:W-:S05]    FSEL R3, R24, RZ, P1
+  /*26a0*/ [B--2---:R-:W-:S01]    FFMA R42, R3, R20, R42
+  /*26b0*/ [B------:R-:W-:S05]    @!P2 BRA 0x2830
+  /*26c0*/ [B0-----:R-:W2:S01]    LDG.E.64.CONSTANT R6, [R6.64+0x10]
+  /*26d0*/ [B------:R-:W-:S04]    IADD3 R8, P2, R8, UR39, RZ
+  /*26e0*/ [B------:R-:W-:S05]    IADD3.X R9, R9, UR40, RZ, P2, !PT
+  /*26f0*/ [B------:R0:W3:S01]    LDG.E R0, [R8.64]
+  /*2700*/ [B--2---:R-:W-:S02]    IMAD R3, R7, c[0x0][0x1a0], RZ
+  /*2710*/ [B------:R-:W-:S04]    IMAD.WIDE.U32 R38, R6, c[0x0][0x1a0], R38
+  /*2720*/ [B------:R-:W-:S01]    IMAD R3, R6, c[0x0][0x1a4], R3
+  /*2730*/ [B------:R-:W-:S03]    LEA R10, P1, R38, c[0x0][0x170], 0x2
+  /*2740*/ [B------:R-:W-:S05]    IMAD.IADD R3, R39, 0x1, R3
+  /*2750*/ [B------:R-:W-:S05]    LEA.HI.X R11, R38, c[0x0][0x174], R3, 0x2, P1
+  /*2760*/ [B------:R-:W2:S01]    LDG.E.CONSTANT R10, [R10.64]
+  /*2770*/ [B0-----:R-:W-:S02]    @!P0 IMAD.MOV.U32 R8, RZ, RZ, R22
+  /*2780*/ [B------:R-:W-:S01]    @!P0 IMAD.MOV.U32 R9, RZ, RZ, R23
+  /*2790*/ [B------:R-:W-:S04]    ISETP.NE.U32.AND P1, PT, R6, c[0x0][0x1d0], PT
+  /*27a0*/ [B------:R0:W-:S01]    @!P0 STG.E.64 [R12.64+0x10], R8
+  /*27b0*/ [B------:R-:W-:S02]    ISETP.NE.AND.EX P0, PT, R7.reuse, c[0x0][0x1d4], PT, P1
+  /*27c0*/ [B------:R-:W-:S02]    ISETP.NE.U32.AND P1, PT, R6, c[0x0][0x1d0], PT
+  /*27d0*/ [B------:R-:W-:S02]    SEL R3, RZ, 0x1, !P0
+  /*27e0*/ [B------:R-:W-:S02]    ISETP.NE.AND.EX P0, PT, R7, c[0x0][0x1d4], PT, P1
+  /*27f0*/ [B------:R-:W-:S05]    IADD3 R4, P1, R3, R4, RZ
+  /*2800*/ [B------:R-:W-:S01]    IMAD.X R5, RZ, RZ, R5, P1
+  /*2810*/ [B--2---:R-:W-:S05]    FSEL R3, R10, RZ, P0
+  /*2820*/ [B---3--:R-:W-:S02]    FFMA R42, R3, R0, R42
+  /*2830*/ [B0-----:R-:W-:S05]    BSYNC B0
+  /*2840*/ [B------:R-:W-:S01]    ISETP.NE.U32.AND P0, PT, R4, RZ, PT
+  /*2850*/ [B------:R-:W-:S01]    IMAD.MOV.U32 R0, RZ, RZ, 0x1
+  /*2860*/ [B------:R-:W-:S02]    BSSY B0, 0x29b0
+  /*2870*/ [B------:R-:W-:S04]    ISETP.NE.AND.EX P0, PT, R5, RZ, PT, P0
+  /*2880*/ [B------:R-:W-:S13]    ISETP.NE.OR P0, PT, R0, c[0x0][0x1b0], !P0
+  /*2890*/ [B------:R-:W-:S05]    @P0 BRA 0x29a0
+  /*28a0*/ [B------:R-:W0:S01]    I2F.S64 R8, R4
+  /*28b0*/ [B------:R-:W-:S07]    BSSY B1, 0x2990
+  /*28c0*/ [B0-----:R-:W0:S08]    MUFU.RCP R0, R8
+  /*28d0*/ [B------:R-:W1:S01]    FCHK P0, R42, R8
+  /*28e0*/ [B0-----:R-:W-:S04]    FFMA R3, -R8, R0, 1
+  /*28f0*/ [B------:R-:W-:S04]    FFMA R3, R0, R3, R0
+  /*2900*/ [B------:R-:W-:S04]    FFMA R0, R42, R3, RZ
+  /*2910*/ [B------:R-:W-:S04]    FFMA R6, -R8, R0, R42
+  /*2920*/ [B------:R-:W-:S01]    FFMA R0, R3, R6, R0
+  /*2930*/ [B-1----:R-:W-:S05]    @!P0 BRA 0x2980
+  /*2940*/ [B------:R-:W-:S01]    IMAD.MOV.U32 R9, RZ, RZ, R42
+  /*2950*/ [B------:R-:W-:S02]    MOV R0, 0x2970
+  /*2960*/ [B------:R-:W-:S05]    CALL.REL.NOINC 0x5a60
+  /*2970*/ [B0-----:R-:W-:S02]    IMAD.MOV.U32 R0, RZ, RZ, R3
+  /*2980*/ [B------:R-:W-:S05]    BSYNC B1
+  /*2990*/ [B------:R-:W-:S02]    IMAD.MOV.U32 R42, RZ, RZ, R0
+  /*29a0*/ [B------:R-:W-:S05]    BSYNC B0
+  /*29b0*/ [B------:R-:W-:S01]    IMAD R3, R23, c[0x0][0x198], RZ
+  /*29c0*/ [B------:R-:W-:S01]    LEA R6, P0, R22.reuse, c[0x0][0x1b8], 0x3
+  /*29d0*/ [B------:R-:W-:S02]    IMAD.MOV.U32 R36, RZ, RZ, R18
+  /*29e0*/ [B------:R-:W-:S01]    IMAD R3, R22.reuse, c[0x0][0x19c], R3
+  /*29f0*/ [B------:R-:W-:S01]    LEA.HI.X R7, R22.reuse, c[0x0][0x1bc], R23, 0x3, P0
+  /*2a00*/ [B------:R-:W-:S04]    IMAD.WIDE.U32 R8, R22, c[0x0][0x198], R36
+  /*2a10*/ [B------:R-:W-:S01]    IMAD.IADD R3, R9, 0x1, R3
+  /*2a20*/ [B------:R-:W-:S01]    LEA R10, P1, R8.reuse, c[0x0][0x178], 0x2
+  /*2a30*/ [B------:R0:W-:S03]    STG.E.64 [R6.64], R4
+  /*2a40*/ [B------:R-:W-:S05]    LEA.HI.X R11, R8, c[0x0][0x17c], R3, 0x2, P1
+  /*2a50*/ [B------:R0:W-:S04]    STG.E [R10.64], R42
+  /*2a60*/ [B------:R-:W-:S05]    BSYNC B6
+  /*2a70*/ [B------:R-:W-:S05]    IADD3 R33, P0, R33, UR38, RZ
+  /*2a80*/ [B------:R-:W-:S01]    IMAD.X R35, RZ, RZ, R35, P0
+  /*2a90*/ [B------:R-:W-:S04]    ISETP.GE.U32.AND P0, PT, R33, R16, PT
+  /*2aa0*/ [B------:R-:W-:S13]    ISETP.GE.AND.EX P0, PT, R35, R2, PT, P0
+  /*2ab0*/ [B------:R-:W-:S01]    @P0 CALL.REL.NOINC 0x2ad0
+  /*2ac0*/ [B------:R-:W-:S05]    BRA 0x3d0
+  /*2ad0*/ [B------:R-:W-:S05]    EXIT
+  /*2ae0*/ [B------:R-:W-:S01]    LOP3.LUT R0, R35, R31, RZ, 0xfc, !PT
+  /*2af0*/ [B------:R-:W-:S03]    BSSY B0, 0x2cc0
+  /*2b00*/ [B------:R-:W-:S13]    ISETP.NE.U32.AND P1, PT, R0, RZ, PT
+  /*2b10*/ [B0-----:R-:W-:S05]    @!P1 BRA 0x2b90
+  /*2b20*/ [B------:R-:W-:S01]    IMAD.MOV.U32 R6, RZ, RZ, R30
+  /*2b30*/ [B------:R-:W-:S01]    MOV R0, 0x2b60
+  /*2b40*/ [B------:R-:W-:S02]    IMAD.MOV.U32 R3, RZ, RZ, R31
+  /*2b50*/ [B0-----:R-:W-:S05]    CALL.REL.NOINC 0x5580
+  /*2b60*/ [B------:R-:W-:S02]    IMAD.MOV.U32 R24, RZ, RZ, R18
+  /*2b70*/ [B------:R-:W-:S01]    IMAD.MOV.U32 R25, RZ, RZ, R19
+  /*2b80*/ [B------:R-:W-:S05]    BRA 0x2cb0
+  /*2b90*/ [B------:R-:W1:S01]    I2F.U32.RP R3, R30
+  /*2ba0*/ [B------:R-:W-:S01]    ISETP.NE.U32.AND P2, PT, R30, RZ, PT
+  /*2bb0*/ [B------:R-:W-:S06]    IMAD.MOV.U32 R25, RZ, RZ, RZ
+  /*2bc0*/ [B-1----:R-:W1:S02]    MUFU.RCP R3, R3
+  /*2bd0*/ [B-1----:R-:W-:S06]    IADD3 R4, R3, 0xffffffe, RZ
+  /*2be0*/ [B------:R1:W2:S02]    F2I.FTZ.U32.TRUNC.NTZ R5, R4
+  /*2bf0*/ [B-1----:R-:W-:S02]    IMAD.MOV.U32 R4, RZ, RZ, RZ
+  /*2c00*/ [B--2---:R-:W-:S04]    IMAD.MOV R7, RZ, RZ, -R5
+  /*2c10*/ [B------:R-:W-:S04]    IMAD R7, R7, R30, RZ
+  /*2c20*/ [B------:R-:W-:S06]    IMAD.HI.U32 R0, R5, R7, R4
+  /*2c30*/ [B------:R-:W-:S04]    IMAD.HI.U32 R0, R0, R33, RZ
+  /*2c40*/ [B------:R-:W-:S04]    IMAD.MOV R0, RZ, RZ, -R0
+  /*2c50*/ [B------:R-:W-:S05]    IMAD R24, R30, R0, R33
+  /*2c60*/ [B------:R-:W-:S13]    ISETP.GE.U32.AND P0, PT, R24, R30, PT
+  /*2c70*/ [B------:R-:W-:S05]    @P0 IMAD.IADD R24, R24, 0x1, -R30
+  /*2c80*/ [B------:R-:W-:S13]    ISETP.GE.U32.AND P0, PT, R24, R30, PT
+  /*2c90*/ [B------:R-:W-:S01]    @P0 IMAD.IADD R24, R24, 0x1, -R30
+  /*2ca0*/ [B------:R-:W-:S02]    @!P2 LOP3.LUT R24, RZ, R30, RZ, 0x33, !PT
+  /*2cb0*/ [B------:R-:W-:S05]    BSYNC B0
+  /*2cc0*/ [B0-----:R-:W-:S01]    IMAD.MOV.U32 R4, RZ, RZ, R32
+  /*2cd0*/ [B------:R-:W-:S01]    BSSY B6, 0x4fd0
+  /*2ce0*/ [B------:R-:W-:S02]    IMAD.MOV.U32 R5, RZ, RZ, RZ
+  /*2cf0*/ [B------:R-:W-:S02]    IMAD R37, R25, c[0x0][0x0], RZ
+  /*2d00*/ [B------:R-:W-:S04]    IMAD.WIDE.U32 R24, R24, c[0x0][0x0], R4
+  /*2d10*/ [B------:R-:W-:S01]    IMAD.IADD R37, R25, 0x1, R37
+  /*2d20*/ [B------:R-:W-:S04]    ISETP.GE.U32.AND P0, PT, R24, c[0x0][0x198], PT
+  /*2d30*/ [B------:R-:W-:S13]    ISETP.GE.AND.EX P0, PT, R37, c[0x0][0x19c], PT, P0
+  /*2d40*/ [B------:R-:W-:S05]    @P0 BRA 0x4fc0
+  /*2d50*/ [B------:R-:W-:S01]    BSSY B0, 0x2f20
+  /*2d60*/ [B------:R-:W-:S05]    @!P1 BRA 0x2de0
+  /*2d70*/ [B------:R-:W-:S01]    IMAD.MOV.U32 R6, RZ, RZ, R30
+  /*2d80*/ [B------:R-:W-:S01]    MOV R0, 0x2db0
+  /*2d90*/ [B------:R-:W-:S02]    IMAD.MOV.U32 R3, RZ, RZ, R31
+  /*2da0*/ [B------:R-:W-:S05]    CALL.REL.NOINC 0x5040
+  /*2db0*/ [B------:R-:W-:S02]    IMAD.MOV.U32 R28, RZ, RZ, R22
+  /*2dc0*/ [B------:R-:W-:S01]    IMAD.MOV.U32 R29, RZ, RZ, R23
+  /*2dd0*/ [B------:R-:W-:S05]    BRA 0x2f10
+  /*2de0*/ [B------:R-:W0:S01]    I2F.U32.RP R0, R30
+  /*2df0*/ [B------:R-:W-:S01]    ISETP.NE.U32.AND P2, PT, R30, RZ, PT
+  /*2e00*/ [B------:R-:W-:S06]    IMAD.MOV.U32 R29, RZ, RZ, RZ
+  /*2e10*/ [B0-----:R-:W0:S02]    MUFU.RCP R0, R0
+  /*2e20*/ [B0-----:R-:W-:S06]    IADD3 R4, R0, 0xffffffe, RZ
+  /*2e30*/ [B------:R0:W1:S02]    F2I.FTZ.U32.TRUNC.NTZ R5, R4
+  /*2e40*/ [B0-----:R-:W-:S02]    IMAD.MOV.U32 R4, RZ, RZ, RZ
+  /*2e50*/ [B-1----:R-:W-:S04]    IMAD.MOV R3, RZ, RZ, -R5
+  /*2e60*/ [B------:R-:W-:S04]    IMAD R3, R3, R30, RZ
+  /*2e70*/ [B------:R-:W-:S06]    IMAD.HI.U32 R6, R5, R3, R4
+  /*2e80*/ [B------:R-:W-:S04]    IMAD.HI.U32 R28, R6, R33, RZ
+  /*2e90*/ [B------:R-:W-:S04]    IMAD.MOV R3, RZ, RZ, -R28
+  /*2ea0*/ [B------:R-:W-:S05]    IMAD R3, R30, R3, R33
+  /*2eb0*/ [B------:R-:W-:S13]    ISETP.GE.U32.AND P0, PT, R3, R30, PT
+  /*2ec0*/ [B------:R-:W-:S01]    @P0 IMAD.IADD R3, R3, 0x1, -R30
+  /*2ed0*/ [B------:R-:W-:S04]    @P0 IADD3 R28, R28, 0x1, RZ
+  /*2ee0*/ [B------:R-:W-:S13]    ISETP.GE.U32.AND P1, PT, R3, R30, PT
+  /*2ef0*/ [B------:R-:W-:S02]    @P1 IADD3 R28, R28, 0x1, RZ
+  /*2f00*/ [B------:R-:W-:S02]    @!P2 LOP3.LUT R28, RZ, R30, RZ, 0x33, !PT
+  /*2f10*/ [B------:R-:W-:S05]    BSYNC B0
+  /*2f20*/ [B------:R-:W-:S01]    ISETP.GE.U32.AND P1, PT, R28.reuse, UR41, PT
+  /*2f30*/ [B------:R-:W-:S01]    IMAD.MOV.U32 R26, RZ, RZ, c[0x0][0x188]
+  /*2f40*/ [B------:R-:W-:S01]    ISETP.NE.U32.AND P0, PT, R28.reuse, RZ, PT
+  /*2f50*/ [B------:R-:W-:S01]    IMAD.MOV.U32 R27, RZ, RZ, c[0x0][0x18c]
+  /*2f60*/ [B------:R-:W-:S01]    ISETP.GE.AND.EX P1, PT, R29.reuse, UR42, PT, P1
+  /*2f70*/ [B------:R-:W-:S01]    CS2R R18, SRZ
+  /*2f80*/ [B------:R-:W-:S02]    ISETP.NE.AND.EX P0, PT, R29, RZ, PT, P0
+  /*2f90*/ [B------:R-:W-:S04]    LEA R4, P2, R28, c[0x0][0x168], 0x3
+  /*2fa0*/ [B------:R-:W-:S05]    LEA.HI.X R5, R28, c[0x0][0x16c], R29, 0x3, P2
+  /*2fb0*/ [B------:R-:W2:S04]    @!P1 LDG.E.64 R26, [R4.64+0x8]
+  /*2fc0*/ [B------:R-:W2:S01]    @P0 LDG.E.64 R18, [R4.64]
+  /*2fd0*/ [B------:R-:W-:S01]    IMAD R3, R37, c[0x0][0x1a8], RZ
+  /*2fe0*/ [B------:R-:W-:S01]    BSSY B7, 0x3190
+  /*2ff0*/ [B------:R-:W-:S04]    IMAD.WIDE.U32 R22, R24, c[0x0][0x1a8], RZ
+  /*3000*/ [B------:R-:W-:S04]    IMAD R3, R24, c[0x0][0x1ac], R3
+  /*3010*/ [B------:R-:W-:S01]    IMAD.IADD R39, R23, 0x1, R3
+  /*3020*/ [B--2---:R-:W-:S04]    ISETP.GE.U32.AND P0, PT, R26, R18, PT
+  /*3030*/ [B------:R-:W-:S13]    ISETP.GE.AND.EX P0, PT, R27, R19, PT, P0
+  /*3040*/ [B------:R-:W-:S05]    @P0 BRA 0x3180
+  /*3050*/ [B------:R-:W-:S01]    MOV R14, 0x0
+  /*3060*/ [B------:R-:W-:S02]    IMAD.MOV.U32 R4, RZ, RZ, c[0x4][0x40]
+  /*3070*/ [B------:R-:W-:S02]    IMAD.MOV.U32 R5, RZ, RZ, c[0x4][0x44]
+  /*3080*/ [B------:R-:W-:S01]    IMAD.MOV.U32 R6, RZ, RZ, c[0x4][0x60]
+  /*3090*/ [B------:R-:W0:S01]    LDC.64 R14, c[0x4][R14]
+  /*30a0*/ [B------:R-:W-:S02]    IMAD.MOV.U32 R7, RZ, RZ, c[0x4][0x64]
+  /*30b0*/ [B------:R-:W-:S02]    IMAD.MOV.U32 R8, RZ, RZ, 0x22
+  /*30c0*/ [B------:R-:W-:S02]    IMAD.MOV.U32 R10, RZ, RZ, c[0x4][0x30]
+  /*30d0*/ [B------:R-:W-:S02]    IMAD.MOV.U32 R11, RZ, RZ, c[0x4][0x34]
+  /*30e0*/ [B------:R-:W-:S02]    IMAD.MOV.U32 R12, RZ, RZ, 0x1
+  /*30f0*/ [B------:R-:W-:S02]    IMAD.MOV.U32 R13, RZ, RZ, RZ
+  /*3100*/ [B------:R-:W-:S01]    LEPC R20
+  /*3110*/ [B------:R-:W-:S02]    MOV R3, 0x3180
+  /*3120*/ [B------:R-:W-:S02]    MOV R0, 0x3100
+  /*3130*/ [B------:R-:W-:S02]    MOV R9, 0x0
+  /*3140*/ [B------:R-:W-:S02]    MOV R34, 0x0
+  /*3150*/ [B------:R-:W-:S04]    IADD3 R20, P0, P1, -R0, R3, R20
+  /*3160*/ [B------:R-:W-:S04]    IADD3.X R21, ~R34, R9, R21, P0, P1
+  /*3170*/ [B0-----:R-:W-:S05]    CALL.ABS.NOINC R14
+  /*3180*/ [B------:R-:W-:S05]    BSYNC B7
+  /*3190*/ [B------:R-:W-:S01]    ISETP.GT.U32.AND P0, PT, R26, R18, PT
+  /*31a0*/ [B------:R-:W-:S01]    BSSY B0, 0x4020
+  /*31b0*/ [B------:R-:W-:S02]    PRMT R44, RZ, 0x7610, R44
+  /*31c0*/ [B------:R-:W-:S13]    ISETP.GT.AND.EX P0, PT, R27, R19, PT, P0
+  /*31d0*/ [B------:R-:W-:S05]    @!P0 BRA 0x4010
+  /*31e0*/ [B------:R-:W-:S01]    LOP3.LUT R3, RZ, R18, RZ, 0x33, !PT
+  /*31f0*/ [B------:R-:W-:S01]    BSSY B1, 0x3e40
+  /*3200*/ [B------:R-:W-:S02]    PRMT R44, RZ, 0x7610, R44
+  /*3210*/ [B------:R-:W-:S02]    IADD3 R0, P1, R26, R3, RZ
+  /*3220*/ [B------:R-:W-:S02]    LOP3.LUT R3, RZ, R19, RZ, 0x33, !PT
+  /*3230*/ [B------:R-:W-:S03]    ISETP.GE.U32.AND P0, PT, R0, 0x3, PT
+  /*3240*/ [B------:R-:W-:S01]    IMAD.X R0, R27, 0x1, R3, P1
+  /*3250*/ [B------:R-:W-:S01]    IADD3 R5, P1, R26, -R18, RZ
+  /*3260*/ [B------:R-:W-:S03]    IMAD.MOV.U32 R3, RZ, RZ, R19
+  /*3270*/ [B------:R-:W-:S01]    ISETP.GE.U32.AND.EX P0, PT, R0, RZ, PT, P0
+  /*3280*/ [B------:R-:W-:S01]    IMAD.MOV.U32 R0, RZ, RZ, R18
+  /*3290*/ [B------:R-:W-:S11]    LOP3.LUT R34, R5, 0x3, RZ, 0xc0, !PT
+  /*32a0*/ [B------:R-:W-:S05]    @!P0 BRA 0x3e30
+  /*32b0*/ [B------:R-:W-:S01]    IMAD.X R36, R27, 0x1, ~R19.reuse, P1
+  /*32c0*/ [B------:R-:W-:S01]    IADD3 R38, P2, -R34, R5, RZ
+  /*32d0*/ [B------:R-:W-:S01]    BSSY B2, 0x3c60
+  /*32e0*/ [B------:R-:W-:S01]    PRMT R44, RZ, 0x7610, R44
+  /*32f0*/ [B------:R-:W-:S01]    IMAD.MOV.U32 R0, RZ, RZ, R18
+  /*3300*/ [B------:R-:W-:S01]    ISETP.GT.U32.AND P0, PT, R38, RZ, PT
+  /*3310*/ [B------:R-:W-:S01]    IMAD.MOV.U32 R3, RZ, RZ, R19
+  /*3320*/ [B------:R-:W-:S04]    IADD3.X R36, R36, -0x1, RZ, P2, !PT
+  /*3330*/ [B------:R-:W-:S13]    ISETP.GT.AND.EX P0, PT, R36, RZ, PT, P0
+  /*3340*/ [B------:R-:W-:S05]    @!P0 BRA 0x3c50
+  /*3350*/ [B------:R-:W-:S01]    ISETP.GT.U32.AND P1, PT, R38, 0xc, PT
+  /*3360*/ [B------:R-:W-:S01]    BSSY B3, 0x38f0
+  /*3370*/ [B------:R-:W-:S02]    PLOP3.LUT P0, PT, PT, PT, PT, 0x80, 0x0
+  /*3380*/ [B------:R-:W-:S13]    ISETP.GT.AND.EX P1, PT, R36, RZ, PT, P1
+  /*3390*/ [B------:R-:W-:S05]    @!P1 BRA 0x38e0
+  /*33a0*/ [B------:R-:W-:S02]    PLOP3.LUT P0, PT, PT, PT, PT, 0x8, 0x0
+  /*33b0*/ [B------:R-:W-:S04]    LEA R40, P1, R0, c[0x0][0x160], 0x3
+  /*33c0*/ [B------:R-:W-:S05]    LEA.HI.X R41, R0, c[0x0][0x164], R3, 0x3, P1
+  /*33d0*/ [B------:R-:W2:S04]    LDG.E.64.CONSTANT R6, [R40.64]
+  /*33e0*/ [B------:R-:W3:S04]    LDG.E.64.CONSTANT R20, [R40.64+0x8]
+  /*33f0*/ [B------:R-:W4:S04]    LDG.E.64.CONSTANT R14, [R40.64+0x10]
+  /*3400*/ [B------:R-:W5:S04]    LDG.E.64.CONSTANT R12, [R40.64+0x18]
+  /*3410*/ [B------:R-:W4:S04]    LDG.E.64.CONSTANT R10, [R40.64+0x20]
+  /*3420*/ [B------:R-:W5:S04]    LDG.E.64.CONSTANT R4, [R40.64+0x28]
+  /*3430*/ [B------:R-:W5:S01]    LDG.E.64.CONSTANT R8, [R40.64+0x38]
+  /*3440*/ [B------:R-:W-:S03]    LOP3.LUT P5, RZ, R44, 0xff, RZ, 0xc0, !PT
+  /*3450*/ [B------:R-:W5:S01]    LDG.E.64.CONSTANT R42, [R40.64+0x78]
+  /*3460*/ [B--2---:R-:W-:S04]    ISETP.GE.U32.AND P2, PT, R6, c[0x0][0x1d8], PT
+  /*3470*/ [B------:R-:W-:S04]    ISETP.GE.AND.EX P2, PT, R7, c[0x0][0x1dc], PT, P2
+  /*3480*/ [B------:R-:W-:S02]    ISETP.LT.OR P2, PT, R7, RZ, P2
+  /*3490*/ [B------:R-:W2:S01]    LDG.E.64.CONSTANT R6, [R40.64+0x30]
+  /*34a0*/ [B---3--:R-:W-:S04]    ISETP.GE.U32.AND P1, PT, R20, c[0x0][0x1d8], PT
+  /*34b0*/ [B------:R-:W-:S02]    ISETP.GE.AND.EX P1, PT, R21.reuse, c[0x0][0x1dc], PT, P1
+  /*34c0*/ [B----4-:R-:W-:S02]    ISETP.GE.U32.AND P6, PT, R14, c[0x0][0x1d8], PT
+  /*34d0*/ [B------:R-:W-:S02]    ISETP.LT.OR P1, PT, R21, RZ, P1
+  /*34e0*/ [B-----5:R-:W-:S01]    ISETP.GE.U32.AND P4, PT, R12, c[0x0][0x1d8], PT
+  /*34f0*/ [B------:R-:W3:S01]    LDG.E.64.CONSTANT R20, [R40.64+0x68]
+  /*3500*/ [B------:R-:W-:S02]    PLOP3.LUT P2, PT, P1, P5, P2, 0xfe, 0x0
+  /*3510*/ [B------:R-:W-:S02]    ISETP.GE.AND.EX P6, PT, R15, c[0x0][0x1dc], PT, P6
+  /*3520*/ [B------:R-:W-:S02]    ISETP.GE.U32.AND P3, PT, R10, c[0x0][0x1d8], PT
+  /*3530*/ [B------:R-:W-:S02]    ISETP.GE.U32.AND P5, PT, R4, c[0x0][0x1d8], PT
+  /*3540*/ [B------:R-:W-:S02]    ISETP.GE.AND.EX P4, PT, R13, c[0x0][0x1dc], PT, P4
+  /*3550*/ [B------:R-:W-:S02]    ISETP.LT.OR P6, PT, R15, RZ, P6
+  /*3560*/ [B------:R-:W-:S01]    ISETP.GE.AND.EX P3, PT, R11, c[0x0][0x1dc], PT, P3
+  /*3570*/ [B------:R-:W4:S01]    LDG.E.64.CONSTANT R14, [R40.64+0x40]
+  /*3580*/ [B------:R-:W-:S02]    ISETP.GE.AND.EX P5, PT, R5, c[0x0][0x1dc], PT, P5
+  /*3590*/ [B------:R-:W-:S02]    ISETP.LT.OR P4, PT, R13, RZ, P4
+  /*35a0*/ [B------:R-:W5:S01]    LDG.E.64.CONSTANT R12, [R40.64+0x48]
+  /*35b0*/ [B------:R-:W-:S02]    ISETP.LT.OR P3, PT, R11, RZ, P3
+  /*35c0*/ [B------:R-:W-:S01]    ISETP.LT.OR P5, PT, R5, RZ, P5
+  /*35d0*/ [B------:R-:W3:S01]    LDG.E.64.CONSTANT R10, [R40.64+0x50]
+  /*35e0*/ [B------:R-:W-:S03]    PLOP3.LUT P6, PT, P4, P2, P6, 0xfe, 0x0
+  /*35f0*/ [B------:R-:W3:S01]    LDG.E.64.CONSTANT R4, [R40.64+0x58]
+  /*3600*/ [B------:R-:W-:S04]    ISETP.GE.U32.AND P4, PT, R8, c[0x0][0x1d8], PT
+  /*3610*/ [B------:R-:W-:S04]    ISETP.GE.AND.EX P4, PT, R9, c[0x0][0x1dc], PT, P4
+  /*3620*/ [B------:R-:W-:S02]    ISETP.LT.OR P4, PT, R9, RZ, P4
+  /*3630*/ [B------:R-:W3:S01]    LDG.E.64.CONSTANT R8, [R40.64+0x70]
+  /*3640*/ [B--2---:R-:W-:S04]    ISETP.GE.U32.AND P1, PT, R6, c[0x0][0x1d8], PT
+  /*3650*/ [B------:R-:W-:S04]    ISETP.GE.AND.EX P1, PT, R7, c[0x0][0x1dc], PT, P1
+  /*3660*/ [B------:R-:W-:S02]    ISETP.LT.OR P2, PT, R7, RZ, P1
+  /*3670*/ [B------:R-:W2:S01]    LDG.E.64.CONSTANT R6, [R40.64+0x60]
+  /*3680*/ [B------:R-:W-:S04]    PLOP3.LUT P6, PT, P5, P6, P3, 0xfe, 0x0
+  /*3690*/ [B------:R-:W-:S02]    PLOP3.LUT P2, PT, P4, P6, P2, 0xfe, 0x0
+  /*36a0*/ [B----4-:R-:W-:S02]    ISETP.GE.U32.AND P1, PT, R14, c[0x0][0x1d8], PT
+  /*36b0*/ [B-----5:R-:W-:S02]    ISETP.GE.U32.AND P3, PT, R12, c[0x0][0x1d8], PT
+  /*36c0*/ [B------:R-:W-:S02]    ISETP.GE.AND.EX P1, PT, R15, c[0x0][0x1dc], PT, P1
+  /*36d0*/ [B---3--:R-:W-:S02]    ISETP.GE.U32.AND P5, PT, R10, c[0x0][0x1d8], PT
+  /*36e0*/ [B------:R-:W-:S02]    ISETP.GE.AND.EX P3, PT, R13, c[0x0][0x1dc], PT, P3
+  /*36f0*/ [B------:R-:W-:S02]    ISETP.GE.U32.AND P4, PT, R4, c[0x0][0x1d8], PT
+  /*3700*/ [B------:R-:W-:S02]    ISETP.LT.OR P1, PT, R15, RZ, P1
+  /*3710*/ [B------:R-:W-:S02]    ISETP.GE.AND.EX P5, PT, R11, c[0x0][0x1dc], PT, P5
+  /*3720*/ [B------:R-:W-:S02]    ISETP.GE.AND.EX P4, PT, R5, c[0x0][0x1dc], PT, P4
+  /*3730*/ [B------:R-:W-:S02]    ISETP.LT.OR P3, PT, R13, RZ, P3
+  /*3740*/ [B------:R-:W-:S02]    ISETP.LT.OR P5, PT, R11, RZ, P5
+  /*3750*/ [B------:R-:W-:S02]    ISETP.LT.OR P4, PT, R5, RZ, P4
+  /*3760*/ [B------:R-:W-:S02]    PLOP3.LUT P3, PT, P3, P2, P1, 0xfe, 0x0
+  /*3770*/ [B------:R-:W-:S02]    ISETP.GE.U32.AND P2, PT, R20, c[0x0][0x1d8], PT
+  /*3780*/ [B------:R-:W-:S02]    PLOP3.LUT P4, PT, P4, P3, P5, 0xfe, 0x0
+  /*3790*/ [B------:R-:W-:S02]    ISETP.GE.U32.AND P1, PT, R8, c[0x0][0x1d8], PT
+  /*37a0*/ [B------:R-:W-:S02]    ISETP.GE.U32.AND P3, PT, R42, c[0x0][0x1d8], PT
+  /*37b0*/ [B------:R-:W-:S02]    ISETP.GE.AND.EX P2, PT, R21, c[0x0][0x1dc], PT, P2
+  /*37c0*/ [B------:R-:W-:S02]    ISETP.GE.AND.EX P1, PT, R9, c[0x0][0x1dc], PT, P1
+  /*37d0*/ [B------:R-:W-:S02]    ISETP.GE.AND.EX P3, PT, R43, c[0x0][0x1dc], PT, P3
+  /*37e0*/ [B------:R-:W-:S02]    ISETP.LT.OR P2, PT, R21, RZ, P2
+  /*37f0*/ [B------:R-:W-:S02]    IADD3 R38, P5, R38, -0x10, RZ
+  /*3800*/ [B------:R-:W-:S02]    ISETP.LT.OR P1, PT, R9, RZ, P1
+  /*3810*/ [B------:R-:W-:S02]    ISETP.LT.OR P3, PT, R43, RZ, P3
+  /*3820*/ [B------:R-:W-:S02]    IADD3.X R36, R36, -0x1, RZ, P5, !PT
+  /*3830*/ [B--2---:R-:W-:S04]    ISETP.GE.U32.AND P6, PT, R6, c[0x0][0x1d8], PT
+  /*3840*/ [B------:R-:W-:S04]    ISETP.GE.AND.EX P6, PT, R7, c[0x0][0x1dc], PT, P6
+  /*3850*/ [B------:R-:W-:S04]    ISETP.LT.OR P6, PT, R7, RZ, P6
+  /*3860*/ [B------:R-:W-:S02]    PLOP3.LUT P2, PT, P2, P4, P6, 0xfe, 0x0
+  /*3870*/ [B------:R-:W-:S02]    ISETP.GT.U32.AND P4, PT, R38, 0xc, PT
+  /*3880*/ [B------:R-:W-:S02]    PLOP3.LUT P1, PT, P3, P2, P1, 0xfe, 0x0
+  /*3890*/ [B------:R-:W-:S02]    ISETP.GT.AND.EX P2, PT, R36, RZ, PT, P4
+  /*38a0*/ [B------:R-:W-:S02]    IADD3 R0, P3, R0, 0x10, RZ
+  /*38b0*/ [B------:R-:W-:S03]    SEL R44, RZ, 0x1, !P1
+  /*38c0*/ [B------:R-:W-:S06]    IMAD.X R3, RZ, RZ, R3, P3
+  /*38d0*/ [B------:R-:W-:S05]    @P2 BRA 0x33b0
+  /*38e0*/ [B------:R-:W-:S05]    BSYNC B3
+  /*38f0*/ [B------:R-:W-:S01]    ISETP.GT.U32.AND P1, PT, R38, 0x4, PT
+  /*3900*/ [B------:R-:W-:S03]    BSSY B3, 0x3c10
+  /*3910*/ [B------:R-:W-:S13]    ISETP.GT.AND.EX P1, PT, R36, RZ, PT, P1
+  /*3920*/ [B------:R-:W-:S05]    @!P1 BRA 0x3c00
+  /*3930*/ [B------:R-:W-:S04]    LEA R40, P0, R0, c[0x0][0x160], 0x3
+  /*3940*/ [B------:R-:W-:S05]    LEA.HI.X R41, R0, c[0x0][0x164], R3, 0x3, P0
+  /*3950*/ [B------:R-:W2:S04]    LDG.E.64.CONSTANT R20, [R40.64]
+  /*3960*/ [B------:R-:W3:S04]    LDG.E.64.CONSTANT R14, [R40.64+0x8]
+  /*3970*/ [B------:R-:W4:S04]    LDG.E.64.CONSTANT R12, [R40.64+0x10]
+  /*3980*/ [B------:R-:W5:S04]    LDG.E.64.CONSTANT R10, [R40.64+0x18]
+  /*3990*/ [B------:R-:W5:S04]    LDG.E.64.CONSTANT R8, [R40.64+0x20]
+  /*39a0*/ [B------:R-:W5:S04]    LDG.E.64.CONSTANT R6, [R40.64+0x28]
+  /*39b0*/ [B------:R-:W5:S04]    LDG.E.64.CONSTANT R4, [R40.64+0x30]
+  /*39c0*/ [B------:R-:W5:S01]    LDG.E.64.CONSTANT R42, [R40.64+0x38]
+  /*39d0*/ [B------:R-:W-:S02]    LOP3.LUT P5, RZ, R44, 0xff, RZ, 0xc0, !PT
+  /*39e0*/ [B--2---:R-:W-:S02]    ISETP.GE.U32.AND P6, PT, R20, c[0x0][0x1d8], PT
+  /*39f0*/ [B---3--:R-:W-:S02]    ISETP.GE.U32.AND P4, PT, R14, c[0x0][0x1d8], PT
+  /*3a00*/ [B------:R-:W-:S02]    ISETP.GE.AND.EX P6, PT, R21, c[0x0][0x1dc], PT, P6
+  /*3a10*/ [B------:R-:W-:S02]    ISETP.GE.AND.EX P4, PT, R15, c[0x0][0x1dc], PT, P4
+  /*3a20*/ [B----4-:R-:W-:S02]    ISETP.GE.U32.AND P0, PT, R12, c[0x0][0x1d8], PT
+  /*3a30*/ [B-----5:R-:W-:S02]    ISETP.GE.U32.AND P1, PT, R10, c[0x0][0x1d8], PT
+  /*3a40*/ [B------:R-:W-:S02]    ISETP.LT.OR P6, PT, R21, RZ, P6
+  /*3a50*/ [B------:R-:W-:S02]    ISETP.LT.OR P4, PT, R15, RZ, P4
+  /*3a60*/ [B------:R-:W-:S02]    ISETP.GE.AND.EX P0, PT, R13, c[0x0][0x1dc], PT, P0
+  /*3a70*/ [B------:R-:W-:S02]    ISETP.GE.AND.EX P1, PT, R11, c[0x0][0x1dc], PT, P1
+  /*3a80*/ [B------:R-:W-:S02]    ISETP.GE.U32.AND P2, PT, R8, c[0x0][0x1d8], PT
+  /*3a90*/ [B------:R-:W-:S02]    ISETP.GE.U32.AND P3, PT, R6, c[0x0][0x1d8], PT
+  /*3aa0*/ [B------:R-:W-:S02]    PLOP3.LUT P6, PT, P4, P5, P6, 0xfe, 0x0
+  /*3ab0*/ [B------:R-:W-:S02]    ISETP.LT.OR P0, PT, R13, RZ, P0
+  /*3ac0*/ [B------:R-:W-:S02]    ISETP.LT.OR P1, PT, R11, RZ, P1
+  /*3ad0*/ [B------:R-:W-:S02]    ISETP.GE.AND.EX P2, PT, R9, c[0x0][0x1dc], PT, P2
+  /*3ae0*/ [B------:R-:W-:S02]    ISETP.GE.AND.EX P3, PT, R7, c[0x0][0x1dc], PT, P3
+  /*3af0*/ [B------:R-:W-:S02]    ISETP.GE.U32.AND P4, PT, R4, c[0x0][0x1d8], PT
+  /*3b00*/ [B------:R-:W-:S02]    ISETP.GE.U32.AND P5, PT, R42, c[0x0][0x1d8], PT
+  /*3b10*/ [B------:R-:W-:S02]    ISETP.LT.OR P2, PT, R9, RZ, P2
+  /*3b20*/ [B------:R-:W-:S02]    ISETP.LT.OR P3, PT, R7, RZ, P3
+  /*3b30*/ [B------:R-:W-:S02]    ISETP.GE.AND.EX P4, PT, R5, c[0x0][0x1dc], PT, P4
+  /*3b40*/ [B------:R-:W-:S02]    ISETP.GE.AND.EX P5, PT, R43, c[0x0][0x1dc], PT, P5
+  /*3b50*/ [B------:R-:W-:S02]    PLOP3.LUT P0, PT, P1, P6, P0, 0xfe, 0x0
+  /*3b60*/ [B------:R-:W-:S02]    ISETP.LT.OR P4, PT, R5, RZ, P4
+  /*3b70*/ [B------:R-:W-:S02]    ISETP.LT.OR P5, PT, R43, RZ, P5
+  /*3b80*/ [B------:R-:W-:S02]    PLOP3.LUT P0, PT, P3, P0, P2, 0xfe, 0x0
+  /*3b90*/ [B------:R-:W-:S02]    IADD3 R0, P1, R0, 0x8, RZ
+  /*3ba0*/ [B------:R-:W-:S02]    IADD3 R38, P2, R38, -0x8, RZ
+  /*3bb0*/ [B------:R-:W-:S01]    PLOP3.LUT P4, PT, P5, P0, P4, 0xfe, 0x0
+  /*3bc0*/ [B------:R-:W-:S01]    IMAD.X R3, RZ, RZ, R3, P1
+  /*3bd0*/ [B------:R-:W-:S02]    PLOP3.LUT P0, PT, PT, PT, PT, 0x8, 0x0
+  /*3be0*/ [B------:R-:W-:S02]    SEL R44, RZ, 0x1, !P4
+  /*3bf0*/ [B------:R-:W-:S04]    IADD3.X R36, R36, -0x1, RZ, P2, !PT
+  /*3c00*/ [B------:R-:W-:S05]    BSYNC B3
+  /*3c10*/ [B------:R-:W-:S04]    ISETP.NE.U32.AND P1, PT, R38, RZ, PT
+  /*3c20*/ [B------:R-:W-:S13]    ISETP.NE.OR.EX P0, PT, R36, RZ, P0, P1
+  /*3c30*/ [B------:R-:W-:S01]    @!P0 BREAK B2
+  /*3c40*/ [B------:R-:W-:S05]    @!P0 BRA 0x3e30
+  /*3c50*/ [B------:R-:W-:S05]    BSYNC B2
+  /*3c60*/ [B------:R-:W-:S04]    LEA R12, P0, R0, c[0x0][0x160], 0x3
+  /*3c70*/ [B------:R-:W-:S05]    LEA.HI.X R13, R0, c[0x0][0x164], R3, 0x3, P0
+  /*3c80*/ [B------:R-:W2:S04]    LDG.E.64.CONSTANT R10, [R12.64]
+  /*3c90*/ [B------:R-:W3:S04]    LDG.E.64.CONSTANT R4, [R12.64+0x8]
+  /*3ca0*/ [B------:R-:W4:S04]    LDG.E.64.CONSTANT R6, [R12.64+0x10]
+  /*3cb0*/ [B------:R-:W5:S01]    LDG.E.64.CONSTANT R8, [R12.64+0x18]
+  /*3cc0*/ [B------:R-:W-:S02]    LOP3.LUT P1, RZ, R44, 0xff, RZ, 0xc0, !PT
+  /*3cd0*/ [B--2---:R-:W-:S02]    ISETP.GE.U32.AND P0, PT, R10, c[0x0][0x1d8], PT
+  /*3ce0*/ [B---3--:R-:W-:S02]    ISETP.GE.U32.AND P3, PT, R4, c[0x0][0x1d8], PT
+  /*3cf0*/ [B------:R-:W-:S02]    ISETP.GE.AND.EX P2, PT, R11, c[0x0][0x1dc], PT, P0
+  /*3d00*/ [B----4-:R-:W-:S02]    ISETP.GE.U32.AND P5, PT, R6, c[0x0][0x1d8], PT
+  /*3d10*/ [B------:R-:W-:S02]    ISETP.GE.AND.EX P0, PT, R5, c[0x0][0x1dc], PT, P3
+  /*3d20*/ [B------:R-:W-:S02]    ISETP.LT.OR P2, PT, R11, RZ, P2
+  /*3d30*/ [B------:R-:W-:S02]    ISETP.GE.AND.EX P3, PT, R7, c[0x0][0x1dc], PT, P5
+  /*3d40*/ [B------:R-:W-:S02]    ISETP.LT.OR P0, PT, R5, RZ, P0
+  /*3d50*/ [B------:R-:W-:S02]    IADD3 R38, P5, R38, -0x4, RZ
+  /*3d60*/ [B------:R-:W-:S02]    PLOP3.LUT P1, PT, P0, P1, P2, 0xfe, 0x0
+  /*3d70*/ [B------:R-:W-:S02]    IADD3.X R36, R36, -0x1, RZ, P5, !PT
+  /*3d80*/ [B------:R-:W-:S02]    ISETP.NE.U32.AND P0, PT, R38, RZ, PT
+  /*3d90*/ [B-----5:R-:W-:S02]    ISETP.GE.U32.AND P4, PT, R8, c[0x0][0x1d8], PT
+  /*3da0*/ [B------:R-:W-:S02]    ISETP.NE.AND.EX P0, PT, R36, RZ, PT, P0
+  /*3db0*/ [B------:R-:W-:S02]    ISETP.GE.AND.EX P4, PT, R9, c[0x0][0x1dc], PT, P4
+  /*3dc0*/ [B------:R-:W-:S02]    ISETP.LT.OR P3, PT, R7, RZ, P3
+  /*3dd0*/ [B------:R-:W-:S02]    ISETP.LT.OR P4, PT, R9, RZ, P4
+  /*3de0*/ [B------:R-:W-:S02]    IADD3 R0, P2, R0, 0x4, RZ
+  /*3df0*/ [B------:R-:W-:S03]    PLOP3.LUT P1, PT, P4, P1, P3, 0xfe, 0x0
+  /*3e00*/ [B------:R-:W-:S01]    IMAD.X R3, RZ, RZ, R3, P2
+  /*3e10*/ [B------:R-:W-:S01]    SEL R44, RZ, 0x1, !P1
+  /*3e20*/ [B------:R-:W-:S05]    @P0 BRA 0x3c60
+  /*3e30*/ [B------:R-:W-:S05]    BSYNC B1
+  /*3e40*/ [B------:R-:W-:S04]    ISETP.NE.U32.AND P0, PT, R34, RZ, PT
+  /*3e50*/ [B------:R-:W-:S13]    ISETP.NE.AND.EX P0, PT, RZ, RZ, PT, P0
+  /*3e60*/ [B------:R-:W-:S05]    @!P0 BRA 0x4010
+  /*3e70*/ [B------:R-:W-:S04]    LEA R6, P0, R0, c[0x0][0x160], 0x3
+  /*3e80*/ [B------:R-:W-:S05]    LEA.HI.X R7, R0, c[0x0][0x164], R3, 0x3, P0
+  /*3e90*/ [B------:R-:W2:S01]    LDG.E.64.CONSTANT R4, [R6.64]
+  /*3ea0*/ [B------:R-:W-:S01]    ISETP.NE.U32.AND P1, PT, R34, 0x1, PT
+  /*3eb0*/ [B------:R-:W-:S01]    BSSY B1, 0x4000
+  /*3ec0*/ [B------:R-:W-:S02]    PRMT R0, R44, 0x9910, RZ
+  /*3ed0*/ [B------:R-:W-:S02]    ISETP.NE.AND.EX P1, PT, RZ, RZ, PT, P1
+  /*3ee0*/ [B--2---:R-:W-:S04]    ISETP.GE.U32.AND P0, PT, R4, c[0x0][0x1d8], PT
+  /*3ef0*/ [B------:R-:W-:S04]    ISETP.GE.AND.EX P0, PT, R5, c[0x0][0x1dc], PT, P0
+  /*3f00*/ [B------:R-:W-:S04]    ISETP.LT.OR P0, PT, R5, RZ, P0
+  /*3f10*/ [B------:R-:W-:S01]    ISETP.NE.OR P0, PT, R0, RZ, P0
+  /*3f20*/ [B------:R-:W-:S07]    @!P1 BRA 0x3ff0
+  /*3f30*/ [B------:R-:W-:S01]    ISETP.NE.U32.AND P1, PT, R34, 0x2, PT
+  /*3f40*/ [B------:R-:W2:S03]    LDG.E.64.CONSTANT R8, [R6.64+0x8]
+  /*3f50*/ [B------:R-:W-:S13]    ISETP.NE.AND.EX P1, PT, RZ, RZ, PT, P1
+  /*3f60*/ [B------:R-:W3:S01]    @P1 LDG.E.64.CONSTANT R4, [R6.64+0x10]
+  /*3f70*/ [B--2---:R-:W-:S04]    ISETP.GE.U32.AND P2, PT, R8, c[0x0][0x1d8], PT
+  /*3f80*/ [B------:R-:W-:S04]    ISETP.GE.AND.EX P2, PT, R9, c[0x0][0x1dc], PT, P2
+  /*3f90*/ [B------:R-:W-:S02]    ISETP.LT.OR P2, PT, R9, RZ, P2
+  /*3fa0*/ [B---3--:R-:W-:S04]    @P1 ISETP.GE.U32.AND P3, PT, R4, c[0x0][0x1d8], PT
+  /*3fb0*/ [B------:R-:W-:S02]    @P1 ISETP.GE.AND.EX P3, PT, R5.reuse, c[0x0][0x1dc], PT, P3
+  /*3fc0*/ [B------:R-:W-:S02]    PLOP3.LUT P0, PT, P0, P2, PT, 0xa8, 0x0
+  /*3fd0*/ [B------:R-:W-:S04]    @P1 ISETP.LT.OR P3, PT, R5, RZ, P3
+  /*3fe0*/ [B------:R-:W-:S08]    @P1 PLOP3.LUT P0, PT, P0, P3, PT, 0xa8, 0x0
+  /*3ff0*/ [B------:R-:W-:S05]    BSYNC B1
+  /*4000*/ [B------:R-:W-:S02]    SEL R44, RZ, 0x1, !P0
+  /*4010*/ [B------:R-:W-:S05]    BSYNC B0
+  /*4020*/ [B------:R-:W-:S01]    LOP3.LUT P0, RZ, R44, 0xff, RZ, 0xc0, !PT
+  /*4030*/ [B------:R-:W-:S12]    BSSY B7, 0x4190
+  /*4040*/ [B------:R-:W-:S05]    @!P0 BRA 0x4180
+  /*4050*/ [B------:R-:W-:S01]    MOV R14, 0x0
+  /*4060*/ [B------:R-:W-:S02]    IMAD.MOV.U32 R4, RZ, RZ, c[0x4][0x50]
+  /*4070*/ [B------:R-:W-:S02]    IMAD.MOV.U32 R5, RZ, RZ, c[0x4][0x54]
+  /*4080*/ [B------:R-:W-:S01]    IMAD.MOV.U32 R6, RZ, RZ, c[0x4][0x60]
+  /*4090*/ [B------:R-:W0:S01]    LDC.64 R14, c[0x4][R14]
+  /*40a0*/ [B------:R-:W-:S02]    IMAD.MOV.U32 R7, RZ, RZ, c[0x4][0x64]
+  /*40b0*/ [B------:R-:W-:S02]    IMAD.MOV.U32 R8, RZ, RZ, 0x2d
+  /*40c0*/ [B------:R-:W-:S02]    IMAD.MOV.U32 R10, RZ, RZ, c[0x4][0x30]
+  /*40d0*/ [B------:R-:W-:S02]    IMAD.MOV.U32 R11, RZ, RZ, c[0x4][0x34]
+  /*40e0*/ [B------:R-:W-:S02]    IMAD.MOV.U32 R12, RZ, RZ, 0x1
+  /*40f0*/ [B------:R-:W-:S02]    IMAD.MOV.U32 R13, RZ, RZ, RZ
+  /*4100*/ [B------:R-:W-:S01]    LEPC R20
+  /*4110*/ [B------:R-:W-:S02]    MOV R3, 0x4180
+  /*4120*/ [B------:R-:W-:S02]    MOV R0, 0x4100
+  /*4130*/ [B------:R-:W-:S02]    MOV R9, 0x0
+  /*4140*/ [B------:R-:W-:S02]    MOV R34, 0x0
+  /*4150*/ [B------:R-:W-:S04]    IADD3 R20, P0, P1, -R0, R3, R20
+  /*4160*/ [B------:R-:W-:S04]    IADD3.X R21, ~R34, R9, R21, P0, P1
+  /*4170*/ [B0-----:R-:W-:S05]    CALL.ABS.NOINC R14
+  /*4180*/ [B------:R-:W-:S05]    BSYNC B7
+  /*4190*/ [B------:R-:W-:S01]    ISETP.GT.U32.AND P0, PT, R26, R18, PT
+  /*41a0*/ [B------:R-:W-:S01]    BSSY B0, 0x4da0
+  /*41b0*/ [B------:R-:W-:S01]    CS2R R42, SRZ
+  /*41c0*/ [B------:R-:W-:S01]    IMAD.MOV.U32 R3, RZ, RZ, RZ
+  /*41d0*/ [B------:R-:W-:S13]    ISETP.GT.AND.EX P0, PT, R27, R19, PT, P0
+  /*41e0*/ [B------:R-:W-:S05]    @!P0 BRA 0x4d90
+  /*41f0*/ [B------:R-:W-:S01]    LOP3.LUT R3, RZ, R18.reuse, RZ, 0x33, !PT
+  /*4200*/ [B------:R-:W-:S01]    BSSY B1, 0x48d0
+  /*4210*/ [B------:R-:W-:S01]    IADD3 R5, P2, R26.reuse, -R18, RZ
+  /*4220*/ [B------:R-:W-:S01]    CS2R R42, SRZ
+  /*4230*/ [B------:R-:W-:S02]    IADD3 R4, P0, R26, R3, RZ
+  /*4240*/ [B------:R-:W-:S01]    LOP3.LUT R3, RZ, R19, RZ, 0x33, !PT
+  /*4250*/ [B------:R-:W-:S01]    IMAD.X R26, R27, 0x1, ~R19, P2
+  /*4260*/ [B------:R-:W-:S02]    ISETP.GE.U32.AND P1, PT, R4, 0x3, PT
+  /*4270*/ [B------:R-:W-:S01]    LOP3.LUT R0, R5, 0x3, RZ, 0xc0, !PT
+  /*4280*/ [B------:R-:W-:S03]    IMAD.X R3, R27, 0x1, R3, P0
+  /*4290*/ [B------:R-:W-:S02]    ISETP.NE.U32.AND P0, PT, R0, RZ, PT
+  /*42a0*/ [B------:R-:W-:S01]    ISETP.GE.U32.AND.EX P1, PT, R3, RZ, PT, P1
+  /*42b0*/ [B------:R-:W-:S01]    IMAD.MOV.U32 R3, RZ, RZ, RZ
+  /*42c0*/ [B------:R-:W-:S11]    ISETP.NE.AND.EX P0, PT, RZ, RZ, PT, P0
+  /*42d0*/ [B------:R-:W-:S05]    @!P1 BRA 0x48c0
+  /*42e0*/ [B------:R-:W-:S01]    ISETP.NE.U32.AND P1, PT, R24, RZ, PT
+  /*42f0*/ [B------:R-:W-:S01]    IMAD.MOV.U32 R3, RZ, RZ, RZ
+  /*4300*/ [B------:R-:W-:S01]    IADD3 R34, P2, -R0, R5, RZ
+  /*4310*/ [B------:R-:W-:S01]    CS2R R42, SRZ
+  /*4320*/ [B------:R-:W-:S02]    LEA R4, P3, R18, c[0x0][0x160], 0x3
+  /*4330*/ [B------:R-:W-:S02]    ISETP.NE.AND.EX P1, PT, R37, RZ, PT, P1
+  /*4340*/ [B------:R-:W-:S02]    IADD3.X R36, R26, -0x1, RZ, P2, !PT
+  /*4350*/ [B------:R-:W-:S05]    LEA.HI.X R5, R18, c[0x0][0x164], R19, 0x3, P3
+        >>> HOT LOOP @0x4360-0x48b0 (86 instr, no per_sample_weights, STEADY STATE (nopsw)) [I I I I S S S S G G G G]
+  /*4360*/ [B------:R-:W2:S04]    LDG.E.64.CONSTANT R6, [R4.64]    <-- IDX
+  /*4370*/ [B------:R-:W3:S04]    LDG.E.64.CONSTANT R8, [R4.64+0x8]    <-- IDX
+  /*4380*/ [B------:R-:W4:S04]    LDG.E.64.CONSTANT R10, [R4.64+0x10]    <-- IDX
+  /*4390*/ [B------:R-:W5:S01]    LDG.E.64.CONSTANT R12, [R4.64+0x18]    <-- IDX
+  /*43a0*/ [B------:R-:W-:S01]    @!P1 LEA R20, P2, R18.reuse, c[0x0][0x180], 0x3
+  /*43b0*/ [B------:R-:W-:S01]    IMAD.MOV.U32 R38, RZ, RZ, R22
+  /*43c0*/ [B------:R-:W-:S02]    @!P1 LEA R14, P3, R18, c[0x0][0x180], 0x3
+  /*43d0*/ [B------:R-:W-:S02]    @!P1 LEA.HI.X R21, R18.reuse, c[0x0][0x184], R19.reuse, 0x3, P2
+  /*43e0*/ [B------:R-:W-:S02]    @!P1 LEA.HI.X R15, R18.reuse, c[0x0][0x184], R19.reuse, 0x3, P3
+  /*43f0*/ [B------:R-:W-:S01]    @!P1 LEA R26, P2, R18.reuse, c[0x0][0x180], 0x3
+  /*4400*/ [B------:R0:W-:S01]    @!P1 STG.E.64 [R20.64], R28
+  /*4410*/ [B------:R-:W-:S02]    @!P1 LEA R40, P3, R18.reuse, c[0x0][0x180], 0x3
+  /*4420*/ [B------:R-:W-:S01]    @!P1 LEA.HI.X R27, R18.reuse, c[0x0][0x184], R19.reuse, 0x3, P2
+  /*4430*/ [B------:R1:W-:S01]    @!P1 STG.E.64 [R14.64+0x8], R28
+  /*4440*/ [B------:R-:W-:S03]    @!P1 LEA.HI.X R41, R18, c[0x0][0x184], R19, 0x3, P3
+  /*4450*/ [B------:R3:W-:S04]    @!P1 STG.E.64 [R26.64+0x10], R28
+  /*4460*/ [B------:R0:W-:S01]    @!P1 STG.E.64 [R40.64+0x18], R28
+  /*4470*/ [B--2---:R-:W-:S02]    IMAD R45, R7, c[0x0][0x1a0], RZ
+  /*4480*/ [B0-----:R-:W-:S04]    IMAD.WIDE.U32 R20, R6, c[0x0][0x1a0], R38
+  /*4490*/ [B-1----:R-:W-:S01]    IMAD R15, R6, c[0x0][0x1a4], R45
+  /*44a0*/ [B------:R-:W-:S01]    LEA R14, P2, R20, c[0x0][0x170], 0x2
+  /*44b0*/ [B---3--:R-:W-:S04]    IMAD.WIDE.U32 R26, R8, c[0x0][0x1a0], R38
+  /*44c0*/ [B------:R-:W-:S02]    IMAD.IADD R15, R21, 0x1, R15
+  /*44d0*/ [B------:R-:W-:S03]    IMAD R21, R9, c[0x0][0x1a0], RZ
+  /*44e0*/ [B------:R-:W-:S01]    LEA.HI.X R15, R20, c[0x0][0x174], R15, 0x2, P2
+  /*44f0*/ [B------:R-:W-:S01]    IMAD R21, R8, c[0x0][0x1a4], R21
+  /*4500*/ [B------:R-:W-:S03]    LEA R20, P2, R26, c[0x0][0x170], 0x2
+  /*4510*/ [B------:R-:W-:S01]    IMAD.IADD R21, R27, 0x1, R21
+  /*4520*/ [B------:R-:W2:S01]    LDG.E.CONSTANT R14, [R14.64]    <-- GATHER
+  /*4530*/ [B----4-:R-:W-:S03]    IMAD R27, R11, c[0x0][0x1a0], RZ
+  /*4540*/ [B------:R-:W-:S01]    LEA.HI.X R21, R26, c[0x0][0x174], R21, 0x2, P2
+  /*4550*/ [B------:R-:W-:S02]    IMAD R41, R10.reuse, c[0x0][0x1a4], R27
+  /*4560*/ [B------:R-:W-:S02]    IMAD.WIDE.U32 R26, R10, c[0x0][0x1a0], R38
+  /*4570*/ [B------:R-:W3:S02]    LDG.E.CONSTANT R20, [R20.64]    <-- GATHER
+  /*4580*/ [B------:R-:W-:S01]    IMAD.IADD R27, R27, 0x1, R41
+  /*4590*/ [B------:R-:W-:S01]    LEA R40, P2, R26, c[0x0][0x170], 0x2
+  /*45a0*/ [B-----5:R-:W-:S03]    IMAD R45, R13, c[0x0][0x1a0], RZ
+  /*45b0*/ [B------:R-:W-:S01]    LEA.HI.X R41, R26, c[0x0][0x174], R27, 0x2, P2
+  /*45c0*/ [B------:R-:W-:S04]    IMAD.WIDE.U32 R26, R12, c[0x0][0x1a0], R38
+  /*45d0*/ [B------:R-:W-:S01]    IMAD R45, R12, c[0x0][0x1a4], R45
+  /*45e0*/ [B------:R-:W4:S01]    LDG.E.CONSTANT R40, [R40.64]    <-- GATHER
+  /*45f0*/ [B------:R-:W-:S02]    LEA R44, P2, R26, c[0x0][0x170], 0x2
+  /*4600*/ [B------:R-:W-:S05]    IMAD.IADD R27, R27, 0x1, R45
+  /*4610*/ [B------:R-:W-:S05]    LEA.HI.X R45, R26, c[0x0][0x174], R27, 0x2, P2
+  /*4620*/ [B------:R-:W5:S01]    LDG.E.CONSTANT R44, [R44.64]    <-- GATHER
+  /*4630*/ [B------:R-:W-:S02]    ISETP.NE.U32.AND P3, PT, R6, c[0x0][0x1d0], PT
+  /*4640*/ [B------:R-:W-:S02]    ISETP.NE.U32.AND P5, PT, R8, c[0x0][0x1d0], PT
+  /*4650*/ [B------:R-:W-:S02]    ISETP.NE.AND.EX P3, PT, R7.reuse, c[0x0][0x1d4], PT, P3
+  /*4660*/ [B------:R-:W-:S02]    ISETP.NE.U32.AND P2, PT, R6, c[0x0][0x1d0], PT
+  /*4670*/ [B------:R-:W-:S02]    ISETP.NE.U32.AND P4, PT, R8, c[0x0][0x1d0], PT
+  /*4680*/ [B------:R-:W-:S02]    ISETP.NE.AND.EX P2, PT, R7, c[0x0][0x1d4], PT, P2
+  /*4690*/ [B------:R-:W-:S02]    ISETP.NE.AND.EX P4, PT, R9, c[0x0][0x1d4], PT, P4
+  /*46a0*/ [B------:R-:W-:S02]    SEL R6, RZ, 0x1, !P2
+  /*46b0*/ [B------:R-:W-:S02]    SEL R7, RZ, 0x1, !P4
+  /*46c0*/ [B------:R-:W-:S04]    ISETP.NE.U32.AND P2, PT, R10, c[0x0][0x1d0], PT
+  /*46d0*/ [B------:R-:W-:S02]    ISETP.NE.AND.EX P2, PT, R11, c[0x0][0x1d4], PT, P2
+  /*46e0*/ [B------:R-:W-:S04]    ISETP.NE.U32.AND P4, PT, R12, c[0x0][0x1d0], PT
+  /*46f0*/ [B------:R-:W-:S02]    ISETP.NE.AND.EX P4, PT, R13, c[0x0][0x1d4], PT, P4
+  /*4700*/ [B--2---:R-:W-:S02]    FSEL R14, R14, RZ, P3
+  /*4710*/ [B------:R-:W-:S04]    ISETP.NE.AND.EX P3, PT, R9, c[0x0][0x1d4], PT, P5
+  /*4720*/ [B---3--:R-:W-:S02]    FSEL R20, R20, RZ, P3
+  /*4730*/ [B------:R-:W-:S04]    ISETP.NE.U32.AND P3, PT, R10, c[0x0][0x1d0], PT
+  /*4740*/ [B------:R-:W-:S02]    ISETP.NE.AND.EX P3, PT, R11, c[0x0][0x1d4], PT, P3
+  /*4750*/ [B------:R-:W-:S02]    IADD3 R7, P6, P5, R7, R42, R6
+  /*4760*/ [B------:R-:W-:S02]    SEL R6, RZ, 0x1, !P3
+  /*4770*/ [B------:R-:W-:S02]    IADD3 R34, P3, R34, -0x4, RZ
+  /*4780*/ [B------:R-:W-:S02]    IADD3.X R43, RZ, R43, RZ, P6, P5
+  /*4790*/ [B------:R-:W-:S02]    IADD3.X R36, R36, -0x1, RZ, P3, !PT
+  /*47a0*/ [B------:R-:W-:S02]    ISETP.NE.U32.AND P5, PT, R34, RZ, PT
+  /*47b0*/ [B----4-:R-:W-:S02]    FSEL R40, R40, RZ, P2
+  /*47c0*/ [B------:R-:W-:S02]    ISETP.NE.AND.EX P5, PT, R36, RZ, PT, P5
+  /*47d0*/ [B------:R-:W-:S01]    ISETP.NE.U32.AND P2, PT, R12, c[0x0][0x1d0], PT
+  /*47e0*/ [B------:R-:W-:S01]    FADD R3, R14, R3
+  /*47f0*/ [B------:R-:W-:S02]    SEL R42, RZ, 0x1, !P4
+  /*4800*/ [B------:R-:W-:S01]    ISETP.NE.AND.EX P2, PT, R13, c[0x0][0x1d4], PT, P2
+  /*4810*/ [B------:R-:W-:S01]    FADD R3, R3, R20
+  /*4820*/ [B------:R-:W-:S02]    IADD3 R4, P6, R4, 0x20, RZ
+  /*4830*/ [B-----5:R-:W-:S01]    FSEL R44, R44, RZ, P2
+  /*4840*/ [B------:R-:W-:S01]    FADD R3, R3, R40
+  /*4850*/ [B------:R-:W-:S02]    IADD3 R18, P2, R18, 0x4, RZ
+  /*4860*/ [B------:R-:W-:S01]    IADD3 R42, P3, P4, R42, R7, R6
+  /*4870*/ [B------:R-:W-:S02]    IMAD.X R5, RZ, RZ, R5, P6
+  /*4880*/ [B------:R-:W-:S01]    FADD R3, R3, R44
+  /*4890*/ [B------:R-:W-:S01]    IADD3.X R43, RZ, R43, RZ, P3, P4
+  /*48a0*/ [B------:R-:W-:S01]    IMAD.X R19, RZ, RZ, R19, P2
+  /*48b0*/ [B------:R-:W-:S05]    @P5 BRA 0x4360
+        <<< END HOT LOOP @0x4360 (backward branch)
+  /*48c0*/ [B------:R-:W-:S05]    BSYNC B1
+  /*48d0*/ [B------:R-:W-:S05]    @!P0 BRA 0x4d90
+  /*48e0*/ [B------:R-:W-:S01]    IMAD.SHL.U32 R13, R18.reuse, 0x8, RZ
+  /*48f0*/ [B------:R-:W-:S04]    SHF.L.U64.HI R18, R18, 0x3, R19
+  /*4900*/ [B------:R-:W-:S04]    IADD3 R4, P0, R13, c[0x0][0x160], RZ
+  /*4910*/ [B------:R-:W-:S05]    IADD3.X R5, R18, c[0x0][0x164], RZ, P0, !PT
+  /*4920*/ [B------:R-:W2:S01]    LDG.E.64.CONSTANT R8, [R4.64]
+  /*4930*/ [B------:R-:W-:S02]    IMAD.MOV.U32 R38, RZ, RZ, R22
+  /*4940*/ [B--2---:R-:W-:S02]    IMAD R11, R9, c[0x0][0x1a0], RZ
+  /*4950*/ [B------:R-:W-:S04]    IMAD.WIDE.U32 R6, R8, c[0x0][0x1a0], R38
+  /*4960*/ [B------:R-:W-:S01]    IMAD R11, R8, c[0x0][0x1a4], R11
+  /*4970*/ [B------:R-:W-:S03]    LEA R10, P0, R6, c[0x0][0x170], 0x2
+  /*4980*/ [B------:R-:W-:S05]    IMAD.IADD R7, R7, 0x1, R11
+  /*4990*/ [B------:R-:W-:S05]    LEA.HI.X R11, R6, c[0x0][0x174], R7, 0x2, P0
+  /*49a0*/ [B------:R0:W2:S01]    LDG.E.CONSTANT R12, [R10.64]
+  /*49b0*/ [B------:R-:W-:S02]    ISETP.NE.U32.AND P0, PT, R24, RZ, PT
+  /*49c0*/ [B------:R-:W-:S02]    IADD3 R6, P1, R13, c[0x0][0x180], RZ
+  /*49d0*/ [B------:R-:W-:S02]    ISETP.NE.AND.EX P0, PT, R37, RZ, PT, P0
+  /*49e0*/ [B------:R-:W-:S02]    IADD3.X R7, R18, c[0x0][0x184], RZ, P1, !PT
+  /*49f0*/ [B------:R-:W-:S02]    ISETP.NE.U32.AND P1, PT, R8.reuse, c[0x0][0x1d0], PT
+  /*4a00*/ [B------:R-:W-:S02]    ISETP.NE.U32.AND P2, PT, R8, c[0x0][0x1d0], PT
+  /*4a10*/ [B------:R-:W-:S02]    ISETP.NE.AND.EX P1, PT, R9.reuse, c[0x0][0x1d4], PT, P1
+  /*4a20*/ [B------:R-:W-:S02]    ISETP.NE.U32.AND P3, PT, R0, 0x1, PT
+  /*4a30*/ [B------:R-:W-:S01]    SEL R13, RZ, 0x1, !P1
+  /*4a40*/ [B0-----:R-:W-:S01]    @!P0 IMAD.MOV.U32 R10, RZ, RZ, R28
+  /*4a50*/ [B------:R-:W-:S01]    ISETP.NE.AND.EX P1, PT, R9, c[0x0][0x1d4], PT, P2
+  /*4a60*/ [B------:R-:W-:S01]    @!P0 IMAD.MOV.U32 R11, RZ, RZ, R29
+  /*4a70*/ [B------:R-:W-:S02]    ISETP.NE.AND.EX P2, PT, RZ, RZ, PT, P3
+  /*4a80*/ [B------:R-:W-:S02]    IADD3 R42, P4, R13, R42, RZ
+  /*4a90*/ [B------:R0:W-:S03]    @!P0 STG.E.64 [R6.64], R10
+  /*4aa0*/ [B------:R-:W-:S01]    IMAD.X R43, RZ, RZ, R43, P4
+  /*4ab0*/ [B--2---:R-:W-:S05]    FSEL R12, R12, RZ, P1
+  /*4ac0*/ [B------:R-:W-:S01]    FADD R3, R3, R12
+  /*4ad0*/ [B------:R-:W-:S05]    @!P2 BRA 0x4d90
+  /*4ae0*/ [B0-----:R-:W2:S02]    LDG.E.64.CONSTANT R8, [R4.64+0x8]
+  /*4af0*/ [B--2---:R-:W-:S02]    IMAD R13, R9, c[0x0][0x1a0], RZ
+  /*4b00*/ [B------:R-:W-:S04]    IMAD.WIDE.U32 R10, R8, c[0x0][0x1a0], R38
+  /*4b10*/ [B------:R-:W-:S01]    IMAD R13, R8, c[0x0][0x1a4], R13
+  /*4b20*/ [B------:R-:W-:S03]    LEA R12, P1, R10, c[0x0][0x170], 0x2
+  /*4b30*/ [B------:R-:W-:S05]    IMAD.IADD R11, R11, 0x1, R13
+  /*4b40*/ [B------:R-:W-:S05]    LEA.HI.X R13, R10, c[0x0][0x174], R11, 0x2, P1
+  /*4b50*/ [B------:R-:W2:S01]    LDG.E.CONSTANT R12, [R12.64]
+  /*4b60*/ [B------:R-:W-:S01]    ISETP.NE.U32.AND P1, PT, R8.reuse, c[0x0][0x1d0], PT
+  /*4b70*/ [B------:R-:W-:S01]    @!P0 IMAD.MOV.U32 R10, RZ, RZ, R28
+  /*4b80*/ [B------:R-:W-:S01]    ISETP.NE.U32.AND P2, PT, R8, c[0x0][0x1d0], PT
+  /*4b90*/ [B------:R-:W-:S01]    @!P0 IMAD.MOV.U32 R11, RZ, RZ, R29
+  /*4ba0*/ [B------:R-:W-:S02]    ISETP.NE.AND.EX P1, PT, R9, c[0x0][0x1d4], PT, P1
+  /*4bb0*/ [B------:R-:W-:S02]    ISETP.NE.U32.AND P3, PT, R0, 0x2, PT
+  /*4bc0*/ [B------:R0:W-:S01]    @!P0 STG.E.64 [R6.64+0x8], R10
+  /*4bd0*/ [B------:R-:W-:S02]    SEL R15, RZ, 0x1, !P1
+  /*4be0*/ [B------:R-:W-:S02]    ISETP.NE.AND.EX P1, PT, R9, c[0x0][0x1d4], PT, P2
+  /*4bf0*/ [B------:R-:W-:S02]    ISETP.NE.AND.EX P2, PT, RZ, RZ, PT, P3
+  /*4c00*/ [B------:R-:W-:S05]    IADD3 R42, P4, R15, R42, RZ
+  /*4c10*/ [B------:R-:W-:S01]    IMAD.X R43, RZ, RZ, R43, P4
+  /*4c20*/ [B--2---:R-:W-:S05]    FSEL R12, R12, RZ, P1
+  /*4c30*/ [B------:R-:W-:S01]    FADD R3, R3, R12
+  /*4c40*/ [B------:R-:W-:S05]    @!P2 BRA 0x4d90
+  /*4c50*/ [B0-----:R-:W2:S02]    LDG.E.64.CONSTANT R4, [R4.64+0x10]
+  /*4c60*/ [B--2---:R-:W-:S02]    IMAD R9, R5, c[0x0][0x1a0], RZ
+  /*4c70*/ [B------:R-:W-:S04]    IMAD.WIDE.U32 R38, R4, c[0x0][0x1a0], R38
+  /*4c80*/ [B------:R-:W-:S01]    IMAD R9, R4, c[0x0][0x1a4], R9
+  /*4c90*/ [B------:R-:W-:S03]    LEA R8, P1, R38, c[0x0][0x170], 0x2
+  /*4ca0*/ [B------:R-:W-:S05]    IMAD.IADD R9, R39, 0x1, R9
+  /*4cb0*/ [B------:R-:W-:S05]    LEA.HI.X R9, R38, c[0x0][0x174], R9, 0x2, P1
+  /*4cc0*/ [B------:R0:W2:S01]    LDG.E.CONSTANT R0, [R8.64]
+  /*4cd0*/ [B------:R-:W-:S01]    ISETP.NE.U32.AND P1, PT, R4, c[0x0][0x1d0], PT
+  /*4ce0*/ [B0-----:R-:W-:S02]    @!P0 IMAD.MOV.U32 R8, RZ, RZ, R28
+  /*4cf0*/ [B------:R-:W-:S05]    @!P0 IMAD.MOV.U32 R9, RZ, RZ, R29
+  /*4d00*/ [B------:R0:W-:S01]    @!P0 STG.E.64 [R6.64+0x10], R8
+  /*4d10*/ [B------:R-:W-:S02]    ISETP.NE.AND.EX P0, PT, R5.reuse, c[0x0][0x1d4], PT, P1
+  /*4d20*/ [B------:R-:W-:S02]    ISETP.NE.U32.AND P1, PT, R4, c[0x0][0x1d0], PT
+  /*4d30*/ [B------:R-:W-:S02]    SEL R11, RZ, 0x1, !P0
+  /*4d40*/ [B------:R-:W-:S02]    ISETP.NE.AND.EX P0, PT, R5, c[0x0][0x1d4], PT, P1
+  /*4d50*/ [B------:R-:W-:S05]    IADD3 R42, P1, R11, R42, RZ
+  /*4d60*/ [B------:R-:W-:S01]    IMAD.X R43, RZ, RZ, R43, P1
+  /*4d70*/ [B--2---:R-:W-:S05]    FSEL R0, R0, RZ, P0
+  /*4d80*/ [B------:R-:W-:S02]    FADD R3, R3, R0
+  /*4d90*/ [B0-----:R-:W-:S05]    BSYNC B0
+  /*4da0*/ [B------:R-:W-:S01]    ISETP.NE.U32.AND P0, PT, R42, RZ, PT
+  /*4db0*/ [B------:R-:W-:S01]    IMAD.MOV.U32 R0, RZ, RZ, 0x1
+  /*4dc0*/ [B------:R-:W-:S02]    BSSY B0, 0x4f10
+  /*4dd0*/ [B------:R-:W-:S04]    ISETP.NE.AND.EX P0, PT, R43, RZ, PT, P0
+  /*4de0*/ [B------:R-:W-:S13]    ISETP.NE.OR P0, PT, R0, c[0x0][0x1b0], !P0
+  /*4df0*/ [B------:R-:W-:S05]    @P0 BRA 0x4f00
+  /*4e00*/ [B------:R-:W0:S01]    I2F.S64 R8, R42
+  /*4e10*/ [B------:R-:W-:S07]    BSSY B1, 0x4ef0
+  /*4e20*/ [B0-----:R-:W0:S08]    MUFU.RCP R0, R8
+  /*4e30*/ [B------:R-:W1:S01]    FCHK P0, R3, R8
+  /*4e40*/ [B0-----:R-:W-:S04]    FFMA R5, -R8, R0, 1
+  /*4e50*/ [B------:R-:W-:S04]    FFMA R0, R0, R5, R0
+  /*4e60*/ [B------:R-:W-:S04]    FFMA R4, R3, R0, RZ
+  /*4e70*/ [B------:R-:W-:S04]    FFMA R5, -R8, R4, R3
+  /*4e80*/ [B------:R-:W-:S01]    FFMA R0, R0, R5, R4
+  /*4e90*/ [B-1----:R-:W-:S05]    @!P0 BRA 0x4ee0
+  /*4ea0*/ [B------:R-:W-:S01]    IMAD.MOV.U32 R9, RZ, RZ, R3
+  /*4eb0*/ [B------:R-:W-:S02]    MOV R0, 0x4ed0
+  /*4ec0*/ [B------:R-:W-:S05]    CALL.REL.NOINC 0x5a60
+  /*4ed0*/ [B0-----:R-:W-:S02]    IMAD.MOV.U32 R0, RZ, RZ, R3
+  /*4ee0*/ [B------:R-:W-:S05]    BSYNC B1
+  /*4ef0*/ [B------:R-:W-:S02]    IMAD.MOV.U32 R3, RZ, RZ, R0
+  /*4f00*/ [B------:R-:W-:S05]    BSYNC B0
+  /*4f10*/ [B------:R-:W-:S01]    IMAD R5, R29, c[0x0][0x198], RZ
+  /*4f20*/ [B------:R-:W-:S01]    LEA R4, P0, R28.reuse, c[0x0][0x1b8], 0x3
+  /*4f30*/ [B------:R-:W-:S02]    IMAD.MOV.U32 R36, RZ, RZ, R24
+  /*4f40*/ [B------:R-:W-:S02]    IMAD R5, R28.reuse, c[0x0][0x19c], R5
+  /*4f50*/ [B------:R-:W-:S04]    IMAD.WIDE.U32 R6, R28, c[0x0][0x198], R36
+  /*4f60*/ [B------:R-:W-:S01]    IMAD.IADD R7, R7, 0x1, R5
+  /*4f70*/ [B------:R-:W-:S02]    LEA R8, P1, R6, c[0x0][0x178], 0x2
+  /*4f80*/ [B------:R-:W-:S02]    LEA.HI.X R5, R28, c[0x0][0x1bc], R29, 0x3, P0
+  /*4f90*/ [B------:R-:W-:S03]    LEA.HI.X R9, R6, c[0x0][0x17c], R7, 0x2, P1
+  /*4fa0*/ [B------:R0:W-:S04]    STG.E.64 [R4.64], R42
+  /*4fb0*/ [B------:R0:W-:S02]    STG.E [R8.64], R3
+  /*4fc0*/ [B------:R-:W-:S05]    BSYNC B6
+  /*4fd0*/ [B------:R-:W-:S05]    IADD3 R33, P0, R33, UR38, RZ
+  /*4fe0*/ [B------:R-:W-:S01]    IMAD.X R35, RZ, RZ, R35, P0
+  /*4ff0*/ [B------:R-:W-:S04]    ISETP.GE.U32.AND P0, PT, R33, R16, PT
+  /*5000*/ [B------:R-:W-:S13]    ISETP.GE.AND.EX P0, PT, R35, R2, PT, P0
+  /*5010*/ [B------:R-:W-:S01]    @P0 CALL.REL.NOINC 0x5030
+  /*5020*/ [B------:R-:W-:S05]    BRA 0x2ae0
+  /*5030*/ [B------:R-:W-:S05]    EXIT
+  /*5040*/ [B------:R-:W-:S02]    IADD3 R5, P1, RZ, -R6.reuse, RZ
+  /*5050*/ [B------:R-:W-:S02]    ISETP.GE.AND P0, PT, R3, RZ, PT
+  /*5060*/ [B------:R-:W-:S01]    ISETP.GE.AND P3, PT, R35, RZ, PT
+  /*5070*/ [B------:R-:W-:S01]    IMAD.X R8, RZ, RZ, ~R3, P1
+  /*5080*/ [B------:R-:W-:S04]    SEL R4, R5, R6, !P0
+  /*5090*/ [B------:R-:W-:S04]    SEL R5, R8, R3, !P0
+  /*50a0*/ [B------:R-:W0:S08]    I2F.U64.RP R7, R4
+  /*50b0*/ [B0-----:R-:W0:S02]    MUFU.RCP R7, R7
+  /*50c0*/ [B0-----:R-:W-:S06]    IADD3 R8, R7, 0x1ffffffe, RZ
+  /*50d0*/ [B------:R-:W0:S02]    F2I.U64.TRUNC R8, R8
+  /*50e0*/ [B0-----:R-:W-:S04]    IMAD.WIDE.U32 R10, R8, R4, RZ
+  /*50f0*/ [B------:R-:W-:S01]    IMAD R11, R8, R5, R11
+  /*5100*/ [B------:R-:W-:S03]    IADD3 R13, P0, RZ, -R10, RZ
+  /*5110*/ [B------:R-:W-:S02]    IMAD R11, R9, R4, R11
+  /*5120*/ [B------:R-:W-:S04]    IMAD.HI.U32 R10, R8, R13, RZ
+  /*5130*/ [B------:R-:W-:S02]    IMAD.X R15, RZ, RZ, ~R11, P0
+  /*5140*/ [B------:R-:W-:S02]    IMAD.MOV.U32 R11, RZ, RZ, R8
+  /*5150*/ [B------:R-:W-:S02]    IMAD R21, R9, R15.reuse, RZ
+  /*5160*/ [B------:R-:W-:S04]    IMAD.WIDE.U32 R10, P0, R8, R15, R10
+  /*5170*/ [B------:R-:W-:S04]    IMAD.HI.U32 R7, R9, R15, RZ
+  /*5180*/ [B------:R-:W-:S04]    IMAD.HI.U32 R10, P1, R9, R13, R10
+  /*5190*/ [B------:R-:W-:S01]    IMAD.X R7, R7, 0x1, R9, P0
+  /*51a0*/ [B------:R-:W-:S04]    IADD3 R11, P2, R21, R10, RZ
+  /*51b0*/ [B------:R-:W-:S01]    IADD3.X R7, RZ, RZ, R7, P2, P1
+  /*51c0*/ [B------:R-:W-:S04]    IMAD.WIDE.U32 R8, R11, R4, RZ
+  /*51d0*/ [B------:R-:W-:S01]    IMAD R9, R11, R5, R9
+  /*51e0*/ [B------:R-:W-:S02]    IADD3 R13, P0, RZ, -R8, RZ
+  /*51f0*/ [B------:R-:W-:S01]    IADD3 R8, P4, RZ, -R33, RZ
+  /*5200*/ [B------:R-:W-:S02]    IMAD R9, R7, R4, R9
+  /*5210*/ [B------:R-:W-:S01]    IMAD.HI.U32 R10, R11, R13, RZ
+  /*5220*/ [B------:R-:W-:S03]    SEL R15, R8, R33, !P3
+  /*5230*/ [B------:R-:W-:S02]    IMAD.X R12, RZ, RZ, ~R9, P0
+  /*5240*/ [B------:R-:W-:S02]    IMAD.MOV.U32 R9, RZ, RZ, RZ
+  /*5250*/ [B------:R-:W-:S06]    IMAD.WIDE.U32 R10, P0, R11, R12, R10
+  /*5260*/ [B------:R-:W-:S04]    IMAD.HI.U32 R11, P1, R7, R13, R10
+  /*5270*/ [B------:R-:W-:S02]    IMAD R10, R7.reuse, R12.reuse, RZ
+  /*5280*/ [B------:R-:W-:S03]    IMAD.HI.U32 R12, R7, R12, RZ
+  /*5290*/ [B------:R-:W-:S01]    IADD3 R11, P2, R10, R11, RZ
+  /*52a0*/ [B------:R-:W-:S02]    IMAD.X R10, RZ, RZ, ~R35, P4
+  /*52b0*/ [B------:R-:W-:S02]    IMAD.X R7, R12, 0x1, R7, P0
+  /*52c0*/ [B------:R-:W-:S01]    IMAD.HI.U32 R8, R11, R15, RZ
+  /*52d0*/ [B------:R-:W-:S02]    SEL R10, R10, R35, !P3
+  /*52e0*/ [B------:R-:W-:S03]    IADD3.X R7, RZ, RZ, R7, P2, P1
+  /*52f0*/ [B------:R-:W-:S04]    IMAD.WIDE.U32 R8, R11, R10, R8
+  /*5300*/ [B------:R-:W-:S02]    IMAD R11, R7.reuse, R10, RZ
+  /*5310*/ [B------:R-:W-:S04]    IMAD.HI.U32 R8, P0, R7, R15, R8
+  /*5320*/ [B------:R-:W-:S01]    IMAD.HI.U32 R7, R7, R10, RZ
+  /*5330*/ [B------:R-:W-:S03]    IADD3 R11, P1, R11, R8, RZ
+  /*5340*/ [B------:R-:W-:S02]    IMAD.X R7, RZ, RZ, R7, P0
+  /*5350*/ [B------:R-:W-:S04]    IMAD.WIDE.U32 R8, R11, R4, RZ
+  /*5360*/ [B------:R-:W-:S01]    IMAD.X R7, RZ, RZ, R7, P1
+  /*5370*/ [B------:R-:W-:S01]    IADD3 R15, P1, -R8, R15, RZ
+  /*5380*/ [B------:R-:W-:S01]    IMAD R9, R11.reuse, R5, R9
+  /*5390*/ [B------:R-:W-:S02]    IADD3 R8, P2, R11, 0x1, RZ
+  /*53a0*/ [B------:R-:W-:S01]    ISETP.GE.U32.AND P0, PT, R15, R4.reuse, PT
+  /*53b0*/ [B------:R-:W-:S04]    IMAD R9, R7, R4, R9
+  /*53c0*/ [B------:R-:W-:S01]    IMAD.X R21, R10, 0x1, ~R9, P1
+  /*53d0*/ [B------:R-:W-:S01]    IADD3 R9, P1, R15, -R4, RZ
+  /*53e0*/ [B------:R-:W-:S03]    IMAD.X R10, RZ, RZ, R7, P2
+  /*53f0*/ [B------:R-:W-:S01]    ISETP.GE.U32.AND.EX P0, PT, R21.reuse, R5, PT, P0
+  /*5400*/ [B------:R-:W-:S03]    IMAD.X R13, R21, 0x1, ~R5, P1
+  /*5410*/ [B------:R-:W-:S02]    SEL R9, R9, R15, P0
+  /*5420*/ [B------:R-:W-:S02]    SEL R11, R8, R11, P0
+  /*5430*/ [B------:R-:W-:S02]    SEL R13, R13, R21, P0
+  /*5440*/ [B------:R-:W-:S02]    ISETP.GE.U32.AND P1, PT, R9, R4, PT
+  /*5450*/ [B------:R-:W-:S02]    SEL R4, R10, R7, P0
+  /*5460*/ [B------:R-:W-:S02]    IADD3 R22, P2, R11, 0x1, RZ
+  /*5470*/ [B------:R-:W-:S02]    ISETP.GE.U32.AND.EX P0, PT, R13, R5, PT, P1
+  /*5480*/ [B------:R-:W-:S01]    LOP3.LUT R7, R3, R35, RZ, 0x3c, !PT
+  /*5490*/ [B------:R-:W-:S01]    IMAD.X R23, RZ, RZ, R4, P2
+  /*54a0*/ [B------:R-:W-:S02]    SEL R22, R22, R11, P0
+  /*54b0*/ [B------:R-:W-:S02]    ISETP.GE.AND P1, PT, R7, RZ, PT
+  /*54c0*/ [B------:R-:W-:S02]    SEL R23, R23, R4, P0
+  /*54d0*/ [B------:R-:W-:S02]    IADD3 R5, P2, RZ, -R22, RZ
+  /*54e0*/ [B------:R-:W-:S02]    ISETP.NE.U32.AND P0, PT, R6, RZ, PT
+  /*54f0*/ [B------:R-:W-:S01]    SEL R22, R5, R22, !P1
+  /*5500*/ [B------:R-:W-:S01]    IMAD.X R4, RZ, RZ, ~R23, P2
+  /*5510*/ [B------:R-:W-:S01]    ISETP.NE.AND.EX P0, PT, R3, RZ, PT, P0
+  /*5520*/ [B------:R-:W-:S03]    IMAD.MOV.U32 R5, RZ, RZ, 0x0
+  /*5530*/ [B------:R-:W-:S01]    SEL R23, R4, R23, !P1
+  /*5540*/ [B------:R-:W-:S01]    IMAD.MOV.U32 R4, RZ, RZ, R0
+  /*5550*/ [B------:R-:W-:S02]    SEL R22, R22, 0xffffffff, P0
+  /*5560*/ [B------:R-:W-:S01]    SEL R23, R23, 0xffffffff, P0
+  /*5570*/ [B------:R-:W-:S06]    RET.REL.NODEC R4 0x0
+  /*5580*/ [B------:R-:W-:S02]    IADD3 R5, P2, RZ, -R6, RZ
+  /*5590*/ [B------:R-:W-:S03]    ISETP.GE.AND P0, PT, R3, RZ, PT
+  /*55a0*/ [B------:R-:W-:S01]    IMAD.X R8, RZ, RZ, ~R3, P2
+  /*55b0*/ [B------:R-:W-:S04]    SEL R4, R5, R6, !P0
+  /*55c0*/ [B------:R-:W-:S04]    SEL R5, R8, R3, !P0
+  /*55d0*/ [B------:R-:W0:S08]    I2F.U64.RP R7, R4
+  /*55e0*/ [B0-----:R-:W0:S02]    MUFU.RCP R7, R7
+  /*55f0*/ [B0-----:R-:W-:S06]    IADD3 R8, R7, 0x1ffffffe, RZ
+  /*5600*/ [B------:R-:W0:S02]    F2I.U64.TRUNC R8, R8
+  /*5610*/ [B0-----:R-:W-:S04]    IMAD.WIDE.U32 R10, R8, R4, RZ
+  /*5620*/ [B------:R-:W-:S01]    IMAD R11, R8, R5, R11
+  /*5630*/ [B------:R-:W-:S03]    IADD3 R13, P0, RZ, -R10, RZ
+  /*5640*/ [B------:R-:W-:S02]    IMAD R11, R9, R4, R11
+  /*5650*/ [B------:R-:W-:S04]    IMAD.HI.U32 R10, R8, R13, RZ
+  /*5660*/ [B------:R-:W-:S02]    IMAD.X R15, RZ, RZ, ~R11, P0
+  /*5670*/ [B------:R-:W-:S02]    IMAD.MOV.U32 R11, RZ, RZ, R8
+  /*5680*/ [B------:R-:W-:S02]    IMAD R19, R9, R15.reuse, RZ
+  /*5690*/ [B------:R-:W-:S04]    IMAD.WIDE.U32 R10, P0, R8, R15, R10
+  /*56a0*/ [B------:R-:W-:S04]    IMAD.HI.U32 R7, R9, R15, RZ
+  /*56b0*/ [B------:R-:W-:S04]    IMAD.HI.U32 R10, P2, R9, R13, R10
+  /*56c0*/ [B------:R-:W-:S01]    IMAD.X R7, R7, 0x1, R9, P0
+  /*56d0*/ [B------:R-:W-:S04]    IADD3 R11, P3, R19, R10, RZ
+  /*56e0*/ [B------:R-:W-:S01]    IADD3.X R7, RZ, RZ, R7, P3, P2
+  /*56f0*/ [B------:R-:W-:S01]    IMAD.WIDE.U32 R8, R11, R4, RZ
+  /*5700*/ [B------:R-:W-:S03]    ISETP.GE.AND P2, PT, R35, RZ, PT
+  /*5710*/ [B------:R-:W-:S01]    IMAD R9, R11, R5, R9
+  /*5720*/ [B------:R-:W-:S02]    IADD3 R13, P0, RZ, -R8, RZ
+  /*5730*/ [B------:R-:W-:S01]    IADD3 R8, P5, RZ, -R33, RZ
+  /*5740*/ [B------:R-:W-:S02]    IMAD R9, R7, R4, R9
+  /*5750*/ [B------:R-:W-:S04]    IMAD.HI.U32 R10, R11, R13, RZ
+  /*5760*/ [B------:R-:W-:S02]    IMAD.X R12, RZ, RZ, ~R9, P0
+  /*5770*/ [B------:R-:W-:S02]    IMAD.MOV.U32 R9, RZ, RZ, RZ
+  /*5780*/ [B------:R-:W-:S06]    IMAD.WIDE.U32 R10, P0, R11, R12, R10
+  /*5790*/ [B------:R-:W-:S01]    IMAD.HI.U32 R11, P3, R7, R13, R10
+  /*57a0*/ [B------:R-:W-:S03]    SEL R13, R8, R33, !P2
+  /*57b0*/ [B------:R-:W-:S02]    IMAD R10, R7.reuse, R12.reuse, RZ
+  /*57c0*/ [B------:R-:W-:S03]    IMAD.HI.U32 R12, R7, R12, RZ
+  /*57d0*/ [B------:R-:W-:S01]    IADD3 R11, P4, R10, R11, RZ
+  /*57e0*/ [B------:R-:W-:S02]    IMAD.X R10, RZ, RZ, ~R35, P5
+  /*57f0*/ [B------:R-:W-:S02]    IMAD.X R7, R12, 0x1, R7, P0
+  /*5800*/ [B------:R-:W-:S01]    IMAD.HI.U32 R8, R11, R13, RZ
+  /*5810*/ [B------:R-:W-:S02]    SEL R10, R10, R35, !P2
+  /*5820*/ [B------:R-:W-:S03]    IADD3.X R7, RZ, RZ, R7, P4, P3
+  /*5830*/ [B------:R-:W-:S04]    IMAD.WIDE.U32 R8, R11, R10, R8
+  /*5840*/ [B------:R-:W-:S02]    IMAD R11, R7.reuse, R10, RZ
+  /*5850*/ [B------:R-:W-:S04]    IMAD.HI.U32 R8, P0, R7, R13, R8
+  /*5860*/ [B------:R-:W-:S01]    IMAD.HI.U32 R7, R7, R10, RZ
+  /*5870*/ [B------:R-:W-:S03]    IADD3 R11, P3, R11, R8, RZ
+  /*5880*/ [B------:R-:W-:S02]    IMAD.X R7, RZ, RZ, R7, P0
+  /*5890*/ [B------:R-:W-:S04]    IMAD.WIDE.U32 R8, R11, R4, RZ
+  /*58a0*/ [B------:R-:W-:S01]    IMAD.X R7, RZ, RZ, R7, P3
+  /*58b0*/ [B------:R-:W-:S01]    IADD3 R13, P3, -R8, R13, RZ
+  /*58c0*/ [B------:R-:W-:S03]    IMAD R11, R11, R5, R9
+  /*58d0*/ [B------:R-:W-:S01]    ISETP.GE.U32.AND P0, PT, R13, R4.reuse, PT
+  /*58e0*/ [B------:R-:W-:S04]    IMAD R7, R7, R4, R11
+  /*58f0*/ [B------:R-:W-:S01]    IMAD.X R11, R10, 0x1, ~R7, P3
+  /*5900*/ [B------:R-:W-:S04]    IADD3 R7, P3, R13, -R4, RZ
+  /*5910*/ [B------:R-:W-:S01]    ISETP.GE.U32.AND.EX P0, PT, R11.reuse, R5, PT, P0
+  /*5920*/ [B------:R-:W-:S03]    IMAD.X R9, R11, 0x1, ~R5, P3
+  /*5930*/ [B------:R-:W-:S02]    SEL R7, R7, R13, P0
+  /*5940*/ [B------:R-:W-:S02]    SEL R9, R9, R11, P0
+  /*5950*/ [B------:R-:W-:S02]    ISETP.GE.U32.AND P0, PT, R7.reuse, R4.reuse, PT
+  /*5960*/ [B------:R-:W-:S02]    IADD3 R18, P3, R7, -R4, RZ
+  /*5970*/ [B------:R-:W-:S03]    ISETP.GE.U32.AND.EX P0, PT, R9, R5, PT, P0
+  /*5980*/ [B------:R-:W-:S01]    IMAD.X R19, R9, 0x1, ~R5, P3
+  /*5990*/ [B------:R-:W-:S04]    SEL R18, R18, R7, P0
+  /*59a0*/ [B------:R-:W-:S02]    SEL R19, R19, R9, P0
+  /*59b0*/ [B------:R-:W-:S02]    IADD3 R5, P3, RZ, -R18.reuse, RZ
+  /*59c0*/ [B------:R-:W-:S02]    ISETP.NE.U32.AND P0, PT, R6, RZ, PT
+  /*59d0*/ [B------:R-:W-:S01]    SEL R18, R5, R18, !P2
+  /*59e0*/ [B------:R-:W-:S01]    IMAD.X R4, RZ, RZ, ~R19, P3
+  /*59f0*/ [B------:R-:W-:S01]    ISETP.NE.AND.EX P0, PT, R3, RZ, PT, P0
+  /*5a00*/ [B------:R-:W-:S03]    IMAD.MOV.U32 R5, RZ, RZ, 0x0
+  /*5a10*/ [B------:R-:W-:S01]    SEL R19, R4, R19, !P2
+  /*5a20*/ [B------:R-:W-:S01]    IMAD.MOV.U32 R4, RZ, RZ, R0
+  /*5a30*/ [B------:R-:W-:S02]    SEL R18, R18, 0xffffffff, P0
+  /*5a40*/ [B------:R-:W-:S01]    SEL R19, R19, 0xffffffff, P0
+  /*5a50*/ [B------:R-:W-:S06]    RET.REL.NODEC R4 0x0
+  /*5a60*/ [B------:R-:W-:S01]    SHF.R.U32.HI R7, RZ, 0x17, R8
+  /*5a70*/ [B------:R-:W-:S01]    BSSY B2, 0x60b0
+  /*5a80*/ [B------:R-:W-:S02]    SHF.R.U32.HI R3, RZ, 0x17, R9.reuse
+  /*5a90*/ [B------:R-:W-:S02]    LOP3.LUT R7, R7, 0xff, RZ, 0xc0, !PT
+  /*5aa0*/ [B------:R-:W-:S01]    LOP3.LUT R11, R3, 0xff, RZ, 0xc0, !PT
+  /*5ab0*/ [B------:R-:W-:S01]    IMAD.MOV.U32 R3, RZ, RZ, R9
+  /*5ac0*/ [B------:R-:W-:S02]    IADD3 R12, R7, -0x1, RZ
+  /*5ad0*/ [B------:R-:W-:S02]    IADD3 R10, R11, -0x1, RZ
+  /*5ae0*/ [B------:R-:W-:S04]    ISETP.GT.U32.AND P0, PT, R12, 0xfd, PT
+  /*5af0*/ [B------:R-:W-:S13]    ISETP.GT.U32.OR P0, PT, R10, 0xfd, P0
+  /*5b00*/ [B------:R-:W-:S01]    @!P0 IMAD.MOV.U32 R6, RZ, RZ, RZ
+  /*5b10*/ [B------:R-:W-:S05]    @!P0 BRA 0x5c90
+  /*5b20*/ [B------:R-:W-:S02]    FSETP.GTU.FTZ.AND P0, PT, |R9|, +INF , PT
+  /*5b30*/ [B------:R-:W-:S04]    FSETP.GTU.FTZ.AND P1, PT, |R8|, +INF , PT
+  /*5b40*/ [B------:R-:W-:S13]    PLOP3.LUT P0, PT, P0, P1, PT, 0xa8, 0x0
+  /*5b50*/ [B------:R-:W-:S05]    @P0 BRA 0x6090
+  /*5b60*/ [B------:R-:W-:S13]    LOP3.LUT P0, RZ, R8, 0x7fffffff, R3, 0xc8, !PT
+  /*5b70*/ [B------:R-:W-:S05]    @!P0 BRA 0x6070
+  /*5b80*/ [B------:R-:W-:S02]    FSETP.NEU.FTZ.AND P0, PT, |R9|.reuse, +INF , PT
+  /*5b90*/ [B------:R-:W-:S02]    FSETP.NEU.FTZ.AND P2, PT, |R8|, +INF , PT
+  /*5ba0*/ [B------:R-:W-:S11]    FSETP.NEU.FTZ.AND P1, PT, |R9|, +INF , PT
+  /*5bb0*/ [B------:R-:W-:S05]    @!P2 BRA !P0, 0x6070
+  /*5bc0*/ [B------:R-:W-:S04]    LOP3.LUT P0, RZ, R3, 0x7fffffff, RZ, 0xc0, !PT
+  /*5bd0*/ [B------:R-:W-:S13]    PLOP3.LUT P0, PT, P2, P0, PT, 0x2a, 0x0
+  /*5be0*/ [B------:R-:W-:S05]    @P0 BRA 0x6050
+  /*5bf0*/ [B------:R-:W-:S04]    LOP3.LUT P0, RZ, R8, 0x7fffffff, RZ, 0xc0, !PT
+  /*5c00*/ [B------:R-:W-:S13]    PLOP3.LUT P0, PT, P1, P0, PT, 0x2a, 0x0
+  /*5c10*/ [B------:R-:W-:S05]    @P0 BRA 0x6020
+  /*5c20*/ [B------:R-:W-:S02]    ISETP.GE.AND P0, PT, R10, RZ, PT
+  /*5c30*/ [B------:R-:W-:S11]    ISETP.GE.AND P1, PT, R12, RZ, PT
+  /*5c40*/ [B------:R-:W-:S02]    @P0 IMAD.MOV.U32 R6, RZ, RZ, RZ
+  /*5c50*/ [B------:R-:W-:S02]    @!P0 IMAD.MOV.U32 R6, RZ, RZ, -0x40
+  /*5c60*/ [B------:R-:W-:S02]    @!P0 FFMA R3, R9, 1.84467440737095516160e+19, RZ
+  /*5c70*/ [B------:R-:W-:S01]    @!P1 FFMA R8, R8, 1.84467440737095516160e+19, RZ
+  /*5c80*/ [B------:R-:W-:S02]    @!P1 IADD3 R6, R6, 0x40, RZ
+  /*5c90*/ [B------:R-:W-:S01]    LEA R9, R7, 0xc0800000, 0x17
+  /*5ca0*/ [B------:R-:W-:S04]    BSSY B3, 0x6010
+  /*5cb0*/ [B------:R-:W-:S01]    IMAD.IADD R9, R8, 0x1, -R9
+  /*5cc0*/ [B------:R-:W-:S03]    IADD3 R8, R11, -0x7f, RZ
+  /*5cd0*/ [B------:R0:W1:S01]    MUFU.RCP R10, R9
+  /*5ce0*/ [B------:R-:W-:S02]    FADD.FTZ R12, -R9, -RZ
+  /*5cf0*/ [B------:R-:W-:S01]    IMAD R3, R8.reuse, -0x800000, R3
+  /*5d00*/ [B0-----:R-:W-:S05]    IADD3 R9, R8, 0x7f, -R7
+  /*5d10*/ [B------:R-:W-:S02]    IMAD.IADD R6, R9, 0x1, R6
+  /*5d20*/ [B-1----:R-:W-:S04]    FFMA R11, R10, R12, 1
+  /*5d30*/ [B------:R-:W-:S04]    FFMA R14, R10, R11, R10
+  /*5d40*/ [B------:R-:W-:S04]    FFMA R10, R3, R14, RZ
+  /*5d50*/ [B------:R-:W-:S04]    FFMA R11, R12, R10, R3
+  /*5d60*/ [B------:R-:W-:S04]    FFMA R11, R14, R11, R10
+  /*5d70*/ [B------:R-:W-:S04]    FFMA R12, R12, R11, R3
+  /*5d80*/ [B------:R-:W-:S05]    FFMA R3, R14, R12, R11
+  /*5d90*/ [B------:R-:W-:S04]    SHF.R.U32.HI R7, RZ, 0x17, R3
+  /*5da0*/ [B------:R-:W-:S05]    LOP3.LUT R7, R7, 0xff, RZ, 0xc0, !PT
+  /*5db0*/ [B------:R-:W-:S05]    IMAD.IADD R10, R7, 0x1, R6
+  /*5dc0*/ [B------:R-:W-:S04]    IADD3 R7, R10, -0x1, RZ
+  /*5dd0*/ [B------:R-:W-:S13]    ISETP.GE.U32.AND P0, PT, R7, 0xfe, PT
+  /*5de0*/ [B------:R-:W-:S05]    @!P0 BRA 0x5ff0
+  /*5df0*/ [B------:R-:W-:S13]    ISETP.GT.AND P0, PT, R10, 0xfe, PT
+  /*5e00*/ [B------:R-:W-:S05]    @P0 BRA 0x5fc0
+  /*5e10*/ [B------:R-:W-:S13]    ISETP.GE.AND P0, PT, R10, 0x1, PT
+  /*5e20*/ [B------:R-:W-:S05]    @P0 BRA 0x6000
+  /*5e30*/ [B------:R-:W-:S02]    ISETP.GE.AND P0, PT, R10, -0x18, PT
+  /*5e40*/ [B------:R-:W-:S11]    LOP3.LUT R3, R3, 0x80000000, RZ, 0xc0, !PT
+  /*5e50*/ [B------:R-:W-:S05]    @!P0 BRA 0x6000
+  /*5e60*/ [B------:R-:W-:S01]    FFMA.RZ R6, R14, R12.reuse, R11.reuse
+  /*5e70*/ [B------:R-:W-:S01]    IADD3 R9, R10, 0x20, RZ
+  /*5e80*/ [B------:R-:W-:S01]    FFMA.RM R7, R14, R12.reuse, R11.reuse
+  /*5e90*/ [B------:R-:W-:S02]    ISETP.NE.AND P2, PT, R10, RZ, PT
+  /*5ea0*/ [B------:R-:W-:S01]    LOP3.LUT R8, R6, 0x7fffff, RZ, 0xc0, !PT
+  /*5eb0*/ [B------:R-:W-:S01]    FFMA.RP R6, R14, R12, R11
+  /*5ec0*/ [B------:R-:W-:S01]    ISETP.NE.AND P1, PT, R10, RZ, PT
+  /*5ed0*/ [B------:R-:W-:S01]    IMAD.MOV R10, RZ, RZ, -R10
+  /*5ee0*/ [B------:R-:W-:S02]    LOP3.LUT R8, R8, 0x800000, RZ, 0xfc, !PT
+  /*5ef0*/ [B------:R-:W-:S02]    FSETP.NEU.FTZ.AND P0, PT, R6, R7, PT
+  /*5f00*/ [B------:R-:W-:S02]    SHF.L.U32 R9, R8, R9, RZ
+  /*5f10*/ [B------:R-:W-:S02]    SEL R7, R10, RZ, P2
+  /*5f20*/ [B------:R-:W-:S02]    ISETP.NE.AND P1, PT, R9, RZ, P1
+  /*5f30*/ [B------:R-:W-:S02]    SHF.R.U32.HI R7, RZ, R7, R8
+  /*5f40*/ [B------:R-:W-:S02]    PLOP3.LUT P0, PT, P0, P1, PT, 0xa8, 0x0
+  /*5f50*/ [B------:R-:W-:S02]    SHF.R.U32.HI R9, RZ, 0x1, R7
+  /*5f60*/ [B------:R-:W-:S04]    SEL R6, RZ, 0x1, !P0
+  /*5f70*/ [B------:R-:W-:S04]    LOP3.LUT R6, R6, 0x1, R9, 0xf8, !PT
+  /*5f80*/ [B------:R-:W-:S05]    LOP3.LUT R6, R6, R7, RZ, 0xc0, !PT
+  /*5f90*/ [B------:R-:W-:S05]    IMAD.IADD R6, R9, 0x1, R6
+  /*5fa0*/ [B------:R-:W-:S01]    LOP3.LUT R3, R6, R3, RZ, 0xfc, !PT
+  /*5fb0*/ [B------:R-:W-:S05]    BRA 0x6000
+  /*5fc0*/ [B------:R-:W-:S04]    LOP3.LUT R3, R3, 0x80000000, RZ, 0xc0, !PT
+  /*5fd0*/ [B------:R-:W-:S01]    LOP3.LUT R3, R3, 0x7f800000, RZ, 0xfc, !PT
+  /*5fe0*/ [B------:R-:W-:S05]    BRA 0x6000
+  /*5ff0*/ [B------:R-:W-:S02]    IMAD R3, R6, 0x800000, R3
+  /*6000*/ [B------:R-:W-:S05]    BSYNC B3
+  /*6010*/ [B------:R-:W-:S05]    BRA 0x60a0
+  /*6020*/ [B------:R-:W-:S04]    LOP3.LUT R3, R8, 0x80000000, R3, 0x48, !PT
+  /*6030*/ [B------:R-:W-:S01]    LOP3.LUT R3, R3, 0x7f800000, RZ, 0xfc, !PT
+  /*6040*/ [B------:R-:W-:S05]    BRA 0x60a0
+  /*6050*/ [B------:R-:W-:S01]    LOP3.LUT R3, R8, 0x80000000, R3, 0x48, !PT
+  /*6060*/ [B------:R-:W-:S05]    BRA 0x60a0
+  /*6070*/ [B------:R-:W0:S01]    MUFU.RSQ R3, -QNAN
+  /*6080*/ [B------:R-:W-:S05]    BRA 0x60a0
+  /*6090*/ [B------:R-:W-:S02]    FADD.FTZ R3, R9, R8
+  /*60a0*/ [B------:R-:W-:S05]    BSYNC B2
+  /*60b0*/ [B------:R-:W-:S02]    IMAD.MOV.U32 R6, RZ, RZ, R0
+  /*60c0*/ [B------:R-:W-:S04]    IMAD.MOV.U32 R7, RZ, RZ, 0x0
+  /*60d0*/ [B------:R-:W-:S05]    RET.REL.NODEC R6 0x0
+  /*60e0*/ [B------:R-:W-:S00]    BRA 0x60e0
+  /*60f0*/ [B------:R-:W-:S00]    NOP
+  /*6100*/ [B------:R-:W-:S00]    NOP
+  /*6110*/ [B------:R-:W-:S00]    NOP
+  /*6120*/ [B------:R-:W-:S00]    NOP
+  /*6130*/ [B------:R-:W-:S00]    NOP
+  /*6140*/ [B------:R-:W-:S00]    NOP
+  /*6150*/ [B------:R-:W-:S00]    NOP
+  /*6160*/ [B------:R-:W-:S00]    NOP
+  /*6170*/ [B------:R-:W-:S00]    NOP

@@ -1,0 +1,7 @@
+orig timing: 432 vs 464 instructions -> DIFFERENT; first differences: 0x0010 S2UR UR9, SR_CTAID.Z | 0x0010 S2UR UR11, SR_CTAID.Z; 0x0030 UISETP.GE.AND UP0, UPT, UR9, UR4, UPT | 0x0030 UISETP.GE.AND UP0, UPT, UR11, UR4, UPT; 0x0070 S2UR UR8, SR_CTAID.Y | 0x0070 S2UR UR10, SR_CTAID.Y
+orig trace : 480 vs 480 instructions -> IDENTICAL
+ro   timing: 496 vs 496 instructions -> IDENTICAL
+ro   trace : 544 vs 544 instructions -> IDENTICAL
+ro2  timing: 528 vs 528 instructions -> IDENTICAL
+ro2  trace : 576 vs 576 instructions -> IDENTICAL
+sass_identity: DIFFERENT SASS (predictions were made from other code)

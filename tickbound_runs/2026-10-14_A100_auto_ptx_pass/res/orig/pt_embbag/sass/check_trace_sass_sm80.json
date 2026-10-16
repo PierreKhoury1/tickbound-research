@@ -1,0 +1,133 @@
+{
+ "pass_": true,
+ "listings": {
+  "timing build/eb_bench_sm80.sass vs trace build/trace_sm80.sass": [
+   {
+    "variant": "orig",
+    "loops_timing": 2,
+    "loops_trace": 2,
+    "loops": [
+     {
+      "timing_addr": "0x1c60",
+      "trace_addr": "0x1d70",
+      "n": 102,
+      "ldg": 12,
+      "text_identical": true,
+      "encodings_differing": 0,
+      "first_text_diff": null
+     },
+     {
+      "timing_addr": "0x4380",
+      "trace_addr": "0x4490",
+      "n": 92,
+      "ldg": 8,
+      "text_identical": true,
+      "encodings_differing": 0,
+      "first_text_diff": null
+     }
+    ],
+    "ok": true,
+    "timing_copy_in_trace_listing_identical": "same 1568 instructions, 16 differ only in c[0x4][..] (assert-string addresses)"
+   },
+   {
+    "variant": "ro",
+    "loops_timing": 4,
+    "loops_trace": 4,
+    "loops": [
+     {
+      "timing_addr": "0x1b70",
+      "trace_addr": "0x1c80",
+      "n": 94,
+      "ldg": 12,
+      "text_identical": true,
+      "encodings_differing": 0,
+      "first_text_diff": null
+     },
+     {
+      "timing_addr": "0x21c0",
+      "trace_addr": "0x22d0",
+      "n": 82,
+      "ldg": 8,
+      "text_identical": true,
+      "encodings_differing": 0,
+      "first_text_diff": null
+     },
+     {
+      "timing_addr": "0x2ee0",
+      "trace_addr": "0x2ff0",
+      "n": 92,
+      "ldg": 12,
+      "text_identical": true,
+      "encodings_differing": 0,
+      "first_text_diff": null
+     },
+     {
+      "timing_addr": "0x3a30",
+      "trace_addr": "0x3b40",
+      "n": 78,
+      "ldg": 8,
+      "text_identical": true,
+      "encodings_differing": 0,
+      "first_text_diff": null
+     }
+    ],
+    "ok": true,
+    "timing_copy_in_trace_listing_identical": "same 1328 instructions, 8 differ only in c[0x4][..] (assert-string addresses)"
+   },
+   {
+    "variant": "ro2",
+    "loops_timing": 2,
+    "loops_trace": 2,
+    "loops": [
+     {
+      "timing_addr": "0x1c70",
+      "trace_addr": "0x1d80",
+      "n": 98,
+      "ldg": 12,
+      "text_identical": true,
+      "encodings_differing": 0,
+      "first_text_diff": null
+     },
+     {
+      "timing_addr": "0x4360",
+      "trace_addr": "0x4470",
+      "n": 86,
+      "ldg": 8,
+      "text_identical": true,
+      "encodings_differing": 0,
+      "first_text_diff": null
+     }
+    ],
+    "ok": true,
+    "timing_copy_in_trace_listing_identical": "same 1560 instructions, 16 differ only in c[0x4][..] (assert-string addresses)"
+   },
+   {
+    "variant": "ro3",
+    "loops_timing": 2,
+    "loops_trace": 2,
+    "loops": [
+     {
+      "timing_addr": "0x1c60",
+      "trace_addr": "0x1d70",
+      "n": 100,
+      "ldg": 12,
+      "text_identical": true,
+      "encodings_differing": 0,
+      "first_text_diff": null
+     },
+     {
+      "timing_addr": "0x4330",
+      "trace_addr": "0x4440",
+      "n": 90,
+      "ldg": 8,
+      "text_identical": true,
+      "encodings_differing": 0,
+      "first_text_diff": null
+     }
+    ],
+    "ok": true,
+    "timing_copy_in_trace_listing_identical": "same 1560 instructions, 16 differ only in c[0x4][..] (assert-string addresses)"
+   }
+  ]
+ }
+}

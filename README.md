@@ -1,20 +1,21 @@
 # Full-kernel GPU profiling with hardware timers
 
-MSc Advanced Computing research, King's College London · Pierre Khoury · status 10 October 2026
+MSc Advanced Computing research, King's College London · Pierre Khoury · status 16 October 2026
 
 This repository holds the research behind **tickbound**, a profiler that timestamps work *inside* GPU kernels with
 the GPU's own hardware counters. It puts every checkpoint, from every SM of every GPU in a machine, on one host clock
 with a stated error bound. The bound is hard under assumptions this README names; H100 placement across SMs is
 empirical. With its own probe kernels we measured NVIDIA A100 and H100 GPUs (single GPUs, and eight A100s in one
-host), and tested which instruction reorderings are legal and which save time. Its mode for profiling other
-applications has not yet been run on a GPU.
+host), and tested which instruction reorderings are legal and which save time. We then applied one reordering, issuing
+a loop's loads a group ahead, to eight production kernels, by hand and by an automatic compiler pass, and traced per
+instruction where the saved cycles came from.
 
 The full tables, data paths and limits are in **[FINDINGS.md](FINDINGS.md)**. All GPU measurements ran on rented
-vast.ai machines on 8, 9 and 10 October 2026 (about $2.76 in total: $1.07, $1.59 and $0.10).
+vast.ai machines between 8 and 16 October 2026 (about $15 in total).
 
 **This version was revised on 10 October 2026 after an AI-assisted audit**, which recomputed the results from the raw
-data. Where the first version was wrong or overstated, the text below is corrected; FINDINGS section 8 lists every
-correction.
+data; FINDINGS section 8 lists every correction. **It was extended on 16 October** with the real-kernel reordering
+results (FINDINGS section 9).
 
 ## Summary
 
@@ -30,22 +31,32 @@ correction.
    - **Across SMs.** ±29–285 ns on A100 (median per run). On H100, ±12–23 ns, but empirical, not proven.
    - **Eight GPUs.** Eight GPUs share one host clock with ±0.85–1.2 µs per GPU. Their start order can be proved only
      when they are more than ~1.7–2.3 µs apart.
-3. **Reordering: one proven speed-up over the compiler, as predicted (10 Oct).** On an A100 microkernel, issuing the
-   next loop iterations' loads before the current work, a move ptxas did not make in this kernel (it moved no load
-   across the loop branch), ran 1.24–1.46× faster in kernel time than the compiler's own unrolled schedule at 1 warp
-   per SM (1.19–1.47× at 4), within ~20 cycles per iteration of the prediction (section 5.1). At 16 warps per SM the gain
-   falls to 1.01–1.02× with L2-resident data, as predicted; with DRAM-resident data short chains still gained up to 1.29×.
-   Not yet shown on a production kernel. The rest of what we know:
+3. **Reordering: one transform, proven on a microkernel and on eight production kernels.** Issuing the next loop
+   iterations' loads before the current work, a move ptxas does not make across a loop branch, ran 1.24–1.46× faster
+   than the compiler's own unrolled schedule on an A100 microkernel, within ~20 cycles per iteration of the prediction
+   (section 5.1). On real kernels (section 5.2; A100 and H100; outputs bit-identical) it beats the compiler on all
+   eight, warm and cold: FAISS k-select 2.1–2.7×, Rodinia particlefilter 2.5–3.6×, PyTorch EmbeddingBag 1.1–1.5×,
+   Kernl RMSNorm 1.2–1.3×, llama.cpp rms_norm 1.2×, NVIDIA Aerial cfo 1.2×, Kernl fused FF 1.2× over its Triton 2.2
+   schedule. An **automatic** PTX pass (a ptxas drop-in, no source edits) reproduces the search, scan and gather wins
+   (1.1–3.3×). Against **Triton 3.8** it wins only where Triton's own pipeline is too shallow (DRAM-bound decode, 1.9×)
+   and loses elsewhere (fused FF median 0.99 on H100); on Triton 3.x library kernels the pass finds no loop to
+   transform (median 1.00). In **CuAsmRL**'s action space the sound gain is ≤ 2.2%. The rest of what we know:
    - **Latency hiding works.** For each load, hiding work under the load's latency follows the textbook model to
      within 1.5 FFMA.
    - **The compiler already did it.** In our test kernel the compiler had already put the load first.
    - **Fences.** A fence stalls its warp for a fixed time that the work around it does not hide.
    - **The checker.** Our legality checker refused every deliberate violation it was given and approved only edits
      that ran correctly. But this was on small test kernels only.
-4. **What looks new** (section 6): a stated bound on every in-kernel checkpoint, mapped to the host clock across
+4. **Where the cycles go, per instruction.** A sliding probe (one cycle-counter read after instruction k, one build
+   per k) shows the original Kernl RMSNorm waiting 192–226 cycles at exactly the four instructions that first consume
+   a loaded vector; the reorder removes them, and the per-instruction sum matches the stopwatch within 1%. The same
+   probe inside Kernl fused FF's K loop shows where Triton 3.8 waits (its `DEPBAR`, ~730 cycles per iteration at the
+   decode shape) and where it does not (issue-bound at 64×32×32).
+5. **What looks new** (section 6): a stated bound on every in-kernel checkpoint, mapped to the host clock across
    several GPUs (hard under the named assumptions; H100 placement across SMs and widened fits are empirical); a
-   fence's cost does not shrink when its store has time to drain; and with CUDA 12.6's barrier, register-only work
-   runs free while the warp waits. Per-warp in-kernel tracing itself already exists in other tools.
+   fence's cost does not shrink when its store has time to drain; with CUDA 12.6's barrier, register-only work runs
+   free while the warp waits; and the per-instruction attribution of a reordering's gain on production kernels.
+   Per-warp in-kernel tracing itself already exists in other tools.
 
 ## 1. Why we are doing this
 
@@ -289,7 +300,8 @@ p = 1 on H100. With dependent chains, the FP32 pipe fills at 2 warps per schedul
 
 ## 5. Did we learn how to make kernels faster by reordering?
 
-**The rules, in part. A faster kernel: yes on one microkernel, as predicted; not yet on a production kernel.**
+**The rules, in part. A faster kernel: yes, on one microkernel as predicted (5.1) and on eight production kernels
+(5.2), by one transform that is now automatic for CUDA code.**
 
 What the data show:
 
@@ -340,12 +352,39 @@ Each loop iteration loads one value per thread (L2) and runs a chain of N depend
   loop branch, which our basic-block checker cannot judge), so correctness rests on output comparison.
 - Code, results and SASS: `tickbound_runs/2026-10-10_reorder_proof/`.
 
-What is supported:
-- **A measurement method.** We can measure what a reordering does, with stated error bars.
-- **The rules.** We know the rules that keep a reordering correct, tested on small kernels.
-- **The costs.** We measured what each kind of move costs.
+### 5.2 The same transform on eight production kernels (12–16 Oct, A100 and H100)
 
-The experiment that decides the optimisation question comes first in section 8.
+FINDINGS section 9 has the full tables. Ratio = original kernel time / reordered kernel time; every reordered output
+was byte-identical to the original's.
+
+| kernel | type | hand reorder vs compiler (median, wins) | automatic pass (median, wins) |
+|---|---|---|---|
+| FAISS `l2SelectMinK` / `Min1` | search | 2.14 H100 (70/70), 2.66 A100 (70/70) | 2.51 (70/70) |
+| Rodinia particlefilter normalize / find_index | scan / search | 3.58 / 2.51 H100, 3.00 / 2.65 A100 (all) | 2.99 / 1.21 (all) |
+| PyTorch `EmbeddingBag` | gather | 1.11 H100, 1.46 A100 (31/31) | 1.12 (24/31) |
+| Kernl RMSNorm (Triton 2.2 PTX) | normalisation | 1.23 H100 (35/37), 1.31 A100 | 1.23 (5/5) |
+| llama.cpp `rms_norm_f32` | normalisation | 1.16 H100 (75/80), 1.22 A100 | 1.07 (7/9) |
+| NVIDIA Aerial `cfoTaEst` | 5G PHY | 1.19 H100 (20/22), 1.18 A100 (22/22) | 1.00 (predicated loads not handled) |
+| Kernl fused FF (= CuAsmRL `tt_ff`) | matmul + activation | 1.22 vs Triton 2.2 best config (45–48/48) | none by design |
+
+- **Against Triton.** Triton pipelines only `tl.dot` loads. Versus Triton 3.8's best config on fused FF: A100 1.06
+  (34/48), **H100 0.99 (23/48)**: we win warm cases and the DRAM-bound decode shape (1.9×, and the probe shows why), and
+  lose cold small-M cases to its `cp.async` pipeline. The automatic pass on Triton 3.x libraries (Liger, FlagGems,
+  ~100 kernels) transforms no loop and gives median 1.00; only `.nc` marking acts (12 of 97 cases, 1.03–1.17×).
+- **Against CuAsmRL.** In its action space (memory moves inside a basic block), with byte-compared outputs and
+  CUDA-graph timing, the best gain on its six kernels is 1.022×. Its own timing method reports 1.08–1.33× for unchanged
+  kernels, so its 2–26% claims lie inside its noise. A head-to-head with its trained cubins was not run.
+- **Where hand still beats automatic.** Tricks that are not reorders (a bit mask in find_index), hoists across a loop
+  and a barrier (llama.cpp), predicated in-loop loads (Aerial), and the unroll width, which must be measured per loop:
+  `tickbound reorder-tune` now builds eight candidates, bit-checks and times each, and picks per case.
+
+What is supported:
+- **A measurement method.** We can measure what a reordering does, with stated error bars, down to the instruction.
+- **The rules.** We know the rules that keep a reordering correct, tested on small kernels and by output comparison
+  on real ones.
+- **The costs.** We measured what each kind of move costs.
+- **A transform that pays.** Loads issued a group ahead beat ptxas on every real kernel tried, and the pass does it
+  automatically for CUDA code. Modern Triton already does it for `tl.dot` loops, and there we do not add to it.
 
 ## 6. What is new, and what confirms known results
 
@@ -393,20 +432,26 @@ A full literature review is still to do.
 - **Across SMs.** Placement across SMs assumes all SMs read one `%globaltimer`, which is checked only above
   ~0.2–0.5 µs. H100 placement across SMs is empirical.
 - **Kernels and machines.**
-  - The kernels are our own probes and microbenchmarks, not production kernels.
+  - Sections 4 and 5.1 use our own probes and microbenchmarks. Section 5.2 uses eight production kernels, each on one
+    GPU per run; the automatic pass ran on A100 only.
   - The kernel-timing probe carries its own instrumentation, and there is no uninstrumented control.
   - The 8 Oct samples are small.
   - The machines are rented containers, and A100 and H100 ran on different hosts and drivers.
+- **Reordering.**
+  - The fused FF comparison against Triton 3.8 is a loss over all shapes (median 0.99 on H100); the win is confined
+    to the DRAM-bound decode shape.
+  - The automatic pass does not match Triton 3.x loop shapes, predicated in-loop loads or cross-loop hoists.
+  - The Aerial `rssi` harness crashed and has no data.
+  - CuAsmRL was not run head-to-head.
 - **Open items.**
   - Re-analyse H100 placement across SMs at the 32 ns step.
   - Redo E1 with both orders on the same lines.
-  - Repeat the reorder and Tier B runs with cold and warm launches and fresh inputs.
+  - Repeat the Tier B runs with cold and warm launches and fresh inputs.
 
 ## 8. Next steps
 
-1. **Reorder real kernels.** Apply moves the checker approves to kernels where ptxas leaves latency exposed (for
-   example CuAsmRL's benchmark kernels, CUTLASS or cuPHY), and time them against ptxas's own schedule. This decides
-   the optimisation question.
+1. **Extend the pass** to Triton 3.x loop shapes and predicated loads, and run it on H100; then the Aerial `rssi`
+   harness fix and a CuAsmRL head-to-head (~$8) if the comparison is wanted.
 2. **Cheap reruns, under $2 in total.**
    - E1 with both orders on the same lines.
    - Tier B with per-launch records, a register scrub, fresh inputs, and cold and warm launches.
@@ -430,10 +475,12 @@ A full literature review is still to do.
 | `tickbound_data/` | per run: metadata, analysis, log and SASS check results; reports and gzipped SASS per run set. Also strict bounds and the summary for all runs |
 | `tickbound_runs/2026-10-09/` | the scripts that ran on the rented machines and locally, and two patches |
 | `tickbound_runs/2026-10-10_reorder_proof/` | the reorder proof (section 5.1): source, on-box script, log, results and gzipped SASS |
+| `tickbound_runs/2026-10-12_*` … `2026-10-16_*` | the real-kernel runs (section 5.2 / FINDINGS 9): one `SUMMARY.txt` per run, results CSV / JSON, scripts, figures, the 16 Oct `report.html` and `picks.csv`, and the 15 Oct claims page as PDF |
 | `code/`, `data/`, `demo/`, `gpu_run/`, `storyboard/`, `GPU_Clock_Findings.pptx` | earlier feasibility work (September 2026), from before tickbound |
 
-The raw traces are kept out of git because of their size. tickbound's source code is in a separate repository and is
-not yet published, so the 8–9 Oct scripts cannot yet be run from this repository alone. The 10 Oct reorder proof
+The raw traces, probe dumps, cubins and SASS listings are kept out of git because of their size. tickbound's source
+code, the eight kernel harnesses (`bench_real/`), the automatic pass and the probe tools are in a separate repository
+that is not yet published, so the run scripts cannot yet be run from this repository alone. The 10 Oct reorder proof
 needs only the CUDA toolkit.
 
 ## 10. References

@@ -1,0 +1,640 @@
+==== ks_timing_sm80.cubin
+sm_80 l2SelectMin1<8,256> [orig k=1]  loop 0 [0x260-0x3b0]: no-merge path 22 instr, 2 LDG at [7, 11], first load wait at 12
+sm_80 l2SelectMin1<8,256> [orig k=1]  loop 1 [0x1560-0x1a30]: no-merge path 78 instr, 9 LDG at [7, 11, 15, 18, 21, 23, 31, 33, 35], first load wait at 28
+sm_80 l2SelectMin1_ro<8,256,4> [ro k=1]  loop 0 [0x420-0x1740]: no-merge path 307 instr, 36 LDG at [10, 11, 14, 18, 21, 24, 27, 29, 33, 45, 46, 58, 61, 63, 67, 69, 73, 75, 79, 82, 85, 86, 89, 93, 94, 97, 123, 127, 131, 134, 160, 163, 164, 165, 166, 167], first load wait at 102
+sm_80 l2SelectMin1_ro<8,256,4> [ro k=1]  loop 1 [0x1f90-0x28f0]: no-merge path 151 instr, 18 LDG at [8, 13, 17, 22, 31, 34, 37, 39, 40, 44, 47, 50, 53, 55, 57, 60, 63, 65], first load wait at 66
+sm_80 l2SelectMin1_ro<8,256,4> [ro k=1]  loop 2 [0xa9d0-0xb650]: no-merge path 201 instr, 32 LDG at [2, 5, 10, 11, 16, 20, 26, 27, 34, 38, 43, 45, 65, 66, 73, 74, 94, 95, 102, 103, 110, 114, 119, 121, 142, 144, 150, 151, 158, 162, 167, 169], first load wait at 19
+sm_80 l2SelectMin1_ro<8,256,4> [ro k=1]  loop 3 [0xb750-0xb880]: no-merge path 20 instr, 2 LDG at [2, 5], first load wait at 10
+sm_80 l2SelectMin1_ro<8,256,8> [ro8 k=1]  loop 0 [0x4f0-0x2960]: no-merge path 584 instr, 72 LDG at [10, 15, 17, 22, 24, 33, 36, 38, 41, 47, 63, 78, 84, 87, 91, 95, 97, 98, 149, 152, 160, 166, 172, 175, 182, 184, 190, 194, 196, 203, 206, 219, 235, 245, 247, 248, 302, 304, 306, 308, 312, 318, 320, 338, 341, 342, 344, 346, 353, 358, 364, 365, 387, 398, 430, 441, 444, 448, 450, 454, 458, 463, 464, 473, 475, 476, 477, 480, 483, 487, 491, 493], first load wait at 48
+sm_80 l2SelectMin1_ro<8,256,8> [ro8 k=1]  loop 1 [0x3160-0x3ac0]: no-merge path 151 instr, 18 LDG at [8, 13, 17, 22, 31, 34, 37, 39, 40, 44, 47, 50, 53, 55, 57, 60, 63, 65], first load wait at 66
+sm_80 l2SelectMin1_ro<8,256,8> [ro8 k=1]  loop 2 [0xade0-0xb490]: no-merge path 108 instr, 16 LDG at [4, 6, 10, 12, 15, 20, 22, 23, 29, 31, 34, 37, 40, 42, 44, 47], first load wait at 48
+sm_80 l2SelectMin1_ro<8,256,8> [ro8 k=1]  loop 3 [0xb590-0xb6a0]: no-merge path 18 instr, 2 LDG at [2, 3], first load wait at 8
+sm_80 l2SelectMinK<128,3,128> [orig k<=128]  loop 0 [0x920-0x4d50]: no-merge path 34 instr, 2 LDG at [7, 11], first load wait at 12
+sm_80 l2SelectMinK<32,2,128> [orig k<=32]  loop 0 [0x920-0x2b60]: no-merge path 33 instr, 2 LDG at [7, 11], first load wait at 12
+      0 /*00920*/ stall  1     wait 000000  IMAD R9, R21, c[0x0][0x168], RZ
+      1 /*00930*/ stall  1     wait 000000  LEA R14, P1, R6.reuse, c[0x0][0x188], 0x2
+      2 /*00940*/ stall  2     wait 000000  IMAD.MOV.U32 R10, RZ, RZ, R6
+      3 /*00950*/ stall  1     wait 000000  IMAD.MOV.U32 R11, RZ, RZ, R7.reuse
+      4 /*00960*/ stall  1     wait 000000  LEA.HI.X R15, R6, c[0x0][0x18c], R7, 0x2, P1
+      5 /*00970*/ stall  2     wait 000000  IMAD R9, R4.reuse, c[0x0][0x16c], R9
+      6 /*00980*/ stall  2     wait 000000  IMAD.WIDE.U32 R10, R4, c[0x0][0x168], R10
+      7 /*00990*/ stall  2 SB2 wait 000000  LDG.E R14, [R14.64]  <== LDG
+      8 /*009a0*/ stall  1     wait 000000  IMAD.IADD R9, R11, 0x1, R9
+      9 /*009b0*/ stall  4     wait 000000  LEA R12, P0, R10, c[0x0][0x160], 0x2
+     10 /*009c0*/ stall  5     wait 000000  LEA.HI.X R13, R10, c[0x0][0x164], R9, 0x2, P0
+     11 /*009d0*/ stall  2 SB2 wait 000000  LDG.E R12, [R12.64]  <== LDG
+     12 /*009e0*/ stall  5     wait 000100  FADD R12, R12, R14  <-- first wait on a load scoreboard
+     13 /*009f0*/ stall 13     wait 000000  FSETP.GEU.AND P1, PT, R12, R19, PT
+     14 /*00a00*/ stall  1     wait 000000  @!P1 IADD3 R8, R8, 0x1, RZ
+     15 /*00a10*/ stall  2     wait 000000  @!P1 IMAD.MOV.U32 R17, RZ, RZ, R18
+     16 /*00a20*/ stall  1     wait 000000  @!P1 IMAD.MOV.U32 R20, RZ, RZ, R5
+     17 /*00a30*/ stall  1     wait 000000  ISETP.NE.AND P0, PT, R8, 0x2, PT
+     18 /*00a40*/ stall  2     wait 000000  @!P1 IMAD.MOV.U32 R18, RZ, RZ, R12
+     19 /*00a50*/ stall  1     wait 000000  @!P1 IMAD.MOV.U32 R16, RZ, RZ, R2
+     20 /*00a60*/ stall  9     wait 000000  BRA.DIV ~URZ, 0x63c0
+     21 /*00a70*/ stall 12     wait 000000  VOTE.ANY P0, !P0
+     22 /*00a80*/ stall  1     wait 000000  BSSY B1, 0x2af0
+     23 /*00a90*/ stall  5     wait 000000  @!P0 BRA 0x2ae0
+     24 /*02ae0*/ stall  5     wait 000000  BSYNC B1
+     25 /*02af0*/ stall  1     wait 000000  IADD3 R2, R2, c[0x0][0x0], RZ
+     26 /*02b00*/ stall  3     wait 000000  IMAD.MOV.U32 R5, RZ, RZ, R16
+     27 /*02b10*/ stall  2     wait 000000  ISETP.GE.AND P0, PT, R2, UR4, PT
+     28 /*02b20*/ stall  5     wait 000000  SHF.R.S32.HI R6, RZ, 0x1f, R2
+     29 /*02b30*/ stall  2     wait 000000  IMAD.MOV.U32 R7, RZ, RZ, R6
+     30 /*02b40*/ stall  4     wait 000000  IMAD.MOV.U32 R6, RZ, RZ, R2
+     31 /*02b50*/ stall  1     wait 001100  @P0 CALL.REL.NOINC 0x2b70
+     32 /*02b60*/ stall  5     wait 000000  BRA 0x920
+sm_80 l2SelectMinK_ro<128,3,128,4> [ro k<=128]  loop 0 [0x930-0x11940]: no-merge path 98 instr, 8 LDG at [10, 11, 17, 20, 22, 24, 25, 26], first load wait at 27
+sm_80 l2SelectMinK_ro<128,3,128,4> [ro k<=128]  loop 1 [0x119f0-0x15e70]: no-merge path 34 instr, 2 LDG at [7, 11], first load wait at 12
+sm_80 l2SelectMinK_ro<128,3,128,8> [ro8 k<=128]  loop 0 [0x410-0x223d0]: no-merge path 198 instr, 16 LDG at [17, 18, 20, 22, 24, 26, 28, 30, 32, 34, 37, 39, 40, 41, 42, 43], first load wait at 44
+sm_80 l2SelectMinK_ro<128,3,128,8> [ro8 k<=128]  loop 1 [0x22490-0x26980]: no-merge path 36 instr, 2 LDG at [7, 11], first load wait at 12
+sm_80 l2SelectMinK_ro<32,2,128,4> [ro k<=32]  loop 0 [0x910-0x9020]: no-merge path 96 instr, 8 LDG at [10, 11, 18, 20, 21, 23, 24, 26], first load wait at 28
+      0 /*00910*/ stall  1     wait 000000  SHF.R.S32.HI R7, RZ, 0x1f, R2
+      1 /*00920*/ stall  2     wait 000000  IMAD R5, R26, c[0x0][0x168], RZ
+      2 /*00930*/ stall  2     wait 000000  IMAD.MOV.U32 R6, RZ, RZ, R2
+      3 /*00940*/ stall  2     wait 000000  IMAD R5, R4.reuse, c[0x0][0x16c], R5
+      4 /*00950*/ stall  4     wait 000000  IMAD.WIDE.U32 R12, R4, c[0x0][0x168], R6
+      5 /*00960*/ stall  1     wait 000000  IMAD.IADD R5, R13, 0x1, R5
+      6 /*00970*/ stall  1     wait 000000  LEA R8, P0, R12, c[0x0][0x160], 0x2
+      7 /*00980*/ stall  3     wait 000000  IMAD.MOV.U32 R10, RZ, RZ, 0x4
+      8 /*00990*/ stall  1     wait 000000  LEA.HI.X R9, R12, c[0x0][0x164], R5, 0x2, P0
+      9 /*009a0*/ stall  4     wait 000000  IMAD.WIDE R6, R2, R10, c[0x0][0x188]
+     10 /*009b0*/ stall  4 SB2 wait 000000  LDG.E R23, [R8.64]  <== LDG
+     11 /*009c0*/ stall  1 SB2 wait 000000  LDG.E R24, [R6.64]  <== LDG
+     12 /*009d0*/ stall  4     wait 000000  IMAD.MOV.U32 R12, RZ, RZ, c[0x0][0x0]
+     13 /*009e0*/ stall  2     wait 000000  IMAD R12, R12, 0x2, R2
+     14 /*009f0*/ stall  3     wait 000001  IMAD.WIDE R8, R10, c[0x0][0x0], R8
+     15 /*00a00*/ stall  1     wait 000000  IADD3 R18, R12, c[0x0][0x0], RZ
+     16 /*00a10*/ stall  4     wait 000010  IMAD.WIDE R6, R10, c[0x0][0x0], R6
+     17 /*00a20*/ stall  1     wait 000000  IMAD.WIDE R12, R12, R10.reuse, c[0x0][0x188]
+     18 /*00a30*/ stall  3 SB5 wait 000000  LDG.E R5, [R6.64]  <== LDG
+     19 /*00a40*/ stall  2     wait 000000  IMAD.WIDE R16, R10, c[0x0][0x0], R8
+     20 /*00a50*/ stall  4 SB5 wait 000000  LDG.E R8, [R8.64]  <== LDG
+     21 /*00a60*/ stall  1 SB5 wait 000001  LDG.E R6, [R12.64]  <== LDG
+     22 /*00a70*/ stall  3     wait 000000  IMAD.WIDE R18, R18, R10, c[0x0][0x188]
+     23 /*00a80*/ stall  4 SB5 wait 000010  LDG.E R9, [R16.64]  <== LDG
+     24 /*00a90*/ stall  1 SB5 wait 000000  LDG.E R7, [R18.64]  <== LDG
+     25 /*00aa0*/ stall  5     wait 000001  IMAD.WIDE R12, R10, c[0x0][0x0], R16
+     26 /*00ab0*/ stall  1 SB5 wait 000000  LDG.E R10, [R12.64]  <== LDG
+     27 /*00ac0*/ stall  2     wait 001000  IMAD.MOV.U32 R19, RZ, RZ, R22
+     28 /*00ad0*/ stall  5     wait 000100  FADD R23, R23, R24  <-- first wait on a load scoreboard
+     29 /*00ae0*/ stall 13     wait 000000  FSETP.GEU.AND P1, PT, R23, R21, PT
+     30 /*00af0*/ stall  1     wait 000000  @!P1 IADD3 R14, R14, 0x1, RZ
+     31 /*00b00*/ stall  2     wait 000000  @!P1 IMAD.MOV.U32 R11, RZ, RZ, R20
+     32 /*00b10*/ stall  1     wait 000000  @!P1 IMAD.MOV.U32 R19, RZ, RZ, R23
+     33 /*00b20*/ stall  1     wait 000000  ISETP.NE.AND P0, PT, R14, 0x2, PT
+     34 /*00b30*/ stall  2     wait 000000  @!P1 IMAD.MOV.U32 R15, RZ, RZ, R22
+     35 /*00b40*/ stall  1     wait 000000  @!P1 IMAD.MOV.U32 R20, RZ, RZ, R2
+     36 /*00b50*/ stall  9     wait 000000  BRA.DIV ~URZ, 0xebb0
+     37 /*00b60*/ stall 12     wait 000010  VOTE.ANY P0, !P0
+     38 /*00b70*/ stall  1     wait 000000  BSSY B1, 0x2be0
+     39 /*00b80*/ stall  5     wait 000000  @!P0 BRA 0x2bd0
+     40 /*02bd0*/ stall  5     wait 000000  BSYNC B1
+     41 /*02be0*/ stall  2     wait 100000  FADD R12, R5, R8
+     42 /*02bf0*/ stall  2     wait 000000  IMAD.MOV.U32 R5, RZ, RZ, R19
+     43 /*02c00*/ stall  1     wait 000000  IMAD.MOV.U32 R8, RZ, RZ, R20
+     44 /*02c10*/ stall 13     wait 001000  FSETP.GEU.AND P1, PT, R12, R21, PT
+     45 /*02c20*/ stall  1     wait 000000  @!P1 IADD3 R14, R14, 0x1, RZ
+     46 /*02c30*/ stall  1     wait 000000  @!P1 IMAD.MOV.U32 R5, RZ, RZ, R12
+     47 /*02c40*/ stall  1     wait 000000  @!P1 IADD3 R8, R2, c[0x0][0x0], RZ
+     48 /*02c50*/ stall  1     wait 000000  @!P1 IMAD.MOV.U32 R15, RZ, RZ, R19
+     49 /*02c60*/ stall  1     wait 000000  ISETP.NE.AND P0, PT, R14, 0x2, PT
+     50 /*02c70*/ stall  1     wait 000000  @!P1 IMAD.MOV.U32 R11, RZ, RZ, R20
+     51 /*02c80*/ stall 11     wait 000000  BRA.DIV ~URZ, 0x128d0
+     52 /*02c90*/ stall 12     wait 000000  VOTE.ANY P0, !P0
+     53 /*02ca0*/ stall  1     wait 000000  BSSY B1, 0x4d10
+     54 /*02cb0*/ stall  5     wait 000000  @!P0 BRA 0x4d00
+     55 /*04d00*/ stall  5     wait 000000  BSYNC B1
+     56 /*04d10*/ stall  2     wait 000000  FADD R12, R6, R9
+     57 /*04d20*/ stall  2     wait 000000  IMAD.MOV.U32 R13, RZ, RZ, c[0x0][0x0]
+     58 /*04d30*/ stall  1     wait 000000  IMAD.MOV.U32 R6, RZ, RZ, R5
+     59 /*04d40*/ stall  1     wait 010000  FSETP.GEU.AND P1, PT, R12, R21, PT
+     60 /*04d50*/ stall 12     wait 000000  IMAD.MOV.U32 R9, RZ, RZ, R8
+     61 /*04d60*/ stall  1     wait 000000  @!P1 IADD3 R14, R14, 0x1, RZ
+     62 /*04d70*/ stall  2     wait 000000  @!P1 IMAD.MOV.U32 R6, RZ, RZ, R12
+     63 /*04d80*/ stall  1     wait 000000  @!P1 IMAD.MOV.U32 R15, RZ, RZ, R5
+     64 /*04d90*/ stall  1     wait 000000  ISETP.NE.AND P0, PT, R14, 0x2, PT
+     65 /*04da0*/ stall  2     wait 000000  @!P1 IMAD R9, R13, 0x2, R2
+     66 /*04db0*/ stall  1     wait 000000  @!P1 IMAD.MOV.U32 R11, RZ, RZ, R8
+     67 /*04dc0*/ stall  9     wait 000000  BRA.DIV ~URZ, 0x16600
+     68 /*04dd0*/ stall 12     wait 000000  VOTE.ANY P0, !P0
+     69 /*04de0*/ stall  1     wait 000000  BSSY B1, 0x6e60
+     70 /*04df0*/ stall  5     wait 000000  @!P0 BRA 0x6e50
+     71 /*06e50*/ stall  5     wait 000000  BSYNC B1
+     72 /*06e60*/ stall  2     wait 000000  FADD R7, R7, R10
+     73 /*06e70*/ stall  2     wait 001000  IMAD.MOV.U32 R5, RZ, RZ, c[0x0][0x0]
+     74 /*06e80*/ stall  1     wait 000000  IMAD.MOV.U32 R22, RZ, RZ, R6
+     75 /*06e90*/ stall  1     wait 000000  FSETP.GEU.AND P1, PT, R7, R21, PT
+     76 /*06ea0*/ stall 12     wait 000000  IMAD.MOV.U32 R20, RZ, RZ, R9
+     77 /*06eb0*/ stall  1     wait 000000  @!P1 IMAD R5, R5, 0x2, R2
+     78 /*06ec0*/ stall  1     wait 000000  @!P1 IADD3 R14, R14, 0x1, RZ
+     79 /*06ed0*/ stall  2     wait 000000  @!P1 IMAD.MOV.U32 R22, RZ, RZ, R7
+     80 /*06ee0*/ stall  1     wait 000000  @!P1 IMAD.MOV.U32 R15, RZ, RZ, R6
+     81 /*06ef0*/ stall  1     wait 000000  ISETP.NE.AND P0, PT, R14, 0x2, PT
+     82 /*06f00*/ stall  1     wait 000000  @!P1 IMAD.MOV.U32 R11, RZ, RZ, R9
+     83 /*06f10*/ stall  1     wait 000000  @!P1 IADD3 R20, R5, c[0x0][0x0], RZ
+     84 /*06f20*/ stall 10     wait 000000  BRA.DIV ~URZ, 0x1a330
+     85 /*06f30*/ stall 12     wait 000000  VOTE.ANY P0, !P0
+     86 /*06f40*/ stall  1     wait 000000  BSSY B1, 0x8fc0
+     87 /*06f50*/ stall  5     wait 000000  @!P0 BRA 0x8fb0
+     88 /*08fb0*/ stall  5     wait 000000  BSYNC B1
+     89 /*08fc0*/ stall  2     wait 000100  IMAD.MOV.U32 R5, RZ, RZ, c[0x0][0x0]
+     90 /*08fd0*/ stall  2     wait 000000  IMAD.MOV.U32 R6, RZ, RZ, c[0x0][0x0]
+     91 /*08fe0*/ stall  4     wait 000000  IMAD R2, R5, 0x2, R2
+     92 /*08ff0*/ stall  5     wait 000000  IMAD R2, R6, 0x2, R2
+     93 /*09000*/ stall 13     wait 000000  ISETP.GE.AND P0, PT, R2, UR5, PT
+     94 /*09010*/ stall  1     wait 010011  @P0 CALL.REL.NOINC 0x9030
+     95 /*09020*/ stall  5     wait 000000  BRA 0x910
+sm_80 l2SelectMinK_ro<32,2,128,4> [ro k<=32]  loop 1 [0x90f0-0xb340]: no-merge path 34 instr, 2 LDG at [7, 11], first load wait at 12
+sm_80 l2SelectMinK_ro<32,2,128,8> [ro8 k<=32]  loop 0 [0x8a0-0x117f0]: no-merge path 184 instr, 16 LDG at [16, 20, 22, 24, 25, 26, 27, 28, 32, 33, 34, 35, 37, 39, 41, 43], first load wait at 44
+      0 /*008a0*/ stall  1 SB0 wait 000001  S2R R3, SR_CTAID.X
+      1 /*008b0*/ stall  1     wait 000000  IMAD.MOV.U32 R8, RZ, RZ, c[0x0][0x0]
+      2 /*008c0*/ stall  1     wait 000000  SHF.R.S32.HI R5, RZ, 0x1f, R0
+      3 /*008d0*/ stall  2     wait 000000  IMAD.MOV.U32 R16, RZ, RZ, 0x4
+      4 /*008e0*/ stall  4     wait 000000  IMAD R8, R8, 0x2, R0
+      5 /*008f0*/ stall  6     wait 000000  IMAD.WIDE R8, R8, R16, c[0x0][0x188]
+      6 /*00900*/ stall  6     wait 000000  IMAD.WIDE R14, R16, c[0x0][0x0], R8
+      7 /*00910*/ stall  1     wait 000000  IMAD.WIDE R18, R16, c[0x0][0x0], R14
+      8 /*00920*/ stall  5     wait 000001  SHF.R.S32.HI R4, RZ, 0x1f, R3
+      9 /*00930*/ stall  2     wait 000000  IMAD R6, R4, c[0x0][0x168], RZ
+     10 /*00940*/ stall  4     wait 000000  IMAD.MOV.U32 R4, RZ, RZ, R0
+     11 /*00950*/ stall  4     wait 000000  IMAD.WIDE.U32 R10, R3, c[0x0][0x168], R4
+     12 /*00960*/ stall  1     wait 000000  IMAD R3, R3, c[0x0][0x16c], R6
+     13 /*00970*/ stall  1     wait 000000  LEA R6, P0, R10, c[0x0][0x160], 0x2
+     14 /*00980*/ stall  4     wait 000000  IMAD.WIDE R4, R0, R16, c[0x0][0x188]
+     15 /*00990*/ stall  1     wait 000000  IMAD.IADD R3, R11, 0x1, R3
+     16 /*009a0*/ stall  4 SB2 wait 000000  LDG.E R28, [R4.64]  <== LDG
+     17 /*009b0*/ stall  1     wait 000000  LEA.HI.X R7, R10, c[0x0][0x164], R3, 0x2, P0
+     18 /*009c0*/ stall  4     wait 000000  IMAD.WIDE R22, R16, c[0x0][0x0], R18
+     19 /*009d0*/ stall  1     wait 000000  IMAD.WIDE R10, R16.reuse, c[0x0][0x0], R6
+     20 /*009e0*/ stall  3 SB2 wait 000000  LDG.E R27, [R6.64]  <== LDG
+     21 /*009f0*/ stall  5     wait 000001  IMAD.WIDE R4, R16, c[0x0][0x0], R4
+     22 /*00a00*/ stall  1 SB5 wait 000000  LDG.E R3, [R4.64]  <== LDG
+     23 /*00a10*/ stall  3     wait 000000  IMAD.WIDE R12, R16, c[0x0][0x0], R10
+     24 /*00a20*/ stall  4 SB5 wait 000010  LDG.E R6, [R18.64]  <== LDG
+     25 /*00a30*/ stall  4 SB5 wait 000000  LDG.E R7, [R22.64]  <== LDG
+     26 /*00a40*/ stall  4 SB5 wait 000001  LDG.E R4, [R8.64]  <== LDG
+     27 /*00a50*/ stall  4 SB5 wait 000000  LDG.E R5, [R14.64]  <== LDG
+     28 /*00a60*/ stall  1 SB5 wait 000000  LDG.E R10, [R10.64]  <== LDG
+     29 /*00a70*/ stall  4     wait 000001  IMAD.WIDE R8, R16, c[0x0][0x0], R22
+     30 /*00a80*/ stall  4     wait 010000  IMAD.WIDE R14, R16, c[0x0][0x0], R12
+     31 /*00a90*/ stall  1     wait 000010  IMAD.WIDE R18, R16.reuse, c[0x0][0x0], R8
+     32 /*00aa0*/ stall  4 SB5 wait 000000  LDG.E R11, [R12.64]  <== LDG
+     33 /*00ab0*/ stall  4 SB5 wait 000000  LDG.E R8, [R8.64]  <== LDG
+     34 /*00ac0*/ stall  4 SB5 wait 000001  LDG.E R12, [R14.64]  <== LDG
+     35 /*00ad0*/ stall  2 SB5 wait 000010  LDG.E R9, [R18.64]  <== LDG
+     36 /*00ae0*/ stall  5     wait 000010  IMAD.WIDE R18, R16, c[0x0][0x0], R14
+     37 /*00af0*/ stall  1 SB5 wait 000000  LDG.E R13, [R18.64]  <== LDG
+     38 /*00b00*/ stall  5     wait 001000  IMAD.WIDE R22, R16, c[0x0][0x0], R18
+     39 /*00b10*/ stall  1 SB5 wait 000001  LDG.E R14, [R22.64]  <== LDG
+     40 /*00b20*/ stall  5     wait 000010  IMAD.WIDE R18, R16, c[0x0][0x0], R22
+     41 /*00b30*/ stall  1 SB5 wait 000000  LDG.E R15, [R18.64]  <== LDG
+     42 /*00b40*/ stall  5     wait 000001  IMAD.WIDE R22, R16, c[0x0][0x0], R18
+     43 /*00b50*/ stall  1 SB5 wait 000000  LDG.E R16, [R22.64]  <== LDG
+     44 /*00b60*/ stall  5     wait 000100  FADD R28, R27, R28  <-- first wait on a load scoreboard
+     45 /*00b70*/ stall  1     wait 000000  FSETP.GEU.AND P1, PT, R28, R24, PT
+     46 /*00b80*/ stall 12     wait 000000  IMAD.MOV.U32 R27, RZ, RZ, R26
+     47 /*00b90*/ stall  1     wait 000000  @!P1 IADD3 R20, R20, 0x1, RZ
+     48 /*00ba0*/ stall  2     wait 000000  @!P1 IMAD.MOV.U32 R17, RZ, RZ, R25
+     49 /*00bb0*/ stall  1     wait 000000  @!P1 IMAD.MOV.U32 R27, RZ, RZ, R28
+     50 /*00bc0*/ stall  1     wait 000000  ISETP.NE.AND P0, PT, R20, 0x2, PT
+     51 /*00bd0*/ stall  2     wait 000000  @!P1 IMAD.MOV.U32 R21, RZ, RZ, R26
+     52 /*00be0*/ stall  1     wait 000000  @!P1 IMAD.MOV.U32 R25, RZ, RZ, R0
+     53 /*00bf0*/ stall  9     wait 000000  BRA.DIV ~URZ, 0x173c0
+     54 /*00c00*/ stall 12     wait 000010  VOTE.ANY P0, !P0
+     55 /*00c10*/ stall  1     wait 000000  BSSY B1, 0x2cb0
+     56 /*00c20*/ stall  5     wait 000000  @!P0 BRA 0x2ca0
+     57 /*02ca0*/ stall  5     wait 000000  BSYNC B1
+     58 /*02cb0*/ stall  2     wait 100000  FADD R18, R3, R10
+     59 /*02cc0*/ stall  2     wait 000000  IMAD.MOV.U32 R3, RZ, RZ, R27
+     60 /*02cd0*/ stall  1     wait 000000  IMAD.MOV.U32 R10, RZ, RZ, R25
+     61 /*02ce0*/ stall 13     wait 000100  FSETP.GEU.AND P1, PT, R18, R24, PT
+     62 /*02cf0*/ stall  1     wait 000000  @!P1 IADD3 R20, R20, 0x1, RZ
+     63 /*02d00*/ stall  1     wait 000000  @!P1 IMAD.MOV.U32 R3, RZ, RZ, R18
+     64 /*02d10*/ stall  1     wait 000000  @!P1 IADD3 R10, R0, c[0x0][0x0], RZ
+     65 /*02d20*/ stall  1     wait 000000  @!P1 IMAD.MOV.U32 R21, RZ, RZ, R27
+     66 /*02d30*/ stall  1     wait 000000  ISETP.NE.AND P0, PT, R20, 0x2, PT
+     67 /*02d40*/ stall  1     wait 000000  @!P1 IMAD.MOV.U32 R17, RZ, RZ, R25
+     68 /*02d50*/ stall 11     wait 000000  BRA.DIV ~URZ, 0x1b0e0
+     69 /*02d60*/ stall 12     wait 000000  VOTE.ANY P0, !P0
+     70 /*02d70*/ stall  1     wait 000000  BSSY B1, 0x4e10
+     71 /*02d80*/ stall  5     wait 000000  @!P0 BRA 0x4e00
+     72 /*04e00*/ stall  5     wait 000000  BSYNC B1
+     73 /*04e10*/ stall  2     wait 000000  FADD R18, R4, R11
+     74 /*04e20*/ stall  2     wait 000000  IMAD.MOV.U32 R19, RZ, RZ, c[0x0][0x0]
+     75 /*04e30*/ stall  1     wait 000000  IMAD.MOV.U32 R4, RZ, RZ, R3
+     76 /*04e40*/ stall  1     wait 010000  FSETP.GEU.AND P1, PT, R18, R24, PT
+     77 /*04e50*/ stall 12     wait 000000  IMAD.MOV.U32 R11, RZ, RZ, R10
+     78 /*04e60*/ stall  1     wait 000000  @!P1 IADD3 R20, R20, 0x1, RZ
+     79 /*04e70*/ stall  2     wait 000000  @!P1 IMAD.MOV.U32 R4, RZ, RZ, R18
+     80 /*04e80*/ stall  1     wait 000000  @!P1 IMAD.MOV.U32 R21, RZ, RZ, R3
+     81 /*04e90*/ stall  1     wait 000000  ISETP.NE.AND P0, PT, R20, 0x2, PT
+     82 /*04ea0*/ stall  2     wait 000000  @!P1 IMAD R11, R19, 0x2, R0
+     83 /*04eb0*/ stall  1     wait 000000  @!P1 IMAD.MOV.U32 R17, RZ, RZ, R10
+     84 /*04ec0*/ stall  9     wait 000000  BRA.DIV ~URZ, 0x1ee10
+     85 /*04ed0*/ stall 12     wait 000000  VOTE.ANY P0, !P0
+     86 /*04ee0*/ stall  1     wait 000000  BSSY B1, 0x6f90
+     87 /*04ef0*/ stall  5     wait 000000  @!P0 BRA 0x6f80
+     88 /*06f80*/ stall  5     wait 000000  BSYNC B1
+     89 /*06f90*/ stall  2     wait 000000  FADD R12, R5, R12
+     90 /*06fa0*/ stall  2     wait 001000  IMAD.MOV.U32 R10, RZ, RZ, c[0x0][0x0]
+     91 /*06fb0*/ stall  1     wait 000000  IMAD.MOV.U32 R3, RZ, RZ, R4
+     92 /*06fc0*/ stall  1     wait 010000  FSETP.GEU.AND P1, PT, R12, R24, PT
+     93 /*06fd0*/ stall 12     wait 000000  IMAD.MOV.U32 R5, RZ, RZ, R11
+     94 /*06fe0*/ stall  1     wait 000000  @!P1 IMAD R10, R10, 0x2, R0
+     95 /*06ff0*/ stall  1     wait 000000  @!P1 IADD3 R20, R20, 0x1, RZ
+     96 /*07000*/ stall  2     wait 000000  @!P1 IMAD.MOV.U32 R3, RZ, RZ, R12
+     97 /*07010*/ stall  1     wait 000000  @!P1 IMAD.MOV.U32 R21, RZ, RZ, R4
+     98 /*07020*/ stall  1     wait 000000  ISETP.NE.AND P0, PT, R20, 0x2, PT
+     99 /*07030*/ stall  1     wait 000000  @!P1 IMAD.MOV.U32 R17, RZ, RZ, R11
+    100 /*07040*/ stall  1     wait 000000  @!P1 IADD3 R5, R10, c[0x0][0x0], RZ
+    101 /*07050*/ stall 10     wait 000000  BRA.DIV ~URZ, 0x22b40
+    102 /*07060*/ stall 12     wait 000000  VOTE.ANY P0, !P0
+    103 /*07070*/ stall  1     wait 000000  BSSY B1, 0x9120
+    104 /*07080*/ stall  5     wait 000000  @!P0 BRA 0x9110
+    105 /*09110*/ stall  5     wait 000000  BSYNC B1
+    106 /*09120*/ stall  2     wait 000000  FADD R6, R6, R13
+    107 /*09130*/ stall  2     wait 000000  IMAD.MOV.U32 R10, RZ, RZ, c[0x0][0x0]
+    108 /*09140*/ stall  1     wait 000000  IMAD.MOV.U32 R11, RZ, RZ, c[0x0][0x0]
+    109 /*09150*/ stall  1     wait 000000  FSETP.GEU.AND P1, PT, R6, R24, PT
+    110 /*09160*/ stall 12     wait 000000  IMAD.MOV.U32 R4, RZ, RZ, R3
+    111 /*09170*/ stall  1     wait 000000  @!P1 IADD3 R20, R20, 0x1, RZ
+    112 /*09180*/ stall  2     wait 000000  @!P1 IMAD R10, R10, 0x2, R0
+    113 /*09190*/ stall  1     wait 000000  @!P1 IMAD.MOV.U32 R17, RZ, RZ, R5
+    114 /*091a0*/ stall  1     wait 000000  ISETP.NE.AND P0, PT, R20, 0x2, PT
+    115 /*091b0*/ stall  2     wait 000000  @!P1 IMAD.MOV.U32 R4, RZ, RZ, R6
+    116 /*091c0*/ stall  2     wait 000000  @!P1 IMAD.MOV.U32 R21, RZ, RZ, R3
+    117 /*091d0*/ stall  1     wait 000000  @!P1 IMAD R5, R11, 0x2, R10
+    118 /*091e0*/ stall  7     wait 000000  BRA.DIV ~URZ, 0x26870
+    119 /*091f0*/ stall 12     wait 000000  VOTE.ANY P0, !P0
+    120 /*09200*/ stall  1     wait 000000  BSSY B1, 0xb2b0
+    121 /*09210*/ stall  5     wait 000000  @!P0 BRA 0xb2a0
+    122 /*0b2a0*/ stall  5     wait 000000  BSYNC B1
+    123 /*0b2b0*/ stall  2     wait 000000  FADD R7, R7, R14
+    124 /*0b2c0*/ stall  2     wait 000000  IMAD.MOV.U32 R3, RZ, RZ, c[0x0][0x0]
+    125 /*0b2d0*/ stall  1     wait 000000  IMAD.MOV.U32 R10, RZ, RZ, c[0x0][0x0]
+    126 /*0b2e0*/ stall  1     wait 000001  FSETP.GEU.AND P1, PT, R7, R24, PT
+    127 /*0b2f0*/ stall  2     wait 000000  IMAD R3, R3, 0x2, R0
+    128 /*0b300*/ stall  2     wait 000000  IMAD.MOV.U32 R6, RZ, RZ, R4
+    129 /*0b310*/ stall  8     wait 000000  IMAD R3, R10, 0x2, R3
+    130 /*0b320*/ stall  1     wait 000000  @!P1 IMAD.MOV.U32 R6, RZ, RZ, R7
+    131 /*0b330*/ stall  1     wait 000000  @!P1 IADD3 R20, R20, 0x1, RZ
+    132 /*0b340*/ stall  2     wait 000000  IMAD.MOV.U32 R7, RZ, RZ, c[0x0][0x0]
+    133 /*0b350*/ stall  1     wait 000000  @!P1 IMAD.MOV.U32 R17, RZ, RZ, R5
+    134 /*0b360*/ stall  1     wait 000000  @!P1 IADD3 R5, R3, c[0x0][0x0], RZ
+    135 /*0b370*/ stall  1     wait 000000  @!P1 IMAD.MOV.U32 R21, RZ, RZ, R4
+    136 /*0b380*/ stall  1     wait 000000  ISETP.NE.AND P0, PT, R20, 0x2, PT
+    137 /*0b390*/ stall  1     wait 000000  IMAD R3, R7, 0x2, R3
+    138 /*0b3a0*/ stall 11     wait 000000  BRA.DIV ~URZ, 0x2a5a0
+    139 /*0b3b0*/ stall 12     wait 000000  VOTE.ANY P0, !P0
+    140 /*0b3c0*/ stall  1     wait 000000  BSSY B1, 0xd470
+    141 /*0b3d0*/ stall  5     wait 000000  @!P0 BRA 0xd460
+    142 /*0d460*/ stall  5     wait 000000  BSYNC B1
+    143 /*0d470*/ stall  2     wait 000000  FADD R8, R8, R15
+    144 /*0d480*/ stall  2     wait 000000  IMAD.MOV.U32 R4, RZ, RZ, R6
+    145 /*0d490*/ stall  1     wait 000000  IMAD.MOV.U32 R7, RZ, RZ, R5
+    146 /*0d4a0*/ stall 13     wait 000001  FSETP.GEU.AND P1, PT, R8, R24, PT
+    147 /*0d4b0*/ stall  1     wait 000000  @!P1 IADD3 R20, R20, 0x1, RZ
+    148 /*0d4c0*/ stall  2     wait 000000  @!P1 IMAD.MOV.U32 R4, RZ, RZ, R8
+    149 /*0d4d0*/ stall  1     wait 000000  @!P1 IMAD.MOV.U32 R21, RZ, RZ, R6
+    150 /*0d4e0*/ stall  1     wait 000000  ISETP.NE.AND P0, PT, R20, 0x2, PT
+    151 /*0d4f0*/ stall  2     wait 000000  @!P1 IMAD.MOV.U32 R7, RZ, RZ, R3
+    152 /*0d500*/ stall  1     wait 000000  @!P1 IMAD.MOV.U32 R17, RZ, RZ, R5
+    153 /*0d510*/ stall  9     wait 000000  BRA.DIV ~URZ, 0x2e2d0
+    154 /*0d520*/ stall 12     wait 000000  VOTE.ANY P0, !P0
+    155 /*0d530*/ stall  1     wait 000000  BSSY B1, 0xf5e0
+    156 /*0d540*/ stall  5     wait 000000  @!P0 BRA 0xf5d0
+    157 /*0f5d0*/ stall  5     wait 000000  BSYNC B1
+    158 /*0f5e0*/ stall  2     wait 000000  FADD R9, R9, R16
+    159 /*0f5f0*/ stall  2     wait 000100  IMAD.MOV.U32 R3, RZ, RZ, c[0x0][0x0]
+    160 /*0f600*/ stall  1     wait 000000  IMAD.MOV.U32 R5, RZ, RZ, c[0x0][0x0]
+    161 /*0f610*/ stall  1     wait 000001  FSETP.GEU.AND P1, PT, R9, R24, PT
+    162 /*0f620*/ stall  2     wait 000000  IMAD.MOV.U32 R6, RZ, RZ, c[0x0][0x0]
+    163 /*0f630*/ stall  2     wait 000000  IMAD.MOV.U32 R26, RZ, RZ, R4
+    164 /*0f640*/ stall  8     wait 000000  IMAD.MOV.U32 R25, RZ, RZ, R7
+    165 /*0f650*/ stall  1     wait 000000  @!P1 IMAD R3, R3, 0x2, R0
+    166 /*0f660*/ stall  1     wait 000000  @!P1 IADD3 R20, R20, 0x1, RZ
+    167 /*0f670*/ stall  2     wait 000000  @!P1 IMAD.MOV.U32 R26, RZ, RZ, R9
+    168 /*0f680*/ stall  1     wait 000000  @!P1 IMAD R3, R5, 0x2, R3
+    169 /*0f690*/ stall  1     wait 000000  ISETP.NE.AND P0, PT, R20, 0x2, PT
+    170 /*0f6a0*/ stall  2     wait 000000  @!P1 IMAD.MOV.U32 R21, RZ, RZ, R4
+    171 /*0f6b0*/ stall  2     wait 000000  @!P1 IMAD R3, R6, 0x2, R3
+    172 /*0f6c0*/ stall  3     wait 000000  @!P1 IMAD.MOV.U32 R17, RZ, RZ, R7
+    173 /*0f6d0*/ stall  1     wait 000000  @!P1 IADD3 R25, R3, c[0x0][0x0], RZ
+    174 /*0f6e0*/ stall  5     wait 000000  BRA.DIV ~URZ, 0x32000
+    175 /*0f6f0*/ stall 12     wait 000000  VOTE.ANY P0, !P0
+    176 /*0f700*/ stall  1     wait 000000  BSSY B1, 0x117b0
+    177 /*0f710*/ stall  5     wait 000000  @!P0 BRA 0x117a0
+    178 /*117a0*/ stall  5     wait 000000  BSYNC B1
+    179 /*117b0*/ stall  4     wait 000100  IMAD.MOV.U32 R3, RZ, RZ, c[0x0][0x0]
+    180 /*117c0*/ stall  5     wait 000000  IMAD R0, R3, 0x8, R0
+    181 /*117d0*/ stall 13     wait 000000  ISETP.GE.AND P0, PT, R0, UR5, PT
+    182 /*117e0*/ stall  1     wait 011011  @P0 CALL.REL.NOINC 0x11800
+    183 /*117f0*/ stall  5     wait 000000  BRA 0x8a0
+sm_80 l2SelectMinK_ro<32,2,128,8> [ro8 k<=32]  loop 1 [0x118b0-0x13b40]: no-merge path 34 instr, 2 LDG at [7, 11], first load wait at 12
+==== ks_timing_sm90.cubin
+sm_90 l2SelectMin1<8,256> [orig k=1]  loop 0 [0x2c0-0x410]: no-merge path 22 instr, 2 LDG at [7, 11], first load wait at 12
+sm_90 l2SelectMin1<8,256> [orig k=1]  loop 1 [0x1650-0x1b40]: no-merge path 80 instr, 9 LDG at [11, 16, 19, 22, 25, 30, 32, 33, 34], first load wait at 35
+sm_90 l2SelectMin1_ro<8,256,4> [ro k=1]  loop 0 [0x390-0x19a0]: no-merge path 354 instr, 36 LDG at [1, 8, 11, 14, 17, 19, 40, 46, 59, 63, 67, 72, 80, 85, 90, 92, 96, 113, 117, 119, 123, 128, 131, 132, 134, 137, 141, 158, 162, 174, 186, 188, 192, 195, 201, 202], first load wait at 171
+sm_90 l2SelectMin1_ro<8,256,4> [ro k=1]  loop 1 [0x21d0-0x2b10]: no-merge path 149 instr, 18 LDG at [7, 11, 16, 23, 28, 31, 34, 38, 41, 44, 47, 50, 53, 56, 59, 61, 62, 63], first load wait at 64
+sm_90 l2SelectMin1_ro<8,256,4> [ro k=1]  loop 2 [0xaeb0-0xbb30]: no-merge path 201 instr, 32 LDG at [2, 5, 8, 12, 28, 29, 35, 38, 43, 45, 65, 66, 69, 73, 89, 90, 93, 97, 113, 114, 117, 121, 137, 138, 141, 145, 161, 162, 165, 169, 185, 186], first load wait at 9
+sm_90 l2SelectMin1_ro<8,256,4> [ro k=1]  loop 3 [0xbc70-0xbda0]: no-merge path 20 instr, 2 LDG at [2, 5], first load wait at 10
+sm_90 l2SelectMin1_ro<8,256,8> [ro8 k=1]  loop 0 [0x4d0-0x2fc0]: no-merge path 688 instr, 72 LDG at [9, 11, 22, 28, 31, 35, 38, 42, 45, 46, 49, 55, 60, 63, 66, 68, 74, 75, 80, 81, 88, 126, 129, 132, 175, 219, 227, 229, 231, 232, 252, 256, 259, 264, 266, 268, 279, 280, 350, 370, 381, 384, 387, 395, 398, 405, 410, 413, 415, 422, 424, 435, 440, 443, 445, 448, 451, 453, 457, 458, 466, 472, 475, 476, 480, 485, 493, 495, 497, 503, 509, 510], first load wait at 100
+sm_90 l2SelectMin1_ro<8,256,8> [ro8 k=1]  loop 1 [0x37e0-0x4140]: no-merge path 151 instr, 18 LDG at [7, 14, 19, 23, 30, 33, 36, 40, 43, 46, 49, 52, 55, 58, 61, 63, 64, 65], first load wait at 66
+sm_90 l2SelectMin1_ro<8,256,8> [ro8 k=1]  loop 2 [0xb720-0xbde0]: no-merge path 109 instr, 16 LDG at [4, 6, 10, 13, 18, 19, 24, 25, 30, 31, 34, 35, 40, 41, 46, 47], first load wait at 50
+sm_90 l2SelectMin1_ro<8,256,8> [ro8 k=1]  loop 3 [0xbef0-0xc010]: no-merge path 19 instr, 2 LDG at [3, 4], first load wait at 9
+sm_90 l2SelectMinK<128,3,128> [orig k<=128]  loop 0 [0xa60-0x5a60]: no-merge path 33 instr, 2 LDG at [7, 11], first load wait at 13
+sm_90 l2SelectMinK<32,2,128> [orig k<=32]  loop 0 [0xa60-0x2e70]: no-merge path 31 instr, 2 LDG at [7, 11], first load wait at 13
+      0 /*00a60*/ stall  1     wait 000000  IMAD R19, R15, UR10, RZ
+      1 /*00a70*/ stall  1     wait 000000  LEA R20, P1, R10.reuse, UR14, 0x2
+      2 /*00a80*/ stall  2     wait 000000  IMAD.MOV.U32 R16, RZ, RZ, R10
+      3 /*00a90*/ stall  1     wait 000000  IMAD.MOV.U32 R17, RZ, RZ, R11.reuse
+      4 /*00aa0*/ stall  1     wait 000000  LEA.HI.X R21, R10, UR15, R11, 0x2, P1
+      5 /*00ab0*/ stall  2     wait 000000  IMAD R19, R6.reuse, UR11, R19
+      6 /*00ac0*/ stall  3     wait 000000  IMAD.WIDE.U32 R16, R6, UR10, R16
+      7 /*00ad0*/ stall  1 SB2 wait 000100  LDG.E R21, desc[UR8][R20.64]  <== LDG
+      8 /*00ae0*/ stall  1     wait 000000  IMAD.IADD R17, R17, 0x1, R19
+      9 /*00af0*/ stall  4     wait 000000  LEA R18, P0, R16, UR12, 0x2
+     10 /*00b00*/ stall  5     wait 000000  LEA.HI.X R19, R16, UR13, R17, 0x2, P0
+     11 /*00b10*/ stall  1 SB2 wait 000000  LDG.E R18, desc[UR8][R18.64]  <== LDG
+     12 /*00b20*/ stall  5     wait 000000  WARPSYNC.ALL
+     13 /*00b30*/ stall  5     wait 000100  FADD R10, R18, R21  <-- first wait on a load scoreboard
+     14 /*00b40*/ stall 13     wait 000000  FSETP.GEU.AND P1, PT, R10, R13, PT
+     15 /*00b50*/ stall  5     wait 000000  @!P1 VIADD R23, R23, 0x1
+     16 /*00b60*/ stall  1     wait 000000  ISETP.NE.AND P0, PT, R23, 0x2, PT
+     17 /*00b70*/ stall  2     wait 000000  @!P1 IMAD.MOV.U32 R9, RZ, RZ, R2.reuse
+     18 /*00b80*/ stall 10     wait 000000  IMAD.IADD R2, R7, 0x1, R2
+     19 /*00b90*/ stall  2     wait 000000  VOTE.ANY P0, !P0
+     20 /*00ba0*/ stall  1     wait 000000  ISETP.GE.AND P2, PT, R2, UR4, PT
+     21 /*00bb0*/ stall  1     wait 000000  @!P1 IMAD.MOV.U32 R14, RZ, RZ, R22
+     22 /*00bc0*/ stall  1     wait 000000  SHF.R.S32.HI R11, RZ, 0x1f, R2
+     23 /*00bd0*/ stall  1     wait 000000  @!P1 IMAD.MOV.U32 R8, RZ, RZ, R12
+     24 /*00be0*/ stall  1     wait 000000  P2R R17, PR, RZ, 0x4
+     25 /*00bf0*/ stall  6     wait 000000  @!P1 IMAD.MOV.U32 R22, RZ, RZ, R10
+     26 /*00c00*/ stall  5     wait 000000  @!P0 BRA 0x2e40
+     27 /*02e40*/ stall  1     wait 000000  ISETP.NE.AND P0, PT, R17, RZ, PT
+     28 /*02e50*/ stall  2     wait 000010  IMAD.MOV.U32 R12, RZ, RZ, R9
+     29 /*02e60*/ stall 10     wait 000000  IMAD.MOV.U32 R10, RZ, RZ, R2
+     30 /*02e70*/ stall  5     wait 000000  @!P0 BRA 0xa60
+sm_90 l2SelectMinK_ro<128,3,128,4> [ro k<=128]  loop 0 [0xa80-0x14560]: no-merge path 90 instr, 8 LDG at [11, 12, 16, 18, 22, 24, 25, 26], first load wait at 28
+sm_90 l2SelectMinK_ro<128,3,128,4> [ro k<=128]  loop 1 [0x14610-0x19470]: no-merge path 31 instr, 2 LDG at [7, 11], first load wait at 13
+sm_90 l2SelectMinK_ro<128,3,128,8> [ro8 k<=128]  loop 0 [0x580-0x24c50]: no-merge path 171 instr, 16 LDG at [12, 15, 17, 19, 21, 23, 25, 27, 29, 31, 33, 35, 37, 39, 40, 41], first load wait at 43
+sm_90 l2SelectMinK_ro<128,3,128,8> [ro8 k<=128]  loop 1 [0x24d40-0x29c80]: no-merge path 32 instr, 2 LDG at [7, 11], first load wait at 13
+sm_90 l2SelectMinK_ro<32,2,128,4> [ro k<=32]  loop 0 [0xa70-0x8cc0]: no-merge path 82 instr, 8 LDG at [8, 11, 14, 17, 19, 20, 23, 24], first load wait at 27
+      0 /*00a70*/ stall  1 SB1 wait 000000  LDC.64 R4, c[0x0][0x238]
+      1 /*00a80*/ stall  1     wait 000000  SHF.R.S32.HI R27, RZ, 0x1f, R26
+      2 /*00a90*/ stall  4     wait 000000  IMAD R7, R19, UR10, RZ
+      3 /*00aa0*/ stall  2     wait 000000  IMAD R7, R20.reuse, UR11, R7
+      4 /*00ab0*/ stall  4     wait 000000  IMAD.WIDE.U32 R10, R20, UR10, R26
+      5 /*00ac0*/ stall  1     wait 000000  IMAD.IADD R7, R11, 0x1, R7
+      6 /*00ad0*/ stall  4     wait 000000  LEA R12, P0, R10, UR14, 0x2
+      7 /*00ae0*/ stall  5     wait 000000  LEA.HI.X R13, R10, UR15, R7, 0x2, P0
+      8 /*00af0*/ stall  1 SB3 wait 000000  LDG.E R7, desc[UR8][R12.64]  <== LDG
+      9 /*00b00*/ stall  4     wait 000000  IMAD.WIDE R16, R24, 0x4, R12
+     10 /*00b10*/ stall  5     wait 000010  IMAD.WIDE R10, R26, 0x4, R4
+     11 /*00b20*/ stall  1 SB3 wait 000000  LDG.E R8, desc[UR8][R10.64]  <== LDG
+     12 /*00b30*/ stall  1     wait 000000  IADD3 R15, R24.reuse, R24, R26
+     13 /*00b40*/ stall  2     wait 000000  IMAD.WIDE R32, R24.reuse, 0x4, R16
+     14 /*00b50*/ stall  2 SB5 wait 000000  LDG.E R17, desc[UR8][R16.64]  <== LDG
+     15 /*00b60*/ stall  2     wait 000100  IMAD.IADD R12, R15.reuse, 0x1, R24
+     16 /*00b70*/ stall  1     wait 000000  IMAD.WIDE R36, R24.reuse, 0x4, R32
+     17 /*00b80*/ stall  3 SB5 wait 000000  LDG.E R18, desc[UR8][R32.64]  <== LDG
+     18 /*00b90*/ stall  1     wait 000000  IMAD.WIDE R34, R24, 0x4, R10
+     19 /*00ba0*/ stall  4 SB5 wait 000000  LDG.E R16, desc[UR8][R36.64]  <== LDG
+     20 /*00bb0*/ stall  1 SB5 wait 000000  LDG.E R14, desc[UR8][R34.64]  <== LDG
+     21 /*00bc0*/ stall  4     wait 000010  IMAD.WIDE R32, R15, 0x4, R4
+     22 /*00bd0*/ stall  1     wait 000000  IMAD.WIDE R4, R12, 0x4, R4
+     23 /*00be0*/ stall  4 SB5 wait 000000  LDG.E R13, desc[UR8][R32.64]  <== LDG
+     24 /*00bf0*/ stall  1 SB5 wait 000000  LDG.E R11, desc[UR8][R4.64]  <== LDG
+     25 /*00c00*/ stall  1     wait 000000  UMOV UR5, 0xffffffff
+     26 /*00c10*/ stall  2     wait 000000  IMAD.MOV.U32 R27, RZ, RZ, R9
+     27 /*00c20*/ stall  5     wait 001000  FADD R7, R7, R8  <-- first wait on a load scoreboard
+     28 /*00c30*/ stall 13     wait 000000  FSETP.GEU.AND P1, PT, R7, R6, PT
+     29 /*00c40*/ stall  2     wait 000000  @!P1 VIADD R30, R30, 0x1
+     30 /*00c50*/ stall  2     wait 000000  @!P1 IMAD.MOV.U32 R0, RZ, RZ, R3
+     31 /*00c60*/ stall  1     wait 000000  @!P1 IMAD.MOV.U32 R27, RZ, RZ, R7
+     32 /*00c70*/ stall  1     wait 000000  ISETP.NE.AND P0, PT, R30, 0x2, PT
+     33 /*00c80*/ stall  2     wait 000000  @!P1 IMAD.MOV.U32 R2, RZ, RZ, R9
+     34 /*00c90*/ stall  1     wait 000000  @!P1 IMAD.MOV.U32 R3, RZ, RZ, R26
+     35 /*00ca0*/ stall  9     wait 000100  BRA.DIV UR5, 0xe2e0
+     36 /*00cb0*/ stall 13     wait 000000  VOTE.ANY P0, !P0
+     37 /*00cc0*/ stall  5     wait 000000  @!P0 BRA 0x2c30
+     38 /*02c30*/ stall  1     wait 100000  FADD R17, R14, R17
+     39 /*02c40*/ stall  1     wait 000000  UMOV UR5, 0xffffffff
+     40 /*02c50*/ stall  2     wait 000000  IMAD.MOV.U32 R9, RZ, RZ, R27
+     41 /*02c60*/ stall  1     wait 000000  IMAD.MOV.U32 R4, RZ, RZ, R3
+     42 /*02c70*/ stall 13     wait 000100  FSETP.GEU.AND P1, PT, R17, R6, PT
+     43 /*02c80*/ stall  2     wait 000000  @!P1 VIADD R30, R30, 0x1
+     44 /*02c90*/ stall  2     wait 000000  @!P1 IMAD.MOV.U32 R9, RZ, RZ, R17
+     45 /*02ca0*/ stall  1     wait 000000  @!P1 IMAD.MOV.U32 R2, RZ, RZ, R27
+     46 /*02cb0*/ stall  1     wait 000000  ISETP.NE.AND P0, PT, R30, 0x2, PT
+     47 /*02cc0*/ stall  2     wait 000000  @!P1 IMAD.IADD R4, R24, 0x1, R26
+     48 /*02cd0*/ stall  1     wait 000000  @!P1 IMAD.MOV.U32 R0, RZ, RZ, R3
+     49 /*02ce0*/ stall  9     wait 000000  BRA.DIV UR5, 0x12280
+     50 /*02cf0*/ stall 13     wait 000000  VOTE.ANY P0, !P0
+     51 /*02d00*/ stall  5     wait 000000  @!P0 BRA 0x4c70
+     52 /*04c70*/ stall  1     wait 000000  FADD R13, R13, R18
+     53 /*04c80*/ stall  1     wait 000000  UMOV UR5, 0xffffffff
+     54 /*04c90*/ stall  3     wait 000000  IMAD.MOV.U32 R5, RZ, RZ, R9
+     55 /*04ca0*/ stall 13     wait 001000  FSETP.GEU.AND P1, PT, R13, R6, PT
+     56 /*04cb0*/ stall  2     wait 000000  @!P1 VIADD R30, R30, 0x1
+     57 /*04cc0*/ stall  2     wait 000000  @!P1 IMAD.MOV.U32 R0, RZ, RZ, R4
+     58 /*04cd0*/ stall  1     wait 000000  @!P1 IMAD.MOV.U32 R5, RZ, RZ, R13
+     59 /*04ce0*/ stall  1     wait 000000  ISETP.NE.AND P0, PT, R30, 0x2, PT
+     60 /*04cf0*/ stall  2     wait 000000  @!P1 IMAD.MOV.U32 R2, RZ, RZ, R9
+     61 /*04d00*/ stall  1     wait 000000  @!P1 IMAD.MOV.U32 R4, RZ, RZ, R15
+     62 /*04d10*/ stall  9     wait 000000  BRA.DIV UR5, 0x16210
+     63 /*04d20*/ stall 13     wait 000000  VOTE.ANY P0, !P0
+     64 /*04d30*/ stall  5     wait 000000  @!P0 BRA 0x6c80
+     65 /*06c80*/ stall  1     wait 000000  FADD R11, R11, R16
+     66 /*06c90*/ stall  1     wait 000000  UMOV UR5, 0xffffffff
+     67 /*06ca0*/ stall  2     wait 000000  IMAD.MOV.U32 R9, RZ, RZ, R5
+     68 /*06cb0*/ stall  1     wait 000000  IMAD.MOV.U32 R3, RZ, RZ, R4
+     69 /*06cc0*/ stall 13     wait 000100  FSETP.GEU.AND P1, PT, R11, R6, PT
+     70 /*06cd0*/ stall  2     wait 000000  @!P1 VIADD R30, R30, 0x1
+     71 /*06ce0*/ stall  2     wait 000000  @!P1 IMAD.MOV.U32 R9, RZ, RZ, R11
+     72 /*06cf0*/ stall  1     wait 000000  @!P1 IMAD.MOV.U32 R2, RZ, RZ, R5
+     73 /*06d00*/ stall  1     wait 000000  ISETP.NE.AND P0, PT, R30, 0x2, PT
+     74 /*06d10*/ stall  2     wait 000000  @!P1 IMAD.MOV.U32 R3, RZ, RZ, R12
+     75 /*06d20*/ stall  1     wait 000000  @!P1 IMAD.MOV.U32 R0, RZ, RZ, R4
+     76 /*06d30*/ stall  9     wait 000000  BRA.DIV UR5, 0x1a200
+     77 /*06d40*/ stall 13     wait 000000  VOTE.ANY P0, !P0
+     78 /*06d50*/ stall  5     wait 000000  @!P0 BRA 0x8ca0
+     79 /*08ca0*/ stall  4     wait 000000  IADD3 R26, R24, R15, R24
+     80 /*08cb0*/ stall 13     wait 000000  ISETP.GE.AND P0, PT, R26, R22, PT
+     81 /*08cc0*/ stall  5     wait 000101  @!P0 BRA 0xa70
+sm_90 l2SelectMinK_ro<32,2,128,4> [ro k<=32]  loop 1 [0x8d70-0xae60]: no-merge path 29 instr, 2 LDG at [10, 11], first load wait at 13
+sm_90 l2SelectMinK_ro<32,2,128,8> [ro8 k<=32]  loop 0 [0xa10-0x11180]: no-merge path 172 instr, 16 LDG at [11, 12, 17, 20, 23, 27, 31, 33, 36, 39, 42, 44, 47, 49, 52, 53], first load wait at 46
+      0 /*00a10*/ stall  1 SB1 wait 000010  LDC.64 R6, c[0x0][0x238]
+      1 /*00a20*/ stall  1     wait 001100  SHF.R.S32.HI R4, RZ, 0x1f, R17
+      2 /*00a30*/ stall  1     wait 000000  IMAD.MOV.U32 R2, RZ, RZ, R12.reuse
+      3 /*00a40*/ stall  3     wait 000000  SHF.R.S32.HI R3, RZ, 0x1f, R12
+      4 /*00a50*/ stall  4     wait 000000  IMAD R4, R4, UR10, RZ
+      5 /*00a60*/ stall  2     wait 000000  IMAD R9, R17.reuse, UR11, R4
+      6 /*00a70*/ stall  4     wait 000000  IMAD.WIDE.U32 R4, R17, UR10, R2
+      7 /*00a80*/ stall  1     wait 000000  IMAD.IADD R5, R5, 0x1, R9
+      8 /*00a90*/ stall  4     wait 000000  LEA R8, P0, R4, UR14, 0x2
+      9 /*00aa0*/ stall  1     wait 000000  LEA.HI.X R9, R4, UR15, R5, 0x2, P0
+     10 /*00ab0*/ stall  4     wait 000010  IMAD.WIDE R2, R12, 0x4, R6
+     11 /*00ac0*/ stall  4 SB2 wait 000000  LDG.E R32, desc[UR8][R8.64]  <== LDG
+     12 /*00ad0*/ stall  1 SB2 wait 000000  LDG.E R27, desc[UR8][R2.64]  <== LDG
+     13 /*00ae0*/ stall  2     wait 000000  IMAD.U32 R35, RZ, RZ, UR7
+     14 /*00af0*/ stall  2     wait 000000  IMAD.U32 R5, RZ, RZ, UR7
+     15 /*00b00*/ stall  4     wait 000000  IMAD.WIDE R34, R35, 0x4, R8
+     16 /*00b10*/ stall  1     wait 000000  IMAD.U32 R31, RZ, RZ, UR7
+     17 /*00b20*/ stall  1 SB5 wait 000000  LDG.E R18, desc[UR8][R34.64]  <== LDG
+     18 /*00b30*/ stall  4     wait 000000  IMAD.WIDE R4, R5, 0x4, R34
+     19 /*00b40*/ stall  1     wait 000000  IMAD.U32 R29, RZ, RZ, UR7
+     20 /*00b50*/ stall  1 SB5 wait 000000  LDG.E R19, desc[UR8][R4.64]  <== LDG
+     21 /*00b60*/ stall  4     wait 000000  IMAD.WIDE R30, R31, 0x4, R4
+     22 /*00b70*/ stall  1     wait 000000  IMAD.U32 R23, RZ, RZ, UR7
+     23 /*00b80*/ stall  1 SB5 wait 000000  LDG.E R20, desc[UR8][R30.64]  <== LDG
+     24 /*00b90*/ stall  3     wait 000000  IMAD.WIDE R28, R29, 0x4, R30
+     25 /*00ba0*/ stall  1     wait 000000  IADD3 R23, R23, UR7, R12
+     26 /*00bb0*/ stall  1     wait 000000  IMAD.U32 R11, RZ, RZ, UR7
+     27 /*00bc0*/ stall  1 SB5 wait 000000  LDG.E R21, desc[UR8][R28.64]  <== LDG
+     28 /*00bd0*/ stall  2     wait 000010  IMAD.U32 R9, RZ, RZ, UR7
+     29 /*00be0*/ stall  4     wait 000000  IMAD.WIDE R10, R11, 0x4, R28
+     30 /*00bf0*/ stall  1     wait 000000  IMAD.WIDE R6, R23, 0x4, R6
+     31 /*00c00*/ stall  3 SB5 wait 000000  LDG.E R22, desc[UR8][R10.64]  <== LDG
+     32 /*00c10*/ stall  1     wait 001001  IMAD.U32 R29, RZ, RZ, UR7
+     33 /*00c20*/ stall  1 SB5 wait 000000  LDG.E R28, desc[UR8][R6.64]  <== LDG
+     34 /*00c30*/ stall  4     wait 000000  IMAD.WIDE R8, R9, 0x4, R10
+     35 /*00c40*/ stall  1     wait 000000  IMAD.U32 R33, RZ, RZ, UR7
+     36 /*00c50*/ stall  1 SB5 wait 000000  LDG.E R24, desc[UR8][R8.64]  <== LDG
+     37 /*00c60*/ stall  4     wait 000010  IMAD.WIDE R10, R29, 0x4, R6
+     38 /*00c70*/ stall  1     wait 000000  IMAD.WIDE R4, R33.reuse, 0x4, R8
+     39 /*00c80*/ stall  3 SB5 wait 000000  LDG.E R31, desc[UR8][R10.64]  <== LDG
+     40 /*00c90*/ stall  4     wait 000001  IMAD.WIDE R8, R33, 0x4, R10
+     41 /*00ca0*/ stall  1     wait 000000  IMAD.WIDE R2, R33.reuse, 0x4, R2
+     42 /*00cb0*/ stall  3 SB5 wait 000000  LDG.E R30, desc[UR8][R8.64]  <== LDG
+     43 /*00cc0*/ stall  1     wait 000000  IMAD.U32 R35, RZ, RZ, UR7
+     44 /*00cd0*/ stall  1 SB5 wait 000000  LDG.E R29, desc[UR8][R2.64]  <== LDG
+     45 /*00ce0*/ stall  2     wait 000000  IMAD.U32 R7, RZ, RZ, UR7
+     46 /*00cf0*/ stall  2     wait 000100  FADD R34, R32, R27  <-- first wait on a load scoreboard
+     47 /*00d00*/ stall  2 SB5 wait 000000  LDG.E R27, desc[UR8][R4.64]  <== LDG
+     48 /*00d10*/ stall  5     wait 000001  IMAD.WIDE R4, R33, 0x4, R8
+     49 /*00d20*/ stall  1 SB5 wait 000000  LDG.E R33, desc[UR8][R4.64]  <== LDG
+     50 /*00d30*/ stall  4     wait 000000  IMAD.WIDE R2, R35, 0x4, R4
+     51 /*00d40*/ stall  2     wait 000000  IMAD.WIDE R6, R7, 0x4, R2
+     52 /*00d50*/ stall  4 SB5 wait 000000  LDG.E R3, desc[UR8][R2.64]  <== LDG
+     53 /*00d60*/ stall  1 SB5 wait 000000  LDG.E R6, desc[UR8][R6.64]  <== LDG
+     54 /*00d70*/ stall  1     wait 000000  FSETP.GEU.AND P1, PT, R34, R15, PT
+     55 /*00d80*/ stall  1     wait 000000  UMOV UR4, 0xffffffff
+     56 /*00d90*/ stall 11     wait 000000  IMAD.MOV.U32 R32, RZ, RZ, R26
+     57 /*00da0*/ stall  2     wait 000000  @!P1 VIADD R13, R13, 0x1
+     58 /*00db0*/ stall  2     wait 000000  @!P1 IMAD.MOV.U32 R14, RZ, RZ, R25
+     59 /*00dc0*/ stall  1     wait 000000  @!P1 IMAD.MOV.U32 R32, RZ, RZ, R34
+     60 /*00dd0*/ stall  1     wait 000000  ISETP.NE.AND P0, PT, R13, 0x2, PT
+     61 /*00de0*/ stall  2     wait 000000  @!P1 IMAD.MOV.U32 R16, RZ, RZ, R26
+     62 /*00df0*/ stall  1     wait 000000  @!P1 IMAD.MOV.U32 R25, RZ, RZ, R12
+     63 /*00e00*/ stall  9     wait 000001  BRA.DIV UR4, 0x16870
+     64 /*00e10*/ stall 13     wait 000000  VOTE.ANY P0, !P0
+     65 /*00e20*/ stall  5     wait 000000  @!P0 BRA 0x2dc0
+     66 /*02dc0*/ stall  1     wait 100000  FADD R18, R29, R18
+     67 /*02dd0*/ stall  1     wait 000000  UMOV UR4, 0xffffffff
+     68 /*02de0*/ stall  3     wait 000000  IMAD.MOV.U32 R7, RZ, RZ, R32
+     69 /*02df0*/ stall 13     wait 000010  FSETP.GEU.AND P1, PT, R18, R15, PT
+     70 /*02e00*/ stall  2     wait 000000  @!P1 VIADD R13, R13, 0x1
+     71 /*02e10*/ stall  2     wait 000000  @!P1 IMAD.MOV.U32 R14, RZ, RZ, R25
+     72 /*02e20*/ stall  1     wait 000000  @!P1 IMAD.MOV.U32 R7, RZ, RZ, R18
+     73 /*02e30*/ stall  1     wait 000000  ISETP.NE.AND P0, PT, R13, 0x2, PT
+     74 /*02e40*/ stall  2     wait 000000  @!P1 IMAD.MOV.U32 R16, RZ, RZ, R32
+     75 /*02e50*/ stall  1     wait 000000  @!P1 VIADD R25, R12, UR7
+     76 /*02e60*/ stall  9     wait 000000  BRA.DIV UR4, 0x19f80
+     77 /*02e70*/ stall 13     wait 000000  VOTE.ANY P0, !P0
+     78 /*02e80*/ stall  5     wait 000000  @!P0 BRA 0x4e40
+     79 /*04e40*/ stall  1     wait 000000  FADD R28, R28, R19
+     80 /*04e50*/ stall  1     wait 000000  UMOV UR4, 0xffffffff
+     81 /*04e60*/ stall  3     wait 000000  IMAD.MOV.U32 R9, RZ, RZ, R7
+     82 /*04e70*/ stall 13     wait 000100  FSETP.GEU.AND P1, PT, R28, R15, PT
+     83 /*04e80*/ stall  2     wait 000000  @!P1 VIADD R13, R13, 0x1
+     84 /*04e90*/ stall  2     wait 000000  @!P1 IMAD.MOV.U32 R14, RZ, RZ, R25
+     85 /*04ea0*/ stall  1     wait 000000  @!P1 IMAD.MOV.U32 R9, RZ, RZ, R28
+     86 /*04eb0*/ stall  1     wait 000000  ISETP.NE.AND P0, PT, R13, 0x2, PT
+     87 /*04ec0*/ stall  2     wait 000000  @!P1 IMAD.MOV.U32 R16, RZ, RZ, R7
+     88 /*04ed0*/ stall  1     wait 000000  @!P1 IMAD.MOV.U32 R25, RZ, RZ, R23
+     89 /*04ee0*/ stall  9     wait 000000  BRA.DIV UR4, 0x1d710
+     90 /*04ef0*/ stall 13     wait 000000  VOTE.ANY P0, !P0
+     91 /*04f00*/ stall  5     wait 000000  @!P0 BRA 0x6ec0
+     92 /*06ec0*/ stall  1     wait 000000  FADD R20, R31, R20
+     93 /*06ed0*/ stall  1     wait 000000  UMOV UR4, 0xffffffff
+     94 /*06ee0*/ stall  3     wait 000000  IMAD.MOV.U32 R7, RZ, RZ, R9
+     95 /*06ef0*/ stall 13     wait 000100  FSETP.GEU.AND P1, PT, R20, R15, PT
+     96 /*06f00*/ stall  2     wait 000000  @!P1 VIADD R13, R13, 0x1
+     97 /*06f10*/ stall  2     wait 000000  @!P1 IMAD.MOV.U32 R14, RZ, RZ, R25
+     98 /*06f20*/ stall  1     wait 000000  @!P1 IMAD.MOV.U32 R7, RZ, RZ, R20
+     99 /*06f30*/ stall  1     wait 000000  ISETP.NE.AND P0, PT, R13, 0x2, PT
+    100 /*06f40*/ stall  2     wait 000000  @!P1 IMAD.MOV.U32 R16, RZ, RZ, R9
+    101 /*06f50*/ stall  1     wait 000000  @!P1 VIADD R25, R23, UR7
+    102 /*06f60*/ stall  9     wait 000000  BRA.DIV UR4, 0x20ea0
+    103 /*06f70*/ stall 13     wait 000000  VOTE.ANY P0, !P0
+    104 /*06f80*/ stall  5     wait 000000  @!P0 BRA 0x8f20
+    105 /*08f20*/ stall  1     wait 000000  FADD R30, R30, R21
+    106 /*08f30*/ stall  1     wait 000000  IMAD.U32 R2, RZ, RZ, UR7
+    107 /*08f40*/ stall  1     wait 000000  UMOV UR4, 0xffffffff
+    108 /*08f50*/ stall  2     wait 000010  IMAD.MOV.U32 R11, RZ, RZ, R7
+    109 /*08f60*/ stall  1     wait 000100  FSETP.GEU.AND P1, PT, R30, R15, PT
+    110 /*08f70*/ stall 12     wait 000000  IMAD.MOV.U32 R9, RZ, RZ, R25
+    111 /*08f80*/ stall  1     wait 000000  @!P1 VIADD R13, R13, 0x1
+    112 /*08f90*/ stall  1     wait 000000  @!P1 IADD3 R9, R2, UR7, R23
+    113 /*08fa0*/ stall  2     wait 000000  @!P1 IMAD.MOV.U32 R11, RZ, RZ, R30
+    114 /*08fb0*/ stall  1     wait 000000  @!P1 IMAD.MOV.U32 R16, RZ, RZ, R7
+    115 /*08fc0*/ stall  1     wait 000000  ISETP.NE.AND P0, PT, R13, 0x2, PT
+    116 /*08fd0*/ stall  1     wait 000000  @!P1 IMAD.MOV.U32 R14, RZ, RZ, R25
+    117 /*08fe0*/ stall 11     wait 000000  BRA.DIV UR4, 0x24720
+    118 /*08ff0*/ stall 13     wait 000000  VOTE.ANY P0, !P0
+    119 /*09000*/ stall  5     wait 000000  @!P0 BRA 0xafa0
+    120 /*0afa0*/ stall  1     wait 000000  FADD R22, R33, R22
+    121 /*0afb0*/ stall  1     wait 000000  IMAD.U32 R2, RZ, RZ, UR7
+    122 /*0afc0*/ stall  1     wait 000000  UMOV UR4, 0xffffffff
+    123 /*0afd0*/ stall  2     wait 000000  IMAD.MOV.U32 R7, RZ, RZ, R11
+    124 /*0afe0*/ stall  1     wait 000010  FSETP.GEU.AND P1, PT, R22, R15, PT
+    125 /*0aff0*/ stall  1     wait 000000  IMAD.MOV.U32 R10, RZ, RZ, R9
+    126 /*0b000*/ stall 11     wait 000000  IADD3 R23, R2, UR7, R23
+    127 /*0b010*/ stall  2     wait 000000  @!P1 VIADD R13, R13, 0x1
+    128 /*0b020*/ stall  1     wait 000000  @!P1 IMAD.MOV.U32 R14, RZ, RZ, R9
+    129 /*0b030*/ stall  1     wait 000000  IADD3 R9, R2, UR7, R23
+    130 /*0b040*/ stall  1     wait 000000  @!P1 IMAD.MOV.U32 R7, RZ, RZ, R22
+    131 /*0b050*/ stall  1     wait 000000  ISETP.NE.AND P0, PT, R13, 0x2, PT
+    132 /*0b060*/ stall  2     wait 000000  @!P1 IMAD.MOV.U32 R16, RZ, RZ, R11
+    133 /*0b070*/ stall  1     wait 000000  @!P1 VIADD R10, R23, UR7
+    134 /*0b080*/ stall  9     wait 000000  BRA.DIV UR4, 0x27fe0
+    135 /*0b090*/ stall 13     wait 000000  VOTE.ANY P0, !P0
+    136 /*0b0a0*/ stall  5     wait 000000  @!P0 BRA 0xd040
+    137 /*0d040*/ stall  1     wait 000000  FADD R24, R3, R24
+    138 /*0d050*/ stall  1     wait 000000  UMOV UR4, 0xffffffff
+    139 /*0d060*/ stall  3     wait 000000  IMAD.MOV.U32 R3, RZ, RZ, R7
+    140 /*0d070*/ stall 13     wait 000010  FSETP.GEU.AND P1, PT, R24, R15, PT
+    141 /*0d080*/ stall  2     wait 000000  @!P1 VIADD R13, R13, 0x1
+    142 /*0d090*/ stall  2     wait 000000  @!P1 IMAD.MOV.U32 R14, RZ, RZ, R10
+    143 /*0d0a0*/ stall  1     wait 000000  @!P1 IMAD.MOV.U32 R3, RZ, RZ, R24
+    144 /*0d0b0*/ stall  1     wait 000000  ISETP.NE.AND P0, PT, R13, 0x2, PT
+    145 /*0d0c0*/ stall  2     wait 000000  @!P1 IMAD.MOV.U32 R16, RZ, RZ, R7
+    146 /*0d0d0*/ stall  1     wait 000000  @!P1 IMAD.MOV.U32 R10, RZ, RZ, R9
+    147 /*0d0e0*/ stall  9     wait 000000  BRA.DIV UR4, 0x2b8a0
+    148 /*0d0f0*/ stall 13     wait 000000  VOTE.ANY P0, !P0
+    149 /*0d100*/ stall  5     wait 000000  @!P0 BRA 0xf0a0
+    150 /*0f0a0*/ stall  1     wait 000000  FADD R6, R6, R27
+    151 /*0f0b0*/ stall  1     wait 000000  UMOV UR4, 0xffffffff
+    152 /*0f0c0*/ stall  2     wait 000001  IMAD.MOV.U32 R26, RZ, RZ, R3
+    153 /*0f0d0*/ stall  1     wait 000000  IMAD.MOV.U32 R25, RZ, RZ, R10
+    154 /*0f0e0*/ stall 13     wait 000010  FSETP.GEU.AND P1, PT, R6, R15, PT
+    155 /*0f0f0*/ stall  2     wait 000000  @!P1 VIADD R13, R13, 0x1
+    156 /*0f100*/ stall  2     wait 000000  @!P1 IMAD.MOV.U32 R26, RZ, RZ, R6
+    157 /*0f110*/ stall  1     wait 000000  @!P1 IMAD.MOV.U32 R16, RZ, RZ, R3
+    158 /*0f120*/ stall  1     wait 000000  ISETP.NE.AND P0, PT, R13, 0x2, PT
+    159 /*0f130*/ stall  2     wait 000000  @!P1 VIADD R25, R9, UR7
+    160 /*0f140*/ stall  1     wait 000000  @!P1 IMAD.MOV.U32 R14, RZ, RZ, R10
+    161 /*0f150*/ stall  9     wait 000000  BRA.DIV UR4, 0x2f0f0
+    162 /*0f160*/ stall 13     wait 000000  VOTE.ANY P0, !P0
+    163 /*0f170*/ stall  5     wait 000000  @!P0 BRA 0x11110
+    164 /*11110*/ stall  1     wait 000000  USHF.R.S32.HI UR4, URZ, 0x1f, UR5
+    165 /*11120*/ stall  3     wait 000000  IMAD.U32 R3, RZ, RZ, UR7
+    166 /*11130*/ stall  1     wait 000000  ULEA.HI UR4, UR4, UR23, URZ, 0x5
+    167 /*11140*/ stall  3     wait 000000  IMAD R12, R3, 0x8, R12
+    168 /*11150*/ stall  4     wait 000000  ULOP3.LUT UR4, UR4, 0xffffffe0, URZ, 0xc0, !UPT
+    169 /*11160*/ stall  6     wait 000000  UIMAD UR4, UR7, -0x7, UR4
+    170 /*11170*/ stall 13     wait 000000  ISETP.GE.AND P0, PT, R12, UR4, PT
+    171 /*11180*/ stall  5     wait 000011  @!P0 BRA 0xa10
+sm_90 l2SelectMinK_ro<32,2,128,8> [ro8 k<=32]  loop 1 [0x11280-0x133e0]: no-merge path 30 instr, 2 LDG at [7, 11], first load wait at 13

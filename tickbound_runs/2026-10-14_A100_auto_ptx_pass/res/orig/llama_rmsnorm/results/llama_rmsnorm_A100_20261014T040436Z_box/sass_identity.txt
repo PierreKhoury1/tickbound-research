@@ -1,0 +1,7 @@
+orig timing: 432 vs 432 instructions -> IDENTICAL
+orig trace : 480 vs 480 instructions -> IDENTICAL
+ro   timing: 496 vs 496 instructions -> IDENTICAL
+ro   trace : 544 vs 544 instructions -> IDENTICAL
+ro2  timing: 528 vs 528 instructions -> IDENTICAL
+ro2  trace : 576 vs 576 instructions -> IDENTICAL
+sass_identity: ALL SIX KERNELS IDENTICAL

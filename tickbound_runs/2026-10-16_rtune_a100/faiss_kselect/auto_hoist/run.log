@@ -1,0 +1,104 @@
+
+$ bash ./run.sh A100
+GPU: NVIDIA A100-PCIE-40GB (cc 80) -> tag A100, binary sm_80, Fri Oct 16 01:36:05 UTC 2026
+name, driver_version, pstate, clocks.current.sm [MHz], clocks.max.sm [MHz], clocks.current.memory [MHz], temperature.gpu, power.draw [W], power.limit [W]
+NVIDIA A100-PCIE-40GB, 595.71.05, P0, 210 MHz, 1410 MHz, 1215 MHz, 31, 49.16 W, 350.00 W
+WARNING: trace smoke test failed (build/smoke/trace_smoke.log); running WITHOUT the trace build
+  l2SelectMin1_ro<float,8,256,PF=8>                regs  88, max blocks/SM  2  | trace build regs  96, max blocks/SM  2
+  l2SelectMinK<int32_t,float,32,2,128>             regs  47, max blocks/SM 10  | trace build regs  58, max blocks/SM  8
+  l2SelectMinK_ro<int32_t,float,32,2,128,PF=4>     regs  47, max blocks/SM 10  | trace build regs  58, max blocks/SM  8
+  l2SelectMinK_ro<int32_t,float,32,2,128,PF=8>     regs  46, max blocks/SM 10  | trace build regs  56, max blocks/SM  9
+  l2SelectMinK<int32_t,float,128,3,128>            regs  82, max blocks/SM  5  | trace build regs  92, max blocks/SM  5
+  l2SelectMinK_ro<int32_t,float,128,3,128,PF=4>    regs  83, max blocks/SM  5  | trace build regs  94, max blocks/SM  5
+  l2SelectMinK_ro<int32_t,float,128,3,128,PF=8>    regs  81, max blocks/SM  5  | trace build regs  92, max blocks/SM  5
+data: N = 65536 (x: 32 MB, distance tile 512 x N: 128 MB)
+device: NVIDIA A100-SXM4-40GB, sm_80, 108 SMs, L2 40 MB, clock 1.410 GHz, driver 13020, runtime 12060
+  l2SelectMin1<float,8,256>                        regs  49, max blocks/SM  4
+  l2SelectMin1_ro<float,8,256,PF=4>                regs  83, max blocks/SM  2
+  l2SelectMin1_ro<float,8,256,PF=8>                regs  88, max blocks/SM  2
+  l2SelectMinK<int32_t,float,32,2,128>             regs  47, max blocks/SM 10
+  l2SelectMinK_ro<int32_t,float,32,2,128,PF=4>     regs  47, max blocks/SM 10
+  l2SelectMinK_ro<int32_t,float,32,2,128,PF=8>     regs  46, max blocks/SM 10
+  l2SelectMinK<int32_t,float,128,3,128>            regs  82, max blocks/SM  5
+  l2SelectMinK_ro<int32_t,float,128,3,128,PF=4>    regs  83, max blocks/SM  5
+  l2SelectMinK_ro<int32_t,float,128,3,128,PF=8>    regs  81, max blocks/SM  5
+data: N = 65536 (x: 32 MB, distance tile 512 x N: 128 MB)
+k1_nq1_N65536              grid    1 x 256  B 53  orig     53.50 us  ro     24.85 us (2.15x)  ro8     17.02 us (3.14x)  span     nan /     nan /     nan us  bitwise 11  ref 1
+k1_nq16_N65536             grid    2 x 256  B 28  orig    105.95 us  ro     65.13 us (1.63x)  ro8     80.79 us (1.31x)  span     nan /     nan /     nan us  bitwise 11  ref 1
+k1_nq64_N65536             grid    8 x 256  B 27  orig    110.52 us  ro     66.64 us (1.66x)  ro8     83.55 us (1.32x)  span     nan /     nan /     nan us  bitwise 11  ref 1
+k1_nq256_N65536            grid   32 x 256  B 11  orig    290.54 us  ro    120.27 us (2.42x)  ro8    213.92 us (1.36x)  span     nan /     nan /     nan us  bitwise 11  ref 1
+k1_nq512_N65536            grid   64 x 256  B 10  orig    299.01 us  ro    142.64 us (2.10x)  ro8    223.95 us (1.34x)  span     nan /     nan /     nan us  bitwise 11  ref 1
+k8_nq1_N65536              grid    1 x 128  B 22  orig    138.33 us  ro     70.47 us (1.96x)  ro8     63.72 us (2.17x)  span     nan /     nan /     nan us  bitwise 11  ref 1
+k8_nq16_N65536             grid   16 x 128  B 20  orig    148.94 us  ro     74.85 us (1.99x)  ro8     67.58 us (2.20x)  span     nan /     nan /     nan us  bitwise 11  ref 1
+k8_nq64_N65536             grid   64 x 128  B 20  orig    151.35 us  ro     76.54 us (1.98x)  ro8     69.84 us (2.17x)  span     nan /     nan /     nan us  bitwise 11  ref 1
+k8_nq256_N65536            grid  256 x 128  B 10  orig    321.84 us  ro    131.07 us (2.46x)  ro8    117.56 us (2.74x)  span     nan /     nan /     nan us  bitwise 11  ref 1
+k8_nq512_N65536            grid  512 x 128  B  9  orig    343.61 us  ro    156.56 us (2.19x)  ro8    158.49 us (2.17x)  span     nan /     nan /     nan us  bitwise 11  ref 1
+k32_nq1_N65536             grid    1 x 128  B 19  orig    159.85 us  ro     92.70 us (1.72x)  ro8     86.50 us (1.85x)  span     nan /     nan /     nan us  bitwise 11  ref 1
+k32_nq16_N65536            grid   16 x 128  B 17  orig    173.66 us  ro     99.99 us (1.74x)  ro8     92.82 us (1.87x)  span     nan /     nan /     nan us  bitwise 11  ref 1
+k32_nq64_N65536            grid   64 x 128  B 17  orig    173.90 us  ro    100.35 us (1.73x)  ro8     98.00 us (1.77x)  span     nan /     nan /     nan us  bitwise 11  ref 1
+k32_nq256_N65536           grid  256 x 128  B  9  orig    346.23 us  ro    159.06 us (2.18x)  ro8    179.31 us (1.93x)  span     nan /     nan /     nan us  bitwise 11  ref 1
+k32_nq512_N65536           grid  512 x 128  B  8  orig    374.27 us  ro    193.54 us (1.93x)  ro8    255.74 us (1.46x)  span     nan /     nan /     nan us  bitwise 11  ref 1
+k128_nq1_N65536            grid    1 x 128  B 15  orig    199.00 us  ro    134.08 us (1.48x)  ro8    136.94 us (1.45x)  span     nan /     nan /     nan us  bitwise 11  ref 1
+k128_nq16_N65536           grid   16 x 128  B 15  orig    210.67 us  ro    140.15 us (1.50x)  ro8    144.38 us (1.46x)  span     nan /     nan /     nan us  bitwise 11  ref 1
+k128_nq64_N65536           grid   64 x 128  B 14  orig    213.94 us  ro    161.50 us (1.32x)  ro8    231.13 us (0.93x)  span     nan /     nan /     nan us  bitwise 11  ref 1
+k128_nq256_N65536          grid  256 x 128  B  8  orig    401.41 us  ro    306.69 us (1.31x)  ro8    531.71 us (0.75x)  span     nan /     nan /     nan us  bitwise 11  ref 1
+k128_nq512_N65536          grid  512 x 128  B  7  orig    466.94 us  ro    414.57 us (1.13x)  ro8    756.88 us (0.62x)  span     nan /     nan /     nan us  bitwise 11  ref 1
+k1_nq1_N65536_cold         grid    1 x 256  B  1  orig    138.24 us  ro     70.66 us (1.96x)  ro8     32.77 us (4.22x)  span     nan /     nan /     nan us  bitwise 11  ref 1
+k1_nq64_N65536_cold        grid    8 x 256  B  1  orig    296.96 us  ro    124.93 us (2.38x)  ro8    220.16 us (1.35x)  span     nan /     nan /     nan us  bitwise 11  ref 1
+k32_nq1_N65536_cold        grid    1 x 128  B  1  orig    317.44 us  ro    136.19 us (2.33x)  ro8    116.74 us (2.72x)  span     nan /     nan /     nan us  bitwise 11  ref 1
+k32_nq64_N65536_cold       grid   64 x 128  B  1  orig    332.80 us  ro    148.48 us (2.24x)  ro8    124.93 us (2.66x)  span     nan /     nan /     nan us  bitwise 11  ref 1
+data: N = 262144 (x: 128 MB, distance tile 512 x N: 512 MB)
+k1_nq1_N262144             grid    1 x 256  B 15  orig    203.37 us  ro     88.13 us (2.31x)  ro8     57.75 us (3.52x)  span     nan /     nan /     nan us  bitwise 11  ref 1
+k1_nq16_N262144            grid    2 x 256  B  8  orig    392.58 us  ro    236.16 us (1.66x)  ro8    291.71 us (1.35x)  span     nan /     nan /     nan us  bitwise 11  ref 1
+k1_nq64_N262144            grid    8 x 256  B  3  orig   1113.09 us  ro    413.70 us (2.69x)  ro8    796.33 us (1.40x)  span     nan /     nan /     nan us  bitwise 11  ref 1
+k1_nq256_N262144           grid   32 x 256  B  3  orig   1145.17 us  ro    443.39 us (2.58x)  ro8    822.61 us (1.39x)  span     nan /     nan /     nan us  bitwise 11  ref 1
+k1_nq512_N262144           grid   64 x 256  B  3  orig   1170.43 us  ro    523.26 us (2.24x)  ro8    857.77 us (1.36x)  span     nan /     nan /     nan us  bitwise 11  ref 1
+k8_nq1_N262144             grid    1 x 128  B  6  orig    503.64 us  ro    230.40 us (2.19x)  ro8    200.87 us (2.51x)  span     nan /     nan /     nan us  bitwise 11  ref 1
+k8_nq16_N262144            grid   16 x 128  B  6  orig    539.99 us  ro    240.98 us (2.24x)  ro8    207.19 us (2.61x)  span     nan /     nan /     nan us  bitwise 11  ref 1
+k8_nq64_N262144            grid   64 x 128  B  3  orig   1164.29 us  ro    404.14 us (2.88x)  ro8    293.89 us (3.96x)  span     nan /     nan /     nan us  bitwise 11  ref 1
+k8_nq256_N262144           grid  256 x 128  B  3  orig   1229.14 us  ro    447.15 us (2.75x)  ro8    354.30 us (3.47x)  span     nan /     nan /     nan us  bitwise 11  ref 1
+k8_nq512_N262144           grid  512 x 128  B  3  orig   1299.80 us  ro    537.94 us (2.42x)  ro8    470.70 us (2.76x)  span     nan /     nan /     nan us  bitwise 11  ref 1
+k32_nq1_N262144            grid    1 x 128  B  6  orig    532.99 us  ro    260.44 us (2.05x)  ro8    231.59 us (2.30x)  span     nan /     nan /     nan us  bitwise 11  ref 1
+k32_nq16_N262144           grid   16 x 128  B  6  orig    570.71 us  ro    272.38 us (2.10x)  ro8    239.62 us (2.38x)  span     nan /     nan /     nan us  bitwise 11  ref 1
+k32_nq64_N262144           grid   64 x 128  B  3  orig   1188.86 us  ro    432.81 us (2.75x)  ro8    324.95 us (3.66x)  span     nan /     nan /     nan us  bitwise 11  ref 1
+k32_nq256_N262144          grid  256 x 128  B  3  orig   1255.42 us  ro    479.91 us (2.62x)  ro8    419.50 us (2.99x)  span     nan /     nan /     nan us  bitwise 11  ref 1
+k32_nq512_N262144          grid  512 x 128  B  3  orig   1333.93 us  ro    577.88 us (2.31x)  ro8    564.57 us (2.36x)  span     nan /     nan /     nan us  bitwise 11  ref 1
+k128_nq1_N262144           grid    1 x 128  B  6  orig    587.78 us  ro    318.29 us (1.85x)  ro8    307.20 us (1.91x)  span     nan /     nan /     nan us  bitwise 11  ref 1
+k128_nq16_N262144          grid   16 x 128  B  5  orig    624.84 us  ro    328.09 us (1.90x)  ro8    313.14 us (2.00x)  span     nan /     nan /     nan us  bitwise 11  ref 1
+k128_nq64_N262144          grid   64 x 128  B  3  orig   1243.14 us  ro    490.50 us (2.53x)  ro8    464.90 us (2.67x)  span     nan /     nan /     nan us  bitwise 11  ref 1
+k128_nq256_N262144         grid  256 x 128  B  3  orig   1325.74 us  ro    644.10 us (2.06x)  ro8    840.70 us (1.58x)  span     nan /     nan /     nan us  bitwise 11  ref 1
+k128_nq512_N262144         grid  512 x 128  B  3  orig   1443.50 us  ro    818.52 us (1.76x)  ro8   1236.99 us (1.17x)  span     nan /     nan /     nan us  bitwise 11  ref 1
+k1_nq1_N262144_cold        grid    1 x 256  B  1  orig    551.94 us  ro    264.19 us (2.09x)  ro8    104.45 us (5.28x)  span     nan /     nan /     nan us  bitwise 11  ref 1
+k1_nq16_N262144_cold       grid    2 x 256  B  1  orig   1099.78 us  ro    423.94 us (2.59x)  ro8    795.65 us (1.38x)  span     nan /     nan /     nan us  bitwise 11  ref 1
+k32_nq1_N262144_cold       grid    1 x 128  B  1  orig   1205.25 us  ro    437.25 us (2.76x)  ro8    329.73 us (3.66x)  span     nan /     nan /     nan us  bitwise 11  ref 1
+k32_nq16_N262144_cold      grid   16 x 128  B  1  orig   1187.84 us  ro    444.42 us (2.67x)  ro8    333.82 us (3.56x)  span     nan /     nan /     nan us  bitwise 11  ref 1
+data: N = 1048576 (x: 512 MB, distance tile 512 x N: 2048 MB)
+k1_nq1_N1048576            grid    1 x 256  B  4  orig    802.30 us  ro    341.25 us (2.35x)  ro8    216.83 us (3.70x)  span     nan /     nan /     nan us  bitwise 11  ref 1
+k1_nq16_N1048576           grid    2 x 256  B  1  orig   4296.70 us  ro   1586.18 us (2.71x)  ro8   3070.98 us (1.40x)  span     nan /     nan /     nan us  bitwise 11  ref 1
+k1_nq64_N1048576           grid    8 x 256  B  1  orig   4383.74 us  ro   1611.78 us (2.72x)  ro8   3152.90 us (1.39x)  span     nan /     nan /     nan us  bitwise 11  ref 1
+k1_nq256_N1048576          grid   32 x 256  B  1  orig   4517.89 us  ro   1723.39 us (2.62x)  ro8   3255.30 us (1.39x)  span     nan /     nan /     nan us  bitwise 11  ref 1
+k1_nq512_N1048576          grid   64 x 256  B  1  orig   4609.02 us  ro   2040.83 us (2.26x)  ro8   3392.51 us (1.36x)  span     nan /     nan /     nan us  bitwise 11  ref 1
+k8_nq1_N1048576            grid    1 x 128  B  2  orig   1940.48 us  ro    845.31 us (2.30x)  ro8    726.02 us (2.67x)  span     nan /     nan /     nan us  bitwise 11  ref 1
+k8_nq16_N1048576           grid   16 x 128  B  1  orig   4541.44 us  ro   1531.90 us (2.96x)  ro8   1090.56 us (4.16x)  span     nan /     nan /     nan us  bitwise 11  ref 1
+k8_nq64_N1048576           grid   64 x 128  B  1  orig   4601.86 us  ro   1544.19 us (2.98x)  ro8   1100.80 us (4.18x)  span     nan /     nan /     nan us  bitwise 11  ref 1
+k8_nq256_N1048576          grid  256 x 128  B  1  orig   4837.38 us  ro   1704.96 us (2.84x)  ro8   1293.31 us (3.74x)  span     nan /     nan /     nan us  bitwise 11  ref 1
+k8_nq512_N1048576          grid  512 x 128  B  1  orig   5113.86 us  ro   2059.26 us (2.48x)  ro8   1717.25 us (2.98x)  span     nan /     nan /     nan us  bitwise 11  ref 1
+k32_nq1_N1048576           grid    1 x 128  B  2  orig   1972.74 us  ro    878.59 us (2.25x)  ro8    758.27 us (2.60x)  span     nan /     nan /     nan us  bitwise 11  ref 1
+k32_nq16_N1048576          grid   16 x 128  B  1  orig   4590.59 us  ro   1563.65 us (2.94x)  ro8   1124.35 us (4.08x)  span     nan /     nan /     nan us  bitwise 11  ref 1
+k32_nq64_N1048576          grid   64 x 128  B  1  orig   4641.79 us  ro   1570.82 us (2.96x)  ro8   1129.47 us (4.11x)  span     nan /     nan /     nan us  bitwise 11  ref 1
+k32_nq256_N1048576         grid  256 x 128  B  1  orig   4871.17 us  ro   1741.82 us (2.80x)  ro8   1361.92 us (3.58x)  span     nan /     nan /     nan us  bitwise 11  ref 1
+k32_nq512_N1048576         grid  512 x 128  B  1  orig   5152.77 us  ro   2101.25 us (2.45x)  ro8   1810.43 us (2.85x)  span     nan /     nan /     nan us  bitwise 11  ref 1
+k128_nq1_N1048576          grid    1 x 128  B  2  orig   2058.75 us  ro    963.58 us (2.14x)  ro8    887.30 us (2.32x)  span     nan /     nan /     nan us  bitwise 11  ref 1
+k128_nq16_N1048576         grid   16 x 128  B  1  orig   4678.66 us  ro   1614.85 us (2.90x)  ro8   1250.30 us (3.74x)  span     nan /     nan /     nan us  bitwise 11  ref 1
+k128_nq64_N1048576         grid   64 x 128  B  1  orig   4718.59 us  ro   1628.16 us (2.90x)  ro8   1311.74 us (3.60x)  span     nan /     nan /     nan us  bitwise 11  ref 1
+k128_nq256_N1048576        grid  256 x 128  B  1  orig   4967.42 us  ro   1922.05 us (2.58x)  ro8   1797.12 us (2.76x)  span     nan /     nan /     nan us  bitwise 11  ref 1
+k128_nq512_N1048576        grid  512 x 128  B  1  orig   5293.06 us  ro   2366.46 us (2.24x)  ro8   2466.82 us (2.15x)  span     nan /     nan /     nan us  bitwise 11  ref 1
+k1_nq1_N1048576_cold       grid    1 x 256  B  1  orig   2180.10 us  ro   1020.93 us (2.14x)  ro8    386.05 us (5.65x)  span     nan /     nan /     nan us  bitwise 11  ref 1
+k32_nq1_N1048576_cold      grid    1 x 128  B  1  orig   4545.54 us  ro   1561.60 us (2.91x)  ro8   1135.62 us (4.00x)  span     nan /     nan /     nan us  bitwise 11  ref 1
+wrote ./results/faiss_kselect_A100_20261016_013606.csv and ./results/faiss_kselect_A100_20261016_013606_meta.json (70 cases); all bitwise equal: yes; orig vs CPU reference: ok
+clocks.current.sm [MHz], clocks.current.memory [MHz], temperature.gpu, power.draw [W]
+1410 MHz, 1215 MHz, 34, 77.12 W
+ks_bench exit code 0
+DONE
+
+[rc=0 12s]

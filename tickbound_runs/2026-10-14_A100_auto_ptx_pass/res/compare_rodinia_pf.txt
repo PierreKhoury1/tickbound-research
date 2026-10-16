@@ -1,0 +1,2 @@
+pf_normalize_weights     n  13  auto median 3.348 (min 2.571 max 4.527) faster 13 slower 0 | hand median 3.763 | output mismatches 0
+pf_find_index            n  14  auto median 1.121 (min 1.052 max 2.054) faster 14 slower 0 | hand median 2.630 | output mismatches 0

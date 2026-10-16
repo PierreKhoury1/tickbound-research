@@ -1,0 +1,37 @@
+Sliding probe: per-instruction issue timeline of Kernl RMSNorm pass 2 - A100, 14 Oct 2026
+vast 55936408 (A100-SXM4-40GB, driver 580, nvidia/cuda:12.6.3-devel; ~$0.15; destroyed). Follows docs/sliding_probe.md.
+
+METHOD (tools/instrument.py --probe-after k, tools/make_probes.py, tools/probe_analysis.py)
+- One trace build per probe position: the 5 region stamps as before (outside the hot region) plus ONE
+  `CS2R R[K+28], SR_CLOCKLO` right after pass-2 instruction k (stall 1, no scoreboard, yield as k; never between an
+  operand-reuse pair: the probe moves past k when k carries .reuse bits). Its clock64 is stored by the exit stamp at
+  record + 96. Register count K + 34. check_trace_sass.py verifies each build (kernel instructions bit-identical, exactly
+  one CS2R inside pass 2 where the sidecar says). Harness writes it as a 6th event "probe".
+- probe clock - bar2 clock = issue time of instruction k after pass 2 starts (ISSUE time, not completion: a load's
+  arrival shows at its consumer's issue). Median over 64 warps (16 CTAs x 4 warps, 1 CTA per SM) and 5 launches.
+- Sweep: N4096_M16_warm, 172 positions x 4 variants (orig/ro/ro2/ro3) in 60 s; N8192_M16_decode, 340 positions.
+
+RESULT, N4096 M16 warm (n4096/probe_analysis/probe_<variant>.csv, staircase.html)
+ variant  pass 2 cy  waits >= 100 cy (at the first HADD2.F32 consuming a loaded 128-bit vector)
+ orig       1399     4: +204 (k=18), +226 (k=57), +197 (k=98), +192 (k=143)  = 819 cy; plus 6 steps of 37-58 cy
+ ro          764     2: +216 (k=16), +192 (k=98)                             = 408 cy
+ ro2         372     0 (max step 70): its pass-2 loads were issued in the block-reduce region
+ ro3         312     0 (max step 33)
+ Closure (cycles removed by the reorder, measured by the stopwatch on pass 2 vs accounted by the probe steps):
+   orig->ro   639 vs 636 (411 big waits + 175 mid + 50 small)
+   orig->ro2 1026 vs 1031
+   orig->ro3 1086 vs 1077
+ Perturbation: pass 2 with the probe vs the plain trace build: 1400/1399, 760/764, 374/372, 313/312 cycles (<= 4 cy,
+ within the 2-cycle-per-iteration rule given 1 iteration = the whole straight-line pass).
+ => The ~220-cycle L2 round trip predicted on 12 Oct shows up as 4 jumps of 192-226 cycles at exactly the predicted
+    instructions; ro removes 2 of them, ro2/ro3 all 4; per-instruction accounting matches the speed-up to within 1 %.
+
+RESULT, N8192 M16 decode (rms_w from DRAM): orig 8 waits of 414-730 cycles at the HADD2.F32 consumers (DRAM round
+ trips), pass 2 5547 cy; ro 1835 (waits of 250-560 remain: 2 lifted loads do not cover a DRAM round trip); ro2 1264 /
+ ro3 1160 with 200-350-cycle waits spread through pass 2 (loads issued in region A still arriving). Noisier: launch-to-
+ launch spread 4846-5836 (orig), probe-vs-plain differences 40-120 cy (1-10 %) - the DRAM state varies per launch; use
+ the warm case for the closure claim and the decode case qualitatively.
+
+CAVEATS: 129-131 of 173 positions per variant are distinct (the probe moves past reuse pairs; duplicates collapse);
+issue times only; one GPU, one Triton kernel. Code uncommitted: tools/instrument.py, check_trace_sass.py, src/harness.cpp,
+tools/make_probes.py, tools/probe_analysis.py (bench_real/kernl_rmsnorm).

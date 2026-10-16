@@ -1,0 +1,37 @@
+
+$ bash ./build.sh 80
+Cuda compilation tools, release 12.6, V12.6.85
+Build cuda_12.6.r12.6/compiler.35059454_0
+== sm_80
+inject_stamps: 8 entry/exit markers replaced
+patch_exits (sm_80): _ZN2at6native8eb_trace3ro340EmbeddingBag_updateOutputKernel_...: stub 0x5170-0x5500 (58 slots), exit stamp = 17 copied instructions + EXIT at 0x5280, first one waits on all scoreboards; 3 EXIT -> BRA 0x5170; EXIT_INSTR_OFFSETS entries 5
+  _ZN2at6native8eb_trace3ro240EmbeddingBag_updateOutputKernel_...: stub 0x5150-0x54e0 (58 slots), exit stamp = 17 copied instructions + EXIT at 0x5260, first one waits on all scoreboards; 3 EXIT -> BRA 0x5150; EXIT_INSTR_OFFSETS entries 5
+  _ZN2at6native8eb_trace2ro40EmbeddingBag_updateOutputKernel_s...: stub 0x42e0-0x4670 (58 slots), exit stamp = 17 copied instructions + EXIT at 0x43f0, first one waits on all scoreboards; 2 EXIT -> BRA 0x42e0; EXIT_INSTR_OFFSETS entries 4
+  _ZN2at6native8eb_trace4orig40EmbeddingBag_updateOutputKernel...: stub 0x76f0-0x7a80 (58 slots), exit stamp = 17 copied instructions + EXIT at 0x7800, first one waits on all scoreboards; 3 EXIT -> BRA 0x76f0; EXIT_INSTR_OFFSETS entries 5
+patch_exits check (sm_80, trace_sm80.cubin): _ZN2at6native8eb_trace3ro340EmbeddingBag_updateOutputKernel_...: 3 exit paths -> stub 0x5170; scoreboard hazards 0 (without the stub's wait: 10)
+  _ZN2at6native8eb_trace3ro240EmbeddingBag_updateOutputKernel_...: 3 exit paths -> stub 0x5150; scoreboard hazards 0 (without the stub's wait: 7)
+  _ZN2at6native8eb_trace2ro40EmbeddingBag_updateOutputKernel_s...: 2 exit paths -> stub 0x42e0; scoreboard hazards 0 (without the stub's wait: 0)
+  _ZN2at6native8eb_trace4orig40EmbeddingBag_updateOutputKernel...: 3 exit paths -> stub 0x76f0; scoreboard hazards 0 (without the stub's wait: 7)
+patch_exits: PASS
+timing build/eb_bench_sm80.sass vs trace build/trace_sm80.sass:
+  orig  FAIL  hot loops timing 3 / trace 3; trace module's own copy of the timing kernel vs the timing binary: same 2232 instructions, 16 differ only in c[0x4][..] (assert-string addresses)
+      loop @0x1990 (trace @0x1a60): 102 instr, 12 LDG, text DIFFERENT, encodings differing 106  first diff at +0: 'IMAD.MOV.U32 R12, RZ, RZ, R38' vs 'IMAD.MOV.U32 R8, RZ, RZ, R12'
+      loop @0x3d50 (trace @0x3e70): 767 instr, 64 LDG, text DIFFERENT, encodings differing 760  first diff at +2: 'IADD3 R8, P3, R0, -0x4, RZ' vs 'IADD3 R5, P3, R0, -0x4, RZ'
+      loop @0x6d70 (trace @0x6a40): 86 instr, 8 LDG, text DIFFERENT, encodings differing 86  first diff at +0: 'LDG.E.64.CONSTANT R20, [R14.64]' vs 'LDG.E.64 R6, [R14.64]'
+  ro    FAIL  hot loops timing 4 / trace 4; trace module's own copy of the timing kernel vs the timing binary: same 1328 instructions, 8 differ only in c[0x4][..] (assert-string addresses)
+      loop @0x1b50 (trace @0x1c80): 94 instr, 12 LDG, text DIFFERENT, encodings differing 41  first diff at +0: 'IMAD.SHL.U32 R0, R26.reuse, 0x8, RZ' vs 'IMAD.SHL.U32 R14, R26.reuse, 0x8, RZ'
+      loop @0x2190 (trace @0x22d0): 82 instr, 8 LDG, text DIFFERENT, encodings differing 78  first diff at +0: 'IMAD.SHL.U32 R0, R26.reuse, 0x8, RZ' vs 'IMAD.SHL.U32 R20, R26.reuse, 0x8, RZ'
+      loop @0x2eb0 (trace @0x2ff0): 92 instr, 12 LDG, text DIFFERENT, encodings differing 88  first diff at +0: 'LDG.E.64.CONSTANT R4, [R8.64]' vs 'LDG.E.64 R6, [R8.64]'
+      loop @0x3a00 (trace @0x3b40): 78 instr, 8 LDG, text DIFFERENT, encodings differing 76  first diff at +0: 'LDG.E.64.CONSTANT R8, [R12.64]' vs 'LDG.E.64 R6, [R10.64]'
+  ro2   PASS  hot loops timing 2 / trace 2; trace module's own copy of the timing kernel vs the timing binary: same 1560 instructions, 16 differ only in c[0x4][..] (assert-string addresses)
+      loop @0x1c70 (trace @0x1d80): 98 instr, 12 LDG, text identical, encodings differing 0
+      loop @0x4360 (trace @0x4470): 86 instr, 8 LDG, text identical, encodings differing 0
+  ro3   PASS  hot loops timing 2 / trace 2; trace module's own copy of the timing kernel vs the timing binary: same 1560 instructions, 16 differ only in c[0x4][..] (assert-string addresses)
+      loop @0x1c60 (trace @0x1d70): 100 instr, 12 LDG, text identical, encodings differing 0
+      loop @0x4330 (trace @0x4440): 90 instr, 8 LDG, text identical, encodings differing 0
+RESULT: FAIL
+WARNING: trace build sm_80 NOT usable (patch verified 1, kernel names 1, hot-loop check 0): run.sh will run without traces
+sm_80 done in 10 s
+BUILD FINISHED WITH WARNINGS (see above)
+
+[rc=0 10s]

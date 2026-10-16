@@ -1,0 +1,59 @@
+Loop probe inside the K loop of kernl_fused_ff (Triton 2.2 orig / our ro / Triton 3.8 tt38) - A100 80GB PCIe, 14 Oct 2026
+vast 55981105 (~$0.8/h), image nvidia/cuda:12.6.3-devel, ptxas pinned 12.6.77 via pip wheel. Code: bench_real/kernl_fused_ff/
+tools/probe_loop.py (binary SASS patch), make_ff_probes.py, probe_analysis_ff.py; harness record 48 -> 64 B.
+
+METHOD: per probe position k one trace cubin with `CS2R` at the loop top and `CS2R` after body instruction k (stall 1,
+no scoreboard), stored by the exit stamp callee at record + 48 (callee return addresses = MOV R10 immediates, patched;
+BRA/BSSY/CALL/RET 50-bit offsets relocated; verified by re-disassembly). Values are from the LAST iteration of the K loop
+(the registers are overwritten every iteration and read at exit). probe - loop_top = issue cycle of instruction k in that
+iteration. Median over 256 warps (128 CTAs x 2 warps; ~1.2 CTAs/SM) and 3 launches. Step 3 (every third instruction).
+
+RESULT cfg 64x32x32_w2_s5 (cfg64x32x32/probe_analysis/*.csv, SUMMARY.txt)
+                      loop instr   last-iteration issue time (cy)   biggest wait
+ orig (Triton 2.2)       182        1036 (m512 warm) / 1206 (decode)  +239 / +308 at body 15 HMUL2 R95,R15,R91 = first use of the
+                                                                       in-loop LDG (x tile / rms_w): the exposed L2 round trip
+                                                                       the 12 Oct SASS model predicted; then HMMA steps of 35-60
+ ro   (ours)             270         643 / 643                        +70 at an HMMA; no load wait left (loads lifted one iteration)
+ tt38 (Triton 3.8)       215         673 / 673                        +130 at body 39 HMUL2 R114,R50,R114 (first use of the x tile
+                                                                       read back from shared memory with LDS.128; cp.async path)
+ Perturbation (trace build with the 2 probe instructions vs plain build, whole kernel): ro 1.017, tt38 1.019, orig 1.100
+ (the exposed-load loop reacts to one more stall; its number is the least precise).
+
+READING: in the last iteration ro and tt38 are equal (643 vs 673 cy) and orig is 1.6-1.9x slower, matching the 1.6x whole-kernel
+speed-up of ro over orig at this shape. tt38 vs ro: Triton 3.8 pays ~130 cycles at the first consumer of the x tile that it
+routes through shared memory (cp.async -> LDS.128 -> HMUL2); our register prefetch does not pay it, and spends it elsewhere
+(longer body, 270 vs 215 instructions). Whole-kernel they tie (0.99x).
+
+CAVEAT (important): last-iteration values. In a software-pipelined loop the last iteration's cp.async data were issued
+iterations earlier, so DEPBAR waits for DRAM/L2 are mostly absent in it; steady-state iterations at the decode shape wait more
+(measured 1295 cy/iter mean vs 673 here). Next version: accumulate (probe - loop_top) over all iterations (2 x IADD3 per
+iteration) and divide by the iteration count -> mean issue time per instruction across the loop. The orig variant's exposed
+LDG shows in every iteration, so its 240-310-cycle wait is representative as is.
+
+=== MEAN OVER ALL ITERATIONS (accumulate mode, second box 55987591 A100-SXM4, ~$0.45; cfg*_mean/) ===
+Per iteration: zero R[K+4] in the preheader, CS2R at the loop top, CS2R after instruction k, IADD3 acc += probe - top
+before the back edge; stored at exit; divided by K / BLOCK_K. Perturbation (trace build / plain): tt38 1.00-1.02,
+ro 1.01-1.02, orig 1.01 (16x16x64) / 1.10 (64x32x32).
+
+cfg 16x16x64_w4_s2, decode m16 n4096 k4096 warm (chart ff_loop_16x16x64_mean.html, https://claude.ai/artifact/NxufMzaMWtuDNfnyRXVTxa)
+ tt38  2463 cy/iter: +732 at body 0 DEPBAR.LE SB0 (waits for its cp.async stage = DRAM round trip, num_stages=2 too
+       shallow at this shape), +387 HMUL2 (first use of the x tile), +189 HADD2, +239 HMUL2, +123 HMMA. Lifetime check:
+       entry->last loop top / 64 = 2665 (prologue included) - consistent.
+ ro    1430 cy/iter: one wait, +730 at body 88 SEL (the merge of the register-prefetched x tile: its LDG from DRAM
+       arriving), LDSM steps of 67-85; lifetime bound 1599 - consistent.
+ orig   995 cy/iter accumulated, BUT lifetime bound 2253 and last-iteration 1076: the accumulator undercounts this one
+       build ~2.3x (unexplained; the other five variant x config pairs agree within 2-10 %). Treat orig@16x16x64 as
+       last-iteration-only: +281-346 at HADD2 (exposed LDG), LDSM and barrier waits of ~180-220 each.
+ => At the decode shape Triton 3.8 is DRAM-latency bound with 2 stages; our Triton-2.2 register prefetch (ro) is 1.7x
+    faster per iteration and 1.9x faster whole-kernel (83 vs 158 us), and the probe shows exactly where 3.8 loses it.
+
+cfg 64x32x32_w2_s5, m16 decode / m512 cuasmrl shape (chart ff_loop_64x32x32_mean.html, https://claude.ai/artifact/MZ97nHvyPvmrrxMzwT9pWN)
+ tt38   679 / 670 cy/iter: one wait, +132 at HMUL2 (x tile via LDS.128); lifetime bound 710 - consistent (issue-bound).
+ ro     957 / 678: decode adds +315 at an FFMA (the prefetched x tile arriving), m512 clean; bound 1134.
+ orig  1431 / 1043: +643 / +246 at HMUL2 body 16 = the exposed in-loop LDG (DRAM at decode, L2 at m512); bound 1591.
+ => Here Triton 3.8 is issue-bound (670 of 710) and nothing is schedulable; ro ties it; orig pays the exposed load.
+
+Whole-kernel per-iteration (12 Oct timing / iterations) vs probe mean: tt38 16x16x64 3483 vs 2463 (5 CTAs/SM share the
+schedulers); tt38 64x32x32 1295 vs 679 (same); the probe measures one warp's own issue timeline, so contention between
+co-resident warps appears as the gap. Both views are needed: the probe says WHERE a warp waits, the stopwatch says how
+much it costs with neighbours.

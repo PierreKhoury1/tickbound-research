@@ -1,0 +1,582 @@
+/root/v_tt35/lib/python3.11/site-packages/flag_gems/config.py:153: UserWarning: resolve_user_setting: no exclude ops found; returning empty list
+  warnings.warn(
+/root/v_tt35/lib/python3.11/site-packages/torch/library.py:364: UserWarning: Warning only once for all operators,  other operators may also be overridden.
+  Overriding a previously registered kernel for the same operator and the same dispatch key
+  operator: aten::_assert_async(Tensor self) -> ()
+    registered at /pytorch/build/aten/src/ATen/RegisterSchema.cpp:6
+  dispatch key: CUDA
+  previous kernel: registered at /pytorch/build/aten/src/ATen/RegisterCPU_2.cpp:1164
+       new kernel: registered at /root/v_tt35/lib/python3.11/site-packages/flag_gems/__init__.py:20 (Triggered internally at /pytorch/aten/src/ATen/core/dispatch/OperatorEntry.cpp:218.)
+  self.m.impl(
+[flaggems] silu_M16                     ok         53.5 us  kernels 1  new 0  det True
+[flaggems] gelu_M16                     ok         51.9 us  kernels 1  new 0  det True
+[flaggems] exp_M16                      ok         51.0 us  kernels 1  new 0  det True
+[flaggems] rsqrt_M16                    ok         52.9 us  kernels 1  new 0  det True
+[flaggems] softmax_M16                  ok         25.1 us  kernels 1  new 0  det True
+/root/v_tt35/lib/python3.11/site-packages/flag_gems/ops/log_softmax.py:36: UserWarning: Logical operators 'and' and 'or' are deprecated for non-scalar tensors; please use '&' or '|' instead
+  mask = m_offset[:, None] < M and n_offset[None, :] < N
+UserWarning: Enable tracemalloc to get the object allocation traceback
+/root/v_tt35/lib/python3.11/site-packages/flag_gems/ops/log_softmax.py:36: UserWarning: Logical operators 'and' and 'or' are deprecated for non-scalar tensors; please use '&' or '|' instead
+  mask = m_offset[:, None] < M and n_offset[None, :] < N
+UserWarning: Enable tracemalloc to get the object allocation traceback
+/root/v_tt35/lib/python3.11/site-packages/flag_gems/ops/log_softmax.py:36: UserWarning: Logical operators 'and' and 'or' are deprecated for non-scalar tensors; please use '&' or '|' instead
+  mask = m_offset[:, None] < M and n_offset[None, :] < N
+UserWarning: Enable tracemalloc to get the object allocation traceback
+/root/v_tt35/lib/python3.11/site-packages/flag_gems/ops/log_softmax.py:36: UserWarning: Logical operators 'and' and 'or' are deprecated for non-scalar tensors; please use '&' or '|' instead
+  mask = m_offset[:, None] < M and n_offset[None, :] < N
+UserWarning: Enable tracemalloc to get the object allocation traceback
+/root/v_tt35/lib/python3.11/site-packages/flag_gems/ops/log_softmax.py:51: UserWarning: Logical operators 'and' and 'or' are deprecated for non-scalar tensors; please use '&' or '|' instead
+  mask = m_offset[:, None] < M and n_offset[None, :] < N
+UserWarning: Enable tracemalloc to get the object allocation traceback
+/root/v_tt35/lib/python3.11/site-packages/flag_gems/ops/log_softmax.py:51: UserWarning: Logical operators 'and' and 'or' are deprecated for non-scalar tensors; please use '&' or '|' instead
+  mask = m_offset[:, None] < M and n_offset[None, :] < N
+UserWarning: Enable tracemalloc to get the object allocation traceback
+/root/v_tt35/lib/python3.11/site-packages/flag_gems/ops/log_softmax.py:51: UserWarning: Logical operators 'and' and 'or' are deprecated for non-scalar tensors; please use '&' or '|' instead
+  mask = m_offset[:, None] < M and n_offset[None, :] < N
+UserWarning: Enable tracemalloc to get the object allocation traceback
+/root/v_tt35/lib/python3.11/site-packages/flag_gems/ops/log_softmax.py:51: UserWarning: Logical operators 'and' and 'or' are deprecated for non-scalar tensors; please use '&' or '|' instead
+  mask = m_offset[:, None] < M and n_offset[None, :] < N
+UserWarning: Enable tracemalloc to get the object allocation traceback
+/root/v_tt35/lib/python3.11/site-packages/flag_gems/ops/log_softmax.py:36: UserWarning: Logical operators 'and' and 'or' are deprecated for non-scalar tensors; please use '&' or '|' instead
+  mask = m_offset[:, None] < M and n_offset[None, :] < N
+UserWarning: Enable tracemalloc to get the object allocation traceback
+/root/v_tt35/lib/python3.11/site-packages/flag_gems/ops/log_softmax.py:36: UserWarning: Logical operators 'and' and 'or' are deprecated for non-scalar tensors; please use '&' or '|' instead
+  mask = m_offset[:, None] < M and n_offset[None, :] < N
+UserWarning: Enable tracemalloc to get the object allocation traceback
+/root/v_tt35/lib/python3.11/site-packages/flag_gems/ops/log_softmax.py:36: UserWarning: Logical operators 'and' and 'or' are deprecated for non-scalar tensors; please use '&' or '|' instead
+  mask = m_offset[:, None] < M and n_offset[None, :] < N
+UserWarning: Enable tracemalloc to get the object allocation traceback
+/root/v_tt35/lib/python3.11/site-packages/flag_gems/ops/log_softmax.py:36: UserWarning: Logical operators 'and' and 'or' are deprecated for non-scalar tensors; please use '&' or '|' instead
+  mask = m_offset[:, None] < M and n_offset[None, :] < N
+UserWarning: Enable tracemalloc to get the object allocation traceback
+/root/v_tt35/lib/python3.11/site-packages/flag_gems/ops/log_softmax.py:51: UserWarning: Logical operators 'and' and 'or' are deprecated for non-scalar tensors; please use '&' or '|' instead
+  mask = m_offset[:, None] < M and n_offset[None, :] < N
+UserWarning: Enable tracemalloc to get the object allocation traceback
+/root/v_tt35/lib/python3.11/site-packages/flag_gems/ops/log_softmax.py:51: UserWarning: Logical operators 'and' and 'or' are deprecated for non-scalar tensors; please use '&' or '|' instead
+  mask = m_offset[:, None] < M and n_offset[None, :] < N
+UserWarning: Enable tracemalloc to get the object allocation traceback
+/root/v_tt35/lib/python3.11/site-packages/flag_gems/ops/log_softmax.py:51: UserWarning: Logical operators 'and' and 'or' are deprecated for non-scalar tensors; please use '&' or '|' instead
+  mask = m_offset[:, None] < M and n_offset[None, :] < N
+UserWarning: Enable tracemalloc to get the object allocation traceback
+/root/v_tt35/lib/python3.11/site-packages/flag_gems/ops/log_softmax.py:51: UserWarning: Logical operators 'and' and 'or' are deprecated for non-scalar tensors; please use '&' or '|' instead
+  mask = m_offset[:, None] < M and n_offset[None, :] < N
+UserWarning: Enable tracemalloc to get the object allocation traceback
+[flaggems] log_softmax_M16              ok         30.7 us  kernels 1  new 0  det True
+[flaggems] sum_M16                      ok         28.5 us  kernels 1  new 0  det True
+[flaggems] mean_M16                     ok         28.7 us  kernels 1  new 0  det True
+/root/v_tt35/lib/python3.11/site-packages/flag_gems/ops/amax.py:78: UserWarning: Logical operators 'and' and 'or' are deprecated for non-scalar tensors; please use '&' or '|' instead
+  mask = row_mask and col_mask
+UserWarning: Enable tracemalloc to get the object allocation traceback
+/root/v_tt35/lib/python3.11/site-packages/flag_gems/ops/amax.py:78: UserWarning: Logical operators 'and' and 'or' are deprecated for non-scalar tensors; please use '&' or '|' instead
+  mask = row_mask and col_mask
+UserWarning: Enable tracemalloc to get the object allocation traceback
+/root/v_tt35/lib/python3.11/site-packages/flag_gems/ops/amax.py:78: UserWarning: Logical operators 'and' and 'or' are deprecated for non-scalar tensors; please use '&' or '|' instead
+  mask = row_mask and col_mask
+UserWarning: Enable tracemalloc to get the object allocation traceback
+/root/v_tt35/lib/python3.11/site-packages/flag_gems/ops/amax.py:78: UserWarning: Logical operators 'and' and 'or' are deprecated for non-scalar tensors; please use '&' or '|' instead
+  mask = row_mask and col_mask
+UserWarning: Enable tracemalloc to get the object allocation traceback
+/root/v_tt35/lib/python3.11/site-packages/flag_gems/ops/amax.py:78: UserWarning: Logical operators 'and' and 'or' are deprecated for non-scalar tensors; please use '&' or '|' instead
+  mask = row_mask and col_mask
+UserWarning: Enable tracemalloc to get the object allocation traceback
+/root/v_tt35/lib/python3.11/site-packages/flag_gems/ops/amax.py:78: UserWarning: Logical operators 'and' and 'or' are deprecated for non-scalar tensors; please use '&' or '|' instead
+  mask = row_mask and col_mask
+UserWarning: Enable tracemalloc to get the object allocation traceback
+/root/v_tt35/lib/python3.11/site-packages/flag_gems/ops/amax.py:78: UserWarning: Logical operators 'and' and 'or' are deprecated for non-scalar tensors; please use '&' or '|' instead
+  mask = row_mask and col_mask
+UserWarning: Enable tracemalloc to get the object allocation traceback
+/root/v_tt35/lib/python3.11/site-packages/flag_gems/ops/amax.py:78: UserWarning: Logical operators 'and' and 'or' are deprecated for non-scalar tensors; please use '&' or '|' instead
+  mask = row_mask and col_mask
+UserWarning: Enable tracemalloc to get the object allocation traceback
+[flaggems] amax_M16                     ok         35.4 us  kernels 1  new 0  det True
+[flaggems] argmax_M16                   ok         28.3 us  kernels 1  new 0  det True
+[flaggems] cumsum_M16                   ok         28.8 us  kernels 1  new 0  det True
+/root/v_tt35/lib/python3.11/site-packages/flag_gems/ops/var_mean.py:52: UserWarning: Logical operators 'and' and 'or' are deprecated for non-scalar tensors; please use '&' or '|' instead
+  mask = row_mask and col_mask
+UserWarning: Enable tracemalloc to get the object allocation traceback
+/root/v_tt35/lib/python3.11/site-packages/flag_gems/ops/var_mean.py:52: UserWarning: Logical operators 'and' and 'or' are deprecated for non-scalar tensors; please use '&' or '|' instead
+  mask = row_mask and col_mask
+UserWarning: Enable tracemalloc to get the object allocation traceback
+/root/v_tt35/lib/python3.11/site-packages/flag_gems/ops/var_mean.py:52: UserWarning: Logical operators 'and' and 'or' are deprecated for non-scalar tensors; please use '&' or '|' instead
+  mask = row_mask and col_mask
+UserWarning: Enable tracemalloc to get the object allocation traceback
+/root/v_tt35/lib/python3.11/site-packages/flag_gems/ops/var_mean.py:52: UserWarning: Logical operators 'and' and 'or' are deprecated for non-scalar tensors; please use '&' or '|' instead
+  mask = row_mask and col_mask
+UserWarning: Enable tracemalloc to get the object allocation traceback
+/root/v_tt35/lib/python3.11/site-packages/flag_gems/ops/var_mean.py:52: UserWarning: Logical operators 'and' and 'or' are deprecated for non-scalar tensors; please use '&' or '|' instead
+  mask = row_mask and col_mask
+UserWarning: Enable tracemalloc to get the object allocation traceback
+/root/v_tt35/lib/python3.11/site-packages/flag_gems/ops/var_mean.py:52: UserWarning: Logical operators 'and' and 'or' are deprecated for non-scalar tensors; please use '&' or '|' instead
+  mask = row_mask and col_mask
+UserWarning: Enable tracemalloc to get the object allocation traceback
+/root/v_tt35/lib/python3.11/site-packages/flag_gems/ops/var_mean.py:52: UserWarning: Logical operators 'and' and 'or' are deprecated for non-scalar tensors; please use '&' or '|' instead
+  mask = row_mask and col_mask
+UserWarning: Enable tracemalloc to get the object allocation traceback
+/root/v_tt35/lib/python3.11/site-packages/flag_gems/ops/var_mean.py:52: UserWarning: Logical operators 'and' and 'or' are deprecated for non-scalar tensors; please use '&' or '|' instead
+  mask = row_mask and col_mask
+UserWarning: Enable tracemalloc to get the object allocation traceback
+/root/v_tt35/lib/python3.11/site-packages/flag_gems/ops/var_mean.py:52: UserWarning: Logical operators 'and' and 'or' are deprecated for non-scalar tensors; please use '&' or '|' instead
+  mask = row_mask and col_mask
+UserWarning: Enable tracemalloc to get the object allocation traceback
+/root/v_tt35/lib/python3.11/site-packages/flag_gems/ops/var_mean.py:52: UserWarning: Logical operators 'and' and 'or' are deprecated for non-scalar tensors; please use '&' or '|' instead
+  mask = row_mask and col_mask
+UserWarning: Enable tracemalloc to get the object allocation traceback
+/root/v_tt35/lib/python3.11/site-packages/flag_gems/ops/var_mean.py:52: UserWarning: Logical operators 'and' and 'or' are deprecated for non-scalar tensors; please use '&' or '|' instead
+  mask = row_mask and col_mask
+UserWarning: Enable tracemalloc to get the object allocation traceback
+/root/v_tt35/lib/python3.11/site-packages/flag_gems/ops/var_mean.py:52: UserWarning: Logical operators 'and' and 'or' are deprecated for non-scalar tensors; please use '&' or '|' instead
+  mask = row_mask and col_mask
+UserWarning: Enable tracemalloc to get the object allocation traceback
+/root/v_tt35/lib/python3.11/site-packages/flag_gems/ops/var_mean.py:52: UserWarning: Logical operators 'and' and 'or' are deprecated for non-scalar tensors; please use '&' or '|' instead
+  mask = row_mask and col_mask
+UserWarning: Enable tracemalloc to get the object allocation traceback
+/root/v_tt35/lib/python3.11/site-packages/flag_gems/ops/var_mean.py:52: UserWarning: Logical operators 'and' and 'or' are deprecated for non-scalar tensors; please use '&' or '|' instead
+  mask = row_mask and col_mask
+UserWarning: Enable tracemalloc to get the object allocation traceback
+/root/v_tt35/lib/python3.11/site-packages/flag_gems/ops/var_mean.py:52: UserWarning: Logical operators 'and' and 'or' are deprecated for non-scalar tensors; please use '&' or '|' instead
+  mask = row_mask and col_mask
+UserWarning: Enable tracemalloc to get the object allocation traceback
+/root/v_tt35/lib/python3.11/site-packages/flag_gems/ops/var_mean.py:52: UserWarning: Logical operators 'and' and 'or' are deprecated for non-scalar tensors; please use '&' or '|' instead
+  mask = row_mask and col_mask
+UserWarning: Enable tracemalloc to get the object allocation traceback
+/root/v_tt35/lib/python3.11/site-packages/flag_gems/ops/var_mean.py:52: UserWarning: Logical operators 'and' and 'or' are deprecated for non-scalar tensors; please use '&' or '|' instead
+  mask = row_mask and col_mask
+UserWarning: Enable tracemalloc to get the object allocation traceback
+/root/v_tt35/lib/python3.11/site-packages/flag_gems/ops/var_mean.py:52: UserWarning: Logical operators 'and' and 'or' are deprecated for non-scalar tensors; please use '&' or '|' instead
+  mask = row_mask and col_mask
+UserWarning: Enable tracemalloc to get the object allocation traceback
+/root/v_tt35/lib/python3.11/site-packages/flag_gems/ops/var_mean.py:52: UserWarning: Logical operators 'and' and 'or' are deprecated for non-scalar tensors; please use '&' or '|' instead
+  mask = row_mask and col_mask
+UserWarning: Enable tracemalloc to get the object allocation traceback
+/root/v_tt35/lib/python3.11/site-packages/flag_gems/ops/var_mean.py:52: UserWarning: Logical operators 'and' and 'or' are deprecated for non-scalar tensors; please use '&' or '|' instead
+  mask = row_mask and col_mask
+UserWarning: Enable tracemalloc to get the object allocation traceback
+/root/v_tt35/lib/python3.11/site-packages/flag_gems/ops/var_mean.py:52: UserWarning: Logical operators 'and' and 'or' are deprecated for non-scalar tensors; please use '&' or '|' instead
+  mask = row_mask and col_mask
+UserWarning: Enable tracemalloc to get the object allocation traceback
+/root/v_tt35/lib/python3.11/site-packages/flag_gems/ops/var_mean.py:52: UserWarning: Logical operators 'and' and 'or' are deprecated for non-scalar tensors; please use '&' or '|' instead
+  mask = row_mask and col_mask
+UserWarning: Enable tracemalloc to get the object allocation traceback
+/root/v_tt35/lib/python3.11/site-packages/flag_gems/ops/var_mean.py:52: UserWarning: Logical operators 'and' and 'or' are deprecated for non-scalar tensors; please use '&' or '|' instead
+  mask = row_mask and col_mask
+UserWarning: Enable tracemalloc to get the object allocation traceback
+/root/v_tt35/lib/python3.11/site-packages/flag_gems/ops/var_mean.py:52: UserWarning: Logical operators 'and' and 'or' are deprecated for non-scalar tensors; please use '&' or '|' instead
+  mask = row_mask and col_mask
+UserWarning: Enable tracemalloc to get the object allocation traceback
+/root/v_tt35/lib/python3.11/site-packages/flag_gems/ops/var_mean.py:52: UserWarning: Logical operators 'and' and 'or' are deprecated for non-scalar tensors; please use '&' or '|' instead
+  mask = row_mask and col_mask
+UserWarning: Enable tracemalloc to get the object allocation traceback
+/root/v_tt35/lib/python3.11/site-packages/flag_gems/ops/var_mean.py:52: UserWarning: Logical operators 'and' and 'or' are deprecated for non-scalar tensors; please use '&' or '|' instead
+  mask = row_mask and col_mask
+UserWarning: Enable tracemalloc to get the object allocation traceback
+/root/v_tt35/lib/python3.11/site-packages/flag_gems/ops/var_mean.py:52: UserWarning: Logical operators 'and' and 'or' are deprecated for non-scalar tensors; please use '&' or '|' instead
+  mask = row_mask and col_mask
+UserWarning: Enable tracemalloc to get the object allocation traceback
+/root/v_tt35/lib/python3.11/site-packages/flag_gems/ops/var_mean.py:52: UserWarning: Logical operators 'and' and 'or' are deprecated for non-scalar tensors; please use '&' or '|' instead
+  mask = row_mask and col_mask
+UserWarning: Enable tracemalloc to get the object allocation traceback
+/root/v_tt35/lib/python3.11/site-packages/flag_gems/ops/var_mean.py:52: UserWarning: Logical operators 'and' and 'or' are deprecated for non-scalar tensors; please use '&' or '|' instead
+  mask = row_mask and col_mask
+UserWarning: Enable tracemalloc to get the object allocation traceback
+/root/v_tt35/lib/python3.11/site-packages/flag_gems/ops/var_mean.py:52: UserWarning: Logical operators 'and' and 'or' are deprecated for non-scalar tensors; please use '&' or '|' instead
+  mask = row_mask and col_mask
+UserWarning: Enable tracemalloc to get the object allocation traceback
+/root/v_tt35/lib/python3.11/site-packages/flag_gems/ops/var_mean.py:52: UserWarning: Logical operators 'and' and 'or' are deprecated for non-scalar tensors; please use '&' or '|' instead
+  mask = row_mask and col_mask
+UserWarning: Enable tracemalloc to get the object allocation traceback
+/root/v_tt35/lib/python3.11/site-packages/flag_gems/ops/var_mean.py:52: UserWarning: Logical operators 'and' and 'or' are deprecated for non-scalar tensors; please use '&' or '|' instead
+  mask = row_mask and col_mask
+UserWarning: Enable tracemalloc to get the object allocation traceback
+/root/v_tt35/lib/python3.11/site-packages/flag_gems/ops/var_mean.py:52: UserWarning: Logical operators 'and' and 'or' are deprecated for non-scalar tensors; please use '&' or '|' instead
+  mask = row_mask and col_mask
+UserWarning: Enable tracemalloc to get the object allocation traceback
+/root/v_tt35/lib/python3.11/site-packages/flag_gems/ops/var_mean.py:52: UserWarning: Logical operators 'and' and 'or' are deprecated for non-scalar tensors; please use '&' or '|' instead
+  mask = row_mask and col_mask
+UserWarning: Enable tracemalloc to get the object allocation traceback
+/root/v_tt35/lib/python3.11/site-packages/flag_gems/ops/var_mean.py:52: UserWarning: Logical operators 'and' and 'or' are deprecated for non-scalar tensors; please use '&' or '|' instead
+  mask = row_mask and col_mask
+UserWarning: Enable tracemalloc to get the object allocation traceback
+/root/v_tt35/lib/python3.11/site-packages/flag_gems/ops/var_mean.py:52: UserWarning: Logical operators 'and' and 'or' are deprecated for non-scalar tensors; please use '&' or '|' instead
+  mask = row_mask and col_mask
+UserWarning: Enable tracemalloc to get the object allocation traceback
+/root/v_tt35/lib/python3.11/site-packages/flag_gems/ops/var_mean.py:52: UserWarning: Logical operators 'and' and 'or' are deprecated for non-scalar tensors; please use '&' or '|' instead
+  mask = row_mask and col_mask
+UserWarning: Enable tracemalloc to get the object allocation traceback
+/root/v_tt35/lib/python3.11/site-packages/flag_gems/ops/var_mean.py:52: UserWarning: Logical operators 'and' and 'or' are deprecated for non-scalar tensors; please use '&' or '|' instead
+  mask = row_mask and col_mask
+UserWarning: Enable tracemalloc to get the object allocation traceback
+/root/v_tt35/lib/python3.11/site-packages/flag_gems/ops/var_mean.py:52: UserWarning: Logical operators 'and' and 'or' are deprecated for non-scalar tensors; please use '&' or '|' instead
+  mask = row_mask and col_mask
+UserWarning: Enable tracemalloc to get the object allocation traceback
+/root/v_tt35/lib/python3.11/site-packages/flag_gems/ops/var_mean.py:52: UserWarning: Logical operators 'and' and 'or' are deprecated for non-scalar tensors; please use '&' or '|' instead
+  mask = row_mask and col_mask
+UserWarning: Enable tracemalloc to get the object allocation traceback
+/root/v_tt35/lib/python3.11/site-packages/flag_gems/ops/var_mean.py:52: UserWarning: Logical operators 'and' and 'or' are deprecated for non-scalar tensors; please use '&' or '|' instead
+  mask = row_mask and col_mask
+UserWarning: Enable tracemalloc to get the object allocation traceback
+/root/v_tt35/lib/python3.11/site-packages/flag_gems/ops/var_mean.py:52: UserWarning: Logical operators 'and' and 'or' are deprecated for non-scalar tensors; please use '&' or '|' instead
+  mask = row_mask and col_mask
+UserWarning: Enable tracemalloc to get the object allocation traceback
+/root/v_tt35/lib/python3.11/site-packages/flag_gems/ops/var_mean.py:52: UserWarning: Logical operators 'and' and 'or' are deprecated for non-scalar tensors; please use '&' or '|' instead
+  mask = row_mask and col_mask
+UserWarning: Enable tracemalloc to get the object allocation traceback
+/root/v_tt35/lib/python3.11/site-packages/flag_gems/ops/var_mean.py:52: UserWarning: Logical operators 'and' and 'or' are deprecated for non-scalar tensors; please use '&' or '|' instead
+  mask = row_mask and col_mask
+UserWarning: Enable tracemalloc to get the object allocation traceback
+/root/v_tt35/lib/python3.11/site-packages/flag_gems/ops/var_mean.py:52: UserWarning: Logical operators 'and' and 'or' are deprecated for non-scalar tensors; please use '&' or '|' instead
+  mask = row_mask and col_mask
+UserWarning: Enable tracemalloc to get the object allocation traceback
+/root/v_tt35/lib/python3.11/site-packages/flag_gems/ops/var_mean.py:52: UserWarning: Logical operators 'and' and 'or' are deprecated for non-scalar tensors; please use '&' or '|' instead
+  mask = row_mask and col_mask
+UserWarning: Enable tracemalloc to get the object allocation traceback
+/root/v_tt35/lib/python3.11/site-packages/flag_gems/ops/var_mean.py:52: UserWarning: Logical operators 'and' and 'or' are deprecated for non-scalar tensors; please use '&' or '|' instead
+  mask = row_mask and col_mask
+UserWarning: Enable tracemalloc to get the object allocation traceback
+/root/v_tt35/lib/python3.11/site-packages/flag_gems/ops/var_mean.py:52: UserWarning: Logical operators 'and' and 'or' are deprecated for non-scalar tensors; please use '&' or '|' instead
+  mask = row_mask and col_mask
+UserWarning: Enable tracemalloc to get the object allocation traceback
+/root/v_tt35/lib/python3.11/site-packages/flag_gems/ops/var_mean.py:52: UserWarning: Logical operators 'and' and 'or' are deprecated for non-scalar tensors; please use '&' or '|' instead
+  mask = row_mask and col_mask
+UserWarning: Enable tracemalloc to get the object allocation traceback
+/root/v_tt35/lib/python3.11/site-packages/flag_gems/ops/var_mean.py:52: UserWarning: Logical operators 'and' and 'or' are deprecated for non-scalar tensors; please use '&' or '|' instead
+  mask = row_mask and col_mask
+UserWarning: Enable tracemalloc to get the object allocation traceback
+/root/v_tt35/lib/python3.11/site-packages/flag_gems/ops/var_mean.py:52: UserWarning: Logical operators 'and' and 'or' are deprecated for non-scalar tensors; please use '&' or '|' instead
+  mask = row_mask and col_mask
+UserWarning: Enable tracemalloc to get the object allocation traceback
+/root/v_tt35/lib/python3.11/site-packages/flag_gems/ops/var_mean.py:52: UserWarning: Logical operators 'and' and 'or' are deprecated for non-scalar tensors; please use '&' or '|' instead
+  mask = row_mask and col_mask
+UserWarning: Enable tracemalloc to get the object allocation traceback
+/root/v_tt35/lib/python3.11/site-packages/flag_gems/ops/var_mean.py:52: UserWarning: Logical operators 'and' and 'or' are deprecated for non-scalar tensors; please use '&' or '|' instead
+  mask = row_mask and col_mask
+UserWarning: Enable tracemalloc to get the object allocation traceback
+/root/v_tt35/lib/python3.11/site-packages/flag_gems/ops/var_mean.py:52: UserWarning: Logical operators 'and' and 'or' are deprecated for non-scalar tensors; please use '&' or '|' instead
+  mask = row_mask and col_mask
+UserWarning: Enable tracemalloc to get the object allocation traceback
+/root/v_tt35/lib/python3.11/site-packages/flag_gems/ops/var_mean.py:52: UserWarning: Logical operators 'and' and 'or' are deprecated for non-scalar tensors; please use '&' or '|' instead
+  mask = row_mask and col_mask
+UserWarning: Enable tracemalloc to get the object allocation traceback
+/root/v_tt35/lib/python3.11/site-packages/flag_gems/ops/var_mean.py:52: UserWarning: Logical operators 'and' and 'or' are deprecated for non-scalar tensors; please use '&' or '|' instead
+  mask = row_mask and col_mask
+UserWarning: Enable tracemalloc to get the object allocation traceback
+/root/v_tt35/lib/python3.11/site-packages/flag_gems/ops/var_mean.py:52: UserWarning: Logical operators 'and' and 'or' are deprecated for non-scalar tensors; please use '&' or '|' instead
+  mask = row_mask and col_mask
+UserWarning: Enable tracemalloc to get the object allocation traceback
+/root/v_tt35/lib/python3.11/site-packages/flag_gems/ops/var_mean.py:52: UserWarning: Logical operators 'and' and 'or' are deprecated for non-scalar tensors; please use '&' or '|' instead
+  mask = row_mask and col_mask
+UserWarning: Enable tracemalloc to get the object allocation traceback
+/root/v_tt35/lib/python3.11/site-packages/flag_gems/ops/var_mean.py:52: UserWarning: Logical operators 'and' and 'or' are deprecated for non-scalar tensors; please use '&' or '|' instead
+  mask = row_mask and col_mask
+UserWarning: Enable tracemalloc to get the object allocation traceback
+/root/v_tt35/lib/python3.11/site-packages/flag_gems/ops/var_mean.py:52: UserWarning: Logical operators 'and' and 'or' are deprecated for non-scalar tensors; please use '&' or '|' instead
+  mask = row_mask and col_mask
+UserWarning: Enable tracemalloc to get the object allocation traceback
+/root/v_tt35/lib/python3.11/site-packages/flag_gems/ops/var_mean.py:52: UserWarning: Logical operators 'and' and 'or' are deprecated for non-scalar tensors; please use '&' or '|' instead
+  mask = row_mask and col_mask
+UserWarning: Enable tracemalloc to get the object allocation traceback
+/root/v_tt35/lib/python3.11/site-packages/flag_gems/ops/var_mean.py:52: UserWarning: Logical operators 'and' and 'or' are deprecated for non-scalar tensors; please use '&' or '|' instead
+  mask = row_mask and col_mask
+UserWarning: Enable tracemalloc to get the object allocation traceback
+/root/v_tt35/lib/python3.11/site-packages/flag_gems/ops/var_mean.py:52: UserWarning: Logical operators 'and' and 'or' are deprecated for non-scalar tensors; please use '&' or '|' instead
+  mask = row_mask and col_mask
+UserWarning: Enable tracemalloc to get the object allocation traceback
+/root/v_tt35/lib/python3.11/site-packages/flag_gems/ops/var_mean.py:52: UserWarning: Logical operators 'and' and 'or' are deprecated for non-scalar tensors; please use '&' or '|' instead
+  mask = row_mask and col_mask
+UserWarning: Enable tracemalloc to get the object allocation traceback
+/root/v_tt35/lib/python3.11/site-packages/flag_gems/ops/var_mean.py:52: UserWarning: Logical operators 'and' and 'or' are deprecated for non-scalar tensors; please use '&' or '|' instead
+  mask = row_mask and col_mask
+UserWarning: Enable tracemalloc to get the object allocation traceback
+/root/v_tt35/lib/python3.11/site-packages/flag_gems/ops/var_mean.py:52: UserWarning: Logical operators 'and' and 'or' are deprecated for non-scalar tensors; please use '&' or '|' instead
+  mask = row_mask and col_mask
+UserWarning: Enable tracemalloc to get the object allocation traceback
+/root/v_tt35/lib/python3.11/site-packages/flag_gems/ops/var_mean.py:52: UserWarning: Logical operators 'and' and 'or' are deprecated for non-scalar tensors; please use '&' or '|' instead
+  mask = row_mask and col_mask
+UserWarning: Enable tracemalloc to get the object allocation traceback
+/root/v_tt35/lib/python3.11/site-packages/flag_gems/ops/var_mean.py:52: UserWarning: Logical operators 'and' and 'or' are deprecated for non-scalar tensors; please use '&' or '|' instead
+  mask = row_mask and col_mask
+UserWarning: Enable tracemalloc to get the object allocation traceback
+/root/v_tt35/lib/python3.11/site-packages/flag_gems/ops/var_mean.py:52: UserWarning: Logical operators 'and' and 'or' are deprecated for non-scalar tensors; please use '&' or '|' instead
+  mask = row_mask and col_mask
+UserWarning: Enable tracemalloc to get the object allocation traceback
+/root/v_tt35/lib/python3.11/site-packages/flag_gems/ops/var_mean.py:52: UserWarning: Logical operators 'and' and 'or' are deprecated for non-scalar tensors; please use '&' or '|' instead
+  mask = row_mask and col_mask
+UserWarning: Enable tracemalloc to get the object allocation traceback
+/root/v_tt35/lib/python3.11/site-packages/flag_gems/ops/var_mean.py:52: UserWarning: Logical operators 'and' and 'or' are deprecated for non-scalar tensors; please use '&' or '|' instead
+  mask = row_mask and col_mask
+UserWarning: Enable tracemalloc to get the object allocation traceback
+/root/v_tt35/lib/python3.11/site-packages/flag_gems/ops/var_mean.py:52: UserWarning: Logical operators 'and' and 'or' are deprecated for non-scalar tensors; please use '&' or '|' instead
+  mask = row_mask and col_mask
+UserWarning: Enable tracemalloc to get the object allocation traceback
+/root/v_tt35/lib/python3.11/site-packages/flag_gems/ops/var_mean.py:52: UserWarning: Logical operators 'and' and 'or' are deprecated for non-scalar tensors; please use '&' or '|' instead
+  mask = row_mask and col_mask
+UserWarning: Enable tracemalloc to get the object allocation traceback
+/root/v_tt35/lib/python3.11/site-packages/flag_gems/ops/var_mean.py:52: UserWarning: Logical operators 'and' and 'or' are deprecated for non-scalar tensors; please use '&' or '|' instead
+  mask = row_mask and col_mask
+UserWarning: Enable tracemalloc to get the object allocation traceback
+/root/v_tt35/lib/python3.11/site-packages/flag_gems/ops/var_mean.py:52: UserWarning: Logical operators 'and' and 'or' are deprecated for non-scalar tensors; please use '&' or '|' instead
+  mask = row_mask and col_mask
+UserWarning: Enable tracemalloc to get the object allocation traceback
+/root/v_tt35/lib/python3.11/site-packages/flag_gems/ops/var_mean.py:52: UserWarning: Logical operators 'and' and 'or' are deprecated for non-scalar tensors; please use '&' or '|' instead
+  mask = row_mask and col_mask
+UserWarning: Enable tracemalloc to get the object allocation traceback
+/root/v_tt35/lib/python3.11/site-packages/flag_gems/ops/var_mean.py:52: UserWarning: Logical operators 'and' and 'or' are deprecated for non-scalar tensors; please use '&' or '|' instead
+  mask = row_mask and col_mask
+UserWarning: Enable tracemalloc to get the object allocation traceback
+/root/v_tt35/lib/python3.11/site-packages/flag_gems/ops/var_mean.py:52: UserWarning: Logical operators 'and' and 'or' are deprecated for non-scalar tensors; please use '&' or '|' instead
+  mask = row_mask and col_mask
+UserWarning: Enable tracemalloc to get the object allocation traceback
+/root/v_tt35/lib/python3.11/site-packages/flag_gems/ops/var_mean.py:52: UserWarning: Logical operators 'and' and 'or' are deprecated for non-scalar tensors; please use '&' or '|' instead
+  mask = row_mask and col_mask
+UserWarning: Enable tracemalloc to get the object allocation traceback
+/root/v_tt35/lib/python3.11/site-packages/flag_gems/ops/var_mean.py:52: UserWarning: Logical operators 'and' and 'or' are deprecated for non-scalar tensors; please use '&' or '|' instead
+  mask = row_mask and col_mask
+UserWarning: Enable tracemalloc to get the object allocation traceback
+/root/v_tt35/lib/python3.11/site-packages/flag_gems/ops/var_mean.py:52: UserWarning: Logical operators 'and' and 'or' are deprecated for non-scalar tensors; please use '&' or '|' instead
+  mask = row_mask and col_mask
+UserWarning: Enable tracemalloc to get the object allocation traceback
+/root/v_tt35/lib/python3.11/site-packages/flag_gems/ops/var_mean.py:52: UserWarning: Logical operators 'and' and 'or' are deprecated for non-scalar tensors; please use '&' or '|' instead
+  mask = row_mask and col_mask
+UserWarning: Enable tracemalloc to get the object allocation traceback
+/root/v_tt35/lib/python3.11/site-packages/flag_gems/ops/var_mean.py:52: UserWarning: Logical operators 'and' and 'or' are deprecated for non-scalar tensors; please use '&' or '|' instead
+  mask = row_mask and col_mask
+UserWarning: Enable tracemalloc to get the object allocation traceback
+/root/v_tt35/lib/python3.11/site-packages/flag_gems/ops/var_mean.py:52: UserWarning: Logical operators 'and' and 'or' are deprecated for non-scalar tensors; please use '&' or '|' instead
+  mask = row_mask and col_mask
+UserWarning: Enable tracemalloc to get the object allocation traceback
+/root/v_tt35/lib/python3.11/site-packages/flag_gems/ops/var_mean.py:52: UserWarning: Logical operators 'and' and 'or' are deprecated for non-scalar tensors; please use '&' or '|' instead
+  mask = row_mask and col_mask
+UserWarning: Enable tracemalloc to get the object allocation traceback
+/root/v_tt35/lib/python3.11/site-packages/flag_gems/ops/var_mean.py:52: UserWarning: Logical operators 'and' and 'or' are deprecated for non-scalar tensors; please use '&' or '|' instead
+  mask = row_mask and col_mask
+UserWarning: Enable tracemalloc to get the object allocation traceback
+/root/v_tt35/lib/python3.11/site-packages/flag_gems/ops/var_mean.py:52: UserWarning: Logical operators 'and' and 'or' are deprecated for non-scalar tensors; please use '&' or '|' instead
+  mask = row_mask and col_mask
+UserWarning: Enable tracemalloc to get the object allocation traceback
+/root/v_tt35/lib/python3.11/site-packages/flag_gems/ops/var_mean.py:52: UserWarning: Logical operators 'and' and 'or' are deprecated for non-scalar tensors; please use '&' or '|' instead
+  mask = row_mask and col_mask
+UserWarning: Enable tracemalloc to get the object allocation traceback
+/root/v_tt35/lib/python3.11/site-packages/flag_gems/ops/var_mean.py:52: UserWarning: Logical operators 'and' and 'or' are deprecated for non-scalar tensors; please use '&' or '|' instead
+  mask = row_mask and col_mask
+UserWarning: Enable tracemalloc to get the object allocation traceback
+/root/v_tt35/lib/python3.11/site-packages/flag_gems/ops/var_mean.py:52: UserWarning: Logical operators 'and' and 'or' are deprecated for non-scalar tensors; please use '&' or '|' instead
+  mask = row_mask and col_mask
+UserWarning: Enable tracemalloc to get the object allocation traceback
+/root/v_tt35/lib/python3.11/site-packages/flag_gems/ops/var_mean.py:52: UserWarning: Logical operators 'and' and 'or' are deprecated for non-scalar tensors; please use '&' or '|' instead
+  mask = row_mask and col_mask
+UserWarning: Enable tracemalloc to get the object allocation traceback
+/root/v_tt35/lib/python3.11/site-packages/flag_gems/ops/var_mean.py:52: UserWarning: Logical operators 'and' and 'or' are deprecated for non-scalar tensors; please use '&' or '|' instead
+  mask = row_mask and col_mask
+UserWarning: Enable tracemalloc to get the object allocation traceback
+/root/v_tt35/lib/python3.11/site-packages/flag_gems/ops/var_mean.py:52: UserWarning: Logical operators 'and' and 'or' are deprecated for non-scalar tensors; please use '&' or '|' instead
+  mask = row_mask and col_mask
+UserWarning: Enable tracemalloc to get the object allocation traceback
+/root/v_tt35/lib/python3.11/site-packages/flag_gems/ops/var_mean.py:52: UserWarning: Logical operators 'and' and 'or' are deprecated for non-scalar tensors; please use '&' or '|' instead
+  mask = row_mask and col_mask
+UserWarning: Enable tracemalloc to get the object allocation traceback
+/root/v_tt35/lib/python3.11/site-packages/flag_gems/ops/var_mean.py:52: UserWarning: Logical operators 'and' and 'or' are deprecated for non-scalar tensors; please use '&' or '|' instead
+  mask = row_mask and col_mask
+UserWarning: Enable tracemalloc to get the object allocation traceback
+/root/v_tt35/lib/python3.11/site-packages/flag_gems/ops/var_mean.py:52: UserWarning: Logical operators 'and' and 'or' are deprecated for non-scalar tensors; please use '&' or '|' instead
+  mask = row_mask and col_mask
+UserWarning: Enable tracemalloc to get the object allocation traceback
+[flaggems] var_mean_M16                 ok         41.8 us  kernels 1  new 0  det True
+/root/v_tt35/lib/python3.11/site-packages/flag_gems/ops/vector_norm.py:30: UserWarning: Logical operators 'and' and 'or' are deprecated for non-scalar tensors; please use '&' or '|' instead
+  mask = row_mask and col_mask
+UserWarning: Enable tracemalloc to get the object allocation traceback
+/root/v_tt35/lib/python3.11/site-packages/flag_gems/ops/vector_norm.py:30: UserWarning: Logical operators 'and' and 'or' are deprecated for non-scalar tensors; please use '&' or '|' instead
+  mask = row_mask and col_mask
+UserWarning: Enable tracemalloc to get the object allocation traceback
+/root/v_tt35/lib/python3.11/site-packages/flag_gems/ops/vector_norm.py:30: UserWarning: Logical operators 'and' and 'or' are deprecated for non-scalar tensors; please use '&' or '|' instead
+  mask = row_mask and col_mask
+UserWarning: Enable tracemalloc to get the object allocation traceback
+/root/v_tt35/lib/python3.11/site-packages/flag_gems/ops/vector_norm.py:30: UserWarning: Logical operators 'and' and 'or' are deprecated for non-scalar tensors; please use '&' or '|' instead
+  mask = row_mask and col_mask
+UserWarning: Enable tracemalloc to get the object allocation traceback
+/root/v_tt35/lib/python3.11/site-packages/flag_gems/ops/vector_norm.py:30: UserWarning: Logical operators 'and' and 'or' are deprecated for non-scalar tensors; please use '&' or '|' instead
+  mask = row_mask and col_mask
+UserWarning: Enable tracemalloc to get the object allocation traceback
+/root/v_tt35/lib/python3.11/site-packages/flag_gems/ops/vector_norm.py:30: UserWarning: Logical operators 'and' and 'or' are deprecated for non-scalar tensors; please use '&' or '|' instead
+  mask = row_mask and col_mask
+UserWarning: Enable tracemalloc to get the object allocation traceback
+/root/v_tt35/lib/python3.11/site-packages/flag_gems/ops/vector_norm.py:30: UserWarning: Logical operators 'and' and 'or' are deprecated for non-scalar tensors; please use '&' or '|' instead
+  mask = row_mask and col_mask
+UserWarning: Enable tracemalloc to get the object allocation traceback
+/root/v_tt35/lib/python3.11/site-packages/flag_gems/ops/vector_norm.py:30: UserWarning: Logical operators 'and' and 'or' are deprecated for non-scalar tensors; please use '&' or '|' instead
+  mask = row_mask and col_mask
+UserWarning: Enable tracemalloc to get the object allocation traceback
+/root/v_tt35/lib/python3.11/site-packages/flag_gems/ops/vector_norm.py:30: UserWarning: Logical operators 'and' and 'or' are deprecated for non-scalar tensors; please use '&' or '|' instead
+  mask = row_mask and col_mask
+UserWarning: Enable tracemalloc to get the object allocation traceback
+/root/v_tt35/lib/python3.11/site-packages/flag_gems/ops/vector_norm.py:30: UserWarning: Logical operators 'and' and 'or' are deprecated for non-scalar tensors; please use '&' or '|' instead
+  mask = row_mask and col_mask
+UserWarning: Enable tracemalloc to get the object allocation traceback
+/root/v_tt35/lib/python3.11/site-packages/flag_gems/ops/vector_norm.py:30: UserWarning: Logical operators 'and' and 'or' are deprecated for non-scalar tensors; please use '&' or '|' instead
+  mask = row_mask and col_mask
+UserWarning: Enable tracemalloc to get the object allocation traceback
+/root/v_tt35/lib/python3.11/site-packages/flag_gems/ops/vector_norm.py:30: UserWarning: Logical operators 'and' and 'or' are deprecated for non-scalar tensors; please use '&' or '|' instead
+  mask = row_mask and col_mask
+UserWarning: Enable tracemalloc to get the object allocation traceback
+/root/v_tt35/lib/python3.11/site-packages/flag_gems/ops/vector_norm.py:30: UserWarning: Logical operators 'and' and 'or' are deprecated for non-scalar tensors; please use '&' or '|' instead
+  mask = row_mask and col_mask
+UserWarning: Enable tracemalloc to get the object allocation traceback
+/root/v_tt35/lib/python3.11/site-packages/flag_gems/ops/vector_norm.py:30: UserWarning: Logical operators 'and' and 'or' are deprecated for non-scalar tensors; please use '&' or '|' instead
+  mask = row_mask and col_mask
+UserWarning: Enable tracemalloc to get the object allocation traceback
+/root/v_tt35/lib/python3.11/site-packages/flag_gems/ops/vector_norm.py:30: UserWarning: Logical operators 'and' and 'or' are deprecated for non-scalar tensors; please use '&' or '|' instead
+  mask = row_mask and col_mask
+UserWarning: Enable tracemalloc to get the object allocation traceback
+/root/v_tt35/lib/python3.11/site-packages/flag_gems/ops/vector_norm.py:30: UserWarning: Logical operators 'and' and 'or' are deprecated for non-scalar tensors; please use '&' or '|' instead
+  mask = row_mask and col_mask
+UserWarning: Enable tracemalloc to get the object allocation traceback
+/root/v_tt35/lib/python3.11/site-packages/flag_gems/ops/vector_norm.py:30: UserWarning: Logical operators 'and' and 'or' are deprecated for non-scalar tensors; please use '&' or '|' instead
+  mask = row_mask and col_mask
+UserWarning: Enable tracemalloc to get the object allocation traceback
+/root/v_tt35/lib/python3.11/site-packages/flag_gems/ops/vector_norm.py:30: UserWarning: Logical operators 'and' and 'or' are deprecated for non-scalar tensors; please use '&' or '|' instead
+  mask = row_mask and col_mask
+UserWarning: Enable tracemalloc to get the object allocation traceback
+/root/v_tt35/lib/python3.11/site-packages/flag_gems/ops/vector_norm.py:30: UserWarning: Logical operators 'and' and 'or' are deprecated for non-scalar tensors; please use '&' or '|' instead
+  mask = row_mask and col_mask
+UserWarning: Enable tracemalloc to get the object allocation traceback
+/root/v_tt35/lib/python3.11/site-packages/flag_gems/ops/vector_norm.py:30: UserWarning: Logical operators 'and' and 'or' are deprecated for non-scalar tensors; please use '&' or '|' instead
+  mask = row_mask and col_mask
+UserWarning: Enable tracemalloc to get the object allocation traceback
+[flaggems] vector_norm_M16              ok         42.6 us  kernels 1  new 0  det True
+/root/v_tt35/lib/python3.11/site-packages/triton/language/semantic.py:1643: UserWarning: tl.where with a non-boolean condition is deprecated and will error out in a future triton release. Got int32
+  warnings.warn(
+/root/v_tt35/lib/python3.11/site-packages/triton/language/semantic.py:1643: UserWarning: tl.where with a non-boolean condition is deprecated and will error out in a future triton release. Got int32
+  warnings.warn(
+/root/v_tt35/lib/python3.11/site-packages/triton/language/semantic.py:1643: UserWarning: tl.where with a non-boolean condition is deprecated and will error out in a future triton release. Got int32
+  warnings.warn(
+/root/v_tt35/lib/python3.11/site-packages/triton/language/semantic.py:1643: UserWarning: tl.where with a non-boolean condition is deprecated and will error out in a future triton release. Got int32
+  warnings.warn(
+/root/v_tt35/lib/python3.11/site-packages/triton/language/semantic.py:1643: UserWarning: tl.where with a non-boolean condition is deprecated and will error out in a future triton release. Got int32
+  warnings.warn(
+/root/v_tt35/lib/python3.11/site-packages/triton/language/semantic.py:1643: UserWarning: tl.where with a non-boolean condition is deprecated and will error out in a future triton release. Got int32
+  warnings.warn(
+/root/v_tt35/lib/python3.11/site-packages/triton/language/semantic.py:1643: UserWarning: tl.where with a non-boolean condition is deprecated and will error out in a future triton release. Got int32
+  warnings.warn(
+/root/v_tt35/lib/python3.11/site-packages/triton/language/semantic.py:1643: UserWarning: tl.where with a non-boolean condition is deprecated and will error out in a future triton release. Got int32
+  warnings.warn(
+/root/v_tt35/lib/python3.11/site-packages/triton/language/semantic.py:1643: UserWarning: tl.where with a non-boolean condition is deprecated and will error out in a future triton release. Got int32
+  warnings.warn(
+/root/v_tt35/lib/python3.11/site-packages/triton/language/semantic.py:1643: UserWarning: tl.where with a non-boolean condition is deprecated and will error out in a future triton release. Got int32
+  warnings.warn(
+/root/v_tt35/lib/python3.11/site-packages/triton/language/semantic.py:1643: UserWarning: tl.where with a non-boolean condition is deprecated and will error out in a future triton release. Got int32
+  warnings.warn(
+/root/v_tt35/lib/python3.11/site-packages/triton/language/semantic.py:1643: UserWarning: tl.where with a non-boolean condition is deprecated and will error out in a future triton release. Got int32
+  warnings.warn(
+/root/v_tt35/lib/python3.11/site-packages/triton/language/semantic.py:1643: UserWarning: tl.where with a non-boolean condition is deprecated and will error out in a future triton release. Got int32
+  warnings.warn(
+/root/v_tt35/lib/python3.11/site-packages/triton/language/semantic.py:1643: UserWarning: tl.where with a non-boolean condition is deprecated and will error out in a future triton release. Got int32
+  warnings.warn(
+[flaggems] topk_M16                     ok         58.0 us  kernels 2  new 0  det True
+[flaggems] sort_M16                     ok        629.4 us  kernels 8  new 0  det True
+[flaggems] layer_norm_M16               ok         39.1 us  kernels 1  new 0  det True
+[flaggems] rms_norm_M16                 error TypeError: rms_norm() missing 1 required positional argument: 'weight'
+[flaggems] masked_fill_M16              ok        110.1 us  kernels 2  new 0  det True
+[flaggems] where_M16                    ok        181.3 us  kernels 3  new 0  det True
+[flaggems] add_M16                      ok        106.3 us  kernels 1  new 0  det True
+[flaggems] mul_M16                      ok         76.3 us  kernels 1  new 0  det True
+[flaggems] pow_M16                      ok         60.6 us  kernels 1  new 0  det True
+[flaggems] tanh_M16                     ok         51.4 us  kernels 1  new 0  det True
+[flaggems] sigmoid_M16                  ok         54.5 us  kernels 1  new 0  det True
+[flaggems] mm_M16                       ok         56.9 us  kernels 1  new 0  det True
+[flaggems] addmm_M16                    ok         44.7 us  kernels 1  new 0  det True
+[flaggems] embedding_M16                ok         28.5 us  kernels 1  new 0  det True
+/root/v_tt35/lib/python3.11/site-packages/flag_gems/ops/index_select.py:26: UserWarning: Logical operators 'and' and 'or' are deprecated for non-scalar tensors; please use '&' or '|' instead
+  out_mask = rows_mask and (cols_offsets < index_len)
+UserWarning: Enable tracemalloc to get the object allocation traceback
+/root/v_tt35/lib/python3.11/site-packages/flag_gems/ops/index_select.py:26: UserWarning: Logical operators 'and' and 'or' are deprecated for non-scalar tensors; please use '&' or '|' instead
+  out_mask = rows_mask and (cols_offsets < index_len)
+UserWarning: Enable tracemalloc to get the object allocation traceback
+[flaggems] index_select_M16             ok       1972.0 us  kernels 2  new 0  det True
+[flaggems] gather_M16                   ok         36.0 us  kernels 1  new 0  det True
+/root/v_tt35/lib/python3.11/site-packages/flag_gems/ops/log_softmax.py:36: UserWarning: Logical operators 'and' and 'or' are deprecated for non-scalar tensors; please use '&' or '|' instead
+  mask = m_offset[:, None] < M and n_offset[None, :] < N
+UserWarning: Enable tracemalloc to get the object allocation traceback
+/root/v_tt35/lib/python3.11/site-packages/flag_gems/ops/log_softmax.py:36: UserWarning: Logical operators 'and' and 'or' are deprecated for non-scalar tensors; please use '&' or '|' instead
+  mask = m_offset[:, None] < M and n_offset[None, :] < N
+UserWarning: Enable tracemalloc to get the object allocation traceback
+/root/v_tt35/lib/python3.11/site-packages/flag_gems/ops/log_softmax.py:36: UserWarning: Logical operators 'and' and 'or' are deprecated for non-scalar tensors; please use '&' or '|' instead
+  mask = m_offset[:, None] < M and n_offset[None, :] < N
+UserWarning: Enable tracemalloc to get the object allocation traceback
+/root/v_tt35/lib/python3.11/site-packages/flag_gems/ops/log_softmax.py:36: UserWarning: Logical operators 'and' and 'or' are deprecated for non-scalar tensors; please use '&' or '|' instead
+  mask = m_offset[:, None] < M and n_offset[None, :] < N
+UserWarning: Enable tracemalloc to get the object allocation traceback
+/root/v_tt35/lib/python3.11/site-packages/flag_gems/ops/log_softmax.py:51: UserWarning: Logical operators 'and' and 'or' are deprecated for non-scalar tensors; please use '&' or '|' instead
+  mask = m_offset[:, None] < M and n_offset[None, :] < N
+UserWarning: Enable tracemalloc to get the object allocation traceback
+/root/v_tt35/lib/python3.11/site-packages/flag_gems/ops/log_softmax.py:51: UserWarning: Logical operators 'and' and 'or' are deprecated for non-scalar tensors; please use '&' or '|' instead
+  mask = m_offset[:, None] < M and n_offset[None, :] < N
+UserWarning: Enable tracemalloc to get the object allocation traceback
+/root/v_tt35/lib/python3.11/site-packages/flag_gems/ops/log_softmax.py:51: UserWarning: Logical operators 'and' and 'or' are deprecated for non-scalar tensors; please use '&' or '|' instead
+  mask = m_offset[:, None] < M and n_offset[None, :] < N
+UserWarning: Enable tracemalloc to get the object allocation traceback
+/root/v_tt35/lib/python3.11/site-packages/flag_gems/ops/log_softmax.py:51: UserWarning: Logical operators 'and' and 'or' are deprecated for non-scalar tensors; please use '&' or '|' instead
+  mask = m_offset[:, None] < M and n_offset[None, :] < N
+UserWarning: Enable tracemalloc to get the object allocation traceback
+/root/v_tt35/lib/python3.11/site-packages/flag_gems/ops/nllloss.py:32: UserWarning: Logical operators 'and' and 'or' are deprecated for non-scalar tensors; please use '&' or '|' instead
+  assert tgt >= 0 and tgt < C, "Invalid target value"
+UserWarning: Enable tracemalloc to get the object allocation traceback
+/root/v_tt35/lib/python3.11/site-packages/flag_gems/ops/nllloss.py:32: UserWarning: Logical operators 'and' and 'or' are deprecated for non-scalar tensors; please use '&' or '|' instead
+  assert tgt >= 0 and tgt < C, "Invalid target value"
+UserWarning: Enable tracemalloc to get the object allocation traceback
+/root/v_tt35/lib/python3.11/site-packages/flag_gems/ops/nllloss.py:33: UserWarning: Logical operators 'and' and 'or' are deprecated for non-scalar tensors; please use '&' or '|' instead
+  ignore_mask = not (tgt == ignore_index) and mask_n
+UserWarning: Enable tracemalloc to get the object allocation traceback
+/root/v_tt35/lib/python3.11/site-packages/flag_gems/ops/nllloss.py:33: UserWarning: Logical operators 'and' and 'or' are deprecated for non-scalar tensors; please use '&' or '|' instead
+  ignore_mask = not (tgt == ignore_index) and mask_n
+UserWarning: Enable tracemalloc to get the object allocation traceback
+[flaggems] cross_entropy_M16            ok        185.8 us  kernels 4  new 0  det True
+[flaggems] cat_M16                      ok         43.2 us  kernels 1  new 0  det True
+[flaggems] silu_M4096                   ok         52.1 us  kernels 1  new 0  det True
+[flaggems] gelu_M4096                   ok         53.6 us  kernels 1  new 0  det True
+[flaggems] exp_M4096                    ok         52.5 us  kernels 1  new 0  det True
+[flaggems] rsqrt_M4096                  ok         52.7 us  kernels 1  new 0  det True
+[flaggems] softmax_M4096                ok         43.3 us  kernels 1  new 0  det True
+[flaggems] log_softmax_M4096            ok         71.1 us  kernels 1  new 0  det True
+[flaggems] sum_M4096                    ok         29.0 us  kernels 1  new 0  det True
+[flaggems] mean_M4096                   ok         28.2 us  kernels 1  new 0  det True
+/root/v_tt35/lib/python3.11/site-packages/flag_gems/ops/amax.py:78: UserWarning: Logical operators 'and' and 'or' are deprecated for non-scalar tensors; please use '&' or '|' instead
+  mask = row_mask and col_mask
+UserWarning: Enable tracemalloc to get the object allocation traceback
+/root/v_tt35/lib/python3.11/site-packages/flag_gems/ops/amax.py:78: UserWarning: Logical operators 'and' and 'or' are deprecated for non-scalar tensors; please use '&' or '|' instead
+  mask = row_mask and col_mask
+UserWarning: Enable tracemalloc to get the object allocation traceback
+/root/v_tt35/lib/python3.11/site-packages/flag_gems/ops/amax.py:78: UserWarning: Logical operators 'and' and 'or' are deprecated for non-scalar tensors; please use '&' or '|' instead
+  mask = row_mask and col_mask
+UserWarning: Enable tracemalloc to get the object allocation traceback
+/root/v_tt35/lib/python3.11/site-packages/flag_gems/ops/amax.py:78: UserWarning: Logical operators 'and' and 'or' are deprecated for non-scalar tensors; please use '&' or '|' instead
+  mask = row_mask and col_mask
+UserWarning: Enable tracemalloc to get the object allocation traceback
+[flaggems] amax_M4096                   ok         35.3 us  kernels 1  new 0  det True
+[flaggems] argmax_M4096                 ok         28.8 us  kernels 1  new 0  det True
+[flaggems] cumsum_M4096                 ok         42.2 us  kernels 1  new 0  det True
+[flaggems] var_mean_M4096               ok         42.4 us  kernels 1  new 0  det True
+[flaggems] vector_norm_M4096            ok         36.1 us  kernels 1  new 0  det True
+[flaggems] topk_M4096                   ok       1479.1 us  kernels 2  new 0  det True
+[flaggems] sort_M4096                   ok       3345.6 us  kernels 8  new 0  det True
+[flaggems] layer_norm_M4096             ok         43.5 us  kernels 1  new 0  det True
+[flaggems] rms_norm_M4096               error TypeError: rms_norm() missing 1 required positional argument: 'weight'
+[flaggems] masked_fill_M4096            ok        114.1 us  kernels 2  new 0  det True
+[flaggems] where_M4096                  ok        189.3 us  kernels 3  new 0  det True
+[flaggems] add_M4096                    ok         62.7 us  kernels 1  new 0  det True
+[flaggems] mul_M4096                    ok         67.2 us  kernels 1  new 0  det True
+[flaggems] pow_M4096                    ok         96.1 us  kernels 1  new 0  det True
+[flaggems] tanh_M4096                   ok         52.5 us  kernels 1  new 0  det True
+[flaggems] sigmoid_M4096                ok         52.9 us  kernels 1  new 0  det True
+[flaggems] mm_M4096                     ok        304.1 us  kernels 1  new 0  det True
+[flaggems] addmm_M4096                  ok        308.0 us  kernels 1  new 0  det True
+[flaggems] embedding_M4096              ok         40.8 us  kernels 1  new 0  det True
+/root/v_tt35/lib/python3.11/site-packages/flag_gems/ops/index_select.py:26: UserWarning: Logical operators 'and' and 'or' are deprecated for non-scalar tensors; please use '&' or '|' instead
+  out_mask = rows_mask and (cols_offsets < index_len)
+UserWarning: Enable tracemalloc to get the object allocation traceback
+/root/v_tt35/lib/python3.11/site-packages/flag_gems/ops/index_select.py:26: UserWarning: Logical operators 'and' and 'or' are deprecated for non-scalar tensors; please use '&' or '|' instead
+  out_mask = rows_mask and (cols_offsets < index_len)
+UserWarning: Enable tracemalloc to get the object allocation traceback
+[flaggems] index_select_M4096           ok       2572.3 us  kernels 2  new 0  det True
+[flaggems] gather_M4096                 ok        128.0 us  kernels 1  new 0  det True
+[flaggems] cross_entropy_M4096          ok        552.9 us  kernels 4  new 0  det True
+[flaggems] cat_M4096                    ok         80.9 us  kernels 1  new 0  det True
+[flaggems] bmm_B32                      ok         38.7 us  kernels 1  new 0  det True
+SUITE DONE

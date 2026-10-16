@@ -1,0 +1,45 @@
+tickbound.triton policy "tune" - measured, fully automatic variant selection for Triton kernels
+Run: 13-14 Oct 2026, one vast.ai H100 PCIe (instance 55825753, ~2 h, ~$4.6; destroyed). Triton 3.2 / 3.5 / 3.8.
+
+WHAT IT DOES (tickbound/src/tickbound/triton/tune.py, enable(policy="tune"))
+On the first launch of each kernel x shape bucket:
+ 1. copy every buffer the kernel can touch (CUDA driver memcpy, not torch ops)
+ 2. run the original twice: reference output + determinism check
+ 3. candidates in stages: read-only loads (nc), nc + loop prefetch (pf); then num_warps /2 x2 (deterministic kernels
+    only); then num_stages -1 +1. Drop: same cubin as an earlier candidate, compile error, any byte of output different
+ 4. CUDA-event timing: restore buffers + GPU sleep before each sample (CPU launch cost hidden), shuffled rounds,
+    paired ratios vs incumbent, accept only >= 2 % faster AND sign test p < 0.01
+ 5. restore, real launch with the winner, decision saved to ~/.cache/tickbound/tune/<gpu>-triton<v>-<pass>.json
+Never tunes during CUDA graph capture or inside Triton's own autotuner benchmark; aliasing args -> no nc/pf;
+any tuner error -> original kernel. Fast path afterwards: exact launch signature -> ready plan.
+
+CORRECTNESS
+ - t_tune.py (in-place, int atomics, aliased args, reduction, CUDA graph, disk-cache hit, tensor kwargs): PASS on
+   3.2 / 3.5 / 3.8, both processes.
+ - Suites (CuAsmRL kernels, Liger 33 cases, FlagGems 61 cases): every deterministic case byte-identical to plain
+   Triton in tune, cached and fixed-fast-path runs. Only group_norm differs, and its baseline differs from itself.
+ - Bugs found + fixed during the run: (a) autotuner nesting (FlagGems softmax hang), (b) FlagGems replaces torch
+   copy/clone -> snapshot re-entered the tuner (deadlock) -> driver memcpy, (c) fast path reused the first call's
+   kwargs tensors (Liger fused_linear_ce wrong bytes in run "tune3") -> plan stores only warps/stages overrides.
+
+SPEED (per-kernel profiler median, base / tuned, cached decisions + fixed fast path = run s4 "tune4")
+ 353 kernel x shape x version cells: median 1.00, geomean 1.048, 66 cells > 5 % faster, 7 cells < 0.95.
+ Top: CuAsmRL fused_ff M16 N11008 K4096 3.31x (3.8) / 2.41x (3.5) / 1.36x (3.2)  [chosen: 2 warps 3 stages]
+      Liger jsd M16 2.36-2.51x; FlagGems sort hist 2.03x; mean 1.68-1.75x; sum 1.63-1.70x; cross_entropy 1.30-1.71x;
+      Liger dyt fwd 1.58-1.62x; argmax 1.53-1.56x; Kernl rmsnorm port 1.38-1.45x.
+ Most wins are num_warps / num_stages; nc (read-only loads) wins on rmsnorm / cross-entropy; prefetch rarely.
+ Slower cells: FlagGems topk_stage1 M4096 0.64x (3.2, 3.5) - FlagGems LibEntry caches the kernel object from the
+   M16 launch and relaunches it for M4096 without going through Triton's run, so the M16 decision (8 warps) leaked.
+   vector_norm M4096 0.87 (3.2), softmax R16 0.77-0.90 in later runs (same-process A/B: identical 1.92 us, so
+   run-to-run, not the tool), fused_linear_ce M4096 0.94 (3.8), gather M16 0.96 (3.5).
+ Whole step (wall per step incl. CPU): geomean 1.000-1.087 per lib/version (tt38 cuasmrl 1.062, liger 1.030;
+   tt35 cuasmrl 1.050, liger 1.042, flaggems 1.018; tt32 cuasmrl 1.000, liger 1.087, flaggems 1.004).
+ CPU cost per launch (tiny kernel): 3.8 plain 8.3 us -> tune 11.2; 3.5 8.9 -> 11.8; 3.2 14.6 -> 18.8.
+
+OPEN
+ - Libraries that cache compiled kernel objects (FlagGems LibEntry) bypass per-launch decisions and the alias guard
+   -> must patch LibEntry or restrict to variants safe without a guard. Correctness exposure for nc on FlagGems.
+ - 3 us/launch Python overhead: freeze decisions into Triton's own cache to drop it.
+ - fused_ff 3.31x is vs the launch config CuAsmRL's benchmark ships (w4 s2); a fair "beats Triton" claim needs a
+   comparison against Triton's autotuner over its usual config space.
+Files: res.tgz (raw), heatmap_tune_movers.png, heatmap_tune_all.png, scripts/ (incl. tickbound_triton/ code snapshot).

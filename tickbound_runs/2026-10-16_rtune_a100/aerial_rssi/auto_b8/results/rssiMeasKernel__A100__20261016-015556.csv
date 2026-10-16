@@ -1,0 +1,1 @@
+kernel,variant,gpu,case_id,params_json,grid,block,regs,warps_per_sm,batch_launches,reps,mean_us_median,mean_us_p10,mean_us_p90,span_us_median,bitwise_equal,max_abs_diff

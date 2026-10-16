@@ -1,0 +1,5 @@
+{"mode": "plain", "triton": "3.5.1", "rms_M16_cpu_us": 8.84, "add_4096_cpu_us": 8.68}
+{"mode": "occupancy", "triton": "3.5.1", "rms_M16_cpu_us": 10.98, "add_4096_cpu_us": 10.73}
+{"mode": "tune", "triton": "3.5.1", "rms_M16_cpu_us": 11.41, "add_4096_cpu_us": 10.91}
+{"mode": "plain", "triton": "3.5.1", "rms_M16_cpu_us": 8.95, "add_4096_cpu_us": 8.9}
+{"mode": "tune", "triton": "3.5.1", "rms_M16_cpu_us": 12.09, "add_4096_cpu_us": 11.41}

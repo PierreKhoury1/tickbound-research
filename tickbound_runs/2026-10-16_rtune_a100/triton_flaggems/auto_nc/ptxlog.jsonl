@@ -1,0 +1,63 @@
+{"ptx": null, "note": "0 ptx inputs, pass-through", "args": ["--version"]}
+{"ptx": null, "note": "0 ptx inputs, pass-through", "args": ["--version"]}
+{"ptx": "/tmp/tmpwl5q3gzi.ptx", "k": 0, "loads": 0, "nc_marked": 0, "pass_s": 0.0, "kernels": [], "loops_transformed": 0, "out_sha": "7d1431626b00d73d", "note": "nothing transformed"}
+{"ptx": "/tmp/tmpce1fu99g.ptx", "k": 0, "loads": 0, "nc_marked": 1, "pass_s": 0.0, "kernels": [], "loops_transformed": 1, "out_sha": "54abae3a22abe4ae", "result": "transformed"}
+{"ptx": "/tmp/tmp_etis1s_.ptx", "k": 0, "loads": 0, "nc_marked": 16, "pass_s": 0.0, "kernels": [], "loops_transformed": 1, "out_sha": "d7603fc60f8740f3", "result": "transformed"}
+{"ptx": "/tmp/tmps57xiohi.ptx", "k": 0, "loads": 0, "nc_marked": 1, "pass_s": 0.0, "kernels": [], "loops_transformed": 1, "out_sha": "95e27f6eda556541", "result": "transformed"}
+{"ptx": "/tmp/tmpgmprhno8.ptx", "k": 0, "loads": 0, "nc_marked": 1, "pass_s": 0.0, "kernels": [], "loops_transformed": 1, "out_sha": "f2a3d179d720f4b8", "result": "transformed"}
+{"ptx": "/tmp/tmpp_x91thw.ptx", "k": 0, "loads": 0, "nc_marked": 1, "pass_s": 0.0, "kernels": [], "loops_transformed": 1, "out_sha": "9174518527fa1b48", "result": "transformed"}
+{"ptx": "/tmp/tmph2frjgt_.ptx", "k": 0, "loads": 0, "nc_marked": 2, "pass_s": 0.0, "kernels": [], "loops_transformed": 1, "out_sha": "f6e81846be18312e", "result": "transformed"}
+{"ptx": "/tmp/tmpq57f18yl.ptx", "k": 0, "loads": 0, "nc_marked": 4, "pass_s": 0.01, "kernels": [], "loops_transformed": 1, "out_sha": "a8047b225ff40076", "result": "transformed"}
+{"ptx": "/tmp/tmpx12ovz17.ptx", "k": 0, "loads": 0, "nc_marked": 0, "pass_s": 0.0, "kernels": [], "loops_transformed": 0, "out_sha": "15b9b58ab01452ed", "note": "nothing transformed"}
+{"ptx": "/tmp/tmp5p99dcez.ptx", "k": 0, "loads": 0, "nc_marked": 8, "pass_s": 0.01, "kernels": [], "loops_transformed": 1, "out_sha": "8c2a5e364bd55dbf", "result": "transformed"}
+{"ptx": "/tmp/tmpbsixzj7v.ptx", "k": 0, "loads": 0, "nc_marked": 16, "pass_s": 0.02, "kernels": [], "loops_transformed": 1, "out_sha": "b688f25aaf4882e4", "result": "transformed"}
+{"ptx": "/tmp/tmpcbmwpi3i.ptx", "k": 0, "loads": 0, "nc_marked": 2, "pass_s": 0.0, "kernels": [], "loops_transformed": 1, "out_sha": "4542804bf6219c69", "result": "transformed"}
+{"ptx": "/tmp/tmpxe_b4dpd.ptx", "k": 0, "loads": 0, "nc_marked": 4, "pass_s": 0.01, "kernels": [], "loops_transformed": 1, "out_sha": "34d61fe08fd16998", "result": "transformed"}
+{"ptx": "/tmp/tmp0xsx3x3_.ptx", "k": 0, "loads": 0, "nc_marked": 8, "pass_s": 0.01, "kernels": [], "loops_transformed": 1, "out_sha": "dda8de65be6fc6d1", "result": "transformed"}
+{"ptx": "/tmp/tmpazgvdc1o.ptx", "k": 0, "loads": 0, "nc_marked": 2, "pass_s": 0.0, "kernels": [], "loops_transformed": 1, "out_sha": "edc8e65b3cb69396", "result": "transformed"}
+{"ptx": "/tmp/tmp7j6omxzx.ptx", "k": 0, "loads": 0, "nc_marked": 4, "pass_s": 0.01, "kernels": [], "loops_transformed": 1, "out_sha": "b04f03e1054031e6", "result": "transformed"}
+{"ptx": "/tmp/tmppupojf3g.ptx", "k": 0, "loads": 0, "nc_marked": 8, "pass_s": 0.01, "kernels": [], "loops_transformed": 1, "out_sha": "e8bb7dcae421f896", "result": "transformed"}
+{"ptx": "/tmp/tmptht0edu0.ptx", "k": 0, "loads": 0, "nc_marked": 1, "pass_s": 0.0, "kernels": [], "loops_transformed": 1, "out_sha": "fa2ed537f34c821f", "result": "transformed"}
+{"ptx": "/tmp/tmpn9mhst3b.ptx", "k": 0, "loads": 0, "nc_marked": 2, "pass_s": 0.0, "kernels": [], "loops_transformed": 1, "out_sha": "f24f2fae5a76f832", "result": "transformed"}
+{"ptx": "/tmp/tmp1oa5s6sh.ptx", "k": 0, "loads": 0, "nc_marked": 4, "pass_s": 0.01, "kernels": [], "loops_transformed": 1, "out_sha": "df18f45e0cca04a5", "result": "transformed"}
+{"ptx": "/tmp/tmp1xe17vys.ptx", "k": 0, "loads": 0, "nc_marked": 1, "pass_s": 0.0, "kernels": [], "loops_transformed": 1, "out_sha": "e8fa1d6b52a9eb3d", "result": "transformed"}
+{"ptx": "/tmp/tmpiiht9ebu.ptx", "k": 0, "loads": 0, "nc_marked": 2, "pass_s": 0.0, "kernels": [], "loops_transformed": 1, "out_sha": "b219e5675e994335", "result": "transformed"}
+{"ptx": "/tmp/tmpgqg6ts9s.ptx", "k": 0, "loads": 0, "nc_marked": 4, "pass_s": 0.01, "kernels": [], "loops_transformed": 1, "out_sha": "c50e267b09a58561", "result": "transformed"}
+{"ptx": "/tmp/tmpdusapzs8.ptx", "k": 0, "loads": 0, "nc_marked": 1, "pass_s": 0.0, "kernels": [], "loops_transformed": 1, "out_sha": "81ff1bbb5acb86a9", "result": "transformed"}
+{"ptx": "/tmp/tmph41g1d7w.ptx", "k": 0, "loads": 0, "nc_marked": 1, "pass_s": 0.0, "kernels": [], "loops_transformed": 1, "out_sha": "aa87a2ef374c7647", "result": "transformed"}
+{"ptx": "/tmp/tmpqmtep079.ptx", "k": 0, "loads": 0, "nc_marked": 2, "pass_s": 0.0, "kernels": [], "loops_transformed": 1, "out_sha": "714ef07402ca4e43", "result": "transformed"}
+{"ptx": "/tmp/tmpdtm7edcc.ptx", "k": 0, "loads": 0, "nc_marked": 1, "pass_s": 0.0, "kernels": [], "loops_transformed": 1, "out_sha": "c169fa3330036003", "result": "transformed"}
+{"ptx": "/tmp/tmpq3esgkb9.ptx", "k": 0, "loads": 0, "nc_marked": 1, "pass_s": 0.0, "kernels": [], "loops_transformed": 1, "out_sha": "b01eefaa601f6bd4", "result": "transformed"}
+{"ptx": "/tmp/tmpupbr5nsj.ptx", "k": 0, "loads": 0, "nc_marked": 2, "pass_s": 0.0, "kernels": [], "loops_transformed": 1, "out_sha": "bebc36db57db1e62", "result": "transformed"}
+{"ptx": "/tmp/tmpmnqkuzgw.ptx", "k": 0, "loads": 0, "nc_marked": 1, "pass_s": 0.0, "kernels": [], "loops_transformed": 1, "out_sha": "b2565d118b1b9f9e", "result": "transformed"}
+{"ptx": "/tmp/tmpu0t95z1i.ptx", "k": 0, "loads": 0, "nc_marked": 1, "pass_s": 0.0, "kernels": [], "loops_transformed": 1, "out_sha": "9afe038c07fff947", "result": "transformed"}
+{"ptx": "/tmp/tmpu1o0hm9m.ptx", "k": 0, "loads": 0, "nc_marked": 1, "pass_s": 0.0, "kernels": [], "loops_transformed": 1, "out_sha": "94f97ecd135fd6ce", "result": "transformed"}
+{"ptx": "/tmp/tmp933jyvvq.ptx", "k": 0, "loads": 0, "nc_marked": 1, "pass_s": 0.0, "kernels": [], "loops_transformed": 1, "out_sha": "4526568743424b69", "result": "transformed"}
+{"ptx": "/tmp/tmp24y8_rij.ptx", "k": 0, "loads": 0, "nc_marked": 2, "pass_s": 0.01, "kernels": [], "loops_transformed": 1, "out_sha": "5dff29c9abd19ef7", "result": "transformed"}
+{"ptx": "/tmp/tmpigj10win.ptx", "k": 0, "loads": 0, "nc_marked": 1, "pass_s": 0.01, "kernels": [], "loops_transformed": 1, "out_sha": "a7b967c392b06beb", "result": "transformed"}
+{"ptx": "/tmp/tmpeo6jf9nm.ptx", "k": 0, "loads": 0, "nc_marked": 1, "pass_s": 0.0, "kernels": [], "loops_transformed": 1, "out_sha": "baf3f62b360c0ab6", "result": "transformed"}
+{"ptx": "/tmp/tmpfqah5lpj.ptx", "k": 0, "loads": 0, "nc_marked": 4, "pass_s": 0.0, "kernels": [], "loops_transformed": 1, "out_sha": "ca7a4cbc3ae3d504", "result": "transformed"}
+{"ptx": "/tmp/tmp8ltevlzw.ptx", "k": 0, "loads": 0, "nc_marked": 2, "pass_s": 0.0, "kernels": [], "loops_transformed": 1, "out_sha": "eb0fdc02977b297a", "result": "transformed"}
+{"ptx": "/tmp/tmpmhv53xp4.ptx", "k": 0, "loads": 0, "nc_marked": 2, "pass_s": 0.0, "kernels": [], "loops_transformed": 1, "out_sha": "c61a480c6727e578", "result": "transformed"}
+{"ptx": "/tmp/tmp_z0sujsb.ptx", "k": 0, "loads": 0, "nc_marked": 0, "pass_s": 0.0, "kernels": [], "loops_transformed": 0, "out_sha": "af4da7f81874ee03", "note": "nothing transformed"}
+{"ptx": "/tmp/tmp1bpccy5o.ptx", "k": 0, "loads": 0, "nc_marked": 2, "pass_s": 0.0, "kernels": [], "loops_transformed": 1, "out_sha": "fed27c33384de1b7", "result": "transformed"}
+{"ptx": "/tmp/tmpr3bb9cmj.ptx", "k": 0, "loads": 0, "nc_marked": 0, "pass_s": 0.0, "kernels": [], "loops_transformed": 0, "out_sha": "15b9b58ab01452ed", "note": "nothing transformed"}
+{"ptx": "/tmp/tmps8gx0pm_.ptx", "k": 0, "loads": 0, "nc_marked": 11, "pass_s": 0.0, "kernels": [], "loops_transformed": 1, "out_sha": "d2f6717423a02416", "result": "transformed"}
+{"ptx": "/tmp/tmpljbw3z7f.ptx", "k": 0, "loads": 0, "nc_marked": 11, "pass_s": 0.0, "kernels": [], "loops_transformed": 1, "out_sha": "afc33737d42bd43e", "result": "transformed"}
+{"ptx": "/tmp/tmpivw3flkf.ptx", "k": 0, "loads": 0, "nc_marked": 11, "pass_s": 0.0, "kernels": [], "loops_transformed": 1, "out_sha": "d2f6717423a02416", "result": "transformed"}
+{"ptx": "/tmp/tmphx1m9mgc.ptx", "k": 0, "loads": 0, "nc_marked": 1, "pass_s": 0.0, "kernels": [], "loops_transformed": 1, "out_sha": "322b3f2415e45814", "result": "transformed"}
+{"ptx": "/tmp/tmp8ivinu3w.ptx", "k": 0, "loads": 0, "nc_marked": 2, "pass_s": 0.0, "kernels": [], "loops_transformed": 1, "out_sha": "84a62e4dfee2578c", "result": "transformed"}
+{"ptx": "/tmp/tmpsqrg7mli.ptx", "k": 0, "loads": 0, "nc_marked": 4, "pass_s": 0.0, "kernels": [], "loops_transformed": 1, "out_sha": "5db2d778d3e24003", "result": "transformed"}
+{"ptx": "/tmp/tmp6vgqj4y3.ptx", "k": 0, "loads": 0, "nc_marked": 2, "pass_s": 0.0, "kernels": [], "loops_transformed": 1, "out_sha": "28b88ccf203e0858", "result": "transformed"}
+{"ptx": "/tmp/tmp8vbls7fj.ptx", "k": 0, "loads": 0, "nc_marked": 2, "pass_s": 0.0, "kernels": [], "loops_transformed": 1, "out_sha": "2f189198ba52e465", "result": "transformed"}
+{"ptx": "/tmp/tmpsuhcrebe.ptx", "k": 0, "loads": 0, "nc_marked": 20, "pass_s": 0.01, "kernels": [], "loops_transformed": 1, "out_sha": "4312969ea68f1b39", "result": "transformed"}
+{"ptx": "/tmp/tmpf4ob8910.ptx", "k": 0, "loads": 0, "nc_marked": 5, "pass_s": 0.0, "kernels": [], "loops_transformed": 1, "out_sha": "f8fadfeb96257981", "result": "transformed"}
+{"ptx": "/tmp/tmpb_0igoau.ptx", "k": 0, "loads": 0, "nc_marked": 2, "pass_s": 0.0, "kernels": [], "loops_transformed": 1, "out_sha": "b7cac791697549c6", "result": "transformed"}
+{"ptx": "/tmp/tmpwls0_cdk.ptx", "k": 0, "loads": 0, "nc_marked": 6, "pass_s": 0.0, "kernels": [], "loops_transformed": 1, "out_sha": "b51faa1e497a2454", "result": "transformed"}
+{"ptx": "/tmp/tmpgv9ge7ja.ptx", "k": 0, "loads": 0, "nc_marked": 2, "pass_s": 0.0, "kernels": [], "loops_transformed": 1, "out_sha": "c61a480c6727e578", "result": "transformed"}
+{"ptx": "/tmp/tmpcjee_y9j.ptx", "k": 0, "loads": 0, "nc_marked": 6, "pass_s": 0.0, "kernels": [], "loops_transformed": 1, "out_sha": "4373bdb5b603d90d", "result": "transformed"}
+{"ptx": "/tmp/tmpgsbycma2.ptx", "k": 0, "loads": 0, "nc_marked": 0, "pass_s": 0.0, "kernels": [], "loops_transformed": 0, "out_sha": "c52b2a76b18ea9a2", "note": "nothing transformed"}
+{"ptx": "/tmp/tmp6ieamvd3.ptx", "k": 0, "loads": 0, "nc_marked": 2, "pass_s": 0.0, "kernels": [], "loops_transformed": 1, "out_sha": "18410103223c5f54", "result": "transformed"}
+{"ptx": "/tmp/tmpz0vvx22p.ptx", "k": 0, "loads": 0, "nc_marked": 1, "pass_s": 0.0, "kernels": [], "loops_transformed": 1, "out_sha": "c0f4d2b4a59c4328", "result": "transformed"}
+{"ptx": "/tmp/tmpsgoezayq.ptx", "k": 0, "loads": 0, "nc_marked": 12, "pass_s": 0.01, "kernels": [], "loops_transformed": 1, "out_sha": "87a59894548162e0", "result": "transformed"}
+{"ptx": "/tmp/tmpe13jl4zu.ptx", "k": 0, "loads": 0, "nc_marked": 0, "pass_s": 0.0, "kernels": [], "loops_transformed": 0, "out_sha": "5f4125488797ad85", "note": "nothing transformed"}

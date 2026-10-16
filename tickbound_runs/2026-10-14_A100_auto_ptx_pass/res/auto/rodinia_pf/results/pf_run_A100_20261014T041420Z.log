@@ -1,0 +1,198 @@
+pf_bench: NVIDIA A100-PCIE-40GB (sm_80, 108 SMs, L2 41943040 B, clock 1410000 kHz), driver 13020, runtime 12060, full
+SM clock (clock64 / globaltimer over ~2 ms): 0.9901 GHz
+trace build stamps: normalize events 0x65 (with %smid), find_index events 0x11
+video 128x128x10: byte sum 16470152, countOnes 69, seed[0] after videoSequence -1510014976, start (64.0, 64.0)
+
+[pf_normalize_weights np1000] N=1000 grid=2 frame=5 L2=warm
+  orig reference: weights exact, CDF exact (0 diffs, max 0), seed[0] exact, u: 512 fresh-u1 + 488 previous-u[0] of 1000
+  ro   reference: weights exact, CDF exact (0 diffs, max 0), seed[0] exact, u: 512 fresh-u1 + 488 previous-u[0] of 1000
+  ro2  reference: weights exact, CDF exact (0 diffs, max 0), seed[0] exact, u: 512 fresh-u1 + 488 previous-u[0] of 1000
+  timing state (partial_sums[0] = 1.0): CDF and weights equal the frame's outputs
+  orig regs  44     27.67 us/launch (p10 27.65, p90 27.68; 21 x 95)  span    53.25 us  speed-up 1.00x  bit-identical
+  ro   regs  46     24.68 us/launch (p10 24.68, p90 24.69; 21 x 95)  span    16.38 us  speed-up 1.12x  bit-identical
+  ro2  regs  76     28.77 us/launch (p10 28.28, p90 28.78; 21 x 95)  span      nan us  speed-up 0.96x  bit-identical
+
+[pf_normalize_weights np1000_cold] N=1000 grid=2 frame=5 L2=cold
+  orig reference: weights exact, CDF exact (0 diffs, max 0), seed[0] exact, u: 512 fresh-u1 + 488 previous-u[0] of 1000
+  ro   reference: weights exact, CDF exact (0 diffs, max 0), seed[0] exact, u: 512 fresh-u1 + 488 previous-u[0] of 1000
+  ro2  reference: weights exact, CDF exact (0 diffs, max 0), seed[0] exact, u: 512 fresh-u1 + 488 previous-u[0] of 1000
+  timing state (partial_sums[0] = 1.0): CDF and weights equal the frame's outputs
+  orig regs  44     23.14 us/launch (p10 22.88, p90 23.31; 15 x 10)  span    54.27 us  speed-up 1.00x  bit-identical
+  ro   regs  46     21.30 us/launch (p10 21.14, p90 21.75; 15 x 10)  span    17.41 us  speed-up 1.09x  bit-identical
+  ro2  regs  76     23.86 us/launch (p10 23.65, p90 24.13; 15 x 10)  span      nan us  speed-up 0.97x  bit-identical
+
+[pf_find_index np1000] N=1000 grid=2 frame=5 L2=warm
+  scanned elements per warp (slowest lane): median 678, p90 678, max 678, sum over warps 21066
+  orig reference: all 1000 particles exact
+  ro2  reference: all 1000 particles exact
+  orig regs  14     63.29 us/launch (p10 63.27, p90 63.35; 21 x 46)  span    69.63 us  speed-up 1.00x  bit-identical
+  ro2  regs  28     26.51 us/launch (p10 26.45, p90 26.51; 21 x 46)  span    24.58 us  speed-up 2.39x  bit-identical
+
+[pf_find_index np1000_cold] N=1000 grid=2 frame=5 L2=cold
+  scanned elements per warp (slowest lane): median 678, p90 678, max 678, sum over warps 21066
+  orig reference: all 1000 particles exact
+  ro2  reference: all 1000 particles exact
+  orig regs  14     84.58 us/launch (p10 84.38, p90 84.91; 15 x 10)  span    86.02 us  speed-up 1.00x  bit-identical
+  ro2  regs  28     44.13 us/launch (p10 43.77, p90 44.30; 15 x 10)  span    39.94 us  speed-up 1.92x  bit-identical
+
+[app app_np1000] N=1000 grid=2, frames 1..9, Rodinia likelihood_kernel + sum_kernel in every run
+  application result (orig): XE 48.522808 YE 72.532895 distance 17.673533; ro run bit-identical, ro2 run bit-identical (whole state, every frame)
+  normalize orig    22.30 us/launch (p10 21.96, p90 22.64)  span    53.25  speed-up 1.00x
+  normalize ro      20.48 us/launch (p10 20.25, p90 20.71)  span    16.38  speed-up 1.09x
+  normalize ro2     22.98 us/launch (p10 22.76, p90 23.55)  span      nan  speed-up 0.97x
+  find_index orig    68.95 us/launch (p10 68.61, p90 69.29)  span    76.80  speed-up 1.00x
+  find_index ro2     30.72 us/launch (p10 30.38, p90 31.06)  span    26.62  speed-up 2.24x
+
+[pf_normalize_weights np2000] N=2000 grid=4 frame=5 L2=warm
+  orig reference: weights exact, CDF exact (0 diffs, max 0), seed[0] exact, u: 512 fresh-u1 + 1488 previous-u[0] of 2000
+  ro   reference: weights exact, CDF exact (0 diffs, max 0), seed[0] exact, u: 512 fresh-u1 + 1488 previous-u[0] of 2000
+  ro2  reference: weights exact, CDF exact (0 diffs, max 0), seed[0] exact, u: 512 fresh-u1 + 1488 previous-u[0] of 2000
+  timing state (partial_sums[0] = 1.0): CDF and weights equal the frame's outputs
+  orig regs  44     42.27 us/launch (p10 42.23, p90 42.29; 21 x 67)  span   126.98 us  speed-up 1.00x  bit-identical
+  ro   regs  46     38.44 us/launch (p10 38.39, p90 38.47; 21 x 67)  span    37.89 us  speed-up 1.10x  bit-identical
+  ro2  regs  76     39.98 us/launch (p10 39.94, p90 40.00; 21 x 67)  span      nan us  speed-up 1.06x  bit-identical
+
+[pf_find_index np2000] N=2000 grid=4 frame=5 L2=warm
+  scanned elements per warp (slowest lane): median 678, p90 1200, max 1200, sum over warps 45448
+  orig reference: all 2000 particles exact
+  ro2  reference: all 2000 particles exact
+  orig regs  14    108.13 us/launch (p10 108.09, p90 108.20; 21 x 27)  span   120.83 us  speed-up 1.00x  bit-identical
+  ro2  regs  28     43.20 us/launch (p10 43.16, p90 43.24; 21 x 27)  span    41.98 us  speed-up 2.50x  bit-identical
+
+[pf_normalize_weights np5000] N=5000 grid=10 frame=5 L2=warm
+  orig reference: weights exact, CDF exact (0 diffs, max 0), seed[0] exact, u: 512 fresh-u1 + 4488 previous-u[0] of 5000
+  ro   reference: weights exact, CDF exact (0 diffs, max 0), seed[0] exact, u: 512 fresh-u1 + 4488 previous-u[0] of 5000
+  ro2  reference: weights exact, CDF exact (0 diffs, max 0), seed[0] exact, u: 512 fresh-u1 + 4488 previous-u[0] of 5000
+  timing state (partial_sums[0] = 1.0): CDF and weights equal the frame's outputs
+  orig regs  44    103.35 us/launch (p10 103.28, p90 103.35; 21 x 28)  span   334.85 us  speed-up 1.00x  bit-identical
+  ro   regs  46     93.73 us/launch (p10 93.62, p90 93.81; 21 x 28)  span    93.18 us  speed-up 1.10x  bit-identical
+  ro2  regs  76     91.68 us/launch (p10 91.54, p90 91.76; 21 x 28)  span      nan us  speed-up 1.13x  bit-identical
+
+[pf_find_index np5000] N=5000 grid=10 frame=5 L2=warm
+  scanned elements per warp (slowest lane): median 2593, p90 4721, max 4866, sum over warps 433157
+  orig reference: all 5000 particles exact
+  ro2  reference: all 5000 particles exact
+  orig regs  14    439.15 us/launch (p10 439.00, p90 439.15; 21 x 7)  span   494.59 us  speed-up 1.00x  bit-identical
+  ro2  regs  28    169.84 us/launch (p10 169.69, p90 169.98; 21 x 7)  span   167.94 us  speed-up 2.59x  bit-identical
+
+[pf_normalize_weights np10000] N=10000 grid=20 frame=5 L2=warm
+  orig reference: weights exact, CDF exact (0 diffs, max 0), seed[0] exact, u: 512 fresh-u1 + 9488 previous-u[0] of 10000
+  ro   reference: weights exact, CDF exact (0 diffs, max 0), seed[0] exact, u: 512 fresh-u1 + 9488 previous-u[0] of 10000
+  ro2  reference: weights exact, CDF exact (0 diffs, max 0), seed[0] exact, u: 512 fresh-u1 + 9488 previous-u[0] of 10000
+  timing state (partial_sums[0] = 1.0): CDF and weights equal the frame's outputs
+  orig regs  44    203.98 us/launch (p10 203.98, p90 204.05; 21 x 15)  span   676.86 us  speed-up 1.00x  bit-identical
+  ro   regs  46    184.87 us/launch (p10 184.80, p90 184.87; 21 x 15)  span   183.30 us  speed-up 1.10x  bit-identical
+  ro2  regs  76    177.77 us/launch (p10 177.70, p90 177.83; 21 x 15)  span      nan us  speed-up 1.15x  bit-identical
+
+[pf_normalize_weights np10000_cold] N=10000 grid=20 frame=5 L2=cold
+  orig reference: weights exact, CDF exact (0 diffs, max 0), seed[0] exact, u: 512 fresh-u1 + 9488 previous-u[0] of 10000
+  ro   reference: weights exact, CDF exact (0 diffs, max 0), seed[0] exact, u: 512 fresh-u1 + 9488 previous-u[0] of 10000
+  ro2  reference: weights exact, CDF exact (0 diffs, max 0), seed[0] exact, u: 512 fresh-u1 + 9488 previous-u[0] of 10000
+  timing state (partial_sums[0] = 1.0): CDF and weights equal the frame's outputs
+  orig regs  44    207.97 us/launch (p10 207.81, p90 208.18; 15 x 10)  span   676.86 us  speed-up 1.00x  bit-identical
+  ro   regs  46    188.83 us/launch (p10 188.72, p90 189.19; 15 x 10)  span   184.32 us  speed-up 1.10x  bit-identical
+  ro2  regs  76    181.86 us/launch (p10 181.66, p90 181.96; 15 x 10)  span      nan us  speed-up 1.14x  bit-identical
+
+[pf_find_index np10000] N=10000 grid=20 frame=5 L2=warm
+  scanned elements per warp (slowest lane): median 5910, p90 9598, max 9974, sum over warps 1795589
+  orig reference: all 10000 particles exact
+  ro2  reference: all 10000 particles exact
+  orig regs  14    933.55 us/launch (p10 933.55, p90 933.89; 21 x 3)  span  1042.43 us  speed-up 1.00x  bit-identical
+  ro2  regs  28    357.72 us/launch (p10 357.38, p90 358.06; 21 x 3)  span   355.33 us  speed-up 2.61x  bit-identical
+
+[pf_find_index np10000_cold] N=10000 grid=20 frame=5 L2=cold
+  scanned elements per warp (slowest lane): median 5910, p90 9598, max 9974, sum over warps 1795589
+  orig reference: all 10000 particles exact
+  ro2  reference: all 10000 particles exact
+  orig regs  14   1176.23 us/launch (p10 1175.21, p90 1177.60; 15 x 3)  span  1246.21 us  speed-up 1.00x  bit-identical
+  ro2  regs  28    558.42 us/launch (p10 557.53, p90 558.76; 15 x 3)  span   553.98 us  speed-up 2.11x  bit-identical
+
+[app app_np10000] N=10000 grid=20, frames 1..9, Rodinia likelihood_kernel + sum_kernel in every run
+  application result (orig): XE 48.476812 YE 72.369852 distance 17.635866; ro run bit-identical, ro2 run bit-identical (whole state, every frame)
+  normalize orig   206.73 us/launch (p10 206.39, p90 206.96)  span   676.86  speed-up 1.00x
+  normalize ro     187.51 us/launch (p10 187.28, p90 187.85)  span   184.32  speed-up 1.10x
+  normalize ro2    180.45 us/launch (p10 180.34, p90 180.79)  span      nan  speed-up 1.15x
+  find_index orig   916.25 us/launch (p10 915.80, p90 916.48)  span  1030.14  speed-up 1.00x
+  find_index ro2    359.77 us/launch (p10 359.54, p90 360.11)  span   351.23  speed-up 2.55x
+
+[pf_normalize_weights np20000] N=20000 grid=40 frame=5 L2=warm
+  orig reference: weights exact, CDF exact (0 diffs, max 0), seed[0] exact, u: 512 fresh-u1 + 19488 previous-u[0] of 20000
+  ro   reference: weights exact, CDF exact (0 diffs, max 0), seed[0] exact, u: 512 fresh-u1 + 19488 previous-u[0] of 20000
+  ro2  reference: weights exact, CDF exact (0 diffs, max 0), seed[0] exact, u: 512 fresh-u1 + 19488 previous-u[0] of 20000
+  timing state (partial_sums[0] = 1.0): CDF and weights equal the frame's outputs
+  orig regs  44    413.55 us/launch (p10 413.40, p90 413.70; 21 x 7)  span  1383.42 us  speed-up 1.00x  bit-identical
+  ro   regs  46    375.22 us/launch (p10 375.08, p90 375.37; 21 x 7)  span   373.76 us  speed-up 1.10x  bit-identical
+  ro2  regs  76    355.91 us/launch (p10 355.77, p90 355.91; 21 x 7)  span      nan us  speed-up 1.16x  bit-identical
+
+[pf_find_index np20000] N=20000 grid=40 frame=5 L2=warm
+  scanned elements per warp (slowest lane): median 8557, p90 16789, max 19995, sum over warps 5336384
+  orig reference: all 20000 particles exact
+  ro2  reference: all 20000 particles exact
+  orig regs  14   1831.42 us/launch (p10 1830.91, p90 1831.94; 21 x 2)  span  2052.10 us  speed-up 1.00x  bit-identical
+  ro2  regs  28    705.54 us/launch (p10 705.02, p90 706.56; 21 x 2)  span   703.49 us  speed-up 2.60x  bit-identical
+
+[pf_normalize_weights np50000] N=50000 grid=98 frame=5 L2=warm
+  orig reference: weights exact, CDF exact (0 diffs, max 0), seed[0] exact, u: 512 fresh-u1 + 49488 previous-u[0] of 50000
+  ro   reference: weights exact, CDF exact (0 diffs, max 0), seed[0] exact, u: 512 fresh-u1 + 49488 previous-u[0] of 50000
+  ro2  reference: weights exact, CDF exact (0 diffs, max 0), seed[0] exact, u: 512 fresh-u1 + 49488 previous-u[0] of 50000
+  timing state (partial_sums[0] = 1.0): CDF and weights equal the frame's outputs
+  orig regs  44   1026.05 us/launch (p10 1026.05, p90 1026.39; 21 x 3)  span  3460.10 us  speed-up 1.00x  bit-identical
+  ro   regs  46    930.47 us/launch (p10 930.13, p90 930.47; 21 x 3)  span   927.74 us  speed-up 1.10x  bit-identical
+  ro2  regs  76    877.23 us/launch (p10 876.89, p90 877.57; 21 x 3)  span      nan us  speed-up 1.17x  bit-identical
+
+[pf_find_index np50000] N=50000 grid=98 frame=5 L2=warm
+  scanned elements per warp (slowest lane): median 23936, p90 44051, max 49943, sum over warps 38072341
+  orig reference: all 50000 particles exact
+  ro2  reference: all 50000 particles exact
+  orig regs  14   4522.50 us/launch (p10 4521.98, p90 4523.52; 21 x 2)  span  5067.78 us  speed-up 1.00x  bit-identical
+  ro2  regs  28   1735.17 us/launch (p10 1734.14, p90 1736.19; 21 x 2)  span  1733.63 us  speed-up 2.61x  bit-identical
+
+[pf_normalize_weights np100000] N=100000 grid=196 frame=5 L2=warm
+  orig reference: weights exact, CDF exact (0 diffs, max 0), seed[0] exact, u: 512 fresh-u1 + 99488 previous-u[0] of 100000
+  ro   reference: weights exact, CDF exact (0 diffs, max 0), seed[0] exact, u: 512 fresh-u1 + 99488 previous-u[0] of 100000
+  ro2  reference: weights exact, CDF exact (0 diffs, max 0), seed[0] exact, u: 512 fresh-u1 + 99488 previous-u[0] of 100000
+  timing state (partial_sums[0] = 1.0): CDF and weights equal the frame's outputs
+  orig regs  44   2072.58 us/launch (p10 2072.06, p90 2073.09; 21 x 2)  span  6979.58 us  speed-up 1.00x  bit-identical
+  ro   regs  46   1880.58 us/launch (p10 1880.06, p90 1881.09; 21 x 2)  span  1879.04 us  speed-up 1.10x  bit-identical
+  ro2  regs  76   1746.43 us/launch (p10 1746.43, p90 1746.94; 21 x 2)  span      nan us  speed-up 1.19x  bit-identical
+
+[pf_normalize_weights np100000_cold] N=100000 grid=196 frame=5 L2=cold
+  orig reference: weights exact, CDF exact (0 diffs, max 0), seed[0] exact, u: 512 fresh-u1 + 99488 previous-u[0] of 100000
+  ro   reference: weights exact, CDF exact (0 diffs, max 0), seed[0] exact, u: 512 fresh-u1 + 99488 previous-u[0] of 100000
+  ro2  reference: weights exact, CDF exact (0 diffs, max 0), seed[0] exact, u: 512 fresh-u1 + 99488 previous-u[0] of 100000
+  timing state (partial_sums[0] = 1.0): CDF and weights equal the frame's outputs
+  orig regs  44   2075.14 us/launch (p10 2074.62, p90 2075.65; 15 x 2)  span  6981.63 us  speed-up 1.00x  bit-identical
+  ro   regs  46   1883.65 us/launch (p10 1882.83, p90 1884.47; 15 x 2)  span  1881.09 us  speed-up 1.10x  bit-identical
+  ro2  regs  76   1770.50 us/launch (p10 1768.45, p90 1775.72; 15 x 2)  span      nan us  speed-up 1.17x  bit-identical
+
+[pf_find_index np100000] N=100000 grid=196 frame=5 L2=warm
+  scanned elements per warp (slowest lane): median 47677, p90 89874, max 99963, sum over warps 151674370
+  orig reference: all 100000 particles exact
+  ro2  reference: all 100000 particles exact
+  orig regs  14   9567.23 us/launch (p10 9566.21, p90 9569.28; 21 x 2)  span 10557.44 us  speed-up 1.00x  bit-identical
+  ro2  regs  28   4098.56 us/launch (p10 4095.49, p90 4101.12; 21 x 2)  span  4099.07 us  speed-up 2.33x  bit-identical
+
+[pf_find_index np100000_cold] N=100000 grid=196 frame=5 L2=cold
+  scanned elements per warp (slowest lane): median 47677, p90 89874, max 99963, sum over warps 151674370
+  orig reference: all 100000 particles exact
+  ro2  reference: all 100000 particles exact
+  orig regs  14  11609.60 us/launch (p10 11593.42, p90 11637.35; 15 x 2)  span 12196.86 us  speed-up 1.00x  bit-identical
+  ro2  regs  28   5302.78 us/launch (p10 5298.89, p90 5314.66; 15 x 2)  span  5309.44 us  speed-up 2.19x  bit-identical
+
+[app app_np100000] N=100000 grid=196, frames 1..9, Rodinia likelihood_kernel + sum_kernel in every run
+  application result (orig): XE 48.507637 YE 72.419643 distance 17.632462; ro run bit-identical, ro2 run bit-identical (whole state, every frame)
+  normalize orig  2074.17 us/launch (p10 2073.71, p90 2074.85)  span  6979.58  speed-up 1.00x
+  normalize ro    1882.34 us/launch (p10 1882.11, p90 1883.25)  span  1879.04  speed-up 1.10x
+  normalize ro2   1748.08 us/launch (p10 1747.51, p90 1748.65)  span      nan  speed-up 1.19x
+  find_index orig  9582.14 us/launch (p10 9581.11, p90 9584.75)  span 10561.54  speed-up 1.00x
+  find_index ro2   4139.01 us/launch (p10 4137.19, p90 4140.83)  span  4132.86  speed-up 2.32x
+
+[pf_find_index np221184] N=221184 grid=432 frame=5 L2=warm
+  scanned elements per warp (slowest lane): median 113409, p90 201190, max 220932, sum over warps 753621043
+  orig reference: all 221184 particles exact
+  ro2  reference: all 221184 particles exact
+  orig regs  14  28586.50 us/launch (p10 28582.40, p90 28591.10; 21 x 2)  span 30354.43 us  speed-up 1.00x  bit-identical
+  ro2  regs  28  15271.42 us/launch (p10 15268.86, p90 15273.47; 21 x 2)  span 15272.96 us  speed-up 1.87x  bit-identical
+
+SM clock at the end: 1.4099 GHz
+DONE

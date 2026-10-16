@@ -1,0 +1,18 @@
+2026-10-14T00:37:39Z tt38 overhead: {"mode": "plain", "triton": "3.8.0", "rms_M16_cpu_us": 8.38, "add_4096_cpu_us": 8.23} {"mode": "occupancy", "triton": "3.8.0", "rms_M16_cpu_us": 11.42, "add_4096_cpu_us": 10.92} {"mode": "tune", "triton": "3.8.0", "rms_M16_cpu_us": 11.02, "add_4096_cpu_us": 10.67} {"mode": "plain", "triton": "3.8.0", "rms_M16_cpu_us": 8.22, "add_4096_cpu_us": 8.01} {"mode": "tune", "triton": "3.8.0", "rms_M16_cpu_us": 11.42, "add_4096_cpu_us": 11.08} 
+2026-10-14T00:37:45Z tt38 t_tune phase 1: RESULT PASS
+2026-10-14T00:37:47Z tt38 t_tune phase 2: RESULT PASS
+2026-10-14T00:37:56Z tt38 cuasmrl tune3: tune kernel ratio: n 11, faster(>1.03) 5, slower(<0.97) 2, median 1.011, geomean 1.165, min 0.873, max 3.289 whole-step ratio: n 11, faster(>1.03) 4, slower(<0.97) 3, median 0.998, geomean 1.032, min 0.647, max 3.278 outputs: identical 11, DIFF 0, nondeterministic case 0 
+2026-10-14T00:38:37Z tt38 liger tune3: tune kernel ratio: n 48, faster(>1.03) 8, slower(<0.97) 1, median 1.000, geomean 1.040, min 0.942, max 2.543 whole-step ratio: n 33, faster(>1.03) 6, slower(<0.97) 17, median 0.951, geomean 0.932, min 0.500, max 2.033 outputs: identical 30, DIFF 2, nondeterministic case 1 
+2026-10-14T00:38:52Z tt35 overhead: {"mode": "plain", "triton": "3.5.1", "rms_M16_cpu_us": 8.84, "add_4096_cpu_us": 8.68} {"mode": "occupancy", "triton": "3.5.1", "rms_M16_cpu_us": 10.98, "add_4096_cpu_us": 10.73} {"mode": "tune", "triton": "3.5.1", "rms_M16_cpu_us": 11.41, "add_4096_cpu_us": 10.91} {"mode": "plain", "triton": "3.5.1", "rms_M16_cpu_us": 8.95, "add_4096_cpu_us": 8.9} {"mode": "tune", "triton": "3.5.1", "rms_M16_cpu_us": 12.09, "add_4096_cpu_us": 11.41} 
+2026-10-14T00:38:58Z tt35 t_tune phase 1: RESULT PASS
+2026-10-14T00:39:01Z tt35 t_tune phase 2: RESULT PASS
+2026-10-14T00:39:09Z tt35 cuasmrl tune3: tune kernel ratio: n 11, faster(>1.03) 5, slower(<0.97) 1, median 1.006, geomean 1.125, min 0.759, max 2.412 whole-step ratio: n 11, faster(>1.03) 3, slower(<0.97) 3, median 0.996, geomean 1.044, min 0.716, max 2.341 outputs: identical 11, DIFF 0, nondeterministic case 0 
+2026-10-14T00:39:49Z tt35 liger tune3: tune kernel ratio: n 48, faster(>1.03) 8, slower(<0.97) 3, median 1.000, geomean 1.038, min 0.961, max 2.567 whole-step ratio: n 33, faster(>1.03) 17, slower(<0.97) 6, median 1.038, geomean 1.128, min 0.365, max 2.259 outputs: identical 30, DIFF 2, nondeterministic case 1 
+2026-10-14T00:40:16Z tt35 flaggems tune3: tune kernel ratio: n 91, faster(>1.03) 19, slower(<0.97) 3, median 1.000, geomean 0.930, min 0.001, max 1.721 whole-step ratio: n 61, faster(>1.03) 18, slower(<0.97) 19, median 0.997, geomean 1.006, min 0.563, max 2.991 outputs: identical 61, DIFF 0, nondeterministic case 0 
+2026-10-14T00:40:16Z tt32 overhead: /root/b3/followup.sh: line 11: /root/v_tt32/bin/python: No such file or directory /root/b3/followup.sh: line 11: /root/v_tt32/bin/python: No such file or directory /root/b3/followup.sh: line 11: /root/v_tt32/bin/python: No such file or directory /root/b3/followup.sh: line 11: /root/v_tt32/bin/python: No such file or directory /root/b3/followup.sh: line 11: /root/v_tt32/bin/python: No such file or directory 
+2026-10-14T00:40:16Z tt32 t_tune phase 1: 
+2026-10-14T00:40:16Z tt32 t_tune phase 2: 
+2026-10-14T00:40:16Z tt32 cuasmrl tune3: 
+2026-10-14T00:40:16Z tt32 liger tune3: 
+2026-10-14T00:40:16Z tt32 flaggems tune3: 
+2026-10-14T00:40:16Z FOLLOWUP END

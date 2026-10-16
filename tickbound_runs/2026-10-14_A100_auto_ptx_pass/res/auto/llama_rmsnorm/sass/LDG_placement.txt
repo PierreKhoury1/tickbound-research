@@ -1,0 +1,55 @@
+LDG placement on the real path (nvcc 12.6.85 SASS, sass/annotated/*.sass for the full listings)
+legend: x = loop-1 x load, W = weight load hoisted above loop 1 (RO2), x' = loop-2 x reload (L1 hit),
+        w = loop-2 weight load, S = dst store, |BAR| = __syncthreads; 'w S w S' = every load waits for the
+        previous column's store (the original schedule), 'x'4 w4 S4' = loads batched before the stores.
+        Each line is one thread's program order; xN = N loads in a row.
+
+sm_80 orig = llama.cpp rms_norm_f32<1024, true> (verbatim)
+    n_embd 2048: x2 |BAR| x' w S x' w S |BAR|
+    n_embd 4096: x4 |BAR| x' w S x' w S x' w S x' w S |BAR|
+    n_embd 5120: x5 |BAR| x' w S x' w S x' w S x' w S x' w S |BAR|
+    n_embd 8192: x8 |BAR| x' w S x' w S x' w S x' w S x' w S x' w S x' w S x' w S |BAR|
+
+sm_80 ro = RO1 + RO2 (loads batched before stores in 4/2/1-column steps; first step's weights before loop 1)
+    n_embd 2048: W2 x2 |BAR| x'2 S2 |BAR|
+    n_embd 4096: W4 x4 |BAR| x'4 S4 |BAR|
+    n_embd 5120: W4 x5 |BAR| x'4 S4 x' w S |BAR|
+    n_embd 8192: W4 x8 |BAR| x'4 S4 w4 x'4 S4 |BAR|
+
+sm_80 ro2 = RO1 only (ablation: no weight hoist)
+    n_embd 2048: x2 |BAR| x'2 w2 S2 |BAR|
+    n_embd 4096: x4 |BAR| x'4 w4 S4 |BAR|
+    n_embd 5120: x5 |BAR| x'4 w4 S4 w x' S |BAR|
+    n_embd 8192: x8 |BAR| x'4 w4 S4 x'4 w4 S4 |BAR|
+
+sm_90 orig = llama.cpp rms_norm_f32<1024, true> (verbatim)
+    n_embd 2048: x2 |BAR| x' w S x' w S |BAR|
+    n_embd 4096: x4 |BAR| x' w S x' w S x' w S x' w S |BAR|
+    n_embd 5120: x5 |BAR| x' w S x' w S x' w S x' w S x' w S |BAR|
+    n_embd 8192: x8 |BAR| x' w S x' w S x' w S x' w S x' w S x' w S x' w S x' w S |BAR|
+
+sm_90 ro = RO1 + RO2 (loads batched before stores in 4/2/1-column steps; first step's weights before loop 1)
+    n_embd 2048: W2 x2 |BAR| x'2 S2 |BAR|
+    n_embd 4096: W4 x4 |BAR| x'4 S4 |BAR|
+    n_embd 5120: W4 x5 |BAR| x'4 S4 x' w S |BAR|
+    n_embd 8192: W4 x8 |BAR| x'4 S4 x'4 w4 S4 |BAR|
+
+sm_90 ro2 = RO1 only (ablation: no weight hoist)
+    n_embd 2048: x2 |BAR| x'2 w2 S2 |BAR|
+    n_embd 4096: x4 |BAR| x'4 w4 S4 |BAR|
+    n_embd 5120: x5 |BAR| x'4 w4 S4 x' w S |BAR|
+    n_embd 8192: x8 |BAR| x'4 w4 S4 x'4 w4 S4 |BAR|
+
+NVRTC 12.6.85 cross-check (sass/nvrtc/all_sm{80,90}.sass vs sass/nvcc_local):
+    sm_80 orig timing: nvcc 432 / NVRTC 432 instructions, memory-order skeleton identical
+    sm_80 orig trace : nvcc 480 / NVRTC 480 instructions, memory-order skeleton identical
+    sm_80 ro   timing: nvcc 496 / NVRTC 496 instructions, memory-order skeleton identical
+    sm_80 ro   trace : nvcc 544 / NVRTC 544 instructions, memory-order skeleton identical
+    sm_80 ro2  timing: nvcc 504 / NVRTC 504 instructions, memory-order skeleton identical
+    sm_80 ro2  trace : nvcc 552 / NVRTC 552 instructions, memory-order skeleton identical
+    sm_90 orig timing: nvcc 432 / NVRTC 432 instructions, memory-order skeleton identical
+    sm_90 orig trace : nvcc 512 / NVRTC 512 instructions, memory-order skeleton identical
+    sm_90 ro   timing: nvcc 560 / NVRTC 560 instructions, memory-order skeleton identical
+    sm_90 ro   trace : nvcc 632 / NVRTC 632 instructions, memory-order skeleton identical
+    sm_90 ro2  timing: nvcc 520 / NVRTC 520 instructions, memory-order skeleton identical
+    sm_90 ro2  trace : nvcc 584 / NVRTC 584 instructions, memory-order skeleton identical

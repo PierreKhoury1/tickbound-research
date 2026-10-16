@@ -1,0 +1,68 @@
+{
+"kernl_port.rmsnorm_kernl_port:31cb34ec6ebf|((torch.float16, (1, 16, 4096)), (torch.float16, (4096,)), (torch.float16, (1, 16, 4096)), ('i', 65536), ('i', 4096), ('i', 1), ('i', 1), ('i', 65536), ('i', 4096), ('i', 1), ('N_SIZE', 4096), ('eps', 1e-06), ('BLOCK_N_SIZE', 1024), ('num_warps', 4), ('num_stages', 2))": {
+"chosen": "nc@w8",
+"orig_us": 6.016,
+"best_us": 5.312,
+"deterministic": true
+},
+"kernl_port.rmsnorm_kernl_port:31cb34ec6ebf|((torch.float16, (1, 4096, 4096)), (torch.float16, (4096,)), (torch.float16, (1, 4096, 4096)), ('i', 16777216), ('i', 4096), ('i', 1), ('i', 1), ('i', 16777216), ('i', 4096), ('i', 1), ('N_SIZE', 4096), ('eps', 1e-06), ('BLOCK_N_SIZE', 1024), ('num_warps', 4), ('num_stages', 2))": {
+"chosen": "nc",
+"orig_us": 42.752,
+"best_us": 39.488,
+"deterministic": true
+},
+"cuasmrl_kernels.tt_ff:057195590047|((torch.float16, (512, 1024)), (torch.float16, (1024, 512)), (torch.float16, (1024, 512)), (torch.float16, (512, 512)), (torch.float16, (1024,)), ('i', 512), ('i', 512), ('i', 1024), ('i', 1024), ('i', 1), ('i', 512), ('i', 1), ('i', 512), ('i', 1), ('i', 512), ('i', 1), ('i', 1), ('USE_FP8', False), ('EPS', 1e-06), ('BLOCK_SIZE_M', 64), ('BLOCK_SIZE_N', 32), ('BLOCK_SIZE_K', 32), ('GROUP_SIZE_M', 8), ('num_warps', 2), ('num_stages', 5))": {
+"chosen": "orig",
+"orig_us": 24.0,
+"best_us": 24.0,
+"deterministic": true
+},
+"cuasmrl_kernels.tt_ff:057195590047|((torch.float16, (16, 4096)), (torch.float16, (4096, 16384)), (torch.float16, (4096, 16384)), (torch.float16, (16, 16384)), (torch.float16, (4096,)), ('i', 16), ('i', 16384), ('i', 4096), ('i', 4096), ('i', 1), ('i', 16384), ('i', 1), ('i', 16384), ('i', 1), ('i', 16384), ('i', 1), ('i', 1), ('USE_FP8', False), ('EPS', 1e-06), ('BLOCK_SIZE_M', 16), ('BLOCK_SIZE_N', 16), ('BLOCK_SIZE_K', 64), ('GROUP_SIZE_M', 8), ('num_warps', 4), ('num_stages', 2))": {
+"chosen": "orig@w2@s3",
+"orig_us": 149.088,
+"best_us": 119.36,
+"deterministic": true
+},
+"cuasmrl_kernels.tt_ff:057195590047|((torch.float16, (16, 4096)), (torch.float16, (4096, 4096)), (torch.float16, (4096, 4096)), (torch.float16, (16, 4096)), (torch.float16, (4096,)), ('i', 16), ('i', 4096), ('i', 4096), ('i', 4096), ('i', 1), ('i', 4096), ('i', 1), ('i', 4096), ('i', 1), ('i', 4096), ('i', 1), ('i', 1), ('USE_FP8', False), ('EPS', 1e-06), ('BLOCK_SIZE_M', 32), ('BLOCK_SIZE_N', 64), ('BLOCK_SIZE_K', 32), ('GROUP_SIZE_M', 8), ('num_warps', 2), ('num_stages', 5))": {
+"chosen": "orig@w4",
+"orig_us": 135.264,
+"best_us": 123.264,
+"deterministic": true
+},
+"cuasmrl_kernels.tt_ff:057195590047|((torch.float16, (4096, 4096)), (torch.float16, (4096, 16384)), (torch.float16, (4096, 16384)), (torch.float16, (4096, 16384)), (torch.float16, (4096,)), ('i', 4096), ('i', 16384), ('i', 4096), ('i', 4096), ('i', 1), ('i', 16384), ('i', 1), ('i', 16384), ('i', 1), ('i', 16384), ('i', 1), ('i', 1), ('USE_FP8', False), ('EPS', 1e-06), ('BLOCK_SIZE_M', 64), ('BLOCK_SIZE_N', 128), ('BLOCK_SIZE_K', 32), ('GROUP_SIZE_M', 8), ('num_warps', 4), ('num_stages', 4))": {
+"chosen": "orig",
+"orig_us": 3526.624,
+"best_us": 3526.624,
+"deterministic": true
+},
+"cuasmrl_kernels.softmax:44e865dcae04|((torch.float16, (16, 4096)), (torch.float16, (16, 4096)), ('i', 4096), ('i', 4096), ('i', 16), ('i', 4096), ('BLOCK_SIZE', 4096), ('num_warps', 16))": {
+"chosen": "orig",
+"orig_us": 5.504,
+"best_us": 5.504,
+"deterministic": true
+},
+"cuasmrl_kernels.softmax:44e865dcae04|((torch.float16, (4096, 4096)), (torch.float16, (4096, 4096)), ('i', 4096), ('i', 4096), ('i', 4096), ('i', 4096), ('BLOCK_SIZE', 4096), ('num_warps', 16))": {
+"chosen": "orig",
+"orig_us": 39.936,
+"best_us": 39.936,
+"deterministic": true
+},
+"cuasmrl_kernels.softmax:44e865dcae04|((torch.float16, (4096, 32768)), (torch.float16, (4096, 32768)), ('i', 32768), ('i', 32768), ('i', 4096), ('i', 32768), ('BLOCK_SIZE', 32768), ('num_warps', 16))": {
+"chosen": "orig",
+"orig_us": 290.4,
+"best_us": 290.4,
+"deterministic": true
+},
+"cuasmrl_kernels.matmul_leaky:f751ed4b42d3|((torch.float16, (16, 4096)), (torch.float16, (4096, 4096)), (torch.float16, (16, 4096)), ('i', 16), ('i', 4096), ('i', 4096), ('i', 4096), ('i', 1), ('i', 4096), ('i', 1), ('i', 4096), ('i', 1), ('BLOCK_SIZE_M', 16), ('BLOCK_SIZE_N', 64), ('BLOCK_SIZE_K', 64), ('GROUP_SIZE_M', 8), ('ACTIVATION', 'leaky_relu'), ('num_warps', 4), ('num_stages', 4))": {
+"chosen": "orig@s5",
+"orig_us": 36.448,
+"best_us": 33.696,
+"deterministic": true
+},
+"cuasmrl_kernels.matmul_leaky:f751ed4b42d3|((torch.float16, (4096, 4096)), (torch.float16, (4096, 4096)), (torch.float16, (4096, 4096)), ('i', 4096), ('i', 4096), ('i', 4096), ('i', 4096), ('i', 1), ('i', 4096), ('i', 1), ('i', 4096), ('i', 1), ('BLOCK_SIZE_M', 128), ('BLOCK_SIZE_N', 128), ('BLOCK_SIZE_K', 32), ('GROUP_SIZE_M', 8), ('ACTIVATION', 'leaky_relu'), ('num_warps', 4), ('num_stages', 4))": {
+"chosen": "orig@w8",
+"orig_us": 367.072,
+"best_us": 356.576,
+"deterministic": true
+}
+}

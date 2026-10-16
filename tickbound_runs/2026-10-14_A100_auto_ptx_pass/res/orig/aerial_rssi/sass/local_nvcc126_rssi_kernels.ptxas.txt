@@ -1,0 +1,122 @@
+ptxas info    : 9 bytes gmem, 24 bytes cmem[3], 72 bytes cmem[4]
+ptxas info    : Compiling entry function '_ZN16rssi_ro_nolb_val12puschRx_rssi14rssiMeasKernelI6__halfffLj32ELj4ELj4ELh2EEEvP19puschRxRssiDynDescr' for 'sm_80'
+ptxas info    : Function properties for _ZN16rssi_ro_nolb_val12puschRx_rssi14rssiMeasKernelI6__halfffLj32ELj4ELj4ELh2EEEvP19puschRxRssiDynDescr
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 40 registers, used 1 barriers, 8 bytes smem, 360 bytes cmem[0]
+ptxas info    : Compiling entry function '_ZN16rssi_orig_lb_val12puschRx_rssi14rssiMeasKernelI6__halfffLj32ELj4ELj4ELh2EEEvP19puschRxRssiDynDescr' for 'sm_80'
+ptxas info    : Function properties for _ZN16rssi_orig_lb_val12puschRx_rssi14rssiMeasKernelI6__halfffLj32ELj4ELj4ELh2EEEvP19puschRxRssiDynDescr
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 38 registers, used 1 barriers, 8 bytes smem, 360 bytes cmem[0]
+ptxas info    : Compiling entry function '_ZN12rssi_ro2_val12puschRx_rssi14rssiMeasKernelI6__halfffLj32ELj4ELj4ELh2EEEvP19puschRxRssiDynDescr' for 'sm_80'
+ptxas info    : Function properties for _ZN12rssi_ro2_val12puschRx_rssi14rssiMeasKernelI6__halfffLj32ELj4ELj4ELh2EEEvP19puschRxRssiDynDescr
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 40 registers, used 1 barriers, 8 bytes smem, 360 bytes cmem[0]
+ptxas info    : Compiling entry function '_ZN11rssi_ro_val12puschRx_rssi14rssiMeasKernelI6__halfffLj32ELj4ELj4ELh2EEEvP19puschRxRssiDynDescr' for 'sm_80'
+ptxas info    : Function properties for _ZN11rssi_ro_val12puschRx_rssi14rssiMeasKernelI6__halfffLj32ELj4ELj4ELh2EEEvP19puschRxRssiDynDescr
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 45 registers, used 1 barriers, 8 bytes smem, 360 bytes cmem[0]
+ptxas info    : Compiling entry function '_ZN13rssi_orig_val12puschRx_rssi14rssiMeasKernelI6__halfffLj32ELj4ELj4ELh2EEEvP19puschRxRssiDynDescr' for 'sm_80'
+ptxas info    : Function properties for _ZN13rssi_orig_val12puschRx_rssi14rssiMeasKernelI6__halfffLj32ELj4ELj4ELh2EEEvP19puschRxRssiDynDescr
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 36 registers, used 1 barriers, 8 bytes smem, 360 bytes cmem[0]
+ptxas info    : Compiling entry function '_ZN18rssi_ro_nolb_trace12puschRx_rssi14rssiMeasKernelI6__halfffLj32ELj4ELj4ELh2EEEvP19puschRxRssiDynDescr' for 'sm_80'
+ptxas info    : Function properties for _ZN18rssi_ro_nolb_trace12puschRx_rssi14rssiMeasKernelI6__halfffLj32ELj4ELj4ELh2EEEvP19puschRxRssiDynDescr
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 32 registers, used 1 barriers, 456 bytes smem, 360 bytes cmem[0]
+ptxas info    : Compiling entry function '_ZN18rssi_orig_lb_trace12puschRx_rssi14rssiMeasKernelI6__halfffLj32ELj4ELj4ELh2EEEvP19puschRxRssiDynDescr' for 'sm_80'
+ptxas info    : Function properties for _ZN18rssi_orig_lb_trace12puschRx_rssi14rssiMeasKernelI6__halfffLj32ELj4ELj4ELh2EEEvP19puschRxRssiDynDescr
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 38 registers, used 1 barriers, 456 bytes smem, 360 bytes cmem[0]
+ptxas info    : Compiling entry function '_ZN14rssi_ro2_trace12puschRx_rssi14rssiMeasKernelI6__halfffLj32ELj4ELj4ELh2EEEvP19puschRxRssiDynDescr' for 'sm_80'
+ptxas info    : Function properties for _ZN14rssi_ro2_trace12puschRx_rssi14rssiMeasKernelI6__halfffLj32ELj4ELj4ELh2EEEvP19puschRxRssiDynDescr
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 40 registers, used 1 barriers, 456 bytes smem, 360 bytes cmem[0]
+ptxas info    : Compiling entry function '_ZN13rssi_ro_trace12puschRx_rssi14rssiMeasKernelI6__halfffLj32ELj4ELj4ELh2EEEvP19puschRxRssiDynDescr' for 'sm_80'
+ptxas info    : Function properties for _ZN13rssi_ro_trace12puschRx_rssi14rssiMeasKernelI6__halfffLj32ELj4ELj4ELh2EEEvP19puschRxRssiDynDescr
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 40 registers, used 1 barriers, 456 bytes smem, 360 bytes cmem[0]
+ptxas info    : Compiling entry function '_ZN15rssi_orig_trace12puschRx_rssi14rssiMeasKernelI6__halfffLj32ELj4ELj4ELh2EEEvP19puschRxRssiDynDescr' for 'sm_80'
+ptxas info    : Function properties for _ZN15rssi_orig_trace12puschRx_rssi14rssiMeasKernelI6__halfffLj32ELj4ELj4ELh2EEEvP19puschRxRssiDynDescr
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 32 registers, used 1 barriers, 456 bytes smem, 360 bytes cmem[0]
+ptxas info    : Compiling entry function '_ZN17rssi_ro_nolb_time12puschRx_rssi14rssiMeasKernelI6__halfffLj32ELj4ELj4ELh2EEEvP19puschRxRssiDynDescr' for 'sm_80'
+ptxas info    : Function properties for _ZN17rssi_ro_nolb_time12puschRx_rssi14rssiMeasKernelI6__halfffLj32ELj4ELj4ELh2EEEvP19puschRxRssiDynDescr
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 39 registers, used 1 barriers, 8 bytes smem, 360 bytes cmem[0]
+ptxas info    : Compiling entry function '_ZN17rssi_orig_lb_time12puschRx_rssi14rssiMeasKernelI6__halfffLj32ELj4ELj4ELh2EEEvP19puschRxRssiDynDescr' for 'sm_80'
+ptxas info    : Function properties for _ZN17rssi_orig_lb_time12puschRx_rssi14rssiMeasKernelI6__halfffLj32ELj4ELj4ELh2EEEvP19puschRxRssiDynDescr
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 32 registers, used 1 barriers, 8 bytes smem, 360 bytes cmem[0]
+ptxas info    : Compiling entry function '_ZN13rssi_ro2_time12puschRx_rssi14rssiMeasKernelI6__halfffLj32ELj4ELj4ELh2EEEvP19puschRxRssiDynDescr' for 'sm_80'
+ptxas info    : Function properties for _ZN13rssi_ro2_time12puschRx_rssi14rssiMeasKernelI6__halfffLj32ELj4ELj4ELh2EEEvP19puschRxRssiDynDescr
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 32 registers, used 1 barriers, 8 bytes smem, 360 bytes cmem[0]
+ptxas info    : Compiling entry function '_ZN12rssi_ro_time12puschRx_rssi14rssiMeasKernelI6__halfffLj32ELj4ELj4ELh2EEEvP19puschRxRssiDynDescr' for 'sm_80'
+ptxas info    : Function properties for _ZN12rssi_ro_time12puschRx_rssi14rssiMeasKernelI6__halfffLj32ELj4ELj4ELh2EEEvP19puschRxRssiDynDescr
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 40 registers, used 1 barriers, 8 bytes smem, 360 bytes cmem[0]
+ptxas info    : Compiling entry function '_ZN14rssi_orig_time12puschRx_rssi14rssiMeasKernelI6__halfffLj32ELj4ELj4ELh2EEEvP19puschRxRssiDynDescr' for 'sm_80'
+ptxas info    : Function properties for _ZN14rssi_orig_time12puschRx_rssi14rssiMeasKernelI6__halfffLj32ELj4ELj4ELh2EEEvP19puschRxRssiDynDescr
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 32 registers, used 1 barriers, 8 bytes smem, 360 bytes cmem[0]
+ptxas info    : 9 bytes gmem
+ptxas info    : Compiling entry function '_ZN16rssi_ro_nolb_val12puschRx_rssi14rssiMeasKernelI6__halfffLj32ELj4ELj4ELh2EEEvP19puschRxRssiDynDescr' for 'sm_90'
+ptxas info    : Function properties for _ZN16rssi_ro_nolb_val12puschRx_rssi14rssiMeasKernelI6__halfffLj32ELj4ELj4ELh2EEEvP19puschRxRssiDynDescr
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 40 registers, used 1 barriers, 8 bytes smem
+ptxas info    : Compiling entry function '_ZN16rssi_orig_lb_val12puschRx_rssi14rssiMeasKernelI6__halfffLj32ELj4ELj4ELh2EEEvP19puschRxRssiDynDescr' for 'sm_90'
+ptxas info    : Function properties for _ZN16rssi_orig_lb_val12puschRx_rssi14rssiMeasKernelI6__halfffLj32ELj4ELj4ELh2EEEvP19puschRxRssiDynDescr
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 32 registers, used 1 barriers, 8 bytes smem
+ptxas info    : Compiling entry function '_ZN12rssi_ro2_val12puschRx_rssi14rssiMeasKernelI6__halfffLj32ELj4ELj4ELh2EEEvP19puschRxRssiDynDescr' for 'sm_90'
+ptxas info    : Function properties for _ZN12rssi_ro2_val12puschRx_rssi14rssiMeasKernelI6__halfffLj32ELj4ELj4ELh2EEEvP19puschRxRssiDynDescr
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 40 registers, used 1 barriers, 8 bytes smem
+ptxas info    : Compiling entry function '_ZN11rssi_ro_val12puschRx_rssi14rssiMeasKernelI6__halfffLj32ELj4ELj4ELh2EEEvP19puschRxRssiDynDescr' for 'sm_90'
+ptxas info    : Function properties for _ZN11rssi_ro_val12puschRx_rssi14rssiMeasKernelI6__halfffLj32ELj4ELj4ELh2EEEvP19puschRxRssiDynDescr
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 43 registers, used 1 barriers, 8 bytes smem
+ptxas info    : Compiling entry function '_ZN13rssi_orig_val12puschRx_rssi14rssiMeasKernelI6__halfffLj32ELj4ELj4ELh2EEEvP19puschRxRssiDynDescr' for 'sm_90'
+ptxas info    : Function properties for _ZN13rssi_orig_val12puschRx_rssi14rssiMeasKernelI6__halfffLj32ELj4ELj4ELh2EEEvP19puschRxRssiDynDescr
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 32 registers, used 1 barriers, 8 bytes smem
+ptxas info    : Compiling entry function '_ZN18rssi_ro_nolb_trace12puschRx_rssi14rssiMeasKernelI6__halfffLj32ELj4ELj4ELh2EEEvP19puschRxRssiDynDescr' for 'sm_90'
+ptxas info    : Function properties for _ZN18rssi_ro_nolb_trace12puschRx_rssi14rssiMeasKernelI6__halfffLj32ELj4ELj4ELh2EEEvP19puschRxRssiDynDescr
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 35 registers, used 1 barriers, 456 bytes smem
+ptxas info    : Compiling entry function '_ZN18rssi_orig_lb_trace12puschRx_rssi14rssiMeasKernelI6__halfffLj32ELj4ELj4ELh2EEEvP19puschRxRssiDynDescr' for 'sm_90'
+ptxas info    : Function properties for _ZN18rssi_orig_lb_trace12puschRx_rssi14rssiMeasKernelI6__halfffLj32ELj4ELj4ELh2EEEvP19puschRxRssiDynDescr
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 40 registers, used 1 barriers, 456 bytes smem
+ptxas info    : Compiling entry function '_ZN14rssi_ro2_trace12puschRx_rssi14rssiMeasKernelI6__halfffLj32ELj4ELj4ELh2EEEvP19puschRxRssiDynDescr' for 'sm_90'
+ptxas info    : Function properties for _ZN14rssi_ro2_trace12puschRx_rssi14rssiMeasKernelI6__halfffLj32ELj4ELj4ELh2EEEvP19puschRxRssiDynDescr
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 40 registers, used 1 barriers, 456 bytes smem
+ptxas info    : Compiling entry function '_ZN13rssi_ro_trace12puschRx_rssi14rssiMeasKernelI6__halfffLj32ELj4ELj4ELh2EEEvP19puschRxRssiDynDescr' for 'sm_90'
+ptxas info    : Function properties for _ZN13rssi_ro_trace12puschRx_rssi14rssiMeasKernelI6__halfffLj32ELj4ELj4ELh2EEEvP19puschRxRssiDynDescr
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 44 registers, used 1 barriers, 456 bytes smem
+ptxas info    : Compiling entry function '_ZN15rssi_orig_trace12puschRx_rssi14rssiMeasKernelI6__halfffLj32ELj4ELj4ELh2EEEvP19puschRxRssiDynDescr' for 'sm_90'
+ptxas info    : Function properties for _ZN15rssi_orig_trace12puschRx_rssi14rssiMeasKernelI6__halfffLj32ELj4ELj4ELh2EEEvP19puschRxRssiDynDescr
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 32 registers, used 1 barriers, 456 bytes smem
+ptxas info    : Compiling entry function '_ZN17rssi_ro_nolb_time12puschRx_rssi14rssiMeasKernelI6__halfffLj32ELj4ELj4ELh2EEEvP19puschRxRssiDynDescr' for 'sm_90'
+ptxas info    : Function properties for _ZN17rssi_ro_nolb_time12puschRx_rssi14rssiMeasKernelI6__halfffLj32ELj4ELj4ELh2EEEvP19puschRxRssiDynDescr
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 32 registers, used 1 barriers, 8 bytes smem
+ptxas info    : Compiling entry function '_ZN17rssi_orig_lb_time12puschRx_rssi14rssiMeasKernelI6__halfffLj32ELj4ELj4ELh2EEEvP19puschRxRssiDynDescr' for 'sm_90'
+ptxas info    : Function properties for _ZN17rssi_orig_lb_time12puschRx_rssi14rssiMeasKernelI6__halfffLj32ELj4ELj4ELh2EEEvP19puschRxRssiDynDescr
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 32 registers, used 1 barriers, 8 bytes smem
+ptxas info    : Compiling entry function '_ZN13rssi_ro2_time12puschRx_rssi14rssiMeasKernelI6__halfffLj32ELj4ELj4ELh2EEEvP19puschRxRssiDynDescr' for 'sm_90'
+ptxas info    : Function properties for _ZN13rssi_ro2_time12puschRx_rssi14rssiMeasKernelI6__halfffLj32ELj4ELj4ELh2EEEvP19puschRxRssiDynDescr
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 32 registers, used 1 barriers, 8 bytes smem
+ptxas info    : Compiling entry function '_ZN12rssi_ro_time12puschRx_rssi14rssiMeasKernelI6__halfffLj32ELj4ELj4ELh2EEEvP19puschRxRssiDynDescr' for 'sm_90'
+ptxas info    : Function properties for _ZN12rssi_ro_time12puschRx_rssi14rssiMeasKernelI6__halfffLj32ELj4ELj4ELh2EEEvP19puschRxRssiDynDescr
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 40 registers, used 1 barriers, 8 bytes smem
+ptxas info    : Compiling entry function '_ZN14rssi_orig_time12puschRx_rssi14rssiMeasKernelI6__halfffLj32ELj4ELj4ELh2EEEvP19puschRxRssiDynDescr' for 'sm_90'
+ptxas info    : Function properties for _ZN14rssi_orig_time12puschRx_rssi14rssiMeasKernelI6__halfffLj32ELj4ELj4ELh2EEEvP19puschRxRssiDynDescr
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 32 registers, used 1 barriers, 8 bytes smem

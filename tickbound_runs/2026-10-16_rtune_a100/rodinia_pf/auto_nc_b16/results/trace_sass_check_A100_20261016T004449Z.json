@@ -1,0 +1,619 @@
+{
+ "ok": false,
+ "strict_ok": false,
+ "results": [
+  {
+   "listing": "pf_bench.sass",
+   "arch": "sm_80",
+   "kernel": "find_index_kernel",
+   "ok": false,
+   "level": "EQUIV",
+   "detail": "text differs at instruction 44: 'IMAD.MOV.U32 r18, RZ, RZ, r3' vs 'MOV r18, r3' (lengths 134 / 134)",
+   "loops_time": 3,
+   "loops_trace": 3,
+   "timer_reads_time": 0,
+   "timer_reads_trace": 2,
+   "hot_time": "0100..0950",
+   "hot_trace": "0140..0990",
+   "hot_len": 134,
+   "hot_loads": 16,
+   "hot_text": false,
+   "hot_issue": false,
+   "hot_deps": false,
+   "hot_exact_regs": false,
+   "hot_entry_waits": [
+    [
+     "39"
+    ],
+    [
+     "39"
+    ]
+   ],
+   "stamps_in_hot_loop": 0,
+   "hot_synonyms": [
+    "44: IMAD.MOV.U32 r18, RZ, RZ, r3 -> MOV r18, r3",
+    "50: MOV r18, r2 -> IMAD.MOV.U32 r18, RZ, RZ, r2",
+    "62: IMAD.MOV.U32 r18, RZ, RZ, r7 -> MOV r18, r7",
+    "74: MOV r18, r5 -> IMAD.MOV.U32 r18, RZ, RZ, r5",
+    "80: IMAD.MOV.U32 r18, RZ, RZ, r4 -> MOV r18, r4",
+    "116: IMAD.MOV.U32 r18, RZ, RZ, r14 -> MOV r18, r14",
+    "122: MOV r18, r13 -> IMAD.MOV.U32 r18, RZ, RZ, r13"
+   ],
+   "hot_stall_moves": [],
+   "hot_stall_sum": [
+    590,
+    590
+   ],
+   "hot_deps_only": true,
+   "hot_syn_text": true,
+   "other_loops": [
+    "0980:text differs",
+    "0b40:same"
+   ]
+  },
+  {
+   "listing": "pf_bench.sass",
+   "arch": "sm_80",
+   "kernel": "find_index_kernel_ro2",
+   "ok": true,
+   "level": "PASS",
+   "detail": "",
+   "loops_time": 3,
+   "loops_trace": 3,
+   "timer_reads_time": 0,
+   "timer_reads_trace": 2,
+   "hot_time": "00e0..0350",
+   "hot_trace": "0120..0390",
+   "hot_len": 40,
+   "hot_loads": 8,
+   "hot_text": true,
+   "hot_issue": true,
+   "hot_deps": true,
+   "hot_exact_regs": true,
+   "hot_entry_waits": [
+    [
+     "16"
+    ],
+    [
+     "16"
+    ]
+   ],
+   "stamps_in_hot_loop": 0,
+   "hot_synonyms": [],
+   "hot_stall_moves": [],
+   "hot_stall_sum": [
+    121,
+    121
+   ],
+   "hot_deps_only": true,
+   "hot_syn_text": true,
+   "other_loops": [
+    "0400:same",
+    "0600:same"
+   ]
+  },
+  {
+   "listing": "pf_bench.sass",
+   "arch": "sm_80",
+   "kernel": "likelihood_kernel",
+   "ok": true,
+   "level": "PASS",
+   "detail": "",
+   "loops_time": 6,
+   "loops_trace": 6,
+   "timer_reads_time": 0,
+   "timer_reads_trace": 0,
+   "hot_time": "1e60..23f0",
+   "hot_trace": "1e60..23f0",
+   "hot_len": 90,
+   "hot_loads": 16,
+   "hot_text": true,
+   "hot_issue": true,
+   "hot_deps": true,
+   "hot_exact_regs": true,
+   "hot_entry_waits": [
+    [
+     "0",
+     "6"
+    ],
+    [
+     "0",
+     "6"
+    ]
+   ],
+   "stamps_in_hot_loop": 0,
+   "hot_synonyms": [],
+   "hot_stall_moves": [],
+   "hot_stall_sum": [
+    406,
+    406
+   ],
+   "hot_deps_only": true,
+   "hot_syn_text": true,
+   "other_loops": [
+    "24a0:same",
+    "26a0:same",
+    "3270:same",
+    "4880:same",
+    "5050:same"
+   ]
+  },
+  {
+   "listing": "pf_bench.sass",
+   "arch": "sm_80",
+   "kernel": "normalize_weights_kernel",
+   "ok": true,
+   "level": "PASS",
+   "detail": "",
+   "loops_time": 5,
+   "loops_trace": 5,
+   "timer_reads_time": 0,
+   "timer_reads_trace": 4,
+   "hot_time": "0ac0..1070",
+   "hot_trace": "0b40..10f0",
+   "hot_len": 92,
+   "hot_loads": 17,
+   "hot_text": true,
+   "hot_issue": true,
+   "hot_deps": true,
+   "hot_exact_regs": true,
+   "hot_entry_waits": [
+    [],
+    []
+   ],
+   "stamps_in_hot_loop": 0,
+   "hot_synonyms": [],
+   "hot_stall_moves": [],
+   "hot_stall_sum": [
+    316,
+    316
+   ],
+   "hot_deps_only": true,
+   "hot_syn_text": true,
+   "other_loops": [
+    "0460:same",
+    "0880:same",
+    "1090:same",
+    "1fc0:same"
+   ]
+  },
+  {
+   "listing": "pf_bench.sass",
+   "arch": "sm_80",
+   "kernel": "normalize_weights_kernel_ro",
+   "ok": true,
+   "level": "PASS",
+   "detail": "",
+   "loops_time": 4,
+   "loops_trace": 4,
+   "timer_reads_time": 0,
+   "timer_reads_trace": 4,
+   "hot_time": "0400..0790",
+   "hot_trace": "0480..0810",
+   "hot_len": 58,
+   "hot_loads": 16,
+   "hot_text": true,
+   "hot_issue": true,
+   "hot_deps": true,
+   "hot_exact_regs": true,
+   "hot_entry_waits": [
+    [],
+    []
+   ],
+   "stamps_in_hot_loop": 0,
+   "hot_synonyms": [],
+   "hot_stall_moves": [],
+   "hot_stall_sum": [
+    179,
+    179
+   ],
+   "hot_deps_only": true,
+   "hot_syn_text": true,
+   "other_loops": [
+    "0870:text differs",
+    "0a30:same",
+    "1f50:same"
+   ]
+  },
+  {
+   "listing": "pf_bench.sass",
+   "arch": "sm_80",
+   "kernel": "normalize_weights_kernel_ro2",
+   "ok": true,
+   "level": "PASS",
+   "detail": "",
+   "loops_time": 4,
+   "loops_trace": 4,
+   "timer_reads_time": 0,
+   "timer_reads_trace": 0,
+   "hot_time": "04e0..0b60",
+   "hot_trace": "04e0..0b60",
+   "hot_len": 105,
+   "hot_loads": 16,
+   "hot_text": true,
+   "hot_issue": true,
+   "hot_deps": true,
+   "hot_exact_regs": true,
+   "hot_entry_waits": [
+    [
+     "0",
+     "7",
+     "18"
+    ],
+    [
+     "0",
+     "7",
+     "18"
+    ]
+   ],
+   "stamps_in_hot_loop": 0,
+   "hot_synonyms": [],
+   "hot_stall_moves": [],
+   "hot_stall_sum": [
+    274,
+    274
+   ],
+   "hot_deps_only": true,
+   "hot_syn_text": true,
+   "other_loops": [
+    "0c40:same",
+    "0e10:same",
+    "2390:same"
+   ]
+  },
+  {
+   "listing": "pf_bench.sass",
+   "arch": "sm_80",
+   "kernel": "sum_kernel",
+   "ok": true,
+   "level": "PASS",
+   "detail": "",
+   "loops_time": 4,
+   "loops_trace": 4,
+   "timer_reads_time": 0,
+   "timer_reads_trace": 0,
+   "hot_time": "0200..0450",
+   "hot_trace": "0200..0450",
+   "hot_len": 38,
+   "hot_loads": 16,
+   "hot_text": true,
+   "hot_issue": true,
+   "hot_deps": true,
+   "hot_exact_regs": true,
+   "hot_entry_waits": [
+    [],
+    []
+   ],
+   "stamps_in_hot_loop": 0,
+   "hot_synonyms": [],
+   "hot_stall_moves": [],
+   "hot_stall_sum": [
+    133,
+    133
+   ],
+   "hot_deps_only": true,
+   "hot_syn_text": true,
+   "other_loops": [
+    "0600:same",
+    "0750:same",
+    "0820:same"
+   ]
+  },
+  {
+   "listing": "pf_bench.sass",
+   "arch": "sm_90",
+   "kernel": "find_index_kernel",
+   "ok": false,
+   "level": "EQUIV",
+   "detail": "text differs at instruction 54: 'MOV r21, r3' vs 'IMAD.MOV.U32 r21, RZ, RZ, r3' (lengths 151 / 151)",
+   "loops_time": 3,
+   "loops_trace": 3,
+   "timer_reads_time": 0,
+   "timer_reads_trace": 5,
+   "hot_time": "0150..0ab0",
+   "hot_trace": "01e0..0b40",
+   "hot_len": 151,
+   "hot_loads": 16,
+   "hot_text": false,
+   "hot_issue": false,
+   "hot_deps": false,
+   "hot_exact_regs": false,
+   "hot_entry_waits": [
+    [
+     "41"
+    ],
+    [
+     "41"
+    ]
+   ],
+   "stamps_in_hot_loop": 0,
+   "hot_synonyms": [
+    "54: MOV r21, r3 -> IMAD.MOV.U32 r21, RZ, RZ, r3",
+    "131: MOV r21, r15 -> IMAD.MOV.U32 r21, RZ, RZ, r15"
+   ],
+   "hot_stall_moves": [],
+   "hot_stall_sum": [
+    737,
+    737
+   ],
+   "hot_deps_only": true,
+   "hot_syn_text": true,
+   "other_loops": [
+    "0ae0:same",
+    "0d10:same"
+   ]
+  },
+  {
+   "listing": "pf_bench.sass",
+   "arch": "sm_90",
+   "kernel": "find_index_kernel_ro2",
+   "ok": true,
+   "level": "PASS",
+   "detail": "",
+   "loops_time": 3,
+   "loops_trace": 3,
+   "timer_reads_time": 0,
+   "timer_reads_trace": 5,
+   "hot_time": "0150..0440",
+   "hot_trace": "01c0..04b0",
+   "hot_len": 48,
+   "hot_loads": 8,
+   "hot_text": true,
+   "hot_issue": true,
+   "hot_deps": true,
+   "hot_exact_regs": false,
+   "hot_entry_waits": [
+    [
+     "6",
+     "23"
+    ],
+    [
+     "6",
+     "23"
+    ]
+   ],
+   "stamps_in_hot_loop": 0,
+   "hot_synonyms": [],
+   "hot_stall_moves": [],
+   "hot_stall_sum": [
+    139,
+    139
+   ],
+   "hot_deps_only": true,
+   "hot_syn_text": true,
+   "other_loops": [
+    "0500:text differs",
+    "07a0:same"
+   ]
+  },
+  {
+   "listing": "pf_bench.sass",
+   "arch": "sm_90",
+   "kernel": "likelihood_kernel",
+   "ok": true,
+   "level": "PASS",
+   "detail": "",
+   "loops_time": 6,
+   "loops_trace": 6,
+   "timer_reads_time": 0,
+   "timer_reads_trace": 0,
+   "hot_time": "22a0..2820",
+   "hot_trace": "22a0..2820",
+   "hot_len": 89,
+   "hot_loads": 16,
+   "hot_text": true,
+   "hot_issue": true,
+   "hot_deps": true,
+   "hot_exact_regs": true,
+   "hot_entry_waits": [
+    [
+     "6",
+     "10",
+     "12"
+    ],
+    [
+     "6",
+     "10",
+     "12"
+    ]
+   ],
+   "stamps_in_hot_loop": 0,
+   "hot_synonyms": [],
+   "hot_stall_moves": [],
+   "hot_stall_sum": [
+    400,
+    400
+   ],
+   "hot_deps_only": true,
+   "hot_syn_text": true,
+   "other_loops": [
+    "2900:same",
+    "2af0:same",
+    "38c0:same",
+    "5190:same",
+    "5970:same"
+   ]
+  },
+  {
+   "listing": "pf_bench.sass",
+   "arch": "sm_90",
+   "kernel": "normalize_weights_kernel",
+   "ok": false,
+   "level": "FAIL",
+   "detail": "text differs at instruction 12: 'VIADD r0, r1, 0xfffffffc' vs 'IADD3 r0, r1, -0x4, RZ' (lengths 92 / 92)",
+   "loops_time": 5,
+   "loops_trace": 5,
+   "timer_reads_time": 0,
+   "timer_reads_trace": 4,
+   "hot_time": "0a80..1030",
+   "hot_trace": "0c90..1240",
+   "hot_len": 92,
+   "hot_loads": 17,
+   "hot_text": false,
+   "hot_issue": false,
+   "hot_deps": false,
+   "hot_exact_regs": false,
+   "hot_entry_waits": [
+    [],
+    []
+   ],
+   "stamps_in_hot_loop": 0,
+   "hot_synonyms": [
+    "12: VIADD r0, r1, 0xfffffffc -> IADD3 r0, r1, -0x4, RZ",
+    "16: IADD3 r2, r1.reuse, -0xb, RZ -> VIADD r2, r1.reuse, 0xfffffff5",
+    "54: IMAD.X r21, RZ, RZ, r21, p1 -> IADD3.X r21, RZ, r21, RZ, p1, !PT",
+    "89: MOV r6, r8 -> IMAD.MOV.U32 r6, RZ, RZ, r8"
+   ],
+   "hot_stall_moves": [
+    "11: S1->S2",
+    "12: S3->S2",
+    "16: S1->S2",
+    "53: S5->S4",
+    "89: S1->S2"
+   ],
+   "hot_stall_sum": [
+    350,
+    351
+   ],
+   "hot_deps_only": true,
+   "hot_syn_text": true,
+   "other_loops": [
+    "0430:text differs",
+    "0850:same",
+    "1050:text differs",
+    "1fa0:same"
+   ]
+  },
+  {
+   "listing": "pf_bench.sass",
+   "arch": "sm_90",
+   "kernel": "normalize_weights_kernel_ro",
+   "ok": true,
+   "level": "PASS",
+   "detail": "",
+   "loops_time": 4,
+   "loops_trace": 4,
+   "timer_reads_time": 0,
+   "timer_reads_trace": 4,
+   "hot_time": "0430..07c0",
+   "hot_trace": "0640..09d0",
+   "hot_len": 58,
+   "hot_loads": 16,
+   "hot_text": true,
+   "hot_issue": true,
+   "hot_deps": true,
+   "hot_exact_regs": false,
+   "hot_entry_waits": [
+    [
+     "0",
+     "2"
+    ],
+    [
+     "0"
+    ]
+   ],
+   "stamps_in_hot_loop": 0,
+   "hot_synonyms": [],
+   "hot_stall_moves": [],
+   "hot_stall_sum": [
+    209,
+    209
+   ],
+   "hot_deps_only": true,
+   "hot_syn_text": true,
+   "other_loops": [
+    "08b0:same",
+    "0ae0:text differs",
+    "2010:same"
+   ]
+  },
+  {
+   "listing": "pf_bench.sass",
+   "arch": "sm_90",
+   "kernel": "normalize_weights_kernel_ro2",
+   "ok": true,
+   "level": "PASS",
+   "detail": "",
+   "loops_time": 4,
+   "loops_trace": 4,
+   "timer_reads_time": 0,
+   "timer_reads_trace": 0,
+   "hot_time": "0520..0bc0",
+   "hot_trace": "0520..0bc0",
+   "hot_len": 107,
+   "hot_loads": 16,
+   "hot_text": true,
+   "hot_issue": true,
+   "hot_deps": true,
+   "hot_exact_regs": true,
+   "hot_entry_waits": [
+    [
+     "2",
+     "6",
+     "20",
+     "34",
+     "72"
+    ],
+    [
+     "2",
+     "6",
+     "20",
+     "34",
+     "72"
+    ]
+   ],
+   "stamps_in_hot_loop": 0,
+   "hot_synonyms": [],
+   "hot_stall_moves": [],
+   "hot_stall_sum": [
+    284,
+    284
+   ],
+   "hot_deps_only": true,
+   "hot_syn_text": true,
+   "other_loops": [
+    "0ca0:same",
+    "0ed0:same",
+    "2470:same"
+   ]
+  },
+  {
+   "listing": "pf_bench.sass",
+   "arch": "sm_90",
+   "kernel": "sum_kernel",
+   "ok": true,
+   "level": "PASS",
+   "detail": "",
+   "loops_time": 4,
+   "loops_trace": 4,
+   "timer_reads_time": 0,
+   "timer_reads_trace": 0,
+   "hot_time": "0220..0470",
+   "hot_trace": "0220..0470",
+   "hot_len": 38,
+   "hot_loads": 16,
+   "hot_text": true,
+   "hot_issue": true,
+   "hot_deps": true,
+   "hot_exact_regs": true,
+   "hot_entry_waits": [
+    [],
+    []
+   ],
+   "stamps_in_hot_loop": 0,
+   "hot_synonyms": [],
+   "hot_stall_moves": [],
+   "hot_stall_sum": [
+    168,
+    168
+   ],
+   "hot_deps_only": true,
+   "hot_syn_text": true,
+   "other_loops": [
+    "0620:same",
+    "0760:same",
+    "0820:same"
+   ]
+  }
+ ]
+}

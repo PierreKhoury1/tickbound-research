@@ -1,0 +1,146 @@
+
+== kernl_rmsnorm  (37 cases, GPU H100, non-orig rows bitwise_equal: {'true': 111})
+   ro             faster  35/ 37  median 1.232  min 0.975  max 1.706
+   ro2            faster  36/ 37  median 1.345  min 0.999  max 1.704
+   ro3            faster  36/ 37  median 1.318  min 0.988  max 1.756
+   best-of-ours   faster  36/ 37  median 1.345  min 0.999  max 1.756
+
+== llama_rmsnorm  (80 cases, GPU H100, non-orig rows bitwise_equal: {'true': 160})
+   ro             faster  75/ 80  median 1.163  min 0.874  max 1.341
+   ro2            faster  64/ 80  median 1.090  min 0.850  max 1.323
+   best-of-ours   faster  75/ 80  median 1.163  min 0.875  max 1.341
+
+== faiss_kselect  (70 cases, GPU H100, non-orig rows bitwise_equal: {'1': 140})
+   ro             faster  70/ 70  median 2.136  min 1.036  max 3.104
+   ro8            faster  67/ 70  median 2.222  min 0.603  max 6.167
+   best-of-ours   faster  70/ 70  median 2.362  min 1.036  max 6.167
+
+== pt_embbag  (31 cases, GPU H100, non-orig rows bitwise_equal: {'true': 93})
+   ro             faster  31/ 31  median 1.112  min 1.033  max 1.355
+   ro2            faster  11/ 31  median 0.992  min 0.949  max 1.025
+   ro3            faster   2/ 31  median 0.979  min 0.926  max 1.018
+   best-of-ours   faster  31/ 31  median 1.112  min 1.033  max 1.355
+
+== pf_find_index  (14 cases, GPU NVIDIA H100 PCIe, non-orig rows bitwise_equal: {'true': 14})
+   ro2            faster  14/ 14  median 2.509  min 1.771  max 2.834
+   best-of-ours   faster  14/ 14  median 2.509  min 1.771  max 2.834
+
+== pf_normalize_weights  (13 cases, GPU NVIDIA H100 PCIe, non-orig rows bitwise_equal: {'true': 26})
+   ro             faster  13/ 13  median 3.576  min 2.857  max 3.647
+   ro2            faster  13/ 13  median 3.801  min 2.753  max 3.964
+   best-of-ours   faster  13/ 13  median 3.801  min 2.857  max 3.964
+
+== cfoTaEstLowMimoKernel  (22 cases, GPU H100, non-orig rows bitwise_equal: {'1': 44})
+   ro             faster  20/ 22  median 1.185  min 0.859  max 1.424
+   ro_r1          faster  20/ 22  median 1.121  min 0.732  max 1.186
+   best-of-ours   faster  20/ 22  median 1.185  min 0.859  max 1.424
+
+== kernl_fused_ff best-vs-best (H100)
+shape                        best Triton      ours ratio  vs3.8  vs2.2  (winner builds)
+M16 N1024 K1024 cold               18.43     22.35 0.824 0.824 1.209  T=tt38@32x64x32_w2_s5 O=ro_tt32@16x16x64_w4_s2
+M16 N1024 K1024 warm               10.58     10.50 1.007 1.410 1.221  T=ctl_s5@16x16x64_w4_s2 O=ro@16x16x64_w4_s2
+M16 N1024 K4096 cold               55.32     75.71 0.731 0.731 1.258  T=tt38@32x64x32_w2_s5 O=ro_tt32@16x16x64_w4_s2
+M16 N1024 K4096 warm               36.59     37.10 0.986 1.474 1.247  T=ctl_s5@16x16x64_w4_s2 O=ro@16x16x64_w4_s2
+M16 N4096 K1024 cold               25.25     28.51 0.886 0.886 1.213  T=tt38@32x64x32_w2_s5 O=ro_tt32@16x16x64_w4_s2
+M16 N4096 K1024 warm               15.03     13.57 1.107 1.140 1.221  T=ctl_s5@16x16x64_w4_s2 O=ro_tt32@32x64x32_w2_s5
+M16 N4096 K4096 cold               77.24     92.77 0.833 0.833 1.276  T=tt38@32x64x32_w2_s5 O=ro_tt32@16x16x64_w4_s2
+M16 N4096 K4096 warm               59.65     76.83 0.776 0.776 1.270  T=tt38@32x64x32_w2_s5 O=ro_tt32@16x16x64_w4_s2
+M16 N11008 K4096 cold             126.25    136.37 0.926 1.208 1.127  T=ctl_s5@16x16x64_w4_s2 O=ro@16x16x64_w4_s2
+M16 N11008 K4096 warm             108.73    118.44 0.918 1.269 1.167  T=ctl_s5@16x16x64_w4_s2 O=ro@16x16x64_w4_s2
+M64 N1024 K1024 cold               18.39     23.00 0.800 0.800 1.191  T=tt38@32x64x32_w2_s5 O=ro_tt32@16x16x64_w4_s2
+M64 N1024 K1024 warm               14.72     13.70 1.075 1.127 1.207  T=ctl_s5@16x16x64_w4_s2 O=ro_tt32@32x64x32_w2_s5
+M64 N1024 K4096 cold               54.92     78.89 0.696 0.696 1.226  T=tt38@32x64x32_w2_s5 O=ro_tt32@16x16x64_w4_s2
+M64 N1024 K4096 warm               50.44     47.52 1.062 1.169 1.241  T=ctl_s5@16x16x64_w4_s2 O=ro_tt32@32x64x32_w2_s5
+M64 N4096 K1024 cold               26.38     33.66 0.784 0.784 1.231  T=tt38@32x64x32_w2_s5 O=ro_tt32@64x32x32_w2_s5
+M64 N4096 K1024 warm               20.24     17.02 1.189 1.189 1.303  T=tt38@32x64x32_w2_s5 O=ro_tt32@32x64x32_w2_s5
+M64 N4096 K4096 cold               83.14    111.49 0.746 0.746 1.270  T=tt38@32x64x32_w2_s5 O=ro_tt32@64x32x32_w2_s5
+M64 N4096 K4096 warm               69.89     92.08 0.759 0.759 1.324  T=tt38@32x64x32_w2_s5 O=ro_tt32@64x32x32_w2_s5
+M128 N1024 K1024 cold              18.52     25.20 0.735 0.735 1.199  T=tt38@32x64x32_w2_s5 O=ro_tt32@16x16x64_w4_s2
+M128 N1024 K1024 warm              15.42     13.71 1.125 1.125 1.282  T=tt38@32x64x32_w2_s5 O=ro_tt32@32x64x32_w2_s5
+M128 N1024 K4096 cold              56.06     84.68 0.662 0.662 1.237  T=tt38@32x64x32_w2_s5 O=ro_tt32@16x16x64_w4_s2
+M128 N1024 K4096 warm              55.73     47.89 1.164 1.164 1.314  T=tt38@32x64x32_w2_s5 O=ro_tt32@32x64x32_w2_s5
+M128 N4096 K1024 cold              30.83     33.52 0.920 0.920 1.257  T=tt38@64x128x32_w4_s4 O=ro_tt32@32x64x32_w2_s5
+M128 N4096 K1024 warm              21.93     19.11 1.147 1.147 1.181  T=tt38@64x128x32_w4_s4 O=ro_clamp@64x128x32_w4_s4
+M128 N4096 K4096 cold              97.75    107.65 0.908 0.908 1.312  T=tt38@64x128x32_w4_s4 O=ro_tt32@32x64x32_w2_s5
+M128 N4096 K4096 warm              81.92     88.78 0.923 0.923 1.388  T=tt38@64x128x32_w4_s4 O=ro_tt32@32x64x32_w2_s5
+M256 N1024 K1024 cold              23.20     25.82 0.898 0.898 1.298  T=tt38@32x64x32_w2_s5 O=ro_tt32@32x64x32_w2_s5
+M256 N1024 K1024 warm              20.17     17.04 1.183 1.183 1.287  T=tt38@32x64x32_w2_s5 O=ro_tt32@32x64x32_w2_s5
+M256 N1024 K4096 cold              73.38     87.40 0.840 0.840 1.418  T=tt38@32x64x32_w2_s5 O=ro_tt32@64x32x32_w2_s5
+M256 N1024 K4096 warm              69.23     62.13 1.114 1.114 1.257  T=tt38@32x64x32_w2_s5 O=ro_tt32@32x64x32_w2_s5
+M256 N4096 K1024 cold              40.16     37.96 1.058 1.093 1.198  T=tt32@32x64x32_w2_s5 O=ro_tt32@32x64x32_w2_s5
+M256 N4096 K1024 warm              34.20     36.16 0.946 1.183 0.951  T=ctl_s2@64x128x32_w4_s4 O=ro_full_tt32@64x128x32_w4_s4
+M256 N4096 K4096 cold             138.53    136.77 1.013 1.137 1.111  T=tt32@64x32x32_w2_s5 O=ro_full_tt32@64x128x32_w4_s4
+M256 N4096 K4096 warm             132.39    128.01 1.034 1.276 1.170  T=tt32@64x32x32_w2_s5 O=ro_full_tt32@64x128x32_w4_s4
+M512 N512 K1024 cold               23.14     24.17 0.957 0.957 1.334  T=tt38@32x64x32_w2_s5 O=ro_tt32@32x64x32_w2_s5
+M512 N512 K1024 warm               20.15     16.34 1.233 1.233 1.278  T=tt38@32x64x32_w2_s5 O=ro_clamp@128x32x32_w4_s4
+M512 N512 K2048 cold               39.70     44.19 0.898 0.898 1.368  T=tt38@32x64x32_w2_s5 O=ro_tt32@32x64x32_w2_s5
+M512 N512 K2048 warm               36.70     29.67 1.237 1.237 1.314  T=tt38@32x64x32_w2_s5 O=ro_clamp@128x32x32_w4_s4
+M512 N11008 K4096 cold            514.97    480.90 1.071 1.071 1.209  T=tt38@64x128x32_w4_s4 O=ro_full_tt32@64x128x32_w4_s4
+M512 N11008 K4096 warm            544.43    478.88 1.137 1.137 1.187  T=tt38@64x128x32_w4_s4 O=ro_full_tt32@64x128x32_w4_s4
+M1024 N1024 K1024 cold             37.72     33.60 1.122 1.122 1.202  T=tt38@64x128x32_w4_s4 O=ro_full_tt32@64x128x32_w4_s4
+M1024 N1024 K1024 warm             33.82     36.88 0.917 1.254 0.930  T=kernl@64x128x32_w4_s4 O=ro_full_tt32@64x128x32_w4_s4
+M1024 N1024 K4096 cold            151.87    128.60 1.181 1.276 1.183  T=ctl_s5@64x128x32_w4_s4 O=ro_full_tt32@64x128x32_w4_s4
+M1024 N1024 K4096 warm            133.90    135.67 0.987 1.259 0.987  T=orig@64x128x32_w4_s4 O=ro_clamp@64x128x32_w4_s4
+M1024 N4096 K1024 cold            112.67    105.09 1.072 1.072 1.092  T=tt38@64x128x32_w4_s4 O=ro_full_tt32@64x128x32_w4_s4
+M1024 N4096 K1024 warm            104.09    104.04 1.000 1.201 1.009  T=ctl_s2@64x128x32_w4_s4 O=ro_clamp@64x128x32_w4_s4
+M1024 N4096 K4096 cold            412.04    371.47 1.109 1.109 1.137  T=tt38@64x128x32_w4_s4 O=ro_full_tt32@64x128x32_w4_s4
+M1024 N4096 K4096 warm            463.12    413.74 1.119 1.179 1.119  T=orig@64x128x32_w4_s4 O=ro_full_tt32@64x128x32_w4_s4
+
+shapes 48: ours faster than BEST Triton in 23; median ratio 0.987 (min 0.662 max 1.237)
+vs best Triton 3.8 only: faster in 29/48, median 1.118
+vs best Triton 2.2 only: faster in 45/48, median 1.224
+
+== kernl_fused_ff best-vs-best (A100, 12 Oct)
+shape                        best Triton      ours ratio  vs3.8  vs2.2  (winner builds)
+M16 N1024 K1024 cold               23.14     24.37 0.950 0.950 1.261  T=tt38@32x64x32_w2_s5 O=ro_tt32@16x16x64_w4_s2
+M16 N1024 K1024 warm               12.01     11.99 1.002 1.411 1.190  T=ctl_s5@16x16x64_w4_s2 O=ro@16x16x64_w4_s2
+M16 N1024 K4096 cold               68.20     77.62 0.879 0.879 1.325  T=tt38@32x64x32_w2_s5 O=ro@16x16x64_w4_s2
+M16 N1024 K4096 warm               41.49     41.36 1.003 1.488 1.227  T=ctl_s5@16x16x64_w4_s2 O=ro@16x16x64_w4_s2
+M16 N4096 K1024 cold               32.36     34.00 0.952 0.952 1.235  T=tt38@32x64x32_w2_s5 O=ro_tt32@16x16x64_w4_s2
+M16 N4096 K1024 warm               17.55     16.34 1.074 1.125 1.116  T=ctl_s5@16x16x64_w4_s2 O=ro_tt32@16x16x64_w4_s2
+M16 N4096 K4096 cold               87.45     98.51 0.888 0.888 1.353  T=tt38@32x64x32_w2_s5 O=ro_tt32@16x16x64_w4_s2
+M16 N4096 K4096 warm               69.84     81.68 0.855 0.855 1.417  T=tt38@32x64x32_w2_s5 O=ro_tt32@16x16x64_w4_s2
+M16 N11008 K4096 cold             170.19    172.24 0.988 1.231 1.027  T=ctl_s5@16x16x64_w4_s2 O=ro_tt32@16x16x64_w4_s2
+M16 N11008 K4096 warm             154.01    152.17 1.012 1.256 1.059  T=ctl_s5@16x16x64_w4_s2 O=ro_tt32@16x16x64_w4_s2
+M64 N1024 K1024 cold               23.35     28.06 0.832 0.832 1.131  T=tt38@32x64x32_w2_s5 O=ro_tt32@16x16x64_w4_s2
+M64 N1024 K1024 warm               17.77     16.38 1.085 1.117 1.114  T=ctl_s5@16x16x64_w4_s2 O=ro_tt32@16x16x64_w4_s2
+M64 N1024 K4096 cold               68.40     92.16 0.742 0.742 1.162  T=tt38@32x64x32_w2_s5 O=ro_tt32@16x16x64_w4_s2
+M64 N1024 K4096 warm               59.26     55.98 1.059 1.145 1.149  T=ctl_s5@16x16x64_w4_s2 O=ro_tt32@16x16x64_w4_s2
+M64 N4096 K1024 cold               39.53     46.69 0.846 0.846 1.167  T=tt38@64x32x32_w2_s5 O=ro_clamp@32x64x32_w2_s5
+M64 N4096 K1024 warm               26.32     24.38 1.080 1.182 1.184  T=kernl@32x64x32_w2_s5 O=ro_tt32@32x64x32_w2_s5
+M64 N4096 K4096 cold              119.81    127.80 0.938 0.938 1.356  T=tt38@32x64x32_w2_s5 O=ro_clamp@32x64x32_w2_s5
+M64 N4096 K4096 warm              107.32    107.01 1.003 1.003 1.501  T=tt38@32x64x32_w2_s5 O=ro_clamp@32x64x32_w2_s5
+M128 N1024 K1024 cold              23.96     31.13 0.770 0.770 1.164  T=tt38@32x64x32_w2_s5 O=ro_clamp@32x64x32_w2_s5
+M128 N1024 K1024 warm              18.46     16.60 1.112 1.112 1.249  T=tt38@32x64x32_w2_s5 O=ro_tt32@32x64x32_w2_s5
+M128 N1024 K4096 cold              69.43    102.81 0.675 0.675 1.147  T=tt38@32x64x32_w2_s5 O=ro_clamp@32x64x32_w2_s5
+M128 N1024 K4096 warm              64.46     58.94 1.094 1.094 1.266  T=tt38@32x64x32_w2_s5 O=ro_tt32@32x64x32_w2_s5
+M128 N4096 K1024 cold              44.65     48.54 0.920 0.920 1.127  T=tt38@64x32x32_w2_s5 O=ro_tt32@32x64x32_w2_s5
+M128 N4096 K1024 warm              31.68     28.25 1.121 1.251 1.188  T=tt32@32x64x32_w2_s5 O=ro_clamp@64x128x32_w4_s4
+M128 N4096 K4096 cold             137.63    129.84 1.060 1.060 1.338  T=tt38@64x32x32_w2_s5 O=ro_clamp@32x64x32_w2_s5
+M128 N4096 K4096 warm             132.40    116.64 1.135 1.135 1.379  T=tt38@64x32x32_w2_s5 O=ro_clamp@32x64x32_w2_s5
+M256 N1024 K1024 cold              35.02     33.79 1.036 1.036 1.255  T=tt38@32x64x32_w2_s5 O=ro_clamp@64x32x32_w2_s5
+M256 N1024 K1024 warm              25.97     24.33 1.067 1.176 1.174  T=kernl@32x64x32_w2_s5 O=ro_tt32@32x64x32_w2_s5
+M256 N1024 K4096 cold             110.59    106.91 1.034 1.034 1.389  T=tt38@32x64x32_w2_s5 O=ro_clamp@32x64x32_w2_s5
+M256 N1024 K4096 warm              92.54     88.64 1.044 1.154 1.170  T=kernl@32x64x32_w2_s5 O=ro_tt32@32x64x32_w2_s5
+M256 N4096 K1024 cold              60.42     51.61 1.171 1.349 1.183  T=tt32@64x128x32_w4_s4 O=ro_tt32@64x128x32_w4_s4
+M256 N4096 K1024 warm              47.47     42.39 1.120 1.570 1.120  T=orig@64x128x32_w4_s4 O=ro_full_tt32@64x128x32_w4_s4
+M256 N4096 K4096 cold             197.84    162.61 1.217 1.508 1.244  T=ctl_s5@64x32x32_w2_s2 O=ro_tt32@64x128x32_w4_s4
+M256 N4096 K4096 warm             192.74    163.73 1.177 1.520 1.225  T=kernl@64x128x32_w4_s4 O=ro_full_tt32@64x128x32_w4_s4
+M512 N512 K1024 cold               31.54     31.33 1.007 1.007 1.255  T=tt38@128x32x32_w4_s4 O=ro_tt32@128x32x32_w4_s4
+M512 N512 K1024 warm               25.65     22.35 1.148 1.148 1.219  T=tt38@128x32x32_w4_s4 O=ro_full_tt32@128x32x32_w4_s4
+M512 N512 K2048 cold               54.89     54.89 1.000 1.000 1.280  T=tt38@128x32x32_w4_s4 O=ro_tt32@128x32x32_w4_s4
+M512 N512 K2048 warm               46.79     41.47 1.128 1.169 1.231  T=kernl@32x64x32_w2_s5 O=ro_full_tt32@128x32x32_w4_s4
+M512 N11008 K4096 cold            731.34    620.54 1.179 1.365 1.302  T=tt32@64x128x32_w4_s4 O=ro_tt32@64x128x32_w4_s4
+M512 N11008 K4096 warm            727.72    625.32 1.164 1.370 1.287  T=tt32@64x128x32_w4_s4 O=ro_tt32@64x128x32_w4_s4
+M1024 N1024 K1024 cold             53.45     46.90 1.140 1.463 1.148  T=tt32@64x128x32_w4_s4 O=ro_tt32@64x128x32_w4_s4
+M1024 N1024 K1024 warm             44.15     43.29 1.020 1.562 1.020  T=orig@64x128x32_w4_s4 O=ro_full_tt32@64x128x32_w4_s4
+M1024 N1024 K4096 cold            182.89    156.67 1.167 1.558 1.167  T=orig@64x128x32_w4_s4 O=ro_full_tt32@64x128x32_w4_s4
+M1024 N1024 K4096 warm            173.06    158.15 1.094 1.581 1.094  T=orig@64x128x32_w4_s4 O=ro_full_tt32@64x128x32_w4_s4
+M1024 N4096 K1024 cold            150.12    124.93 1.202 1.418 1.330  T=tt32@64x128x32_w4_s4 O=ro_tt32@64x128x32_w4_s4
+M1024 N4096 K1024 warm            149.50    125.44 1.192 1.506 1.280  T=tt32@64x128x32_w4_s4 O=ro_tt32@64x128x32_w4_s4
+M1024 N4096 K4096 cold            572.01    459.57 1.245 1.521 1.360  T=tt32@64x128x32_w4_s4 O=ro_tt32@64x128x32_w4_s4
+M1024 N4096 K4096 warm            571.73    463.53 1.233 1.563 1.345  T=tt32@64x128x32_w4_s4 O=ro_tt32@64x128x32_w4_s4
+
+shapes 48: ours faster than BEST Triton in 34; median ratio 1.059 (min 0.675 max 1.245)
+vs best Triton 3.8 only: faster in 35/48, median 1.147
+vs best Triton 2.2 only: faster in 48/48, median 1.226

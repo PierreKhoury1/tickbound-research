@@ -1,0 +1,14 @@
+{
+"__main__.rms:f3fd62125273|((torch.float16, (16, 4096)), (torch.float16, (4096,)), (torch.float16, (16, 4096)), ('i', 4096), 'f', ('BLOCK', 1024))": {
+"chosen": "orig",
+"orig_us": 6.112,
+"best_us": 6.112,
+"deterministic": true
+},
+"__main__.add:ef477f4b9772|((torch.float32, (4096,)), (torch.float32, (4096,)), (torch.float32, (4096,)), ('i', 4096), ('BLOCK', 1024))": {
+"chosen": "orig",
+"orig_us": 4.576,
+"best_us": 4.576,
+"deterministic": true
+}
+}

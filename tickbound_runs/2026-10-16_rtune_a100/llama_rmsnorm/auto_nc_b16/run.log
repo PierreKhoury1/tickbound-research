@@ -1,0 +1,32 @@
+
+$ bash ./run.sh A100
+[run] A100 (sm_80), stamp 20261016T005300Z
+Cuda compilation tools, release 12.6, V12.6.85
+Build cuda_12.6.r12.6/compiler.35059454_0
+[build] sm_80
+REG:31 STACK:0 REG:30 STACK:0 REG:32 STACK:0 REG:32 STACK:0 REG:32 STACK:0 REG:40 STACK:0 
+[build] WARNING: check_trace_sass gates failed, see sass/box/check_trace_sass.txt
+[build] OK
+[run] WARNING: box SASS differs from sass/nvcc_local, see results/llama_rmsnorm_A100_20261016T005300Z_box/sass_identity.txt
+[run] WARNING: check_trace_sass gates failed, see results/llama_rmsnorm_A100_20261016T005300Z_box/check_trace_sass.txt
+device NVIDIA A100-SXM4-40GB, cc 80, 108 SMs, L2 40 MB, driver 13020, runtime 12060; binary built for sm_80
+  orig regs 40 (trace build 32), max blocks/SM 1 (trace build 2)
+  ro   regs 32 (trace build 32), max blocks/SM 2 (trace build 2)
+  ro2  regs 30 (trace build 31), max blocks/SM 2 (trace build 2)
+  PDL cases (n_embd 4096 warm, llama.cpp's Hopper launch): no (cc 80, PTX 80)
+globaltimer update period 1024 ns, SM clock 1.0948 GHz, L2 flush 84 MB, 9 cases, reps 5, warm batch 100, cold batch 20, trace reps 3
+e4096_r1_warm      orig   5.335 | ro   4.168 (1.280x) | ro2   4.301 (1.240x) | null  1.024 us/launch | span 4.166/3.804/3.821 us (1.095x) | trace/timing 1.060/1.268/1.221 (span illustrative) | bit-identical | 1.095 GHz
+e4096_r128_warm    orig  10.076 | ro   6.799 (1.482x) | ro2   7.066 (1.426x) | null  1.260 us/launch | span 7.320/7.048/7.116 us (1.039x) | trace/timing 0.860/1.256/1.223 (span illustrative) | bit-identical | 1.095 GHz
+e8192_r1_warm      orig   6.205 | ro   5.345 (1.161x) | ro2   5.458 (1.137x) | null  1.034 us/launch | span 5.245/4.856/4.735 us (1.080x) | trace/timing 1.097/1.193/1.152 (span illustrative) | bit-identical | 1.095 GHz
+e8192_r128_warm    orig  12.257 | ro   8.663 (1.415x) | ro2   8.612 (1.423x) | null  1.260 us/launch | span 10.308/8.949/9.330 us (1.152x) | trace/timing 0.967/1.220/1.254 (span illustrative) | bit-identical | 1.095 GHz
+e4096_r1_cold      orig  10.701 | ro   8.704 (1.229x) | ro2   8.806 (1.215x) | null  5.222 us/launch | span 5.730/3.983/4.057 us (1.438x) | trace/timing 1.081/1.141/1.140 (span illustrative) | bit-identical | 1.260 GHz
+e4096_r128_cold    orig  16.589 | ro  12.902 (1.286x) | ro2  12.902 (1.286x) | null  5.478 us/launch | span 9.173/8.905/8.763 us (1.030x) | trace/timing 0.861/1.115/1.091 (span illustrative) | bit-identical | 1.110 GHz
+e8192_r1_cold      orig  10.598 | ro  10.291 (1.030x) | ro2  10.035 (1.056x) | null  5.120 us/launch | span 6.125/5.567/5.208 us (1.100x) | trace/timing 1.101/1.109/1.087 (span illustrative) | bit-identical | 1.290 GHz
+e8192_r128_cold    orig  19.200 | ro  16.128 (1.190x) | ro2  15.718 (1.221x) | null  5.171 us/launch | span 11.700/11.012/11.089 us (1.063x) | trace/timing 0.925/1.070/1.101 (span illustrative) | bit-identical | 1.245 GHz
+e4096_r1_decode    orig  10.189 | ro   8.243 (1.236x) | ro2   8.448 (1.206x) | null  4.915 us/launch | span 5.479/3.998/3.890 us (1.371x) | trace/timing 1.070/1.149/1.109 (span illustrative) | bit-identical | 1.245 GHz
+wrote results/llama_rmsnorm_A100_20261016T005300Z.csv, results/llama_rmsnorm_A100_20261016T005300Z_extra.csv, results/llama_rmsnorm_A100_20261016T005300Z_env.json and traces/20261016T005300Z/*.json
+bench: all 9 cases finished
+[run] archive llama_rmsnorm_A100_20261016T005300Z.tgz (27 trace files), 9 s on the box
+DONE
+
+[rc=0 8s]

@@ -1,0 +1,4 @@
+{"ptx": "/tmp/tmpxft_0000073f_00000000-6_ks_bench.ptx", "k": 0, "loads": 0, "nc_marked": 0, "pass_s": 0.0, "kernels": [], "loops_transformed": 0, "out_sha": "5e6546f72f6322d0", "note": "nothing transformed"}
+{"ptx": "/tmp/tmpxft_0000073e_00000000-6_ks_timing.ptx", "k": 0, "loads": 0, "nc_marked": 0, "pass_s": 0.15, "kernels": [], "loops_transformed": 0, "out_sha": "1c919fdd8c25e1c2", "note": "nothing transformed"}
+{"ptx": "/tmp/tmpxft_0000073f_00000000-10_ks_timing.ptx", "k": 0, "loads": 0, "nc_marked": 0, "pass_s": 0.15, "kernels": [], "loops_transformed": 0, "out_sha": "1c919fdd8c25e1c2", "note": "nothing transformed"}
+{"ptx": "build/stamp_sm80/ks_exit_tmpl_sm80.ptx", "k": 0, "loads": 0, "nc_marked": 0, "pass_s": 0.0, "kernels": [], "loops_transformed": 0, "out_sha": "6b46646172030965", "note": "nothing transformed"}

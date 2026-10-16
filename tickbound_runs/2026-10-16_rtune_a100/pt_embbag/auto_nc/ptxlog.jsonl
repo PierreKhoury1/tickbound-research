@@ -1,0 +1,2 @@
+{"ptx": "/tmp/tmpxft_00000bb6_00000000-6_eb_bench.ptx", "k": 0, "loads": 0, "nc_marked": 68, "pass_s": 0.01, "kernels": [], "loops_transformed": 1, "out_sha": "c9915273fc078ffa", "result": "transformed"}
+{"ptx": "build/trace_stamped_sm80.ptx", "k": 0, "loads": 0, "nc_marked": 67, "pass_s": 0.02, "kernels": [], "loops_transformed": 1, "out_sha": "bf41092d3da04189", "result": "transformed"}

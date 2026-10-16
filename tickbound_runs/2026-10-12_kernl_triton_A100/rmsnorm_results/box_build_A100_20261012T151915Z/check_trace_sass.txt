@@ -1,0 +1,13 @@
+sm_80/orig_n4096       PASS  368 kernel instructions bit-identical (hot region 173), 25 stamp instructions at entry/p1_end/bar1/bar2/exit, regs 32->60
+sm_80/orig_n5120       PASS  440 kernel instructions bit-identical (hot region 214), 25 stamp instructions at entry/p1_end/bar1/bar2/exit, regs 32->60
+sm_80/orig_n8192       PASS  664 kernel instructions bit-identical (hot region 341), 25 stamp instructions at entry/p1_end/bar1/bar2/exit, regs 40->68
+sm_80/ro2_n4096        PASS  368 kernel instructions bit-identical (hot region 159), 25 stamp instructions at entry/p1_end/bar1/bar2/exit, regs 48->76
+sm_80/ro2_n5120        PASS  440 kernel instructions bit-identical (hot region 204), 25 stamp instructions at entry/p1_end/bar1/bar2/exit, regs 60->88
+sm_80/ro2_n8192        PASS  664 kernel instructions bit-identical (hot region 321), 25 stamp instructions at entry/p1_end/bar1/bar2/exit, regs 84->112
+sm_80/ro3_n4096        PASS  368 kernel instructions bit-identical (hot region 165), 25 stamp instructions at entry/p1_end/bar1/bar2/exit, regs 48->76
+sm_80/ro3_n5120        PASS  440 kernel instructions bit-identical (hot region 204), 25 stamp instructions at entry/p1_end/bar1/bar2/exit, regs 58->88
+sm_80/ro3_n8192        PASS  664 kernel instructions bit-identical (hot region 321), 25 stamp instructions at entry/p1_end/bar1/bar2/exit, regs 84->112
+sm_80/ro_n4096         PASS  368 kernel instructions bit-identical (hot region 173), 25 stamp instructions at entry/p1_end/bar1/bar2/exit, regs 38->68
+sm_80/ro_n5120         PASS  440 kernel instructions bit-identical (hot region 214), 25 stamp instructions at entry/p1_end/bar1/bar2/exit, regs 48->76
+sm_80/ro_n8192         PASS  664 kernel instructions bit-identical (hot region 337), 25 stamp instructions at entry/p1_end/bar1/bar2/exit, regs 72->100
+12/12 trace builds: every kernel instruction bit-identical to the timing build, stamps only outside region A and the hot region (pass 2)

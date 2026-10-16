@@ -1,0 +1,43 @@
+Where the global loads sit in the steady-state bag loop (nvcc 12.6.85 timing build, `cuobjdump -sass`).
+Order of memory instructions in one loop trip (4 bag elements): I = index load (LDG.E.64 input[emb]),
+G = weight gather (LDG.E weightFeat[idx * stride0]), P = per_sample_weights load, S = offset2bag store
+(@!P STG.E.64). 'gap' = instructions from each gather to the first instruction that uses its value.
+cyc/trip = one-warp simulation (tools/sassmodel.py) with index loads 39 cycles (L1), per_sample_weights
+39, gathers at L2 near/far and DRAM near/far latencies. 'exposed' = gather latencies one trip waits
+through = slope dT1/dL of cyc/trip between the lowest and highest latency (4 = the 4 gathers serialized,
+1 = all 4 in flight together); the memory order alone does not show it, the scoreboard waits do.
+
+sm_80 orig nopsw @0x4380:  92 instr, issue  92 cyc/trip, regs 40, pattern [I G S I G S I G S I G S]
+                          gather->use gaps [4, 3, 12, 23]; one-warp cyc/trip at L=220/374/493/645: 847 / 1309 / 1666 / 2122; exposed gather latencies per trip 3.00
+sm_80 orig psw   @0x1c60: 102 instr, issue 108 cyc/trip, regs 40, pattern [I P G S I G P S I G P S I G P S]
+                          gather->use gaps [3, 7, 7, 17]; one-warp cyc/trip at L=220/374/493/645: 1196 / 1812 / 2288 / 2896; exposed gather latencies per trip 4.00
+sm_80 ro   nopsw @0x21c0:  82 instr, issue  82 cyc/trip, regs 48, pattern [I I I I G G G G S S S S]
+                          gather->use gaps [39, 37, 38, 38]; one-warp cyc/trip at L=220/374/493/645: 350 / 504 / 623 / 775; exposed gather latencies per trip 1.00
+sm_80 ro   psw   @0x1b70:  94 instr, issue  94 cyc/trip, regs 48, pattern [P I I I I G G P G P G P S S S S]
+                          gather->use gaps [7, 28, 39, 31]; one-warp cyc/trip at L=220/374/493/645: 601 / 909 / 1147 / 1451; exposed gather latencies per trip 2.00
+sm_80 ro2  nopsw @0x4360:  86 instr, issue  92 cyc/trip, regs 48, pattern [I I I I S S S S G G G G]
+                          gather->use gaps [30, 27, 29, 33]; one-warp cyc/trip at L=220/374/493/645: 339 / 493 / 612 / 764; exposed gather latencies per trip 1.00
+sm_80 ro2  psw   @0x1c70:  98 instr, issue 108 cyc/trip, regs 48, pattern [I I P G S P I I S P S G P S G G]
+                          gather->use gaps [28, 32, 27, 28]; one-warp cyc/trip at L=220/374/493/645: 574 / 882 / 1120 / 1424; exposed gather latencies per trip 2.00
+sm_80 ro3  nopsw @0x4330:  90 instr, issue  92 cyc/trip, regs 40, pattern [I S S S S I G I I G G G]
+                          gather->use gaps [7, 9, 14, 15]; one-warp cyc/trip at L=220/374/493/645: 805 / 1267 / 1624 / 2080; exposed gather latencies per trip 3.00
+sm_80 ro3  psw   @0x1c60: 100 instr, issue 108 cyc/trip, regs 40, pattern [I S I G P G P S S S I G I P G P]
+                          gather->use gaps [7, 8, 8, 20]; one-warp cyc/trip at L=220/374/493/645: 1097 / 1713 / 2189 / 2797; exposed gather latencies per trip 4.00
+
+sm_90 orig nopsw @0x4630:  98 instr, issue  98 cyc/trip, regs 40, pattern [I G S I G S I G S I G S]
+                          gather->use gaps [38, 38, 28, 31]; one-warp cyc/trip at L=280/472/572/774: 657 / 1041 / 1241 / 1645; exposed gather latencies per trip 2.00
+sm_90 orig psw   @0x1cf0: 112 instr, issue 112 cyc/trip, regs 40, pattern [I G P S I G P S I G P S I G P S]
+                          gather->use gaps [13, 15, 22, 31]; one-warp cyc/trip at L=280/472/572/774: 1040 / 1616 / 1916 / 2522; exposed gather latencies per trip 3.00
+sm_90 ro   nopsw @0x2320:  90 instr, issue  90 cyc/trip, regs 48, pattern [I I I I G G G G S S S S]
+                          gather->use gaps [38, 40, 41, 42]; one-warp cyc/trip at L=280/472/572/774: 418 / 610 / 710 / 912; exposed gather latencies per trip 1.00
+sm_90 ro   psw   @0x1bf0: 108 instr, issue 108 cyc/trip, regs 48, pattern [I I I I G G P P G G P P S S S S]
+                          gather->use gaps [44, 42, 43, 41]; one-warp cyc/trip at L=280/472/572/774: 459 / 651 / 751 / 953; exposed gather latencies per trip 1.00
+sm_90 ro2  nopsw @0x45e0:  93 instr, issue  93 cyc/trip, regs 40, pattern [I S S I I S S I G G G G]
+                          gather->use gaps [21, 26, 29, 31]; one-warp cyc/trip at L=280/472/572/774: 677 / 1061 / 1261 / 1665; exposed gather latencies per trip 2.00
+sm_90 ro2  psw   @0x1cf0: 105 instr, issue 108 cyc/trip, regs 40, pattern [I P S I G P S G P S I P S I G G]
+                          gather->use gaps [6, 17, 17, 19]; one-warp cyc/trip at L=280/472/572/774: 997 / 1573 / 1873 / 2479; exposed gather latencies per trip 3.00
+sm_90 ro3  nopsw @0x4610:  98 instr, issue  98 cyc/trip, regs 40, pattern [I S S S I I S G I G G G]
+                          gather->use gaps [20, 24, 28, 32]; one-warp cyc/trip at L=280/472/572/774: 698 / 1082 / 1282 / 1686; exposed gather latencies per trip 2.00
+sm_90 ro3  psw   @0x1d20: 110 instr, issue 110 cyc/trip, regs 40, pattern [I S G P I S I G P S S I G P G P]
+                          gather->use gaps [9, 19, 31, 29]; one-warp cyc/trip at L=280/472/572/774: 1003 / 1579 / 1879 / 2485; exposed gather latencies per trip 3.00
+

@@ -1,0 +1,45 @@
+
+$ bash ./run.sh A100 --quick
+[run] NVIDIA A100-PCIE-40GB -> A100, sm_80
+[build] ptxas: Cuda compilation tools, release 12.6, V12.6.85
+[build] sm_80 orig_n4096: Used 46 registers, 352 SASS lines, trace build ok
+[build] sm_80 orig_n5120: Used 48 registers, 432 SASS lines, trace build ok
+[build] sm_80 orig_n8192: Used 56 registers, 648 SASS lines, trace build ok
+[build] sm_80 ro2_n4096: Used 48 registers, 368 SASS lines, trace build ok
+[build] sm_80 ro2_n5120: Used 60 registers, 440 SASS lines, trace build ok
+[build] sm_80 ro2_n8192: Used 84 registers, 664 SASS lines, trace build ok
+[build] sm_80 ro3_n4096: Used 48 registers, 368 SASS lines, trace build ok
+[build] sm_80 ro3_n5120: Used 58 registers, 440 SASS lines, trace build ok
+[build] sm_80 ro3_n8192: Used 84 registers, 664 SASS lines, trace build ok
+[build] sm_80 ro_n4096: Used 38 registers, 368 SASS lines, trace build ok
+[build] sm_80 ro_n5120: Used 48 registers, 440 SASS lines, trace build ok
+[build] sm_80 ro_n8192: Used 72 registers, 664 SASS lines, trace build ok
+[build] sm_80: 12/12 trace builds: every kernel instruction bit-identical to the timing build, stamps only outside region A and the hot region (pass 2)
+[build] host: build/harness
+[build] done
+device NVIDIA A100-SXM4-40GB, 108 SMs, L2 40 MB, clock 1410 MHz, driver 13020, runtime 12060, flush 101 MB
+  orig N=4096: 46 regs, 10 CTAs/SM | trace build 78 regs, 6 CTAs/SM
+  orig N=5120: 48 regs, 10 CTAs/SM | trace build 78 regs, 6 CTAs/SM
+  orig N=8192: 56 regs, 9 CTAs/SM | trace build 86 regs, 5 CTAs/SM
+  ro   N=4096: 38 regs, 12 CTAs/SM | trace build 70 regs, 7 CTAs/SM
+  ro   N=5120: 48 regs, 10 CTAs/SM | trace build 78 regs, 6 CTAs/SM
+  ro   N=8192: 72 regs, 7 CTAs/SM | trace build 102 regs, 4 CTAs/SM
+  ro2  N=4096: 48 regs, 10 CTAs/SM | trace build 78 regs, 6 CTAs/SM
+  ro2  N=5120: 60 regs, 8 CTAs/SM | trace build 90 regs, 5 CTAs/SM
+  ro2  N=8192: 84 regs, 5 CTAs/SM | trace build 114 regs, 4 CTAs/SM
+  ro3  N=4096: 48 regs, 10 CTAs/SM | trace build 78 regs, 6 CTAs/SM
+  ro3  N=5120: 58 regs, 8 CTAs/SM | trace build 90 regs, 5 CTAs/SM
+  ro3  N=8192: 84 regs, 5 CTAs/SM | trace build 114 regs, 4 CTAs/SM
+SM clock 1.4099 GHz (from %clock64 over 4 ms of %globaltimer), globaltimer tick 1024 ns
+N4096_M16_warm       B=400 orig    2.263 | ro    2.330 (x0.971) | ro2    2.166 (x1.045) | ro3    2.132 (x1.061) us | empty 0.824 | span o/ro2 1.471/1.482 us | bitwise 1111 trace 1111 | ref err 0.00048
+N5120_M16_warm       B=400 orig    2.473 | ro    2.437 (x1.015) | ro2    2.355 (x1.050) | ro3    2.299 (x1.076) us | empty 0.824 | span o/ro2 2.001/1.548 us | bitwise 1111 trace 1111 | ref err 0.00047
+N8192_M16_decode     B= 30 orig    7.885 | ro    7.373 (x1.069) | ro2    7.031 (x1.121) | ro3    7.270 (x1.085) us | empty 4.915 | span o/ro2 3.420/2.631 us | bitwise 1111 trace 1111 | ref err 0.00048
+N4096_M64_cold       B= 30 orig    8.294 | ro    8.738 (x0.949) | ro2    8.363 (x0.992) | ro3    8.021 (x1.034) us | empty 5.359 | span o/ro2 3.556/3.251 us | bitwise 1111 trace 1111 | ref err 0.00048
+N4096_M4096_warm     B= 37 orig   53.193 | ro   53.774 (x0.989) | ro2   52.805 (x1.007) | ro3   52.445 (x1.014) us | empty 4.622 | span o/ro2 nan/nan us | bitwise 1111 trace 1111 | ref err 0.00048
+driver JIT of the PTX (N4096_M16_warm): orig 3.052 | ro 2.488 | ro2 2.319 | ro3 2.289 us, regs 32 38 48 48
+SM clock at the end 1.3336 GHz
+DONE
+[run] results/kernl_rmsnorm_A100_20261016T004521Z.csv, 16 trace files
+DONE
+
+[rc=0 17s]

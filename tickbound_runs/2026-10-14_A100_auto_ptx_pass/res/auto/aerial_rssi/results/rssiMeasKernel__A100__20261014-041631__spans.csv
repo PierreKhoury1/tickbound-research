@@ -1,0 +1,1 @@
+kernel,variant,gpu,case_id,launch,span_us,span_raw_gt_us,max_warp_life_us,inconsistent_sms,sm_clock_ghz,rejected_events,trace_build_mean_us,timing_build_mean_us,trace_over_timing,trace_over_timing_rel_orig,span_illustrative

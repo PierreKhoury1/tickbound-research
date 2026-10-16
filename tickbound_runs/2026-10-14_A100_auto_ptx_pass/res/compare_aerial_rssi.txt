@@ -1,0 +1,1 @@
+cfoTaEstLowMimoKernel    n  22  auto median 1.002 (min 0.910 max 1.026) faster 0 slower 1 | hand median 1.183 | output mismatches 0

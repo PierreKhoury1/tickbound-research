@@ -1,0 +1,53 @@
+aerial_rssi    cfoTaEstLowMimoKernel    cases  22  best-of-all median 1.179 (22 faster)  automatic median 1.000 (2 faster)  picks {'ro': 21, 'ro_r1': 1}
+faiss_kselect  faiss_kselect            cases  70  best-of-all median 2.662 (70 faster)  automatic median 2.514 (70 faster)  picks {'ro8': 32, 'auto_b36': 27, 'ro': 11}
+kernl_fused_ff kernl_fused_ff           cases 280  best-of-all median 1.207 (236 faster)  automatic median 1.000 (0 faster)  picks {'ro_clamp': 55, 'ro_tt32': 104, 'ro': 69, 'orig': 44, 'ro_full_tt32': 8}
+kernl_rmsnorm  kernl_rmsnorm            cases   5  best-of-all median 1.307 (5 faster)  automatic median 1.232 (5 faster)  picks {'ro3': 4, 'ro2': 1}
+llama_rmsnorm  llama_rmsnorm            cases   9  best-of-all median 1.224 (9 faster)  automatic median 1.068 (7 faster)  picks {'ro': 5, 'auto_b8': 1, 'ro2': 3}
+pt_embbag      pt_embbag                cases  31  best-of-all median 1.457 (31 faster)  automatic median 1.122 (24 faster)  picks {'ro': 28, 'auto_b16': 1, 'auto_nc_b16': 2}
+rodinia_pf     pf_find_index            cases   4  best-of-all median 2.647 (4 faster)  automatic median 1.205 (4 faster)  picks {'ro2': 4}
+rodinia_pf     pf_normalize_weights     cases   4  best-of-all median 2.998 (4 faster)  automatic median 2.988 (4 faster)  picks {'ro': 2, 'auto_b36': 2}
+triton_flaggems flaggems:_copy_kernel_kernel_rank_2 cases   4  best-of-all median 1.000 (0 faster)  automatic median 1.000 (0 faster)  picks {'orig': 4}
+triton_flaggems flaggems:_gather_flaggems_jit_function cases   2  best-of-all median 1.000 (0 faster)  automatic median 1.000 (0 faster)  picks {'orig': 2}
+triton_flaggems flaggems:_to_copy_func_kernel_rank_1 cases   4  best-of-all median 1.000 (0 faster)  automatic median 1.000 (0 faster)  picks {'orig': 4}
+triton_flaggems flaggems:arange_func     cases   2  best-of-all median 1.014 (1 faster)  automatic median 1.014 (1 faster)  picks {'auto_nc': 1, 'orig': 1}
+triton_flaggems flaggems:argmax_kernel_inner cases   2  best-of-all median 1.000 (0 faster)  automatic median 1.000 (0 faster)  picks {'orig': 2}
+triton_flaggems flaggems:bmm_kernel      cases   1  best-of-all median 1.000 (0 faster)  automatic median 1.000 (0 faster)  picks {'orig': 1}
+triton_flaggems flaggems:compute_global_hist_kernel cases   2  best-of-all median 1.000 (0 faster)  automatic median 1.000 (0 faster)  picks {'orig': 2}
+triton_flaggems flaggems:embedding_kernel cases   2  best-of-all median 1.000 (0 faster)  automatic median 1.000 (0 faster)  picks {'orig': 2}
+triton_flaggems flaggems:gelu_none_kernel_rank_1 cases   2  best-of-all median 1.021 (1 faster)  automatic median 1.021 (1 faster)  picks {'auto_nc': 1, 'orig': 1}
+triton_flaggems flaggems:index_select_kernel cases   2  best-of-all median 1.000 (0 faster)  automatic median 1.000 (0 faster)  picks {'orig': 2}
+triton_flaggems flaggems:layer_norm_persistent_kernel cases   2  best-of-all median 1.084 (1 faster)  automatic median 1.084 (1 faster)  picks {'auto_nc_b16': 1, 'orig': 1}
+triton_flaggems flaggems:log_softmax_kernel cases   4  best-of-all median 1.000 (0 faster)  automatic median 1.000 (0 faster)  picks {'orig': 4}
+triton_flaggems flaggems:mean_dim_kernel_inner cases   2  best-of-all median 1.000 (0 faster)  automatic median 1.000 (0 faster)  picks {'orig': 2}
+triton_flaggems flaggems:mm_kernel_general cases   2  best-of-all median 1.000 (0 faster)  automatic median 1.000 (0 faster)  picks {'orig': 2}
+triton_flaggems flaggems:nll_loss_forward_kernel cases   2  best-of-all median 1.013 (1 faster)  automatic median 1.013 (1 faster)  picks {'orig': 1, 'auto_nc': 1}
+triton_flaggems flaggems:reduce_then_scan_root_scan_kernel_row cases   4  best-of-all median 1.000 (1 faster)  automatic median 1.000 (1 faster)  picks {'orig': 3, 'auto_nc': 1}
+triton_flaggems flaggems:silu_forward_kernel_rank_1 cases   2  best-of-all median 1.014 (1 faster)  automatic median 1.014 (1 faster)  picks {'auto_nc': 1, 'orig': 1}
+triton_flaggems flaggems:softmax_kernel_inner cases   2  best-of-all median 1.000 (0 faster)  automatic median 1.000 (0 faster)  picks {'orig': 2}
+triton_flaggems flaggems:sub_func_kernel_rank_1 cases   2  best-of-all median 1.000 (0 faster)  automatic median 1.000 (0 faster)  picks {'orig': 2}
+triton_flaggems flaggems:sum_dim_kernel_inner cases   2  best-of-all median 1.000 (0 faster)  automatic median 1.000 (0 faster)  picks {'orig': 2}
+triton_flaggems flaggems:sweep           cases   2  best-of-all median 1.016 (1 faster)  automatic median 1.016 (1 faster)  picks {'orig': 1, 'auto_nc': 1}
+triton_flaggems flaggems:topk_stage1_kernel cases   2  best-of-all median 1.000 (0 faster)  automatic median 1.000 (0 faster)  picks {'orig': 2}
+triton_flaggems flaggems:topk_stage2_kernel cases   2  best-of-all median 1.000 (0 faster)  automatic median 1.000 (0 faster)  picks {'orig': 2}
+triton_flaggems flaggems:var_mean_welford_kernel cases   2  best-of-all median 1.000 (0 faster)  automatic median 1.000 (0 faster)  picks {'orig': 2}
+triton_flaggems flaggems:zeros_kernel    cases   4  best-of-all median 1.000 (0 faster)  automatic median 1.000 (0 faster)  picks {'orig': 4}
+triton_liger   liger:_dyt_bwd_kernel    cases   2  best-of-all median 1.000 (0 faster)  automatic median 1.000 (0 faster)  picks {'orig': 2}
+triton_liger   liger:_dyt_fwd_kernel    cases   2  best-of-all median 1.168 (1 faster)  automatic median 1.168 (1 faster)  picks {'orig': 1, 'auto_nc_b16': 1}
+triton_liger   liger:_geglu_tanh_backward_kernel cases   2  best-of-all median 1.000 (0 faster)  automatic median 1.000 (0 faster)  picks {'orig': 2}
+triton_liger   liger:_geglu_tanh_forward_kernel cases   2  best-of-all median 1.026 (1 faster)  automatic median 1.026 (1 faster)  picks {'orig': 1, 'auto_nc': 1}
+triton_liger   liger:_group_norm_backward_kernel cases   1  best-of-all median 1.035 (1 faster)  automatic median 1.035 (1 faster)  picks {'auto_nc_b16': 1}
+triton_liger   liger:_group_norm_forward_kernel cases   1  best-of-all median 1.000 (0 faster)  automatic median 1.000 (0 faster)  picks {'orig': 1}
+triton_liger   liger:_jsd_kernel        cases   2  best-of-all median 1.000 (0 faster)  automatic median 1.000 (0 faster)  picks {'orig': 2}
+triton_liger   liger:_kldiv_kernel_backward cases   2  best-of-all median 1.000 (0 faster)  automatic median 1.000 (0 faster)  picks {'orig': 2}
+triton_liger   liger:_kldiv_kernel_forward cases   2  best-of-all median 1.000 (0 faster)  automatic median 1.000 (0 faster)  picks {'orig': 2}
+triton_liger   liger:_layer_norm_backward_kernel cases   2  best-of-all median 1.000 (0 faster)  automatic median 1.000 (0 faster)  picks {'orig': 2}
+triton_liger   liger:_layer_norm_forward_kernel cases   2  best-of-all median 1.000 (0 faster)  automatic median 1.000 (0 faster)  picks {'orig': 2}
+triton_liger   liger:_rms_norm_backward_kernel cases   2  best-of-all median 1.000 (0 faster)  automatic median 1.000 (0 faster)  picks {'orig': 2}
+triton_liger   liger:_rms_norm_forward_kernel cases   2  best-of-all median 1.000 (0 faster)  automatic median 1.000 (0 faster)  picks {'orig': 2}
+triton_liger   liger:_softmax_single_block_backward_kernel cases   2  best-of-all median 1.000 (0 faster)  automatic median 1.000 (0 faster)  picks {'orig': 2}
+triton_liger   liger:_softmax_single_block_forward_kernel cases   2  best-of-all median 1.000 (0 faster)  automatic median 1.000 (0 faster)  picks {'orig': 2}
+triton_liger   liger:_sparsemax_forward_kernel cases   2  best-of-all median 1.049 (1 faster)  automatic median 1.049 (1 faster)  picks {'auto_nc': 1, 'orig': 1}
+triton_liger   liger:_swiglu_backward_kernel cases   2  best-of-all median 1.000 (0 faster)  automatic median 1.000 (0 faster)  picks {'orig': 2}
+triton_liger   liger:_swiglu_forward_kernel cases   2  best-of-all median 1.031 (1 faster)  automatic median 1.031 (1 faster)  picks {'auto_nc': 1, 'orig': 1}
+triton_liger   liger:_triton_rope       cases   2  best-of-all median 1.000 (0 faster)  automatic median 1.000 (0 faster)  picks {'orig': 2}
+triton_liger   liger:liger_cross_entropy_kernel cases   2  best-of-all median 1.000 (0 faster)  automatic median 1.000 (0 faster)  picks {'orig': 2}

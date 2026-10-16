@@ -1,0 +1,11 @@
+cfoTaEstLowMimoKernel per-PRB loop, H load / shared store order per variant (NVRTC 12.6.85 (pip), no fast math, local)
+H = channel-estimate load (LD.E.64, generic pointer -> global), S = its shared store (STS.64), B = __syncthreads (BAR.SYNC).
+orig: every store waits for the load right before it and the next load is issued only after that store (one exposed L2 trip per H element: 2 per PRB with nCHEST = 2; the 7 H/S pairs are the unrolled runtime nCHEST loop, 2 of them execute);
+ro_r1 (R1): all loads of a PRB in flight before its first store; ro (R1 + R2): the next PRB's loads issued after this PRB's first barrier, stored after the second (compute phase in between).
+
+sm_80 ro_r1  loop 0x0970-0x19d0  263 instr  order HHSSBB             S1<-H1 same iteration d=9 bar=0; S2<-H2 same iteration d=9 bar=0
+sm_80 ro     loop 0x0b00-0x1be0  271 instr  order SSBHHB             S1<-H3 previous iteration (loop-carried) d=248 bar=1; S2<-H4 previous iteration (loop-carried) d=248 bar=1
+sm_80 orig   loop 0x0950-0x2040  368 instr  order HSHSHSHSHSHSHSBB   S1<-H1 same iteration d=13 bar=0; S2<-H2 same iteration d=5 bar=0; S3<-H3 same iteration d=1 bar=0; S4<-H4 same iteration d=1 bar=0; S5<-H5 same iteration d=6 bar=0; S6<-H6 same iteration d=12 bar=0; S7<-H7 same iteration d=1 bar=0
+sm_90 ro_r1  loop 0x0a50-0x1b10  269 instr  order HHSSBB             S1<-H2 same iteration d=10 bar=0; S2<-H1 same iteration d=12 bar=0
+sm_90 ro     loop 0x0bd0-0x1d10  277 instr  order SSBHHB             S1<-H3 previous iteration (loop-carried) d=253 bar=1; S2<-H4 previous iteration (loop-carried) d=253 bar=1
+sm_90 orig   loop 0x0a10-0x2230  387 instr  order HSHSHSHSHSHSHSBB   S1<-H1 same iteration d=13 bar=0; S2<-H2 same iteration d=7 bar=0; S3<-H3 same iteration d=1 bar=0; S4<-H4 same iteration d=1 bar=0; S5<-H5 same iteration d=8 bar=0; S6<-H6 same iteration d=15 bar=0; S7<-H7 same iteration d=1 bar=0

@@ -1,0 +1,18 @@
+PASS  nvrtc_sm80.sass sm_80 find_index_kernel              hot loop 0100..0180 (9 instr, 1 loads) = trace 0140..01c0: text=ok/issue=ok/deps=ok, exact regs yes; timer reads 0/2; other loops: 02b0:same
+PASS  nvrtc_sm80.sass sm_80 find_index_kernel_ro2          hot loop 00e0..0350 (40 instr, 8 loads) = trace 0120..0390: text=ok/issue=ok/deps=ok, exact regs yes; timer reads 0/2; other loops: 0400:same, 0600:same
+PASS  nvrtc_sm80.sass sm_80 likelihood_kernel              hot loop 1da0..2330 (90 instr, 16 loads) = trace 1da0..2330: text=ok/issue=ok/deps=ok, exact regs yes; timer reads 0/0; other loops: 23f0:same, 2630:same, 2f60:same, 3750:same, 4580:same, 4d40:same
+EQUIV nvrtc_sm80.sass sm_80 normalize_weights_kernel       hot loop 04b0..0860 (60 instr, 16 loads) = trace 0530..08e0: text=DIFF/issue=DIFF/deps=DIFF, exact regs no; timer reads 0/4; other loops: 0af0:text differs, 0d50:text differs, 1c80:same
+      text differs at instruction 53: 'IADD3.X r4, RZ, r11, RZ, p2, !PT' vs 'IMAD.X r4, RZ, RZ, r11, p2' (lengths 60 / 60)
+      EQUIV: pipe synonyms ['53: IADD3.X r4, RZ, r11, RZ, p2, !PT -> IMAD.X r4, RZ, RZ, r11, p2']; stall moves ['52: S2->S3', '55: S3->S2']; stall sum 220 = 220; scoreboard dependencies identical
+PASS  nvrtc_sm80.sass sm_80 normalize_weights_kernel_ro    hot loop 0400..0790 (58 instr, 16 loads) = trace 0480..0810: text=ok/issue=ok/deps=ok, exact regs yes; timer reads 0/4; other loops: 0870:text differs, 0a30:same, 1f50:same
+PASS  nvrtc_sm80.sass sm_80 normalize_weights_kernel_ro2   hot loop 04e0..0b60 (105 instr, 16 loads) = trace 04e0..0b60: text=ok/issue=ok/deps=ok, exact regs yes; timer reads 0/0; other loops: 0c40:same, 0e10:same, 2390:same
+PASS  nvrtc_sm80.sass sm_80 sum_kernel                     hot loop 0200..0450 (38 instr, 16 loads) = trace 0200..0450: text=ok/issue=ok/deps=ok, exact regs yes; timer reads 0/0; other loops: 0600:same, 0750:same, 0820:same
+PASS  nvrtc_sm90.sass sm_90 find_index_kernel              hot loop 0160..01e0 (9 instr, 1 loads) = trace 01f0..0270: text=ok/issue=ok/deps=ok, exact regs yes; timer reads 0/5; other loops: 0370:same
+PASS  nvrtc_sm90.sass sm_90 find_index_kernel_ro2          hot loop 0150..0440 (48 instr, 8 loads) = trace 01c0..04b0: text=ok/issue=ok/deps=ok, exact regs no; timer reads 0/5; other loops: 0500:text differs, 0780:same
+PASS  nvrtc_sm90.sass sm_90 likelihood_kernel              hot loop 2260..27f0 (90 instr, 16 loads) = trace 2260..27f0: text=ok/issue=ok/deps=ok, exact regs yes; timer reads 0/0; other loops: 28e0:same, 2b20:same, 3520:same, 3f00:same, 4cf0:same, 54b0:same
+FAIL  nvrtc_sm90.sass sm_90 normalize_weights_kernel       hot loop 04b0..0860 (60 instr, 16 loads) = trace 0710..0ac0: text=DIFF/issue=DIFF/deps=DIFF, exact regs no; timer reads 0/4; other loops: 0af0:text differs, 0d40:text differs, 1c60:same
+      text differs at instruction 53: 'IADD3.X r4, RZ, r11, RZ, p2, !PT' vs 'MOV r1, r9' (lengths 60 / 60)
+PASS  nvrtc_sm90.sass sm_90 normalize_weights_kernel_ro    hot loop 0430..07c0 (58 instr, 16 loads) = trace 0640..09d0: text=ok/issue=ok/deps=ok, exact regs no; timer reads 0/4; other loops: 08b0:text differs, 0ae0:same, 2010:same
+PASS  nvrtc_sm90.sass sm_90 normalize_weights_kernel_ro2   hot loop 0520..0bc0 (107 instr, 16 loads) = trace 0520..0bc0: text=ok/issue=ok/deps=ok, exact regs yes; timer reads 0/0; other loops: 0ca0:same, 0ed0:same, 2470:same
+PASS  nvrtc_sm90.sass sm_90 sum_kernel                     hot loop 0220..0470 (38 instr, 16 loads) = trace 0220..0470: text=ok/issue=ok/deps=ok, exact regs yes; timer reads 0/0; other loops: 0620:same, 0760:same, 0820:same
+FAILED

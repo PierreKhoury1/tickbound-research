@@ -1,0 +1,17 @@
+device NVIDIA A100-SXM4-40GB, cc 80, 108 SMs, L2 40 MB, driver 13020, runtime 12060; binary built for sm_80
+  orig regs 32 (trace build 32), max blocks/SM 2 (trace build 2)
+  ro   regs 32 (trace build 32), max blocks/SM 2 (trace build 2)
+  ro2  regs 30 (trace build 31), max blocks/SM 2 (trace build 2)
+  PDL cases (n_embd 4096 warm, llama.cpp's Hopper launch): no (cc 80, PTX 80)
+globaltimer update period 1024 ns, SM clock 1.0949 GHz, L2 flush 84 MB, 9 cases, reps 5, warm batch 100, cold batch 20, trace reps 3
+e4096_r1_warm      orig   5.028 | ro   4.178 (1.203x) | ro2   4.311 (1.166x) | null  1.024 us/launch | span 4.076/3.781/3.818 us (1.078x) | trace/timing 1.110/1.265/1.219 (span illustrative) | bit-identical | 1.095 GHz
+e4096_r128_warm    orig   7.383 | ro   6.799 (1.086x) | ro2   7.076 (1.043x) | null  1.260 us/launch | span 7.771/6.982/7.135 us (1.113x) | trace/timing 1.241/1.256/1.223 (span illustrative) | bit-identical | 1.095 GHz
+e8192_r1_warm      orig   5.181 | ro   4.291 (1.208x) | ro2   4.372 (1.185x) | null  0.829 us/launch | span 3.948/3.871/3.792 us (1.020x) | trace/timing 1.006/1.193/1.155 (span illustrative) | bit-identical | 1.365 GHz
+e8192_r128_warm    orig   7.936 | ro   7.229 (1.098x) | ro2   6.861 (1.157x) | null  1.014 us/launch | span 7.350/7.059/7.549 us (1.041x) | trace/timing 1.050/1.167/1.255 (span illustrative) | bit-identical | 1.364 GHz
+e4096_r1_cold      orig   9.421 | ro   8.499 (1.108x) | ro2   8.602 (1.095x) | null  5.069 us/launch | span 4.312/3.714/3.817 us (1.161x) | trace/timing 1.038/1.114/1.173 (span illustrative) | bit-identical | 1.365 GHz
+e4096_r128_cold    orig  13.210 | ro  12.339 (1.071x) | ro2  12.646 (1.045x) | null  5.325 us/launch | span 8.974/8.274/7.853 us (1.085x) | trace/timing 1.078/1.133/1.105 (span illustrative) | bit-identical | 1.200 GHz
+e8192_r1_cold      orig  13.056 | ro  10.445 (1.250x) | ro2  10.138 (1.288x) | null  5.171 us/launch | span 5.627/5.653/5.206 us (0.995x) | trace/timing 0.878/1.118/1.126 (span illustrative) | bit-identical | 1.291 GHz
+e8192_r128_cold    orig  17.050 | ro  16.026 (1.064x) | ro2  15.565 (1.095x) | null  5.478 us/launch | span 11.126/10.925/10.954 us (1.018x) | trace/timing 1.015/1.070/1.099 (span illustrative) | bit-identical | 1.259 GHz
+e4096_r1_decode    orig   8.704 | ro   8.192 (1.063x) | ro2   8.346 (1.043x) | null  4.864 us/launch | span 4.211/3.766/3.779 us (1.118x) | trace/timing 1.118/1.150/1.110 (span illustrative) | bit-identical | 1.305 GHz
+wrote results/llama_rmsnorm_A100_20261016T005228Z.csv, results/llama_rmsnorm_A100_20261016T005228Z_extra.csv, results/llama_rmsnorm_A100_20261016T005228Z_env.json and traces/20261016T005228Z/*.json
+bench: all 9 cases finished

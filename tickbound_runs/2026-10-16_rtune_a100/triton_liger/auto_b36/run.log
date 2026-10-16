@@ -1,0 +1,101 @@
+
+$ bash ./run.sh A100
+kbench lib=liger variant=auto_b36 gpu=A100 triton=3.8.0 torch=2.14.1+cu130 hook=inspection_hook
+== rms_norm_M16
+USDT:2026-10-16 02:13:18 3156:3156 SyncActivityProfilerHandler.cpp:39] profiler_start
+USDT:2026-10-16 02:13:18 3156:3156 SyncActivityProfilerHandler.cpp:46] profiler_stop
+   2 kernels, traced 2, digest fa3ca66e202c eq=true
+== layer_norm_M16
+USDT:2026-10-16 02:13:22 3156:3156 SyncActivityProfilerHandler.cpp:39] profiler_start
+USDT:2026-10-16 02:13:22 3156:3156 SyncActivityProfilerHandler.cpp:46] profiler_stop
+   2 kernels, traced 2, digest 6824d6dc5c7e eq=true
+== softmax_M16
+USDT:2026-10-16 02:13:26 3156:3156 SyncActivityProfilerHandler.cpp:39] profiler_start
+USDT:2026-10-16 02:13:26 3156:3156 SyncActivityProfilerHandler.cpp:46] profiler_stop
+   2 kernels, traced 2, digest 1add98176c5a eq=true
+== cross_entropy_M16
+USDT:2026-10-16 02:13:31 3156:3156 SyncActivityProfilerHandler.cpp:39] profiler_start
+USDT:2026-10-16 02:13:31 3156:3156 SyncActivityProfilerHandler.cpp:46] profiler_stop
+   1 kernels, traced 1, digest 0fbc26485e23 eq=true
+== swiglu_M16
+USDT:2026-10-16 02:13:34 3156:3156 SyncActivityProfilerHandler.cpp:39] profiler_start
+USDT:2026-10-16 02:13:34 3156:3156 SyncActivityProfilerHandler.cpp:46] profiler_stop
+   2 kernels, traced 2, digest 65e66c2f8189 eq=true
+== geglu_M16
+USDT:2026-10-16 02:13:39 3156:3156 SyncActivityProfilerHandler.cpp:39] profiler_start
+USDT:2026-10-16 02:13:39 3156:3156 SyncActivityProfilerHandler.cpp:46] profiler_stop
+   2 kernels, traced 2, digest ece5e3e66987 eq=true
+== kl_div_M16
+USDT:2026-10-16 02:13:43 3156:3156 SyncActivityProfilerHandler.cpp:39] profiler_start
+USDT:2026-10-16 02:13:43 3156:3156 SyncActivityProfilerHandler.cpp:46] profiler_stop
+   2 kernels, traced 2, digest 2dcd6d0ad7ce eq=true
+== jsd_M16
+Backend impl 'liger_kernel.ops.backends._cutedsl.jsd' for op 'jsd_loss_and_grad' could not be imported: ModuleNotFoundError: No module named 'cutlass'
+Backend impl 'liger_kernel.ops.backends._cutile.jsd' for op 'jsd_loss_and_grad' could not be imported: ModuleNotFoundError: No module named 'cuda.tile'
+USDT:2026-10-16 02:13:48 3156:3156 SyncActivityProfilerHandler.cpp:39] profiler_start
+USDT:2026-10-16 02:13:48 3156:3156 SyncActivityProfilerHandler.cpp:46] profiler_stop
+   1 kernels, traced 1, digest 9d478aee285d eq=true
+== dyt_M16
+USDT:2026-10-16 02:14:07 3156:3156 SyncActivityProfilerHandler.cpp:39] profiler_start
+USDT:2026-10-16 02:14:07 3156:3156 SyncActivityProfilerHandler.cpp:46] profiler_stop
+   2 kernels, traced 2, digest 041d94fa0876 eq=true
+== sparsemax_M16
+USDT:2026-10-16 02:14:15 3156:3156 SyncActivityProfilerHandler.cpp:39] profiler_start
+USDT:2026-10-16 02:14:15 3156:3156 SyncActivityProfilerHandler.cpp:46] profiler_stop
+   1 kernels, traced 1, digest 7119ee796d81 eq=true
+== rms_norm_M4096
+USDT:2026-10-16 02:14:18 3156:3156 SyncActivityProfilerHandler.cpp:39] profiler_start
+USDT:2026-10-16 02:14:19 3156:3156 SyncActivityProfilerHandler.cpp:46] profiler_stop
+   2 kernels, traced 2, digest b08ab82ef1d3 eq=true
+== layer_norm_M4096
+USDT:2026-10-16 02:14:28 3156:3156 SyncActivityProfilerHandler.cpp:39] profiler_start
+USDT:2026-10-16 02:14:28 3156:3156 SyncActivityProfilerHandler.cpp:46] profiler_stop
+   2 kernels, traced 1, digest 92ceac573da9 eq=true
+== softmax_M4096
+USDT:2026-10-16 02:14:33 3156:3156 SyncActivityProfilerHandler.cpp:39] profiler_start
+USDT:2026-10-16 02:14:33 3156:3156 SyncActivityProfilerHandler.cpp:46] profiler_stop
+   2 kernels, traced 0, digest 973ac735ab6b eq=true
+== cross_entropy_M4096
+USDT:2026-10-16 02:14:37 3156:3156 SyncActivityProfilerHandler.cpp:39] profiler_start
+USDT:2026-10-16 02:14:37 3156:3156 SyncActivityProfilerHandler.cpp:46] profiler_stop
+   1 kernels, traced 0, digest 41a556b38313 eq=true
+== swiglu_M4096
+USDT:2026-10-16 02:14:42 3156:3156 SyncActivityProfilerHandler.cpp:39] profiler_start
+USDT:2026-10-16 02:14:42 3156:3156 SyncActivityProfilerHandler.cpp:46] profiler_stop
+   2 kernels, traced 0, digest b203b80bef1f eq=true
+== geglu_M4096
+USDT:2026-10-16 02:14:43 3156:3156 SyncActivityProfilerHandler.cpp:39] profiler_start
+USDT:2026-10-16 02:14:43 3156:3156 SyncActivityProfilerHandler.cpp:46] profiler_stop
+   2 kernels, traced 0, digest 7a6fbaa1d269 eq=true
+== kl_div_M4096
+USDT:2026-10-16 02:14:46 3156:3156 SyncActivityProfilerHandler.cpp:39] profiler_start
+USDT:2026-10-16 02:14:46 3156:3156 SyncActivityProfilerHandler.cpp:46] profiler_stop
+   2 kernels, traced 0, digest 4ecf43db8910 eq=true
+== jsd_M4096
+USDT:2026-10-16 02:14:50 3156:3156 SyncActivityProfilerHandler.cpp:39] profiler_start
+USDT:2026-10-16 02:14:50 3156:3156 SyncActivityProfilerHandler.cpp:46] profiler_stop
+   1 kernels, traced 0, digest f813244a7033 eq=true
+== dyt_M4096
+USDT:2026-10-16 02:14:52 3156:3156 SyncActivityProfilerHandler.cpp:39] profiler_start
+USDT:2026-10-16 02:14:52 3156:3156 SyncActivityProfilerHandler.cpp:46] profiler_stop
+   2 kernels, traced 0, digest 43694ceb2343 eq=true
+== sparsemax_M4096
+USDT:2026-10-16 02:14:53 3156:3156 SyncActivityProfilerHandler.cpp:39] profiler_start
+USDT:2026-10-16 02:14:53 3156:3156 SyncActivityProfilerHandler.cpp:46] profiler_stop
+   1 kernels, traced 0, digest d8eb1f4bb431 eq=true
+== rope_S16
+USDT:2026-10-16 02:14:54 3156:3156 SyncActivityProfilerHandler.cpp:39] profiler_start
+USDT:2026-10-16 02:14:54 3156:3156 SyncActivityProfilerHandler.cpp:46] profiler_stop
+   1 kernels, traced 1, digest 12ca5d172aaf eq=true
+== rope_S2048
+USDT:2026-10-16 02:14:57 3156:3156 SyncActivityProfilerHandler.cpp:39] profiler_start
+USDT:2026-10-16 02:14:57 3156:3156 SyncActivityProfilerHandler.cpp:46] profiler_stop
+   1 kernels, traced 0, digest 644063ce8b13 eq=true
+== group_norm_B8
+USDT:2026-10-16 02:14:58 3156:3156 SyncActivityProfilerHandler.cpp:39] profiler_start
+USDT:2026-10-16 02:14:58 3156:3156 SyncActivityProfilerHandler.cpp:46] profiler_stop
+   2 kernels, traced 2, digest 20fc0e69fd4d eq=true
+DONE
+DONE
+
+[rc=0 115s]

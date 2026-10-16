@@ -1,0 +1,47 @@
+--- eb_orig.inc (markers removed)
++++ eb_ro.inc (markers removed)
+@@ -38,5 +38,43 @@
+       CUDA_KERNEL_ASSERT(!has_invalid_index && "Invalid input index in EmbeddingBag: index out of range [0, numRows)");
+ 
+-      for (int64_t emb = begin; emb < end; emb++) {
++      // [REORDER, not upstream] Groups of 4 bag elements: the 4 index loads, then the 4 weight gathers and the 4
++      // per_sample_weights loads, then the upstream per-element body in element order, so every FADD/FFMA into
++      // weightFeatSum is done in the same order on the same values (bit-identical output, bag_size, offset2bag).
++      // Legal: offset2bag is a fresh at::empty() written only by this kernel, so its stores cannot alias input,
++      // weight or per_sample_weights; ptxas cannot prove that and, upstream, keeps each next index load behind the
++      // previous element's offset2bag store. The tail (< 4) is the upstream loop.
++      int64_t emb = begin;
++      for (; emb + 4 <= end; emb += 4) {
++        index_t idx4[4];
++#pragma unroll
++        for (int j = 0; j < 4; ++j) idx4[j] = input[emb + j];
++        scalar_t w4[4];
++#pragma unroll
++        for (int j = 0; j < 4; ++j) w4[j] = weightFeat[idx4[j] * weight_stride0];
++        accscalar_t s4[4];
++        if (per_sample_weights) {
++#pragma unroll
++          for (int j = 0; j < 4; ++j)
++            s4[j] = static_cast<accscalar_t>(per_sample_weights[(emb + j) * per_sample_weights_stride]);
++        }
++#pragma unroll
++        for (int j = 0; j < 4; ++j) {
++          index_t input_idx = idx4[j];
++          bool pad = (input_idx == padding_idx);
++          scalar_t weightValue = w4[j];
++          weightValue = pad ? static_cast<scalar_t>(0) : weightValue;
++          if (per_sample_weights) {
++            weightFeatSum += s4[j] * static_cast<accscalar_t>(weightValue);
++          } else {
++            weightFeatSum += static_cast<accscalar_t>(weightValue);
++          }
++          bag_size_ += pad ? 0 : 1;
++
++          if (featureDim == 0) {
++            offset2bag[emb + j] = bag;
++          }
++        }
++      }
++      for (; emb < end; emb++) {
+         index_t input_idx = input[emb];
+         bool pad = (input_idx == padding_idx);

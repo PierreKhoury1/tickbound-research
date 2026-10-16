@@ -13,3 +13,13 @@ tickbound_data/**/cubin_runner
 # Superseded Word write-ups (kept locally, not published)
 tickbound findings and rules*.docx
 ~$*
+
+# tickbound_runs: raw per-launch traces, probe dumps, binaries and tarballs stay local;
+# SUMMARY.txt, picks/results CSV, figures, reports and scripts are published
+tickbound_runs/**/traces/
+tickbound_runs/**/probe_res/
+tickbound_runs/**/2026????T??????Z/
+tickbound_runs/**/*.tgz
+tickbound_runs/**/*.cubin
+tickbound_runs/**/*.sass
+tickbound_runs/**/*.trace.json

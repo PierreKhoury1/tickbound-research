@@ -1,0 +1,13 @@
+CUDA error 'an illegal instruction was encountered' at src/ks_bench.cu:287: cudaStreamSynchronize(s)
+device: NVIDIA A100-SXM4-40GB, sm_80, 108 SMs, L2 40 MB, clock 1.410 GHz, driver 13020, runtime 12060
+trace module: loaded build/trace_sm80.cubin (record buffer at 0x74a92d200000)
+  l2SelectMin1<float,8,256>                        regs  49, max blocks/SM  4  | trace build regs  58, max blocks/SM  4
+  l2SelectMin1_ro<float,8,256,PF=4>                regs  83, max blocks/SM  2  | trace build regs  92, max blocks/SM  2
+  l2SelectMin1_ro<float,8,256,PF=8>                regs  88, max blocks/SM  2  | trace build regs  96, max blocks/SM  2
+  l2SelectMinK<int32_t,float,32,2,128>             regs  47, max blocks/SM 10  | trace build regs  58, max blocks/SM  8
+  l2SelectMinK_ro<int32_t,float,32,2,128,PF=4>     regs  47, max blocks/SM 10  | trace build regs  58, max blocks/SM  8
+  l2SelectMinK_ro<int32_t,float,32,2,128,PF=8>     regs  46, max blocks/SM 10  | trace build regs  56, max blocks/SM  9
+  l2SelectMinK<int32_t,float,128,3,128>            regs  82, max blocks/SM  5  | trace build regs  92, max blocks/SM  5
+  l2SelectMinK_ro<int32_t,float,128,3,128,PF=4>    regs  83, max blocks/SM  5  | trace build regs  94, max blocks/SM  5
+  l2SelectMinK_ro<int32_t,float,128,3,128,PF=8>    regs  81, max blocks/SM  5  | trace build regs  92, max blocks/SM  5
+data: N = 65536 (x: 32 MB, distance tile 512 x N: 128 MB)

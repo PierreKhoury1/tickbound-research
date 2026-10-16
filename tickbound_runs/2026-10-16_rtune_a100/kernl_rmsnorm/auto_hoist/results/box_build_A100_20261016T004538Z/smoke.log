@@ -1,0 +1,22 @@
+device NVIDIA A100-SXM4-40GB, 108 SMs, L2 40 MB, clock 1410 MHz, driver 13020, runtime 12060, flush 101 MB
+  orig N=4096: 32 regs, 16 CTAs/SM | trace build 62 regs, 8 CTAs/SM
+  orig N=5120: 32 regs, 16 CTAs/SM | trace build 62 regs, 8 CTAs/SM
+  orig N=8192: 40 regs, 12 CTAs/SM | trace build 70 regs, 7 CTAs/SM
+  ro   N=4096: 38 regs, 12 CTAs/SM | trace build 70 regs, 7 CTAs/SM
+  ro   N=5120: 48 regs, 10 CTAs/SM | trace build 78 regs, 6 CTAs/SM
+  ro   N=8192: 72 regs, 7 CTAs/SM | trace build 102 regs, 4 CTAs/SM
+  ro2  N=4096: 48 regs, 10 CTAs/SM | trace build 78 regs, 6 CTAs/SM
+  ro2  N=5120: 60 regs, 8 CTAs/SM | trace build 90 regs, 5 CTAs/SM
+  ro2  N=8192: 84 regs, 5 CTAs/SM | trace build 114 regs, 4 CTAs/SM
+  ro3  N=4096: 48 regs, 10 CTAs/SM | trace build 78 regs, 6 CTAs/SM
+  ro3  N=5120: 58 regs, 8 CTAs/SM | trace build 90 regs, 5 CTAs/SM
+  ro3  N=8192: 84 regs, 5 CTAs/SM | trace build 114 regs, 4 CTAs/SM
+SM clock 1.2299 GHz (from %clock64 over 4 ms of %globaltimer), globaltimer tick 1024 ns
+N4096_M16_warm       B=400 orig    3.203 | ro    2.670 (x1.199) | ro2    2.486 (x1.288) | ro3    2.442 (x1.311) us | empty 0.947 | span o/ro2 2.714/1.867 us | bitwise 1111 trace 1111 | ref err 0.00048
+N5120_M16_warm       B=400 orig    3.707 | ro    2.796 (x1.326) | ro2    2.703 (x1.371) | ro3    2.632 (x1.409) us | empty 0.947 | span o/ro2 3.236/2.003 us | bitwise 1111 trace 1111 | ref err 0.00047
+N8192_M16_decode     B= 30 orig   11.196 | ro    8.226 (x1.361) | ro2    7.919 (x1.414) | ro3    7.919 (x1.414) us | empty 5.188 | span o/ro2 6.183/2.598 us | bitwise 1111 trace 1111 | ref err 0.00048
+N4096_M64_cold       B= 30 orig    9.694 | ro    8.670 (x1.118) | ro2    8.363 (x1.159) | ro3    8.021 (x1.209) us | empty 5.427 | span o/ro2 4.852/3.274 us | bitwise 1111 trace 1111 | ref err 0.00048
+N4096_M4096_warm     B= 35 orig   56.583 | ro   54.243 (x1.043) | ro2   52.517 (x1.077) | ro3   52.634 (x1.075) us | empty 5.061 | span o/ro2 nan/nan us | bitwise 1111 trace 1111 | ref err 0.00048
+driver JIT of the PTX (N4096_M16_warm): orig 3.087 | ro 2.519 | ro2 2.345 | ro3 2.309 us, regs 32 38 48 48
+SM clock at the end 1.3341 GHz
+DONE

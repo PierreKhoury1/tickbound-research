@@ -1,0 +1,6 @@
+Cuda compilation tools, release 12.6, V12.6.85
+Build cuda_12.6.r12.6/compiler.35059454_0
+[build] sm_80
+REG:31 STACK:0 REG:30 STACK:0 REG:32 STACK:0 REG:32 STACK:0 REG:32 STACK:440 REG:96 STACK:0 
+[build] WARNING: check_trace_sass gates failed, see sass/box/check_trace_sass.txt
+[build] OK

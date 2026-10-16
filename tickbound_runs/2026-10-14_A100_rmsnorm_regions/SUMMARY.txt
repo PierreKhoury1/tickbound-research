@@ -1,0 +1,42 @@
+Kernl RMSNorm (Triton 2.2 PTX, ptxas 12.6) - per-phase region traces on A100, 14 Oct 2026
+vast 55934133 (A100-SXM4-40GB, driver 580.173, image nvidia/cuda:12.6.3-devel; ~$0.30 incl. the debugging), destroyed.
+
+THE BUG (why 12 Oct A100 and 13 Oct H100 had 0 trace files)
+- Every trace build died with cudaErrorIllegalInstruction at the first launch. compute-sanitizer: fault PC = EXIT-0x20 in
+  every build (n4096 +0x1760, n5120 +0x1c00, n8192 +0x2a10) = the exit stamp's CS2R SR_CLOCKLO. The same instruction word
+  ran fine at the 4 earlier stamps. Byte-patch experiments (build/e1..e10): NOP-ing the whole exit stamp runs; any CS2R
+  in it faults even when moved before the kernel's last STG; moving the exit stamp to R44..R47 runs; raising the register
+  count to 64 or 72 runs.
+- Root cause: ptxas's register count is always the highest register used + 3 (R29 -> 32, R37 -> 40, R57 -> 60,
+  R81 -> 84): the top two registers of the allocation are reserved, and an instruction addressing them raises "illegal
+  instruction". instrument.py set regcount = K + 28 with stamps on R[K..K+27], so the exit stamp (R[K+24..K+27]) sat in
+  the reserved pair. Fix: regcount = K + 30 (tools/instrument.py, check_trace_sass.py, src/harness.cpp, README).
+  Static checks cannot catch this: nvdisasm, cuobjdump -elf and the 28-check SASS gate all passed before and after.
+
+RESULT (results/*.csv, *_extra.csv, traces/*.json: 37 cases x 4 variants, 132 trace files; all outputs bitwise equal
+to orig; smoke test passed; trace-build cost = separate column)
+- Phases per warp (entry -> p1_end: pass 1 = x loads + sum x^2; -> bar1: warp reduce; -> bar2: block reduce;
+  -> exit: pass 2 = rms_w loads, normalise, store). Median us over warps, then over launches. Examples (warm L2):
+    N8192 M1   pass1 0.93 / 0.91 / 0.92 / 0.92   pass2 1.98 / 0.66 / 0.51 / 0.45   (orig / ro / ro2 / ro3)
+    N4096 M1   pass1 0.69 / 0.69 / 0.68 / 0.68   pass2 0.97 / 0.51 / 0.23 / 0.22
+    N4096 M1 cold                                 pass2 1.93 / 1.04 / 0.54 / 0.32
+  Warp reduce never moves (0.12 us). Block reduce grows by ~0.05 us for ro2/ro3: that is where their pass-2 loads are
+  issued. Pass-2 speed-up alone: 1.8-7.3x; whole kernel 1.2-1.48x at M <= 64 (pass 1 is untouched and the empty-kernel
+  overhead ~0.8-1.0 us is fixed).
+- Closure (111 case x variant pairs): pass 2 holds a median 1.02 of the phase-sum saving (0.70-1.54, the extremes at
+  M = 256 where 2-3 CTAs share an SM); phase-sum saving / timed saving median 1.05 (p10 0.92, p90 1.57, again M >= 256).
+  So the saving the timer sees inside pass 2 is the saving the stopwatch sees outside the kernel.
+- Pre-registered predictions (predictions.json, sha256 frozen before any run, from the SASS model + measured latencies):
+  measured whole-kernel speed-up inside [pred_lo, pred_hi] in 92/111 pairs; 78/78 at M <= 64 (the model's "1 CTA per SM"
+  premise), 14/33 at M >= 256 (predicted too high: occupancy effects not modelled). Span predictions 49/111 (the span
+  model over-predicts at M = 16; cross-CTA skew not modelled).
+
+CAVEATS
+- Stamps sit outside the hot region (pass 2 has none inside); per-instruction attribution inside pass 2 still needs the
+  sliding probe (docs/sliding_probe.md). The instrumenter now works, so that is the next step.
+- Trace build = the timing build + 25 stamp instructions at 5 points, kernel instructions bit-identical; registers
+  K+30 vs K lowers the trace build's CTAs/SM (e.g. 16 -> 8 for orig); spans are reported only where all CTAs are resident.
+- A100 only in this run; H100 (sm_90 path of instrument.py) has the same fix but was not rerun.
+
+Code: tickbound/bench_real/kernl_rmsnorm (4 files changed, uncommitted). Box scripts: scratchpad box/onbox_dbg.sh,
+patch_exp.py (the e1..e10 experiments). Phase table: python over results/*_extra.csv (phase_*_us columns).

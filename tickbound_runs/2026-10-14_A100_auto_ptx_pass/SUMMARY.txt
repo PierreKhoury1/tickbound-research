@@ -1,0 +1,46 @@
+tickbound automatic PTX reorder pass (unroll-and-batch) on the five CUDA reorder harnesses - A100 80GB PCIe, 14 Oct 2026
+vast 55860951 (~$0.20 of GPU time, destroyed). nvcc 12.6 image. ORIG = harness built with the real ptxas; AUTO = the same
+harness built with tickbound's ptxas wrapper (tb_ptxas.py), which runs ptx_unroll on every PTX, transforming only the
+harness's ORIGINAL kernels (TB_PTX_KERNELS). The hand variants (ro, ro2, ...) are untouched, so each harness's own
+bitwise check "hand variant == orig output" inside the AUTO run compares the automatic kernel with the true original.
+
+THE PASS (tickbound/src/tickbound/triton/ptx_unroll.py; wrapper tb_ptxas.py)
+Every hand reorder that won on the 13 Oct H100 run is one transform: group k iterations of a strided loop, issue the
+group's loads first, then the k bodies in order. The pass does it on PTX for any kernel (nvcc / NVRTC / Triton), with a
+proof per load: loop with a single back-edge; prefix / suffix straight-line; induction registers updated once, purely,
+in the suffix; a load's address a pure slice of induction registers + invariants (gathers: through another batchable
+load); a load crosses a store only when both trace to different kernel parameters (param+offset provenance, integer
+struct fields excluded); a loop with a block barrier only batches loads of buffers the kernel never writes; breaks
+allowed (speculative in-range reads of read-only buffers); every copy's own loop test is emitted (a `!=` countdown is
+not monotone). Unroll factor from a load budget: k = min(8, 16 // loads per copy). Output values are those of k
+consecutive iterations of the original (same instructions, same order), so outputs are bit-identical.
+
+RESULTS (ratio = ORIG-build orig time / AUTO-build orig time, per case, median over cases; hand = best hand variant in
+the ORIG build on the same box; outputs: hand-vs-auto bitwise checks inside the AUTO run, 0 mismatches everywhere)
+ harness / kernel                 cases   auto median (min..max)   faster/slower   hand median   note
+ Rodinia normalize_weights          13    3.35x (2.57..4.53)        13 / 0          3.76x        16 loads then 16 stores = hand ro
+ Rodinia find_index                 14    1.12x (1.05..2.05)        14 / 0          2.63x        hand also replaces 8 compare+branch by a bit mask
+ FAISS l2SelectMinK<32>  (k<=32)    20    2.27x (1.69..2.89)        all faster      2.72x        8 of 16 loads sunk by ptxas in one build
+ FAISS l2SelectMinK<128> (k<=128)   15    1.88x (1.11..2.84)        all faster      2.00x
+ FAISS l2SelectMinK k=8             15    2.36x (1.90..2.91)        all faster      2.73x
+ FAISS l2SelectMin1      (k=1)      20    1.00x (0.87..3.15)         -              2.62x        loop already has 9 loads/column: budget 16 -> k=1 (no change); hand PF=4 batches 36
+ EmbeddingBag sum / cold / mean   20/6/1  1.07x / 1.26x / 1.24x    17 / 2 (all)    1.44 / 1.60   hand 1.45x: same transform; gap = register/occupancy of k=4 x 4 loads
+ llama.cpp rms_norm (budget 16)     72    0.97x (0.70..1.31)        15 / 35         1.14x        32 then 16 batched loads too many for 1024-thread blocks
+ llama.cpp rms_norm (budget 8)      72    1.01x (0.82..1.13)        19 / 10         1.14x        = hand RO1 width; hand also hoists across loop 1 + barrier (RO2)
+ Aerial cfoTaEst                    22    1.00x (0.91..1.03)         0 / 1          1.18x        H loads are predicated inside the PRB loop: not in the prefix -> not batched (limitation)
+ FAISS overall (70 cases)                 2.13x                     56 / 1          2.62x
+Earlier AUTO builds had a rename bug (copies 2+ used undefined index registers): Rodinia illegal address, llama 0.98 by
+falling to the tail loop. Fixed before run 3 (these numbers). Run 1-2 logs kept in res/ for the record.
+
+WHAT THIS PROVES / DOES NOT
++ Fully automatic (a ptxas drop-in, no source edits, no AI), byte-identical, on an A100: 3.3x (stencil/scan),
+  1.9-2.4x (search), 1.1-1.3x (gather), across three different kernel types and two libraries, reproducing the hand
+  reorders' mechanism. The pass log says per loop what it did and why not.
+- The unroll width must be chosen per loop by measurement, not a fixed budget: l2SelectMin1 needs 36 loads, llama
+  needs 8 and no loop-1 batching. The measure-then-pick selector exists for Triton (tune.py); for CUDA it needs the
+  harness (or a driver-API runner) to time k in {1,2,4,8} variants.
+- Not covered: predicated loads inside the loop (Aerial), cross-loop hoists over a barrier (llama RO2), the bit-mask
+  rewrite (find_index ro2) which is not a reorder.
+
+Files: res.tgz (both builds' results, ptx logs, compare JSON/txt, onbox.log), scripts/ (onbox_auto.sh, compare_builds.py,
+pass + wrapper snapshot). Code: tickbound/src/tickbound/triton/ptx_unroll.py, tb_ptxas.py (uncommitted).

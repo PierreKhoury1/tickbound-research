@@ -1,0 +1,46 @@
+# hot loop of the timing build (pf_time::); pos = instruction index in the loop; wait = instructions until
+# the first consumer that waits on the load's scoreboard ("+" = in the next iteration)
+
+## sm_80
+normalize_weights_kernel       loop 04b0..0860: 60 instr, stall sum 220, 16 LDG
+    pos     0   3   6   9  12  15  18  21  24  27  30  33  36  39  42  46
+    SB      2   2   3   4   4   5   2   3   5   4   5   2   3   5   4   2
+    wait    1   1   1   1   1   1   1   1   1   1   1   1   1   1   2   4
+normalize_weights_kernel_ro    loop 0400..0790: 58 instr, stall sum 179, 16 LDG
+    pos     0   1   2   3   4   5   6   7   8   9  10  11  12  13  14  15
+    SB      2   3   4   5   5   5   5   5   5   5   5   5   5   5   5   5
+    wait   25  25  26  27  26  25  24  23  22  21  20  19  18  17  16  15
+normalize_weights_kernel_ro2   loop 04e0..0b60: 105 instr, stall sum 274, 16 LDG
+    pos    17  21  24  25  26  27  28  29  30  31  32  33  34  35  36  38
+    SB      2   4   4   4   4   4   4   4   4   4   4   4   4   4   4   5
+    wait   57  55  52  51  50  49  48  47  46  45  44  43  42  41  40 85+
+find_index_kernel              loop 0100..0180: 9 instr, stall sum 54, 1 LDG
+    pos     3
+    SB      2
+    wait    1
+find_index_kernel_ro2          loop 00e0..0350: 40 instr, stall sum 121, 8 LDG
+    pos     8   9  10  11  12  13  14  15
+    SB      2   3   4   4   4   4   4   4
+    wait    8   8   9   8   7   6   5   4
+
+## sm_90
+normalize_weights_kernel       loop 04b0..0860: 60 instr, stall sum 220, 16 LDG
+    pos     0   3   6   9  12  15  18  21  24  27  30  33  36  39  42  46
+    SB      2   3   3   4   5   2   2   2   3   4   5   2   2   3   3   1
+    wait    1   1   1   1   1   1   1   1   1   1   1   1   1   1   2   4
+normalize_weights_kernel_ro    loop 0430..07c0: 58 instr, stall sum 209, 16 LDG
+    pos     0   1   2   3   4   5   6   7   8   9  10  11  12  13  14  15
+    SB      3   4   2   5   2   5   5   5   5   5   5   5   5   5   5   5
+    wait   25  26  27  28  25  26  25  24  23  22  21  20  19  18  17  16
+normalize_weights_kernel_ro2   loop 0520..0bc0: 107 instr, stall sum 284, 16 LDG
+    pos    18  19  20  21  22  23  24  25  26  27  28  29  30  31  32  33
+    SB      3   4   2   2   2   2   2   2   2   2   2   2   2   2   2   2
+    wait   56  57  58  57  56  55  54  53  52  51  50  49  48  47  46  45
+find_index_kernel              loop 0160..01e0: 9 instr, stall sum 59, 1 LDG
+    pos     3
+    SB      2
+    wait    1
+find_index_kernel_ro2          loop 0150..0440: 48 instr, stall sum 139, 8 LDG
+    pos     8  11  18  19  20  21  22  24
+    SB      2   3   4   4   4   4   4   2
+    wait   15  14  11  10   9   8   7  18

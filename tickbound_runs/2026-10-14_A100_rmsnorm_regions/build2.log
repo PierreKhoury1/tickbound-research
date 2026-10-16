@@ -1,0 +1,16 @@
+[build] ptxas: Cuda compilation tools, release 12.6, V12.6.85
+[build] sm_80 orig_n4096: Used 32 registers, 368 SASS lines, trace build ok
+[build] sm_80 orig_n5120: Used 32 registers, 440 SASS lines, trace build ok
+[build] sm_80 orig_n8192: Used 40 registers, 664 SASS lines, trace build ok
+[build] sm_80 ro2_n4096: Used 48 registers, 368 SASS lines, trace build ok
+[build] sm_80 ro2_n5120: Used 60 registers, 440 SASS lines, trace build ok
+[build] sm_80 ro2_n8192: Used 84 registers, 664 SASS lines, trace build ok
+[build] sm_80 ro3_n4096: Used 48 registers, 368 SASS lines, trace build ok
+[build] sm_80 ro3_n5120: Used 58 registers, 440 SASS lines, trace build ok
+[build] sm_80 ro3_n8192: Used 84 registers, 664 SASS lines, trace build ok
+[build] sm_80 ro_n4096: Used 38 registers, 368 SASS lines, trace build ok
+[build] sm_80 ro_n5120: Used 48 registers, 440 SASS lines, trace build ok
+[build] sm_80 ro_n8192: Used 72 registers, 664 SASS lines, trace build ok
+[build] sm_80: 12/12 trace builds: every kernel instruction bit-identical to the timing build, stamps only outside region A and the hot region (pass 2)
+[build] host: build/harness
+[build] done

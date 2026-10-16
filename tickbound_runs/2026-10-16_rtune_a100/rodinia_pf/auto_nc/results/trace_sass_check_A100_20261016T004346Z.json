@@ -1,0 +1,604 @@
+{
+ "ok": true,
+ "strict_ok": false,
+ "results": [
+  {
+   "listing": "pf_bench.sass",
+   "arch": "sm_80",
+   "kernel": "find_index_kernel",
+   "ok": true,
+   "level": "PASS",
+   "detail": "",
+   "loops_time": 2,
+   "loops_trace": 2,
+   "timer_reads_time": 0,
+   "timer_reads_trace": 2,
+   "hot_time": "0100..0180",
+   "hot_trace": "0140..01c0",
+   "hot_len": 9,
+   "hot_loads": 1,
+   "hot_text": true,
+   "hot_issue": true,
+   "hot_deps": true,
+   "hot_exact_regs": true,
+   "hot_entry_waits": [
+    [
+     "4"
+    ],
+    [
+     "4"
+    ]
+   ],
+   "stamps_in_hot_loop": 0,
+   "hot_synonyms": [],
+   "hot_stall_moves": [],
+   "hot_stall_sum": [
+    54,
+    54
+   ],
+   "hot_deps_only": true,
+   "hot_syn_text": true,
+   "other_loops": [
+    "02b0:same"
+   ]
+  },
+  {
+   "listing": "pf_bench.sass",
+   "arch": "sm_80",
+   "kernel": "find_index_kernel_ro2",
+   "ok": true,
+   "level": "PASS",
+   "detail": "",
+   "loops_time": 3,
+   "loops_trace": 3,
+   "timer_reads_time": 0,
+   "timer_reads_trace": 2,
+   "hot_time": "00e0..0350",
+   "hot_trace": "0120..0390",
+   "hot_len": 40,
+   "hot_loads": 8,
+   "hot_text": true,
+   "hot_issue": true,
+   "hot_deps": true,
+   "hot_exact_regs": true,
+   "hot_entry_waits": [
+    [
+     "16"
+    ],
+    [
+     "16"
+    ]
+   ],
+   "stamps_in_hot_loop": 0,
+   "hot_synonyms": [],
+   "hot_stall_moves": [],
+   "hot_stall_sum": [
+    121,
+    121
+   ],
+   "hot_deps_only": true,
+   "hot_syn_text": true,
+   "other_loops": [
+    "0400:same",
+    "0600:same"
+   ]
+  },
+  {
+   "listing": "pf_bench.sass",
+   "arch": "sm_80",
+   "kernel": "likelihood_kernel",
+   "ok": true,
+   "level": "PASS",
+   "detail": "",
+   "loops_time": 6,
+   "loops_trace": 6,
+   "timer_reads_time": 0,
+   "timer_reads_trace": 0,
+   "hot_time": "1e60..23f0",
+   "hot_trace": "1e60..23f0",
+   "hot_len": 90,
+   "hot_loads": 16,
+   "hot_text": true,
+   "hot_issue": true,
+   "hot_deps": true,
+   "hot_exact_regs": true,
+   "hot_entry_waits": [
+    [
+     "0",
+     "6"
+    ],
+    [
+     "0",
+     "6"
+    ]
+   ],
+   "stamps_in_hot_loop": 0,
+   "hot_synonyms": [],
+   "hot_stall_moves": [],
+   "hot_stall_sum": [
+    406,
+    406
+   ],
+   "hot_deps_only": true,
+   "hot_syn_text": true,
+   "other_loops": [
+    "24a0:same",
+    "26a0:same",
+    "3270:same",
+    "4880:same",
+    "5050:same"
+   ]
+  },
+  {
+   "listing": "pf_bench.sass",
+   "arch": "sm_80",
+   "kernel": "normalize_weights_kernel",
+   "ok": false,
+   "level": "EQUIV",
+   "detail": "text differs at instruction 53: 'IADD3.X r4, RZ, r11, RZ, p2, !PT' vs 'IMAD.X r4, RZ, RZ, r11, p2' (lengths 60 / 60)",
+   "loops_time": 4,
+   "loops_trace": 4,
+   "timer_reads_time": 0,
+   "timer_reads_trace": 4,
+   "hot_time": "04b0..0860",
+   "hot_trace": "0530..08e0",
+   "hot_len": 60,
+   "hot_loads": 16,
+   "hot_text": false,
+   "hot_issue": false,
+   "hot_deps": false,
+   "hot_exact_regs": false,
+   "hot_entry_waits": [
+    [
+     "9"
+    ],
+    []
+   ],
+   "stamps_in_hot_loop": 0,
+   "hot_synonyms": [
+    "53: IADD3.X r4, RZ, r11, RZ, p2, !PT -> IMAD.X r4, RZ, RZ, r11, p2"
+   ],
+   "hot_stall_moves": [
+    "52: S2->S3",
+    "55: S3->S2"
+   ],
+   "hot_stall_sum": [
+    220,
+    220
+   ],
+   "hot_deps_only": true,
+   "hot_syn_text": true,
+   "other_loops": [
+    "0af0:text differs",
+    "0d50:text differs",
+    "1c80:same"
+   ]
+  },
+  {
+   "listing": "pf_bench.sass",
+   "arch": "sm_80",
+   "kernel": "normalize_weights_kernel_ro",
+   "ok": true,
+   "level": "PASS",
+   "detail": "",
+   "loops_time": 4,
+   "loops_trace": 4,
+   "timer_reads_time": 0,
+   "timer_reads_trace": 4,
+   "hot_time": "0400..0790",
+   "hot_trace": "0480..0810",
+   "hot_len": 58,
+   "hot_loads": 16,
+   "hot_text": true,
+   "hot_issue": true,
+   "hot_deps": true,
+   "hot_exact_regs": true,
+   "hot_entry_waits": [
+    [],
+    []
+   ],
+   "stamps_in_hot_loop": 0,
+   "hot_synonyms": [],
+   "hot_stall_moves": [],
+   "hot_stall_sum": [
+    179,
+    179
+   ],
+   "hot_deps_only": true,
+   "hot_syn_text": true,
+   "other_loops": [
+    "0870:text differs",
+    "0a30:same",
+    "1f50:same"
+   ]
+  },
+  {
+   "listing": "pf_bench.sass",
+   "arch": "sm_80",
+   "kernel": "normalize_weights_kernel_ro2",
+   "ok": true,
+   "level": "PASS",
+   "detail": "",
+   "loops_time": 4,
+   "loops_trace": 4,
+   "timer_reads_time": 0,
+   "timer_reads_trace": 0,
+   "hot_time": "04e0..0b60",
+   "hot_trace": "04e0..0b60",
+   "hot_len": 105,
+   "hot_loads": 16,
+   "hot_text": true,
+   "hot_issue": true,
+   "hot_deps": true,
+   "hot_exact_regs": true,
+   "hot_entry_waits": [
+    [
+     "0",
+     "7",
+     "18"
+    ],
+    [
+     "0",
+     "7",
+     "18"
+    ]
+   ],
+   "stamps_in_hot_loop": 0,
+   "hot_synonyms": [],
+   "hot_stall_moves": [],
+   "hot_stall_sum": [
+    274,
+    274
+   ],
+   "hot_deps_only": true,
+   "hot_syn_text": true,
+   "other_loops": [
+    "0c40:same",
+    "0e10:same",
+    "2390:same"
+   ]
+  },
+  {
+   "listing": "pf_bench.sass",
+   "arch": "sm_80",
+   "kernel": "sum_kernel",
+   "ok": true,
+   "level": "PASS",
+   "detail": "",
+   "loops_time": 4,
+   "loops_trace": 4,
+   "timer_reads_time": 0,
+   "timer_reads_trace": 0,
+   "hot_time": "0200..0450",
+   "hot_trace": "0200..0450",
+   "hot_len": 38,
+   "hot_loads": 16,
+   "hot_text": true,
+   "hot_issue": true,
+   "hot_deps": true,
+   "hot_exact_regs": true,
+   "hot_entry_waits": [
+    [],
+    []
+   ],
+   "stamps_in_hot_loop": 0,
+   "hot_synonyms": [],
+   "hot_stall_moves": [],
+   "hot_stall_sum": [
+    133,
+    133
+   ],
+   "hot_deps_only": true,
+   "hot_syn_text": true,
+   "other_loops": [
+    "0600:same",
+    "0750:same",
+    "0820:same"
+   ]
+  },
+  {
+   "listing": "pf_bench.sass",
+   "arch": "sm_90",
+   "kernel": "find_index_kernel",
+   "ok": true,
+   "level": "PASS",
+   "detail": "",
+   "loops_time": 2,
+   "loops_trace": 2,
+   "timer_reads_time": 0,
+   "timer_reads_trace": 5,
+   "hot_time": "0160..01e0",
+   "hot_trace": "01f0..0270",
+   "hot_len": 9,
+   "hot_loads": 1,
+   "hot_text": true,
+   "hot_issue": true,
+   "hot_deps": true,
+   "hot_exact_regs": false,
+   "hot_entry_waits": [
+    [
+     "4"
+    ],
+    [
+     "4"
+    ]
+   ],
+   "stamps_in_hot_loop": 0,
+   "hot_synonyms": [],
+   "hot_stall_moves": [],
+   "hot_stall_sum": [
+    59,
+    59
+   ],
+   "hot_deps_only": true,
+   "hot_syn_text": true,
+   "other_loops": [
+    "0370:same"
+   ]
+  },
+  {
+   "listing": "pf_bench.sass",
+   "arch": "sm_90",
+   "kernel": "find_index_kernel_ro2",
+   "ok": true,
+   "level": "PASS",
+   "detail": "",
+   "loops_time": 3,
+   "loops_trace": 3,
+   "timer_reads_time": 0,
+   "timer_reads_trace": 5,
+   "hot_time": "0150..0440",
+   "hot_trace": "01c0..04b0",
+   "hot_len": 48,
+   "hot_loads": 8,
+   "hot_text": true,
+   "hot_issue": true,
+   "hot_deps": true,
+   "hot_exact_regs": false,
+   "hot_entry_waits": [
+    [
+     "6",
+     "23"
+    ],
+    [
+     "6",
+     "23"
+    ]
+   ],
+   "stamps_in_hot_loop": 0,
+   "hot_synonyms": [],
+   "hot_stall_moves": [],
+   "hot_stall_sum": [
+    139,
+    139
+   ],
+   "hot_deps_only": true,
+   "hot_syn_text": true,
+   "other_loops": [
+    "0500:text differs",
+    "07a0:same"
+   ]
+  },
+  {
+   "listing": "pf_bench.sass",
+   "arch": "sm_90",
+   "kernel": "likelihood_kernel",
+   "ok": true,
+   "level": "PASS",
+   "detail": "",
+   "loops_time": 6,
+   "loops_trace": 6,
+   "timer_reads_time": 0,
+   "timer_reads_trace": 0,
+   "hot_time": "22a0..2820",
+   "hot_trace": "22a0..2820",
+   "hot_len": 89,
+   "hot_loads": 16,
+   "hot_text": true,
+   "hot_issue": true,
+   "hot_deps": true,
+   "hot_exact_regs": true,
+   "hot_entry_waits": [
+    [
+     "6",
+     "10",
+     "12"
+    ],
+    [
+     "6",
+     "10",
+     "12"
+    ]
+   ],
+   "stamps_in_hot_loop": 0,
+   "hot_synonyms": [],
+   "hot_stall_moves": [],
+   "hot_stall_sum": [
+    400,
+    400
+   ],
+   "hot_deps_only": true,
+   "hot_syn_text": true,
+   "other_loops": [
+    "2900:same",
+    "2af0:same",
+    "38c0:same",
+    "5190:same",
+    "5970:same"
+   ]
+  },
+  {
+   "listing": "pf_bench.sass",
+   "arch": "sm_90",
+   "kernel": "normalize_weights_kernel",
+   "ok": true,
+   "level": "PASS",
+   "detail": "",
+   "loops_time": 4,
+   "loops_trace": 4,
+   "timer_reads_time": 0,
+   "timer_reads_trace": 4,
+   "hot_time": "04b0..0860",
+   "hot_trace": "0710..0ac0",
+   "hot_len": 60,
+   "hot_loads": 16,
+   "hot_text": true,
+   "hot_issue": true,
+   "hot_deps": true,
+   "hot_exact_regs": false,
+   "hot_entry_waits": [
+    [
+     "3"
+    ],
+    [
+     "3"
+    ]
+   ],
+   "stamps_in_hot_loop": 0,
+   "hot_synonyms": [],
+   "hot_stall_moves": [],
+   "hot_stall_sum": [
+    220,
+    220
+   ],
+   "hot_deps_only": true,
+   "hot_syn_text": true,
+   "other_loops": [
+    "0af0:text differs",
+    "0d40:text differs",
+    "1c60:same"
+   ]
+  },
+  {
+   "listing": "pf_bench.sass",
+   "arch": "sm_90",
+   "kernel": "normalize_weights_kernel_ro",
+   "ok": true,
+   "level": "PASS",
+   "detail": "",
+   "loops_time": 4,
+   "loops_trace": 4,
+   "timer_reads_time": 0,
+   "timer_reads_trace": 4,
+   "hot_time": "0430..07c0",
+   "hot_trace": "0640..09d0",
+   "hot_len": 58,
+   "hot_loads": 16,
+   "hot_text": true,
+   "hot_issue": true,
+   "hot_deps": true,
+   "hot_exact_regs": false,
+   "hot_entry_waits": [
+    [
+     "0",
+     "2"
+    ],
+    [
+     "0"
+    ]
+   ],
+   "stamps_in_hot_loop": 0,
+   "hot_synonyms": [],
+   "hot_stall_moves": [],
+   "hot_stall_sum": [
+    209,
+    209
+   ],
+   "hot_deps_only": true,
+   "hot_syn_text": true,
+   "other_loops": [
+    "08b0:same",
+    "0ae0:text differs",
+    "2010:same"
+   ]
+  },
+  {
+   "listing": "pf_bench.sass",
+   "arch": "sm_90",
+   "kernel": "normalize_weights_kernel_ro2",
+   "ok": true,
+   "level": "PASS",
+   "detail": "",
+   "loops_time": 4,
+   "loops_trace": 4,
+   "timer_reads_time": 0,
+   "timer_reads_trace": 0,
+   "hot_time": "0520..0bc0",
+   "hot_trace": "0520..0bc0",
+   "hot_len": 107,
+   "hot_loads": 16,
+   "hot_text": true,
+   "hot_issue": true,
+   "hot_deps": true,
+   "hot_exact_regs": true,
+   "hot_entry_waits": [
+    [
+     "2",
+     "6",
+     "20",
+     "34",
+     "72"
+    ],
+    [
+     "2",
+     "6",
+     "20",
+     "34",
+     "72"
+    ]
+   ],
+   "stamps_in_hot_loop": 0,
+   "hot_synonyms": [],
+   "hot_stall_moves": [],
+   "hot_stall_sum": [
+    284,
+    284
+   ],
+   "hot_deps_only": true,
+   "hot_syn_text": true,
+   "other_loops": [
+    "0ca0:same",
+    "0ed0:same",
+    "2470:same"
+   ]
+  },
+  {
+   "listing": "pf_bench.sass",
+   "arch": "sm_90",
+   "kernel": "sum_kernel",
+   "ok": true,
+   "level": "PASS",
+   "detail": "",
+   "loops_time": 4,
+   "loops_trace": 4,
+   "timer_reads_time": 0,
+   "timer_reads_trace": 0,
+   "hot_time": "0220..0470",
+   "hot_trace": "0220..0470",
+   "hot_len": 38,
+   "hot_loads": 16,
+   "hot_text": true,
+   "hot_issue": true,
+   "hot_deps": true,
+   "hot_exact_regs": true,
+   "hot_entry_waits": [
+    [],
+    []
+   ],
+   "stamps_in_hot_loop": 0,
+   "hot_synonyms": [],
+   "hot_stall_moves": [],
+   "hot_stall_sum": [
+    168,
+    168
+   ],
+   "hot_deps_only": true,
+   "hot_syn_text": true,
+   "other_loops": [
+    "0620:same",
+    "0760:same",
+    "0820:same"
+   ]
+  }
+ ]
+}

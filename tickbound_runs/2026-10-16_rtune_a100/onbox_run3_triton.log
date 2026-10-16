@@ -1,0 +1,60 @@
+2026-10-16T02:02:11Z start
+GPU 0: NVIDIA A100-PCIE-40GB (UUID: GPU-01888e70-deb4-9799-fc0e-7cdea83ff532)
+name, clocks.current.sm [MHz], clocks.max.sm [MHz], driver_version
+NVIDIA A100-PCIE-40GB, 210 MHz, 1410 MHz, 595.71.05
+debconf: delaying package configuration, since apt-utils is not installed
+2026-10-16T02:02:22Z bundle ok
+2026-10-16T02:02:22Z gpu NVIDIA A100-PCIE-40GB -> A100 sm_80
+2026-10-16T02:02:22Z ptxas wrapper installed, real = /usr/local/cuda/bin/ptxas.real
+2026-10-16T02:05:32Z triton_liger/orig: run rc=0 (190s)
+2026-10-16T02:07:29Z triton_liger/auto_nc: run rc=0 (117s)
+2026-10-16T02:07:29Z triton_liger/auto_nc: pass log 107 ptx, 91 loops transformed, sha 05992d7a79b304d1
+2026-10-16T02:09:23Z triton_liger/auto_hoist: run rc=0 (114s)
+2026-10-16T02:09:23Z triton_liger/auto_hoist: pass log 107 ptx, 0 loops transformed, sha 19249d8c4d2d9d49
+2026-10-16T02:11:19Z triton_liger/auto_b8: run rc=0 (116s)
+2026-10-16T02:11:19Z triton_liger/auto_b8: pass log 107 ptx, 0 loops transformed, sha 23d212446f2bf83d
+2026-10-16T02:13:14Z triton_liger/auto_b16: run rc=0 (115s)
+2026-10-16T02:13:14Z triton_liger/auto_b16: pass log 107 ptx, 0 loops transformed, sha 19249d8c4d2d9d49
+2026-10-16T02:15:09Z triton_liger/auto_b36: run rc=0 (115s)
+2026-10-16T02:15:09Z triton_liger/auto_b36: pass log 107 ptx, 0 loops transformed, sha 19249d8c4d2d9d49
+2026-10-16T02:17:06Z triton_liger/auto_nc_b16: run rc=0 (117s)
+2026-10-16T02:17:06Z triton_liger/auto_nc_b16: pass log 107 ptx, 91 loops transformed, sha 2543efdfb8524910
+2026-10-16T02:17:12Z triton_flaggems/orig: run rc=0 (5s)
+2026-10-16T02:17:12Z triton_flaggems/auto_nc: run rc=0 (0s)
+2026-10-16T02:17:12Z triton_flaggems/auto_nc: pass log 0 ptx, 0 loops transformed, sha None
+2026-10-16T02:17:12Z triton_flaggems/auto_hoist: run rc=0 (0s)
+2026-10-16T02:17:12Z triton_flaggems/auto_hoist: pass log 0 ptx, 0 loops transformed, sha None
+2026-10-16T02:17:12Z triton_flaggems/auto_b8: run rc=0 (0s)
+2026-10-16T02:17:12Z triton_flaggems/auto_b8: pass log 0 ptx, 0 loops transformed, sha None
+2026-10-16T02:17:12Z triton_flaggems/auto_b16: run rc=0 (0s)
+2026-10-16T02:17:12Z triton_flaggems/auto_b16: pass log 0 ptx, 0 loops transformed, sha None
+2026-10-16T02:17:12Z triton_flaggems/auto_b36: run rc=0 (0s)
+2026-10-16T02:17:12Z triton_flaggems/auto_b36: pass log 0 ptx, 0 loops transformed, sha None
+2026-10-16T02:17:12Z triton_flaggems/auto_nc_b16: run rc=0 (0s)
+2026-10-16T02:17:12Z triton_flaggems/auto_nc_b16: pass log 0 ptx, 0 loops transformed, sha None
+2026-10-16T02:17:12Z end
+2026-10-16T02:17:12Z run rc=0
+triton_liger   liger:_dyt_bwd_kernel    cases   2  best-of-all median 1.000 (0 faster)  automatic median 1.000 (0 faster)  picks {'orig': 2}
+triton_liger   liger:_dyt_fwd_kernel    cases   2  best-of-all median 1.000 (0 faster)  automatic median 1.000 (0 faster)  picks {'orig': 2}
+triton_liger   liger:_geglu_tanh_backward_kernel cases   2  best-of-all median 1.000 (0 faster)  automatic median 1.000 (0 faster)  picks {'orig': 2}
+triton_liger   liger:_geglu_tanh_forward_kernel cases   2  best-of-all median 1.000 (0 faster)  automatic median 1.000 (0 faster)  picks {'orig': 2}
+triton_liger   liger:_group_norm_backward_kernel cases   1  best-of-all median 1.000 (0 faster)  automatic median 1.000 (0 faster)  picks {'orig': 1}
+triton_liger   liger:_group_norm_forward_kernel cases   1  best-of-all median 1.000 (0 faster)  automatic median 1.000 (0 faster)  picks {'orig': 1}
+triton_liger   liger:_jsd_kernel        cases   2  best-of-all median 1.000 (0 faster)  automatic median 1.000 (0 faster)  picks {'orig': 2}
+triton_liger   liger:_kldiv_kernel_backward cases   2  best-of-all median 1.000 (0 faster)  automatic median 1.000 (0 faster)  picks {'orig': 2}
+triton_liger   liger:_kldiv_kernel_forward cases   2  best-of-all median 1.000 (0 faster)  automatic median 1.000 (0 faster)  picks {'orig': 2}
+triton_liger   liger:_layer_norm_backward_kernel cases   2  best-of-all median 1.000 (0 faster)  automatic median 1.000 (0 faster)  picks {'orig': 2}
+triton_liger   liger:_layer_norm_forward_kernel cases   2  best-of-all median 1.000 (0 faster)  automatic median 1.000 (0 faster)  picks {'orig': 2}
+triton_liger   liger:_rms_norm_backward_kernel cases   2  best-of-all median 1.000 (0 faster)  automatic median 1.000 (0 faster)  picks {'orig': 2}
+triton_liger   liger:_rms_norm_forward_kernel cases   2  best-of-all median 1.000 (0 faster)  automatic median 1.000 (0 faster)  picks {'orig': 2}
+triton_liger   liger:_softmax_single_block_backward_kernel cases   2  best-of-all median 1.000 (0 faster)  automatic median 1.000 (0 faster)  picks {'orig': 2}
+triton_liger   liger:_softmax_single_block_forward_kernel cases   2  best-of-all median 1.000 (0 faster)  automatic median 1.000 (0 faster)  picks {'orig': 2}
+triton_liger   liger:_sparsemax_forward_kernel cases   2  best-of-all median 1.000 (0 faster)  automatic median 1.000 (0 faster)  picks {'orig': 2}
+triton_liger   liger:_swiglu_backward_kernel cases   2  best-of-all median 1.000 (0 faster)  automatic median 1.000 (0 faster)  picks {'orig': 2}
+triton_liger   liger:_swiglu_forward_kernel cases   2  best-of-all median 1.000 (0 faster)  automatic median 1.000 (0 faster)  picks {'orig': 2}
+triton_liger   liger:_triton_rope       cases   2  best-of-all median 1.000 (0 faster)  automatic median 1.000 (0 faster)  picks {'orig': 2}
+triton_liger   liger:liger_cross_entropy_kernel cases   2  best-of-all median 1.000 (0 faster)  automatic median 1.000 (0 faster)  picks {'orig': 2}
+wrote /root/res/report.html
+2026-10-16T02:17:13Z report rc=0
+2026-10-16T02:17:13Z end
+2026-10-16T02:17:13Z finish

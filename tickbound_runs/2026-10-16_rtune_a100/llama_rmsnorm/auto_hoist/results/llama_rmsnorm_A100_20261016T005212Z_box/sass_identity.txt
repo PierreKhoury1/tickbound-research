@@ -1,0 +1,7 @@
+orig timing: 432 vs 432 instructions -> DIFFERENT; first differences: 0x0930 FFMA.FTZ R24, R24, R24, R28 | 0x0930 FFMA.FTZ R19, R24, R24, R28; 0x0940 FFMA.FTZ R24, R26, R26, R24 | 0x0940 FFMA.FTZ R24, R26, R26, R19; 0x0b80 LDG.E R18, [R10.64+0x3000] | 0x0b80 LDG.E R17, [R10.64+0x3000]
+orig trace : 480 vs 480 instructions -> DIFFERENT; first differences: 0x0040 S2R R13, SR_TID.X | 0x0040 S2R R3, SR_TID.X; 0x0070 IMAD.MOV.U32 R10, RZ, RZ, 0x4e4f524d | 0x0070 IMAD.MOV.U32 R14, RZ, RZ, 0x4e4f524d; 0x0080 IMAD.MOV.U32 R11, RZ, RZ, 0x52524d53 | 0x0080 IMAD.MOV.U32 R15, RZ, RZ, 0x52524d53
+ro   timing: 496 vs 496 instructions -> IDENTICAL
+ro   trace : 544 vs 544 instructions -> IDENTICAL
+ro2  timing: 528 vs 528 instructions -> IDENTICAL
+ro2  trace : 576 vs 576 instructions -> IDENTICAL
+sass_identity: DIFFERENT SASS (predictions were made from other code)

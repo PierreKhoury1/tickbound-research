@@ -1,4 +1,4 @@
-# tickbound findings, 8-10 October 2026 (A100, H100, 8x A100 on one host)
+# tickbound findings, 8-16 October 2026 (A100, H100, 8x A100 on one host; reordering on real kernels)
 
 tickbound measures GPU work from inside the kernel. Each warp reads the SM cycle counter (`clock64`) and the GPU timer
 (`%globaltimer`) at checkpoints. Each run syncs the GPU timer to the host clock (`CLOCK_MONOTONIC_RAW`) before and
@@ -12,7 +12,11 @@ scripts and this write-up.
 **Revised on 10 October 2026 after an AI-assisted audit.** Several readings of the first version were wrong or
 overstated; they are corrected in place, and section 8 lists every correction.
 
-Everything below was measured on rented vast.ai machines (8 Oct: $1.07, 9 Oct: $1.59, 10 Oct: about $0.10).
+**Extended on 16 October 2026** with section 9: the load reordering of section 5b applied to eight real kernels by
+hand and by an automatic compiler pass, compared with Triton and CuAsmRL, and traced per instruction.
+
+Everything below was measured on rented vast.ai machines (8 Oct: $1.07, 9 Oct: $1.59, 10 Oct: about $0.10;
+12-16 Oct: about $12 in total).
 
 | date | hardware | toolkit | what ran | data |
 |---|---|---|---|---|
@@ -21,6 +25,15 @@ Everything below was measured on rented vast.ai machines (8 Oct: $1.07, 9 Oct: $
 | 9 Oct | 8x A100-PCIE-40GB, one host | CUDA 12.6 and 12.2 | 8-GPU ktrace on one timeline, reorder E1-E7, 30 hand-edited SASS kernels | `tickbound_data/2026-10-09_a100x8_pcie_cuda12.6+12.2` |
 | 9 Oct | 1x H100 80GB HBM3 (another host) | CUDA 12.6 and 12.2 | reorder E1-E7, ktrace probe (timer census) | `tickbound_data/2026-10-09_h100_cuda12.6+12.2` |
 | 10 Oct | 1x A100-PCIE-40GB | CUDA 12.6 | reorder proof (section 5b) | `tickbound_runs/2026-10-10_reorder_proof` |
+| 12 Oct | 1x A100-SXM4-40GB | Triton 2.2 / 3.2 / 3.8, ptxas 12.6 | Kernl RMSNorm and fused FF, hand reorder vs Triton | `tickbound_runs/2026-10-12_kernl_triton_A100` |
+| 13 Oct | 1x H100 PCIe | CUDA 12.6, Triton 2.2-3.8 | all eight real kernels, hand reorder vs compiler and vs Triton | `tickbound_runs/2026-10-13_H100_all_kernels` |
+| 13 Oct | 1x H100 PCIe | Triton 3.2 / 3.5 / 3.8 | automatic Triton pass on Liger, FlagGems, CuAsmRL kernels | `tickbound_runs/2026-10-13_triton_auto_pass` |
+| 13-14 Oct | 1x H100 PCIe | Triton 3.2 / 3.5 / 3.8 | measured variant selection ("tune") | `tickbound_runs/2026-10-14_triton_tune` |
+| 14 Oct | 1x A100-PCIE-80GB | Triton 2.1, ptxas 12.1 | SASS search in CuAsmRL's action space; CuAsmRL rebuilt | `tickbound_runs/2026-10-14_A100_sass_vs_cuasmrl` |
+| 14 Oct | 1x A100-PCIE-80GB | CUDA 12.6 | automatic PTX pass on the five CUDA kernels | `tickbound_runs/2026-10-14_A100_auto_ptx_pass` |
+| 14 Oct | 1x A100-SXM4-40GB | ptxas 12.6 | Kernl RMSNorm per-phase region traces; sliding probe | `tickbound_runs/2026-10-14_A100_rmsnorm_regions`, `..._rmsnorm_probe` |
+| 14 Oct | 2x A100 (PCIe, SXM4; separate rentals) | ptxas 12.6 | Kernl fused FF loop probe (Triton 2.2, ours, Triton 3.8) | `tickbound_runs/2026-10-14_A100_fusedff_probe` |
+| 16 Oct | 1x A100-PCIE-40GB | CUDA 12.6, Triton 3.2-3.8 | `tickbound reorder-tune` over all harnesses; Liger and FlagGems | `tickbound_runs/2026-10-16_rtune_a100` |
 
 Some files are kept locally and not committed, because of their size:
 - raw traces (`*.bin`);
@@ -430,7 +443,8 @@ microkernel).
 - The barrier move made the block slightly slower.
 - E2's fresh-register effect is within ±6 cycles at 1 warp.
 
-Whether checker-approved moves speed up real kernels where ptxas leaves latency exposed is the open question.
+Whether such moves speed up real kernels where ptxas leaves latency exposed was the open question; section 9 answers
+it for one transform on eight real kernels.
 
 ## 5b. Reordering proof: a speed-up over the compiler (10 Oct)
 
@@ -456,7 +470,7 @@ order; outputs are bit-identical in all 96 configurations (`tickbound_runs/2026-
   16 warps per SM it vanishes with L2-resident data (1.01–1.02×), because other warps already hide L. With
   DRAM-resident data (512 MB set) short chains still gained: 1.29× at N = 16, 1.10× at N = 64, 1.03× at N = 128.
 - **Limits.** One microkernel on one GPU. The move crosses a loop branch, so the basic-block checker cannot judge it;
-  correctness is by output comparison. Not yet shown on a production kernel.
+  correctness is by output comparison. Section 9 shows the same transform on eight production kernels.
 
 ## 6. H100 `%globaltimer`: a 32 ns step (corrected 10 Oct)
 
@@ -527,8 +541,9 @@ Where this work sits:
 - **Across SMs.** Placement across SMs assumes all SMs read one `%globaltimer`, which is checked only above about
   0.18-0.48 µs. The H100 values across SMs are empirical.
 - **What was measured.**
-  - Our own probes and microbenchmarks only, no production kernels. tickbound's mode for profiling other applications
-    has not yet been run on a GPU.
+  - Sections 1-6 use our own probes and microbenchmarks only. Section 9 uses eight production kernels, one GPU per
+    kernel per run. tickbound's injection mode for profiling other applications ran once on an H100 (cuBLAS and
+    PyTorch under `tickbound profile`, 11 Oct) and is not analysed here.
   - The kernel-timing probe is instrumented (80 registers), and no uninstrumented control was run.
   - The 8 Oct samples are small (5 launches per shape).
   - Kernel-timing runs use 256-thread blocks. E2 uses 32 and 1,024 threads, E5 32-1,024, and the Tier B edits one
@@ -558,6 +573,211 @@ Where this work sits:
 9. **A100 acq_rel.** The open item is closed: 412 cycles with both toolkits (section 4).
 10. **Clock bound.** The chord bound, which the 8 Oct write-up called hard, is not a worst case. The strict bound is
     hard only if the GPU/host rate is constant between the syncs (section 2).
+
+## 9. Reordering on real kernels (12-16 October)
+
+Section 5b left one question open: does issuing loads earlier than ptxas does speed up *production* kernels? From 12 to
+16 October we applied one transform to eight real kernels by hand, built it as an automatic compiler pass, compared it
+with Triton's own schedules and with CuAsmRL, and measured per instruction where the saved cycles came from.
+
+**The transform: unroll-and-batch.** Take k consecutive iterations of a strided loop, issue the group's loads first,
+then run the k bodies in their original order. A load crosses a store only when both provably come from different
+kernel arguments. Each iteration still executes the same instructions in the same order, so outputs are bit-identical
+(checked on every row below). The hand variants `ro`, `ro2`, `ro3`, `ro8` differ in k and in where the batched loads
+are issued (for example inside a preceding block reduce, ahead of a barrier).
+
+**The kernels.**
+
+| kernel | origin | type | what the reorder does |
+|---|---|---|---|
+| Kernl RMSNorm | Triton 2.2 PTX, ptxas 12.6 | normalisation, two passes over a row | pass-2 weight loads batched; `ro2`/`ro3` issue them during the block reduce |
+| Kernl fused FF (= CuAsmRL `tt_ff`) | Triton 2.2 | matmul + activation, K loop | the x tile's loads lifted one iteration |
+| llama.cpp `rms_norm_f32` | CUDA | normalisation, 1,024-thread blocks | 32 loads then 16 stores; `ro2` also hoists across the first loop and a barrier |
+| FAISS `l2SelectMinK`, `l2SelectMin1` | CUDA | k-selection (search) | column loads batched, k = 8-36 |
+| PyTorch `EmbeddingBag` sum / mean | CUDA | gather | index and row loads batched |
+| Rodinia particlefilter `normalize_weights`, `find_index` | CUDA | scan / search | 16 loads then 16 stores; `find_index ro2` also replaces 8 compare-and-branch by a bit mask (not a reorder) |
+| NVIDIA Aerial `cfoTaEstLowMimoKernel` (cuPHY) | CUDA | 5G physical layer | channel loads batched. The companion `rssi` harness crashed (misaligned address in our harness), so it has no data |
+
+Each kernel runs in its own harness with real-sized inputs, warm (data in L2) and cold (data evicted) cases, several
+shapes, medians over launches, and a byte comparison of every variant's output against the original on every case.
+
+### 9.1 Hand reordering against the compiler
+
+Ratio = original kernel time / reordered kernel time (> 1 is faster). "Best-of-all" on 16 Oct is the fastest variant
+per case among hand and automatic candidates, as `tickbound reorder-tune` picks it.
+
+| kernel | cases | H100 PCIe, 13 Oct: `ro` median, wins (best hand variant) | A100 PCIe, 16 Oct: best-of-all median, wins |
+|---|---|---|---|
+| Kernl RMSNorm | 37 / 5 | 1.23, 35/37 (`ro2` 1.35, max 1.76) | 1.31, 5/5 |
+| llama.cpp rms_norm | 80 / 9 | 1.16, 75/80 | 1.22, 9/9 |
+| FAISS k-select | 70 / 70 | 2.14, 70/70 (`ro8` max 6.2) | 2.66, 70/70 |
+| PyTorch EmbeddingBag | 31 / 31 | 1.11, 31/31 | 1.46, 31/31 |
+| Rodinia normalize_weights | 13 / 4 | 3.58, 13/13 (`ro2` 3.80) | 3.00, 4/4 |
+| Rodinia find_index | 14 / 4 | 2.51, 14/14 | 2.65, 4/4 |
+| Aerial cfoTaEst | 22 / 22 | 1.19, 20/22 | 1.18, 22/22 |
+| Kernl fused FF (vs its Triton 2.2 compile) | 48 / 280 | 1.22 best config vs best config, 45-48/48 | 1.21, 236/280 |
+
+- Every non-original row was byte-identical to the original's output (H100: 111 + 160 + 140 + 93 + 14 + 26 + 44 rows;
+  A100 16 Oct: all rows).
+- The wins hold warm and cold. Cold cases gain more where the batched loads come from DRAM.
+- Where a variant loses (llama.cpp 5 of 80, RMSNorm 2 of 37, Aerial 2 of 22) it is by at most 15%, at the largest
+  blocks per SM, where other warps already hide the latency, as in section 5b.
+- **Caveat on fused FF.** Many of its 16 Oct picks are `ro_tt32`: the reorder applied to a Triton **3.2** compile,
+  compared with the Triton **2.2** original. That ratio mixes the compiler version with the reorder. The 12-13 Oct
+  best-config comparison (1.22 vs Triton 2.2) is the clean one.
+
+### 9.2 The automatic pass
+
+`ptx_unroll` (in `tickbound.triton`, run through `tb_ptxas.py`, a ptxas drop-in) performs the transform on PTX from
+nvcc, NVRTC or Triton, with a proof per load:
+
+- one back-edge; straight-line prefix and suffix; induction registers updated once, purely, in the suffix;
+- a load's address is a pure function of induction registers and loop invariants (gathers: through another batchable
+  load);
+- a load crosses a store only when both trace to different kernel parameters (parameter + offset provenance; integer
+  struct fields are not pointers);
+- a loop with a block barrier batches only loads of buffers the kernel never writes;
+- breaks are allowed (speculative in-range reads of read-only buffers); every copy keeps its own loop test.
+
+Its unroll width k comes from a load budget. `tickbound reorder-tune` builds eight candidates (`.nc` marking, a
+hoist, budgets 4-64), bit-checks each, times each, records region traces, and picks the fastest per case.
+
+| kernel | A100, 14 Oct: fixed budget 16, auto median (wins) | hand on the same box | A100, 16 Oct: best automatic candidate, median (wins) |
+|---|---|---|---|
+| Rodinia normalize_weights | 3.35 (13/13) | 3.76 | 2.99 (4/4) |
+| Rodinia find_index | 1.12 (14/14) | 2.63 | 1.21 (4/4) |
+| FAISS k-select, all 70 | 2.13 (56 faster / 1 slower) | 2.62 | 2.51 (70/70) |
+| of which `l2SelectMin1` | 1.00 (budget 16 gives k = 1) | 2.62 (k = 36) | included above (`auto_b36` chosen 27 times) |
+| PyTorch EmbeddingBag | 1.07 sum / 1.26 cold | 1.44-1.60 | 1.12 (24/31) |
+| Kernl RMSNorm | - | - | 1.23 (5/5) |
+| llama.cpp rms_norm | 0.97 (budget 16), 1.01 (budget 8) | 1.14 | 1.07 (7/9) |
+| Aerial cfoTaEst | 1.00 (0/22) | 1.18 | 1.00 (2/22) |
+
+- All automatic outputs were byte-identical to the originals (0 mismatches in 14 and 16 Oct).
+- **What the pass reproduces.** The stencil / scan, search and gather wins, on three kernel types and two libraries,
+  with no source edit and no AI in the loop. Its log states per loop what it did and why not.
+- **Where hand still wins, and why.** find_index: the bit-mask rewrite is not a reorder. llama.cpp: the hand variant
+  also hoists across a loop and a barrier. EmbeddingBag: register pressure of k = 4 x 4 loads. Aerial: its loads are
+  predicated inside the loop, which the pass does not batch. `l2SelectMin1` needs k = 36, which only measuring finds.
+- **Lesson.** The width must be measured per loop, not fixed: budget 16 gives 0.97 on llama.cpp and 1.00 on Min1,
+  while measured picks give 1.07 and 2.5. That is what `reorder-tune` now does. A first 14 Oct run had a register
+  renaming bug (copies 2+ used undefined index registers); the numbers above are from the fixed pass.
+
+### 9.3 Against Triton
+
+Triton software-pipelines only the loads feeding `tl.dot`; plain loops get no prefetch, in 3.2 and 3.8 alike
+(verified on the generated PTX; `tl.range(num_stages=...)` gives no `cp.async` either).
+
+**Kernl fused FF, best launch config against best launch config** (12 Oct A100, 13 Oct H100; 24 shapes x warm / cold):
+
+| against | A100 | H100 |
+|---|---|---|
+| Triton 2.2 (CuAsmRL's baseline) | 1.14 best vs best; 1.22 median, 45-48/48 | 1.22 median, 48/48 |
+| Triton 3.2 | 1.08 | - |
+| Triton 3.8 | 1.06 median, 34/48 | **0.99 median, 23/48** |
+
+Against Triton 3.8 we win the warm cases (1.06-1.19) and lose the cold small-M cases (0.66-0.93): Triton 3.8
+pipelines the K loop through shared memory with `cp.async`, and at those shapes that beats a register prefetch of a
+Triton 2.2 schedule. The loop probe (9.5) shows the one shape where it does not: at the decode shape 16x16x64,
+Triton 3.8 waits ~730 cycles per iteration at its `DEPBAR` (two stages are too shallow for a DRAM round trip), and our
+variant is 1.7x faster per iteration and 1.9x over the kernel (83 vs 158 µs). At 64x32x32, Triton 3.8 is issue-bound
+(670 of 710 cycles per iteration are issue) and we tie.
+
+**The automatic pass on Triton 3.x libraries** (Liger 0.8.4, FlagGems 5.0.2, CuAsmRL's kernels; Triton 3.2 / 3.5 /
+3.8; H100 13 Oct, A100 16 Oct): per-kernel median **1.00** over about 100 kernels. The unroll pass transforms 0 loops in
+Triton 3.x PTX (the loop shape it needs does not occur there), so only the read-only `.nc` marking acts: 12 of 97
+cases gain 1.03-1.17 (A100 16 Oct: Liger `dyt` forward 1.17, sparsemax 1.05, swiglu 1.03; FlagGems layer_norm 1.08);
+nothing is slower. An AST-level next-iteration prefetch (pass v2) made `mm` 0.63-0.71 and group_norm 0.69 because it
+broke Triton's own pipelining, and was withdrawn.
+
+**Measured launch-config selection** ("tune": num_warps and num_stages chosen by paired CUDA-event timing on the
+first launch, H100 13-14 Oct): geomean 1.048 over 353 kernel x shape x version cells, 66 cells > 5% faster, fused FF
+decode 3.31x. This changes the launch configuration, not the instruction order, so it is outside this work's claim and
+is reported here only for completeness. Its fair baseline would be Triton's autotuner over its usual config space.
+
+### 9.4 Against CuAsmRL
+
+CuAsmRL (He and Yoneki, CGO 2025) moves memory instructions inside a basic block of Triton's SASS by reinforcement
+learning and reports 2-26% (average 9%) on six kernels. We searched exactly that action space (same six kernels,
+verbatim from its repository at its paper's shapes; Triton 2.1; its legality masks or our stricter checker), on an
+A100 on 14 Oct, with outputs byte-compared on the real inputs plus two random input sets and CUDA-graph paired timing:
+
+| kernel | best gain, our checker | best gain, CuAsmRL's masks |
+|---|---|---|
+| softmax, fused_ff, mmLeakyReLu | 1.00 | 1.00 |
+| rmsnorm | 1.014 (one move) | 1.014 |
+| bmm | 1.022 (one move) | 1.022 |
+| flash-attention | 1.00 | 1.009 (a may-alias move) |
+
+- In this action space, soundly timed, the gain is at most 2.2% on these kernels. Random 32-move episodes added
+  nothing; 178 of 320 episodes on rmsnorm under CuAsmRL's masks produced wrong output, so static legality is not
+  enough and outputs must be compared.
+- **CuAsmRL's timing method** (CUDA events around 100 back-to-back launches) reports 1.08-1.33x for **unchanged**
+  kernels on this setup, because Triton 2.1's CPU launch cost exceeds the kernels' GPU time (for example softmax 7.3 µs
+  by graph vs 27.6 µs by its method). Its reported 2-26% lies inside that noise.
+- CuAsmRL built as published needs a one-line import fix and runs at about one step per second, 3.6 hours per kernel.
+  A head-to-head against its trained cubins is prepared but has **not** been run (about $8 of GPU time).
+
+### 9.5 Where the cycles go: from kernel time to single instructions
+
+This is the measurement side of the thesis: the speed-ups above are attributed, cycle by cycle, to the instructions
+that stopped waiting.
+
+- **Per-phase region traces, Kernl RMSNorm** (A100, 14 Oct; 37 cases x 4 variants, 132 traces, outputs identical).
+  The reorder's whole gain sits in pass 2: at N = 8192, M = 1 warm, pass 2 goes 1.98 -> 0.66 / 0.51 / 0.45 µs
+  (original / `ro` / `ro2` / `ro3`) while pass 1 (0.9 µs) and the warp reduce (0.12 µs) do not move. Pass 2 holds a
+  median 1.02 of the phase-sum saving, and phase-sum saving / stopwatch saving has median 1.05 (111 pairs). Pre-registered
+  predictions from the SASS model and the latency table bracketed the whole-kernel speed-up in 78 of 78 pairs at
+  M <= 64 and 92 of 111 overall (misses at M >= 256, where 2-3 blocks share an SM).
+- **Sliding probe, one instruction at a time** (A100, 14 Oct; one build per probe position, a single `CS2R` after
+  instruction k, 172-340 positions x 4 variants). At N = 4096 warm, the original's pass 2 shows **four jumps of
+  192-226 cycles at exactly the four `HADD2.F32` that first consume a loaded vector** (the L2 round trips predicted on
+  12 Oct); `ro` has two left, `ro2` and `ro3` none. The per-instruction accounting matches the stopwatch to within 1%
+  (639 vs 636, 1,026 vs 1,031, 1,086 vs 1,077 cycles). The probe itself perturbs pass 2 by <= 4 cycles. In the decode
+  case (weights from DRAM) the original has 8 waits of 414-730 cycles.
+- **Loop probe, Kernl fused FF** (A100, 14 Oct; cycles per iteration averaged over the K loop, with the issue time of
+  each loop instruction). Triton 2.2 pays 240-640 cycles at the first consumer of the in-loop load; ours pays one
+  merge wait and no load wait; Triton 3.8's waits are where 9.3 says (`DEPBAR` at 16x16x64, `LDS.128` consumer at
+  64x32x32). The probe measures one warp's own issue timeline; contention with co-resident warps appears as the gap
+  between it and the stopwatch, so both views are needed.
+- **`tickbound probe`** (built 16 Oct) derives wait points from the scoreboard bits, splits static stall counts from
+  dynamic waits per kind, splits barrier pairs and gives an SM view; it reproduces the RMSNorm and fused FF findings
+  from the recorded traces. It has not yet been run on a new GPU session.
+- **A measurement lesson.** Stamps injected into SASS must not use the top two registers of ptxas's allocation
+  (register count = highest register + 3): the hardware raises `cudaErrorIllegalInstruction`, invisible to nvdisasm,
+  cuobjdump and our static gate. This is why the 12-13 Oct runs had no RMSNorm traces.
+
+### 9.6 What section 9 settles
+
+**Shown (real GPUs, byte-identical outputs):**
+1. One reorder, issuing a loop's loads a group ahead, beats the compiler's schedule on all eight real kernels, warm and
+   cold: 1.18-1.46x on normalisation, gather and 5G kernels, 2.1-3.6x on search and scan kernels.
+2. It is automatable: a ptxas drop-in reproduces the search, scan and gather wins (1.1-3.3x) without source edits, and
+   a measured pick per loop closes most of the gap to hand variants.
+3. Against Triton 2.2 it wins (1.22). Against Triton 3.8 it wins where that compiler's pipeline is too shallow
+   (DRAM-bound decode, 1.9x) and ties or loses where Triton 3.8 is issue-bound or pipelines through shared memory.
+4. The saved cycles are located at the individual instructions that stopped waiting, and the per-instruction sum
+   matches the stopwatch within 1%.
+5. In CuAsmRL's action space, with sound timing, the gain is <= 2.2%, and its own timing method cannot resolve its
+   claims.
+
+**Not shown:**
+1. A general win over Triton 3.8 (fused FF median 0.99 on H100 over all shapes).
+2. Any automatic gain on Triton 3.x library kernels: the pass transforms none of their loops; only `.nc` marking acts
+   (12 of 97 cases, 1.03-1.17).
+3. A head-to-head with CuAsmRL's trained cubins.
+4. The Aerial `rssi` kernel (harness crash) and predicated in-loop loads in the automatic pass.
+5. More than one GPU per kernel per run, and no run of the automatic pass on H100.
+
+### 9.7 Files
+
+`tickbound_runs/2026-10-12_kernl_triton_A100`, `2026-10-13_H100_all_kernels`, `2026-10-13_triton_auto_pass`,
+`2026-10-14_triton_tune`, `2026-10-14_A100_sass_vs_cuasmrl`, `2026-10-14_A100_auto_ptx_pass`,
+`2026-10-14_A100_rmsnorm_regions`, `2026-10-14_A100_rmsnorm_probe`, `2026-10-14_A100_fusedff_probe`,
+`2026-10-15_overview` (claims page with side-by-side SASS, as PDF), `2026-10-16_rtune_a100` (report.html, picks.csv).
+Each holds a `SUMMARY.txt`, the results CSV / JSON, the on-box scripts and figures. Raw per-launch traces, probe dumps,
+cubins and SASS listings are kept out of git because of their size (about 2 GB). The harnesses, the pass and the
+probe tools live in the tickbound repository under `bench_real/` and `src/tickbound/{triton,reorder_tune,probe}`.
 
 ## Files
 

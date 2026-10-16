@@ -1,0 +1,14 @@
+[cuasmrl] rmsnorm_kernl_port_M16       ok         34.6 us  kernels 1  new 0  det True
+[cuasmrl] rmsnorm_kernl_port_M4096     ok         43.7 us  kernels 1  new 0  det True
+[cuasmrl] rmsnorm_kernl_M16            error AttributeError: module 'triton.language.math' has no attribute 'pow'
+[cuasmrl] rmsnorm_kernl_M4096          error AttributeError: module 'triton.language.math' has no attribute 'pow'
+[cuasmrl] fused_ff_M512_N512_K1024_64x32x32_w2s5 ok         36.7 us  kernels 1  new 0  det True
+[cuasmrl] fused_ff_M16_N11008_K4096_16x16x64_w4s2 ok        104.7 us  kernels 1  new 0  det True
+[cuasmrl] fused_ff_M16_N4096_K4096_32x64x32_w2s5 ok        109.9 us  kernels 1  new 0  det True
+[cuasmrl] fused_ff_M4096_N11008_K4096_64x128x32_w4s4 ok       3741.8 us  kernels 1  new 0  det True
+[cuasmrl] softmax_R16_C4096            ok         24.4 us  kernels 1  new 0  det True
+[cuasmrl] softmax_R4096_C4096          ok         43.2 us  kernels 1  new 0  det True
+[cuasmrl] softmax_R4096_C32000         ok        302.4 us  kernels 1  new 0  det True
+[cuasmrl] matmul_leaky_M16             ok         34.7 us  kernels 1  new 0  det True
+[cuasmrl] matmul_leaky_M4096           ok        372.8 us  kernels 1  new 0  det True
+SUITE DONE

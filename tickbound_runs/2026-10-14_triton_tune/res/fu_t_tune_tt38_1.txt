@@ -1,0 +1,53 @@
+phase 1 triton 3.8.0 stats {'tuned': 6, 'kernels_rewritten': 10, 'applied': 10, 'ast_kernels_unchanged': 2, 'chosen_orig': 4, 'kernels_unchanged': 2, 'chosen_orig@w8': 1, 'ast_kernels_prefetched': 6, 'chosen_nc+pf': 1}
+  inplace_x2       ref beebea58a378a87b  tune beebea58a378a87b  OK
+  aliased          ref 309800003b37b4bf  tune 309800003b37b4bf  OK
+  atomic_counts    ref f2008cb1d1853571  tune f2008cb1d1853571  OK
+  atomic_total     ref 1048576  tune 1048576  OK
+  rowsum           ref 6e2fd81980dd5497  tune 6e2fd81980dd5497  OK
+  rms_M16          ref 4d5a1afecfb1bef2  tune 4d5a1afecfb1bef2  OK
+  rms_M8           ref 94b7cea9913e08a0  tune 94b7cea9913e08a0  OK
+  graph_rms_M4     ref ba4a66e6b8de882c  tune ba4a66e6b8de882c  OK
+  TUNE add_inplace  chosen orig           speedup 1.0 det True 306.1 ms  
+         {'v': 'nc+pf', 'verdict': 'same_cubin_as_nc'}
+         {'v': 'nc', 'vs': 'orig', 'ratio_med': 1.0, 'wins': '20/41', 'p': 0.62239, 'us_med': 6.4, 'verdict': 'no_gain'}
+         {'v': 'orig@w2', 'vs': 'orig', 'ratio_med': 0.9594, 'wins': '6/15', 'p': 0.84912, 'us_med': 6.752, 'verdict': 'no_gain'}
+         {'v': 'orig@w8', 'vs': 'orig', 'ratio_med': 0.976, 'wins': '6/15', 'p': 0.84912, 'us_med': 6.528, 'verdict': 'no_gain'}
+         {'v': 'orig@s2', 'verdict': 'same_cubin_as_orig'}
+         {'v': 'orig@s4', 'verdict': 'same_cubin_as_orig'}
+  TUNE count_atomic chosen orig@w8        speedup 1.0279 det True 397.6 ms  
+         {'v': 'nc', 'verdict': 'same_cubin_as_orig'}
+         {'v': 'nc+pf', 'verdict': 'same_cubin_as_orig'}
+         {'v': 'orig@w2', 'vs': 'orig', 'ratio_med': 0.9905, 'wins': '0/15', 'p': 1.0, 'us_med': 108.192, 'verdict': 'no_gain'}
+         {'v': 'orig@w8', 'vs': 'orig', 'ratio_med': 1.0298, 'wins': '41/41', 'p': 0.0, 'us_med': 104.128, 'verdict': 'win'}
+         {'v': 'orig@w16', 'vs': 'orig@w8', 'ratio_med': 1.0003, 'wins': '21/41', 'p': 0.5, 'us_med': 104.288, 'verdict': 'no_gain'}
+         {'v': 'orig@w8@s2', 'verdict': 'same_cubin_as_orig@w8'}
+         {'v': 'orig@w8@s4', 'verdict': 'same_cubin_as_orig@w8'}
+  TUNE rowsum       chosen nc+pf          speedup 1.0357 det True 408.7 ms  
+         {'v': 'nc', 'vs': 'orig', 'ratio_med': 1.0, 'wins': '5/15', 'p': 0.94077, 'us_med': 6.496, 'verdict': 'no_gain'}
+         {'v': 'nc+pf', 'vs': 'orig', 'ratio_med': 1.0204, 'wins': '29/41', 'p': 0.00575, 'us_med': 6.336, 'verdict': 'win'}
+         {'v': 'nc+pf@w2', 'verdict': 'output_differs'}
+         {'v': 'nc+pf@w8', 'verdict': 'output_differs'}
+         {'v': 'nc+pf@s2', 'verdict': 'same_cubin_as_nc+pf'}
+         {'v': 'nc+pf@s4', 'verdict': 'same_cubin_as_nc+pf'}
+  TUNE rms          chosen orig           speedup 1.0 det True 695.3 ms  
+         {'v': 'nc', 'vs': 'orig', 'ratio_med': 1.0, 'wins': '6/15', 'p': 0.84912, 'us_med': 7.456, 'verdict': 'no_gain'}
+         {'v': 'nc+pf', 'vs': 'orig', 'ratio_med': 0.9317, 'wins': '0/15', 'p': 1.0, 'us_med': 8.032, 'verdict': 'no_gain'}
+         {'v': 'orig@w2', 'verdict': 'output_differs'}
+         {'v': 'orig@w8', 'verdict': 'output_differs'}
+         {'v': 'orig@s2', 'verdict': 'same_cubin_as_orig'}
+         {'v': 'orig@s4', 'verdict': 'same_cubin_as_orig'}
+  TUNE rms          chosen orig           speedup 1.0 det True 8.6 ms  
+         {'v': 'nc', 'vs': 'orig', 'ratio_med': 0.9873, 'wins': '4/15', 'p': 0.98242, 'us_med': 7.488, 'verdict': 'no_gain'}
+         {'v': 'nc+pf', 'vs': 'orig', 'ratio_med': 0.9433, 'wins': '0/15', 'p': 1.0, 'us_med': 7.936, 'verdict': 'no_gain'}
+         {'v': 'orig@w2', 'verdict': 'output_differs'}
+         {'v': 'orig@w8', 'verdict': 'output_differs'}
+         {'v': 'orig@s2', 'verdict': 'same_cubin_as_orig'}
+         {'v': 'orig@s4', 'verdict': 'same_cubin_as_orig'}
+  TUNE rms          chosen orig           speedup 1.0 det True 8.3 ms  
+         {'v': 'nc', 'vs': 'orig', 'ratio_med': 1.0, 'wins': '7/15', 'p': 0.69638, 'us_med': 7.584, 'verdict': 'no_gain'}
+         {'v': 'nc+pf', 'vs': 'orig', 'ratio_med': 0.9398, 'wins': '0/15', 'p': 1.0, 'us_med': 8.032, 'verdict': 'no_gain'}
+         {'v': 'orig@w2', 'verdict': 'output_differs'}
+         {'v': 'orig@w8', 'verdict': 'output_differs'}
+         {'v': 'orig@s2', 'verdict': 'same_cubin_as_orig'}
+         {'v': 'orig@s4', 'verdict': 'same_cubin_as_orig'}
+RESULT PASS

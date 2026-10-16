@@ -1,0 +1,49 @@
+GPU: NVIDIA A100-PCIE-40GB (cc 80) -> tag A100, binary sm_80, Wed Oct 14 04:04:15 UTC 2026
+name, driver_version, pstate, clocks.current.sm [MHz], clocks.max.sm [MHz], clocks.current.memory [MHz], temperature.gpu, power.draw [W], power.limit [W]
+NVIDIA A100-PCIE-40GB, 595.91.07, P0, 210 MHz, 1410 MHz, 1215 MHz, 29, 34.87 W, 250.00 W
+trace smoke test: OK (2 cases: trace outputs bit-identical to the timing build, no missing stamps)
+device: NVIDIA A100-PCIE-40GB (sm_80), 108 SMs, L2 40 MB, SM clock 1.410 GHz (max), mem 1215 MHz x 5120 bit, driver 13020, runtime 12060 -> GPU tag A100
+trace module: loaded build/trace_sm80.cubin
+  orig timing build: 40 regs, 6 blocks/SM (48 warps/SM); trace build: same regs
+  ro   timing build: 48 regs, 5 blocks/SM (40 warps/SM); trace build: same regs
+  ro2  timing build: 48 regs, 5 blocks/SM (40 warps/SM); trace build: same regs
+  ro3  timing build: 40 regs, 6 blocks/SM (48 warps/SM); trace build: same regs
+buffers: table 1024 MB, indices 16.0 MB, flush 120 MB
+[ 0] b32_s8_d128_r32k_sum           n=256      chunks=128    batch=229 | orig 4.29 us | ro 3.68 us (x1.17) | ro2 3.78 us (x1.13) | ro3 4.28 us (x1.00) | span 3.82/3.15/3.38/3.66 us | ref ok | 0.5 s
+[ 1] b32_s32_d128_r32k_sum          n=1024     chunks=128    batch=136 | orig 9.46 us | ro 6.46 us (x1.47) | ro2 6.93 us (x1.37) | ro3 9.33 us (x1.01) | span 8.83/5.98/6.37/8.74 us | ref ok | 0.2 s
+[ 2] b32_s128_d128_r32k_sum         n=4096     chunks=128    batch=48  | orig 29.72 us | ro 17.70 us (x1.68) | ro2 19.61 us (x1.52) | ro3 28.80 us (x1.03) | span 29.17/17.09/19.12/28.14 us | ref ok | 0.2 s
+[ 3] b256_s8_d128_r32k_sum          n=2048     chunks=1024   batch=229 | orig 4.60 us | ro 3.93 us (x1.17) | ro2 4.16 us (x1.10) | ro3 4.50 us (x1.02) | span 4.21/3.50/3.70/4.03 us | ref ok | 0.2 s
+[ 4] b256_s32_d128_r32k_sum         n=8192     chunks=1024   batch=126 | orig 10.00 us | ro 6.82 us (x1.47) | ro2 7.34 us (x1.36) | ro3 9.83 us (x1.02) | span 9.42/6.30/6.80/9.23 us | ref ok | 0.2 s
+[ 5] b256_s128_d128_r32k_sum        n=32768    chunks=1024   batch=45  | orig 31.27 us | ro 18.18 us (x1.72) | ro2 20.18 us (x1.55) | ro3 30.29 us (x1.03) | span 30.66/17.58/19.74/29.62 us | ref ok | 0.2 s
+[ 6] b2048_s8_d128_r32k_sum         n=16384    chunks=8192   batch=118 | orig 11.12 us | ro 10.18 us (x1.09) | ro2 10.73 us (x1.04) | ro3 11.44 us (x0.97) | span 10.61/9.66/10.26/11.07 us | ref ok | 0.2 s
+[ 7] b2048_s32_d128_r32k_sum        n=65536    chunks=8192   batch=53  | orig 26.31 us | ro 22.88 us (x1.15) | ro2 24.58 us (x1.07) | ro3 26.18 us (x1.01) | span 26.29/22.30/24.21/26.37 us | ref ok | 0.3 s
+[ 8] b2048_s128_d128_r32k_sum       n=262144   chunks=8192   batch=16  | orig 94.53 us | ro 76.51 us (x1.24) | ro2 84.26 us (x1.12) | ro3 91.42 us (x1.03) | span 96.70/76.35/84.59/92.05 us | ref ok | 0.3 s
+[ 9] b16384_s8_d128_r32k_sum        n=131072   chunks=65536  batch=17  | orig 84.15 us | ro 69.81 us (x1.21) | ro2 73.91 us (x1.14) | ro3 83.12 us (x1.01) | span 83.98/69.28/73.49/82.96 us | ref ok | 0.3 s
+[10] b16384_s32_d128_r32k_sum       n=524288   chunks=65536  batch=6   | orig 240.30 us | ro 175.96 us (x1.37) | ro2 190.63 us (x1.26) | ro3 236.63 us (x1.02) | span 239.81/175.15/189.71/235.92 us | ref ok | 0.4 s
+[11] b16384_s128_d128_r32k_sum      n=2097152  chunks=65536  batch=4   | orig 883.07 us | ro 616.19 us (x1.43) | ro2 673.54 us (x1.31) | ro3 868.10 us (x1.02) | span 882.24/614.91/671.79/867.66 us | ref ok | 0.9 s
+[12] b256_s32_d64_r32k_sum          n=8192     chunks=512    batch=126 | orig 9.87 us | ro 6.70 us (x1.47) | ro2 7.17 us (x1.38) | ro3 9.67 us (x1.02) | span 9.31/6.22/6.90/9.12 us | ref ok | 0.2 s
+[13] b256_s32_d256_r32k_sum         n=8192     chunks=2048   batch=103 | orig 12.69 us | ro 10.86 us (x1.17) | ro2 11.44 us (x1.11) | ro3 12.59 us (x1.01) | span 11.95/10.22/10.85/12.05 us | ref ok | 0.2 s
+[14] b32_s32_d128_r1m_sum           n=1024     chunks=128    batch=133 | orig 9.57 us | ro 6.47 us (x1.48) | ro2 6.95 us (x1.38) | ro3 9.43 us (x1.02) | span 8.93/6.00/6.51/8.78 us | ref ok | 0.2 s
+[15] b256_s32_d128_r1m_sum          n=8192     chunks=1024   batch=124 | orig 9.96 us | ro 6.84 us (x1.46) | ro2 7.36 us (x1.35) | ro3 9.78 us (x1.02) | span 9.44/6.34/6.90/9.30 us | ref ok | 0.2 s
+[16] b256_s128_d128_r1m_sum         n=32768    chunks=1024   batch=43  | orig 32.67 us | ro 19.88 us (x1.64) | ro2 22.19 us (x1.47) | ro3 31.93 us (x1.02) | span 32.13/19.23/21.47/31.34 us | ref ok | 0.2 s
+[17] b2048_s32_d128_r1m_sum         n=65536    chunks=8192   batch=31  | orig 45.91 us | ro 30.95 us (x1.48) | ro2 32.50 us (x1.41) | ro3 45.14 us (x1.02) | span 45.60/30.51/32.11/45.01 us | ref ok | 0.3 s
+[18] b2048_s32_d256_r1m_sum         n=65536    chunks=16384  batch=15  | orig 95.88 us | ro 67.04 us (x1.43) | ro2 69.70 us (x1.38) | ro3 94.65 us (x1.01) | span 95.84/67.06/69.55/94.78 us | ref ok | 0.3 s
+[19] b16384_s32_d128_r1m_sum        n=524288   chunks=65536  batch=4   | orig 365.06 us | ro 248.70 us (x1.47) | ro2 257.02 us (x1.42) | ro3 360.45 us (x1.01) | span 364.69/247.58/256.42/359.98 us | ref ok | 0.4 s
+[20] b32_s32_d128_r1m_sum_cold      n=1024     chunks=128    batch=1   | orig 23.55 us | ro 14.34 us (x1.64) | ro2 14.34 us (x1.64) | ro3 23.55 us (x1.00) | span 19.01/9.73/10.19/18.72 us | ref ok | 0.1 s
+[21] b256_s32_d128_r1m_sum_cold     n=8192     chunks=1024   batch=1   | orig 24.58 us | ro 15.36 us (x1.60) | ro2 16.38 us (x1.50) | ro3 24.58 us (x1.00) | span 20.16/10.58/10.96/19.87 us | ref ok | 0.1 s
+[22] b256_s32_d128_r32k_mean        n=8192     chunks=1024   batch=124 | orig 10.15 us | ro 6.91 us (x1.47) | ro2 7.38 us (x1.37) | ro3 9.90 us (x1.03) | span 9.60/6.42/6.93/9.46 us | ref ok | 0.2 s
+[23] b256_s32_d128_r32k_psw         n=8192     chunks=1024   batch=108 | orig 11.84 us | ro 8.22 us (x1.44) | ro2 8.20 us (x1.44) | ro3 11.48 us (x1.03) | span 11.34/7.79/7.79/10.82 us | ref ok | 0.2 s
+[24] b2048_s32_d128_r32k_psw        n=65536    chunks=8192   batch=47  | orig 29.43 us | ro 25.51 us (x1.15) | ro2 27.77 us (x1.06) | ro3 29.06 us (x1.01) | span 29.65/25.28/27.41/29.22 us | ref ok | 0.3 s
+[25] b16384_s32_d128_r1m_psw        n=524288   chunks=65536  batch=4   | orig 423.17 us | ro 295.42 us (x1.43) | ro2 301.82 us (x1.40) | ro3 415.36 us (x1.02) | span 422.75/294.58/300.59/414.64 us | ref ok | 0.5 s
+[26] b2048_v32_d128_r32k_mean_pad   n=66450    chunks=8192   batch=43  | orig 33.36 us | ro 27.91 us (x1.20) | ro2 29.55 us (x1.13) | ro3 33.10 us (x1.01) | span 32.83/27.36/29.31/32.70 us | ref ok | 0.3 s
+[27] b32_s32_d128_r32k_sum_cold     n=1024     chunks=128    batch=1   | orig 23.55 us | ro 14.34 us (x1.64) | ro2 15.36 us (x1.53) | ro3 23.55 us (x1.00) | span 19.04/9.87/10.24/18.85 us | ref ok | 0.1 s
+[28] b256_s32_d128_r32k_sum_cold    n=8192     chunks=1024   batch=1   | orig 24.58 us | ro 15.36 us (x1.60) | ro2 15.36 us (x1.60) | ro3 24.58 us (x1.00) | span 20.00/10.42/10.86/19.63 us | ref ok | 0.1 s
+[29] b2048_s32_d128_r32k_sum_cold   n=65536    chunks=8192   batch=1   | orig 46.08 us | ro 31.74 us (x1.45) | ro2 33.79 us (x1.36) | ro3 45.06 us (x1.02) | span 41.10/27.20/29.17/40.37 us | ref ok | 0.1 s
+[30] b16384_s32_d128_r32k_sum_cold  n=524288   chunks=65536  batch=1   | orig 248.83 us | ro 180.74 us (x1.38) | ro2 195.58 us (x1.27) | ro3 246.27 us (x1.01) | span 245.15/176.30/191.23/241.92 us | ref ok | 0.2 s
+wrote ./results/pt_embbag_A100_20261014_040417.csv
+wrote ./results/pt_embbag_A100_20261014_040417_meta.json
+all variants bitwise equal to orig: yes
+clocks.current.sm [MHz], clocks.current.memory [MHz], temperature.gpu, power.draw [W]
+1410 MHz, 1215 MHz, 35, 63.64 W
+eb_bench exit code 0
+DONE

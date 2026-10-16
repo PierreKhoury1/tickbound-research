@@ -1,0 +1,2043 @@
+{
+ "tags": [
+  "tt38__64x32x32_w2_s5.sm80",
+  "ro__64x32x32_w2_s5.sm80",
+  "orig__64x32x32_w2_s5.sm80"
+ ],
+ "step": 3,
+ "loops": {
+  "tt38__64x32x32_w2_s5.sm80": [
+   440,
+   655,
+   215
+  ],
+  "ro__64x32x32_w2_s5.sm80": [
+   451,
+   721,
+   270
+  ],
+  "orig__64x32x32_w2_s5.sm80": [
+   412,
+   594,
+   182
+  ]
+ },
+ "dirs": {
+  "k_top": {
+   "tt38__64x32x32_w2_s5.sm80": "loop-top only",
+   "ro__64x32x32_w2_s5.sm80": "loop-top only",
+   "orig__64x32x32_w2_s5.sm80": "loop-top only"
+  },
+  "k000": {
+   "tt38__64x32x32_w2_s5.sm80": {
+    "requested": 0,
+    "placed_after": 440,
+    "body_index": 0,
+    "after_text": "DEPBAR.LE SB0, 0xc",
+    "before_text": "IADD3 R193, R193, 0x1, RZ",
+    "moved": 0
+   },
+   "ro__64x32x32_w2_s5.sm80": {
+    "requested": 0,
+    "placed_after": 451,
+    "body_index": 0,
+    "after_text": "ISETP.LE.AND P0, PT, R193, UR9, PT",
+    "before_text": "CS2R R32, SRZ",
+    "moved": 0
+   },
+   "orig__64x32x32_w2_s5.sm80": {
+    "requested": 0,
+    "placed_after": 412,
+    "body_index": 0,
+    "after_text": "IADD3 R88, P0, R164, UR7, RZ",
+    "before_text": "IADD3 R12, P1, R160, UR7, RZ",
+    "moved": 0
+   }
+  },
+  "k003": {
+   "tt38__64x32x32_w2_s5.sm80": {
+    "requested": 3,
+    "placed_after": 443,
+    "body_index": 3,
+    "after_text": "BAR.SYNC.DEFER_BLOCKING 0x0",
+    "before_text": "ISETP.GT.AND P1, PT, R193.reuse, 0x3, PT",
+    "moved": 0
+   },
+   "ro__64x32x32_w2_s5.sm80": {
+    "requested": 3,
+    "placed_after": 454,
+    "body_index": 3,
+    "after_text": "CS2R R34, SRZ",
+    "before_text": "IADD3.X R25, R233, UR7, RZ, P1, !PT",
+    "moved": 0
+   },
+   "orig__64x32x32_w2_s5.sm80": {
+    "requested": 3,
+    "placed_after": 415,
+    "body_index": 3,
+    "after_text": "IADD3 R16, P0, R158, UR7, RZ",
+    "before_text": "IADD3.X R13, R161, UR8, RZ, P1, !PT",
+    "moved": 0
+   }
+  },
+  "k006": {
+   "tt38__64x32x32_w2_s5.sm80": {
+    "requested": 6,
+    "placed_after": 446,
+    "body_index": 6,
+    "after_text": "SEL R193, R193, RZ, !P1",
+    "before_text": "ISETP.LE.AND P1, PT, R199, UR4, PT",
+    "moved": 0
+   },
+   "ro__64x32x32_w2_s5.sm80": {
+    "requested": 6,
+    "placed_after": 457,
+    "body_index": 6,
+    "after_text": "IADD3 R30, P1, R156, UR6, RZ",
+    "before_text": "CS2R R40, SRZ",
+    "moved": 0
+   },
+   "orig__64x32x32_w2_s5.sm80": {
+    "requested": 6,
+    "placed_after": 418,
+    "body_index": 6,
+    "after_text": "LDG.E.128 R88, [R88.64]",
+    "before_text": "IADD3 R8, P0, R156, UR7, RZ",
+    "moved": 0
+   }
+  },
+  "k009": {
+   "tt38__64x32x32_w2_s5.sm80": {
+    "requested": 9,
+    "placed_after": 449,
+    "body_index": 9,
+    "after_text": "LEA R112, R193, R207, 0x6",
+    "before_text": "LEA R28, R193.reuse, R208, 0xc",
+    "moved": 0
+   },
+   "ro__64x32x32_w2_s5.sm80": {
+    "requested": 9,
+    "placed_after": 460,
+    "body_index": 9,
+    "after_text": "CS2R R42, SRZ",
+    "before_text": "IADD3.X R31, R160, UR7, RZ, P1, !PT",
+    "moved": 0
+   },
+   "orig__64x32x32_w2_s5.sm80": {
+    "requested": 9,
+    "placed_after": 421,
+    "body_index": 9,
+    "after_text": "IADD3.X R9, R157, UR8, RZ, P0, !PT",
+    "before_text": "IADD3 R20, P0, R162, UR7, RZ",
+    "moved": 0
+   }
+  },
+  "k012": {
+   "tt38__64x32x32_w2_s5.sm80": {
+    "requested": 12,
+    "placed_after": 453,
+    "body_index": 13,
+    "after_text": "IADD3 R116, R202, R24, R197",
+    "before_text": "LEA R210, R193, R198, 0xb",
+    "moved": 1
+   },
+   "ro__64x32x32_w2_s5.sm80": {
+    "requested": 12,
+    "placed_after": 463,
+    "body_index": 12,
+    "after_text": "IADD3.X R69, R159, UR7, RZ, P2, !PT",
+    "before_text": "CS2R R22, SRZ",
+    "moved": 0
+   },
+   "orig__64x32x32_w2_s5.sm80": {
+    "requested": 12,
+    "placed_after": 424,
+    "body_index": 12,
+    "after_text": "IADD3.X R21, R163, UR8, RZ, P0, !PT",
+    "before_text": "LDG.E.128 R8, [R8.64]",
+    "moved": 0
+   }
+  },
+  "k015": {
+   "tt38__64x32x32_w2_s5.sm80": {
+    "requested": 15,
+    "placed_after": 455,
+    "body_index": 15,
+    "after_text": "SEL R194, R194, RZ, !P2",
+    "before_text": "LDS.128 R112, [R112+0x9000]",
+    "moved": 0
+   },
+   "ro__64x32x32_w2_s5.sm80": {
+    "requested": 15,
+    "placed_after": 466,
+    "body_index": 15,
+    "after_text": "@!P0 LDG.E.128 R40, [R30.64+0x40]",
+    "before_text": "IADD3.X R65, R158, UR7, RZ, P1, !PT",
+    "moved": 0
+   },
+   "orig__64x32x32_w2_s5.sm80": {
+    "requested": 15,
+    "placed_after": 427,
+    "body_index": 15,
+    "after_text": "HMUL2 R95, R15, R91",
+    "before_text": "HMUL2 R94, R14, R90",
+    "moved": 0
+   }
+  },
+  "k018": {
+   "tt38__64x32x32_w2_s5.sm80": {
+    "requested": 18,
+    "placed_after": 458,
+    "body_index": 18,
+    "after_text": "LDS.128 R60, [R28+0x800]",
+    "before_text": "LDS.128 R52, [R28+0x400]",
+    "moved": 0
+   },
+   "ro__64x32x32_w2_s5.sm80": {
+    "requested": 18,
+    "placed_after": 469,
+    "body_index": 18,
+    "after_text": "IADD3 R66, P2, R141, UR6, RZ",
+    "before_text": "CS2R R26, SRZ",
+    "moved": 0
+   },
+   "orig__64x32x32_w2_s5.sm80": {
+    "requested": 18,
+    "placed_after": 430,
+    "body_index": 18,
+    "after_text": "HMUL2 R92, R12, R88",
+    "before_text": "HMUL2 R107, R19, R91",
+    "moved": 0
+   }
+  },
+  "k021": {
+   "tt38__64x32x32_w2_s5.sm80": {
+    "requested": 21,
+    "placed_after": 461,
+    "body_index": 21,
+    "after_text": "LDSM.16.M88.4 R24, [R25+0x9000]",
+    "before_text": "LDSM.16.M88.4 R96, [R116]",
+    "moved": 0
+   },
+   "ro__64x32x32_w2_s5.sm80": {
+    "requested": 21,
+    "placed_after": 472,
+    "body_index": 21,
+    "after_text": "@!P0 LDG.E.128 R20, [R68.64+0x40]",
+    "before_text": "IADD3.X R67, R157, UR7, RZ, P2, !PT",
+    "moved": 0
+   },
+   "orig__64x32x32_w2_s5.sm80": {
+    "requested": 21,
+    "placed_after": 433,
+    "body_index": 21,
+    "after_text": "HMUL2 R105, R17, R89",
+    "before_text": "HMUL2 R104, R16, R88.reuse",
+    "moved": 0
+   }
+  },
+  "k024": {
+   "tt38__64x32x32_w2_s5.sm80": {
+    "requested": 24,
+    "placed_after": 464,
+    "body_index": 24,
+    "after_text": "LDSM.16.M88.4 R160, [R116+0x800]",
+    "before_text": "LDSM.16.M88.4 R92, [R116+0x820]",
+    "moved": 0
+   },
+   "ro__64x32x32_w2_s5.sm80": {
+    "requested": 24,
+    "placed_after": 475,
+    "body_index": 24,
+    "after_text": "@!P0 LDG.E.128 R24, [R64.64+0x40]",
+    "before_text": "@!P0 LDG.E.128 R28, [R66.64+0x40]",
+    "moved": 0
+   },
+   "orig__64x32x32_w2_s5.sm80": {
+    "requested": 24,
+    "placed_after": 436,
+    "body_index": 24,
+    "after_text": "HMUL2 R112, R8, R88",
+    "before_text": "HMUL2 R113, R9, R89",
+    "moved": 0
+   }
+  },
+  "k027": {
+   "tt38__64x32x32_w2_s5.sm80": {
+    "requested": 27,
+    "placed_after": 470,
+    "body_index": 30,
+    "after_text": "HMUL2 R102, R54, R114",
+    "before_text": "HMUL2 R101, R53, R113",
+    "moved": 3
+   },
+   "ro__64x32x32_w2_s5.sm80": {
+    "requested": 27,
+    "placed_after": 478,
+    "body_index": 27,
+    "after_text": "UIADD3 UR5, UR5, 0x1, URZ",
+    "before_text": "PRMT R133, R60, 0x5410, R133",
+    "moved": 0
+   },
+   "orig__64x32x32_w2_s5.sm80": {
+    "requested": 27,
+    "placed_after": 439,
+    "body_index": 27,
+    "after_text": "HMUL2 R91, R23, R91",
+    "before_text": "HMUL2 R90, R22, R90",
+    "moved": 0
+   }
+  },
+  "k030": {
+   "tt38__64x32x32_w2_s5.sm80": {
+    "requested": 30,
+    "placed_after": 470,
+    "body_index": 30,
+    "after_text": "HMUL2 R102, R54, R114",
+    "before_text": "HMUL2 R101, R53, R113",
+    "moved": 0
+   },
+   "ro__64x32x32_w2_s5.sm80": {
+    "requested": 30,
+    "placed_after": 481,
+    "body_index": 30,
+    "after_text": "UISETP.GE.AND UP0, UPT, UR5, 0x4, UPT",
+    "before_text": "PRMT R60, R201, 0x5410, R218",
+    "moved": 0
+   },
+   "orig__64x32x32_w2_s5.sm80": {
+    "requested": 30,
+    "placed_after": 442,
+    "body_index": 30,
+    "after_text": "HMUL2 R88, R20, R88",
+    "before_text": "STS.128 [R151+0x4800], R92",
+    "moved": 0
+   }
+  },
+  "k033": {
+   "tt38__64x32x32_w2_s5.sm80": {
+    "requested": 33,
+    "placed_after": 474,
+    "body_index": 34,
+    "after_text": "HMUL2 R100, R52, R112",
+    "before_text": "HMUL2 R103, R55, R115.reuse",
+    "moved": 1
+   },
+   "ro__64x32x32_w2_s5.sm80": {
+    "requested": 33,
+    "placed_after": 484,
+    "body_index": 33,
+    "after_text": "USEL UR5, UR5, URZ, !UP0",
+    "before_text": "MOV R199, R57",
+    "moved": 0
+   },
+   "orig__64x32x32_w2_s5.sm80": {
+    "requested": 33,
+    "placed_after": 445,
+    "body_index": 33,
+    "after_text": "STS.128 [R151+0x4000], R112",
+    "before_text": "STS.128 [R151+0x4c00], R88",
+    "moved": 0
+   }
+  },
+  "k036": {
+   "tt38__64x32x32_w2_s5.sm80": {
+    "requested": 36,
+    "placed_after": 477,
+    "body_index": 37,
+    "after_text": "HMUL2 R111, R91, R115",
+    "before_text": "STS.128 [R205+0x8400], R100",
+    "moved": 1
+   },
+   "ro__64x32x32_w2_s5.sm80": {
+    "requested": 36,
+    "placed_after": 487,
+    "body_index": 36,
+    "after_text": "MOV R202, R52",
+    "before_text": "MOV R203, R53",
+    "moved": 0
+   },
+   "orig__64x32x32_w2_s5.sm80": {
+    "requested": 36,
+    "placed_after": 448,
+    "body_index": 36,
+    "after_text": "HADD2.F32 R93, -RZ, R15.H1_H1",
+    "before_text": "HADD2.F32 R92, -RZ, R15.H0_H0",
+    "moved": 0
+   }
+  },
+  "k039": {
+   "tt38__64x32x32_w2_s5.sm80": {
+    "requested": 39,
+    "placed_after": 479,
+    "body_index": 39,
+    "after_text": "HMUL2 R114, R50, R114",
+    "before_text": "HMUL2 R113, R49, R113",
+    "moved": 0
+   },
+   "ro__64x32x32_w2_s5.sm80": {
+    "requested": 39,
+    "placed_after": 490,
+    "body_index": 39,
+    "after_text": "MOV R205, R55",
+    "before_text": "MOV R206, R48",
+    "moved": 0
+   },
+   "orig__64x32x32_w2_s5.sm80": {
+    "requested": 39,
+    "placed_after": 451,
+    "body_index": 39,
+    "after_text": "FFMA R120, R93, R93, R120",
+    "before_text": "HADD2.F32 R93, -RZ, R14.H1_H1",
+    "moved": 0
+   }
+  },
+  "k042": {
+   "tt38__64x32x32_w2_s5.sm80": {
+    "requested": 42,
+    "placed_after": 482,
+    "body_index": 42,
+    "after_text": "HMUL2 R112, R48, R112",
+    "before_text": "HMUL2 R115, R51, R115",
+    "moved": 0
+   },
+   "ro__64x32x32_w2_s5.sm80": {
+    "requested": 42,
+    "placed_after": 493,
+    "body_index": 42,
+    "after_text": "MOV R208, R50",
+    "before_text": "MOV R209, R51",
+    "moved": 0
+   },
+   "orig__64x32x32_w2_s5.sm80": {
+    "requested": 42,
+    "placed_after": 454,
+    "body_index": 42,
+    "after_text": "FFMA R122, R93, R93, R122",
+    "before_text": "LDSM.16.M88.4 R92, [R149+0x4000]",
+    "moved": 0
+   }
+  },
+  "k045": {
+   "tt38__64x32x32_w2_s5.sm80": {
+    "requested": 45,
+    "placed_after": 486,
+    "body_index": 46,
+    "after_text": "HMUL2 R97, R97, R24",
+    "before_text": "STS.128 [R205+0x8000], R112",
+    "moved": 1
+   },
+   "ro__64x32x32_w2_s5.sm80": {
+    "requested": 45,
+    "placed_after": 496,
+    "body_index": 45,
+    "after_text": "MOV R211, R45",
+    "before_text": "MOV R212, R46",
+    "moved": 0
+   },
+   "orig__64x32x32_w2_s5.sm80": {
+    "requested": 45,
+    "placed_after": 457,
+    "body_index": 45,
+    "after_text": "LDSM.16.M88.4 R88, [R149+0x4800]",
+    "before_text": "HMMA.16816.F32 R80, R92, R104.reuse, R80",
+    "moved": 0
+   }
+  },
+  "k048": {
+   "tt38__64x32x32_w2_s5.sm80": {
+    "requested": 48,
+    "placed_after": 488,
+    "body_index": 48,
+    "after_text": "HMUL2 R98, R98, R25",
+    "before_text": "HMUL2 R99, R99, R25.reuse",
+    "moved": 0
+   },
+   "ro__64x32x32_w2_s5.sm80": {
+    "requested": 48,
+    "placed_after": 499,
+    "body_index": 48,
+    "after_text": "HMUL2 R47, R60, R63",
+    "before_text": "PRMT R71, R62, 0x5410, R71",
+    "moved": 0
+   },
+   "orig__64x32x32_w2_s5.sm80": {
+    "requested": 48,
+    "placed_after": 461,
+    "body_index": 49,
+    "after_text": "HMMA.16816.F32 R68, R88, R106, R68",
+    "before_text": "LDSM.16.M88.4 R104, [R15+0x400]",
+    "moved": 1
+   }
+  },
+  "k051": {
+   "tt38__64x32x32_w2_s5.sm80": {
+    "requested": 51,
+    "placed_after": 492,
+    "body_index": 52,
+    "after_text": "HMUL2 R161, R161, R24",
+    "before_text": "LDSM.16.M88.4 R36, [R210+0x4200]",
+    "moved": 1
+   },
+   "ro__64x32x32_w2_s5.sm80": {
+    "requested": 51,
+    "placed_after": 502,
+    "body_index": 51,
+    "after_text": "PRMT R44, R197, 0x5410, R214",
+    "before_text": "PRMT R48, R202, 0x5410, R215",
+    "moved": 0
+   },
+   "orig__64x32x32_w2_s5.sm80": {
+    "requested": 51,
+    "placed_after": 463,
+    "body_index": 51,
+    "after_text": "LEA R15, R147, UR9, 0x1",
+    "before_text": "HMMA.16816.F32 R64, R92, R104.reuse, R64",
+    "moved": 0
+   }
+  },
+  "k054": {
+   "tt38__64x32x32_w2_s5.sm80": {
+    "requested": 54,
+    "placed_after": 495,
+    "body_index": 55,
+    "after_text": "HMUL2 R163, R163, R25",
+    "before_text": "LDSM.16.M88.4 R32, [R210+0x4400]",
+    "moved": 1
+   },
+   "ro__64x32x32_w2_s5.sm80": {
+    "requested": 54,
+    "placed_after": 505,
+    "body_index": 54,
+    "after_text": "PRMT R52, R206, 0x5410, R219",
+    "before_text": "HMUL2 R44, R44, R133.reuse",
+    "moved": 0
+   },
+   "orig__64x32x32_w2_s5.sm80": {
+    "requested": 54,
+    "placed_after": 467,
+    "body_index": 55,
+    "after_text": "HMMA.16816.F32 R52, R88, R106, R52",
+    "before_text": "LDSM.16.M88.4 R104, [R15]",
+    "moved": 1
+   }
+  },
+  "k057": {
+   "tt38__64x32x32_w2_s5.sm80": {
+    "requested": 57,
+    "placed_after": 497,
+    "body_index": 57,
+    "after_text": "HMUL2 R92, R92, R26",
+    "before_text": "HMUL2 R93, R93, R26",
+    "moved": 0
+   },
+   "ro__64x32x32_w2_s5.sm80": {
+    "requested": 57,
+    "placed_after": 509,
+    "body_index": 58,
+    "after_text": "PRMT R45, R199, 0x5410, R216",
+    "before_text": "HMUL2 R52, R52, R133.reuse",
+    "moved": 1
+   },
+   "orig__64x32x32_w2_s5.sm80": {
+    "requested": 57,
+    "placed_after": 470,
+    "body_index": 58,
+    "after_text": "HMMA.16816.F32 R44, R88, R104, R44",
+    "before_text": "HMMA.16816.F32 R40, R92, R106.reuse, R40",
+    "moved": 1
+   }
+  },
+  "k060": {
+   "tt38__64x32x32_w2_s5.sm80": {
+    "requested": 60,
+    "placed_after": 501,
+    "body_index": 61,
+    "after_text": "HMUL2 R95, R95, R27",
+    "before_text": "BAR.SYNC.DEFER_BLOCKING 0x0",
+    "moved": 1
+   },
+   "ro__64x32x32_w2_s5.sm80": {
+    "requested": 60,
+    "placed_after": 511,
+    "body_index": 60,
+    "after_text": "PRMT R49, R203, 0x5410, R220",
+    "before_text": "HMUL2 R56, R56, R133",
+    "moved": 0
+   },
+   "orig__64x32x32_w2_s5.sm80": {
+    "requested": 60,
+    "placed_after": 472,
+    "body_index": 60,
+    "after_text": "HMMA.16816.F32 R36, R88, R106, R36",
+    "before_text": "LDSM.16.M88.4 R104, [R15+0x400]",
+    "moved": 0
+   }
+  },
+  "k063": {
+   "tt38__64x32x32_w2_s5.sm80": {
+    "requested": 63,
+    "placed_after": 504,
+    "body_index": 64,
+    "after_text": "LDSM.16.M88.4 R112, [R210+0x6000]",
+    "before_text": "LDSM.16.M88.4 R108, [R210+0x6200]",
+    "moved": 1
+   },
+   "ro__64x32x32_w2_s5.sm80": {
+    "requested": 63,
+    "placed_after": 515,
+    "body_index": 64,
+    "after_text": "PRMT R57, R211, 0x5410, R228",
+    "before_text": "HMUL2 R49, R49, R132.reuse",
+    "moved": 1
+   },
+   "orig__64x32x32_w2_s5.sm80": {
+    "requested": 63,
+    "placed_after": 476,
+    "body_index": 64,
+    "after_text": "HMMA.16816.F32 R28, R92, R106, R28",
+    "before_text": "LDSM.16.M88.4 R92, [R148+0x4000]",
+    "moved": 1
+   }
+  },
+  "k066": {
+   "tt38__64x32x32_w2_s5.sm80": {
+    "requested": 66,
+    "placed_after": 507,
+    "body_index": 67,
+    "after_text": "LDSM.16.M88.4 R104, [R210+0x6400]",
+    "before_text": "LDSM.16.M88.4 R100, [R210+0x6600]",
+    "moved": 1
+   },
+   "ro__64x32x32_w2_s5.sm80": {
+    "requested": 66,
+    "placed_after": 517,
+    "body_index": 66,
+    "after_text": "PRMT R46, R200, 0x5410, R213",
+    "before_text": "HMUL2 R53, R53, R132.reuse",
+    "moved": 0
+   },
+   "orig__64x32x32_w2_s5.sm80": {
+    "requested": 66,
+    "placed_after": 479,
+    "body_index": 67,
+    "after_text": "HMMA.16816.F32 R84, R88, R106, R84",
+    "before_text": "LDSM.16.M88.4 R104, [R15]",
+    "moved": 1
+   }
+  },
+  "k069": {
+   "tt38__64x32x32_w2_s5.sm80": {
+    "requested": 69,
+    "placed_after": 510,
+    "body_index": 70,
+    "after_text": "LDSM.16.M88.4 R116, [R196+0x8000]",
+    "before_text": "HMMA.16816.F32 R140, R96, R28.reuse, R140",
+    "moved": 1
+   },
+   "ro__64x32x32_w2_s5.sm80": {
+    "requested": 69,
+    "placed_after": 520,
+    "body_index": 69,
+    "after_text": "HMUL2 R57, R57, R132",
+    "before_text": "PRMT R54, R208, 0x5410, R221",
+    "moved": 0
+   },
+   "orig__64x32x32_w2_s5.sm80": {
+    "requested": 69,
+    "placed_after": 481,
+    "body_index": 69,
+    "after_text": "LDSM.16.M88.4 R88, [R148+0x4800]",
+    "before_text": "HMMA.16816.F32 R80, R92, R104.reuse, R80",
+    "moved": 0
+   }
+  },
+  "k072": {
+   "tt38__64x32x32_w2_s5.sm80": {
+    "requested": 72,
+    "placed_after": 512,
+    "body_index": 72,
+    "after_text": "LDSM.16.M88.4 R96, [R196+0x8800]",
+    "before_text": "HMMA.16816.F32 R124, R160.reuse, R28, R124",
+    "moved": 0
+   },
+   "ro__64x32x32_w2_s5.sm80": {
+    "requested": 72,
+    "placed_after": 523,
+    "body_index": 72,
+    "after_text": "PRMT R58, R212, 0x5410, R225",
+    "before_text": "HMUL2 R50, R50, R71.reuse",
+    "moved": 0
+   },
+   "orig__64x32x32_w2_s5.sm80": {
+    "requested": 72,
+    "placed_after": 485,
+    "body_index": 73,
+    "after_text": "HMMA.16816.F32 R68, R88, R106, R68",
+    "before_text": "LDSM.16.M88.4 R104, [R15+0x400]",
+    "moved": 1
+   }
+  },
+  "k075": {
+   "tt38__64x32x32_w2_s5.sm80": {
+    "requested": 75,
+    "placed_after": 515,
+    "body_index": 75,
+    "after_text": "HMMA.16816.F32 R136, R160, R40, R136",
+    "before_text": "HADD2.F32 R29, -RZ, R48.H0_H0",
+    "moved": 0
+   },
+   "ro__64x32x32_w2_s5.sm80": {
+    "requested": 75,
+    "placed_after": 527,
+    "body_index": 76,
+    "after_text": "PRMT R64, R209, 0x5410, R226",
+    "before_text": "HMUL2 R58, R58, R71",
+    "moved": 1
+   },
+   "orig__64x32x32_w2_s5.sm80": {
+    "requested": 75,
+    "placed_after": 487,
+    "body_index": 75,
+    "after_text": "LEA R15, R146, UR9, 0x1",
+    "before_text": "HMMA.16816.F32 R64, R92, R104.reuse, R64",
+    "moved": 0
+   }
+  },
+  "k078": {
+   "tt38__64x32x32_w2_s5.sm80": {
+    "requested": 78,
+    "placed_after": 518,
+    "body_index": 78,
+    "after_text": "FFMA R189, R28, R28, R189",
+    "before_text": "HADD2.F32 R28, -RZ, R53.H1_H1",
+    "moved": 0
+   },
+   "ro__64x32x32_w2_s5.sm80": {
+    "requested": 78,
+    "placed_after": 529,
+    "body_index": 78,
+    "after_text": "PRMT R60, R230, 0x5410, R227",
+    "before_text": "HMUL2 R51, R62, R63.reuse",
+    "moved": 0
+   },
+   "orig__64x32x32_w2_s5.sm80": {
+    "requested": 78,
+    "placed_after": 491,
+    "body_index": 79,
+    "after_text": "HMMA.16816.F32 R52, R88, R106, R52",
+    "before_text": "LDSM.16.M88.4 R104, [R15]",
+    "moved": 1
+   }
+  },
+  "k081": {
+   "tt38__64x32x32_w2_s5.sm80": {
+    "requested": 81,
+    "placed_after": 521,
+    "body_index": 81,
+    "after_text": "HADD2.F32 R29, -RZ, R52.H0_H0",
+    "before_text": "HMMA.16816.F32 R132, R160.reuse, R36, R132",
+    "moved": 0
+   },
+   "ro__64x32x32_w2_s5.sm80": {
+    "requested": 81,
+    "placed_after": 534,
+    "body_index": 83,
+    "after_text": "HMUL2 R59, R60, R63",
+    "before_text": "STS.128 [R195+0x4400], R48",
+    "moved": 2
+   },
+   "orig__64x32x32_w2_s5.sm80": {
+    "requested": 81,
+    "placed_after": 493,
+    "body_index": 81,
+    "after_text": "IADD3 R144, R144, 0x1, RZ",
+    "before_text": "HMMA.16816.F32 R48, R92, R104.reuse, R48",
+    "moved": 0
+   }
+  },
+  "k084": {
+   "tt38__64x32x32_w2_s5.sm80": {
+    "requested": 84,
+    "placed_after": 524,
+    "body_index": 84,
+    "after_text": "FFMA R181, R28, R28, R181",
+    "before_text": "HADD2.F32 R28, -RZ, R61.H1_H1",
+    "moved": 0
+   },
+   "ro__64x32x32_w2_s5.sm80": {
+    "requested": 84,
+    "placed_after": 535,
+    "body_index": 84,
+    "after_text": "STS.128 [R195+0x4400], R48",
+    "before_text": "LEA R234, R189, UR8, 0x1",
+    "moved": 0
+   },
+   "orig__64x32x32_w2_s5.sm80": {
+    "requested": 84,
+    "placed_after": 497,
+    "body_index": 85,
+    "after_text": "HMMA.16816.F32 R36, R88, R106, R36",
+    "before_text": "LDSM.16.M88.4 R104, [R15+0x400]",
+    "moved": 1
+   }
+  },
+  "k087": {
+   "tt38__64x32x32_w2_s5.sm80": {
+    "requested": 87,
+    "placed_after": 527,
+    "body_index": 87,
+    "after_text": "HADD2.F32 R29, -RZ, R60.H0_H0",
+    "before_text": "FFMA R191, R48, R48, R191",
+    "moved": 0
+   },
+   "ro__64x32x32_w2_s5.sm80": {
+    "requested": 87,
+    "placed_after": 539,
+    "body_index": 88,
+    "after_text": "STS.128 [R195+0x4800], R52",
+    "before_text": "LEA R235, R188, UR8, 0x1",
+    "moved": 1
+   },
+   "orig__64x32x32_w2_s5.sm80": {
+    "requested": 87,
+    "placed_after": 499,
+    "body_index": 87,
+    "after_text": "ISETP.LE.AND P0, PT, R150, UR6, PT",
+    "before_text": "ISETP.GE.AND P1, PT, R144, 0x4, PT",
+    "moved": 0
+   }
+  },
+  "k090": {
+   "tt38__64x32x32_w2_s5.sm80": {
+    "requested": 90,
+    "placed_after": 530,
+    "body_index": 90,
+    "after_text": "HMMA.16816.F32 R128, R160, R32, R128",
+    "before_text": "FFMA R173, R28, R28, R173",
+    "moved": 0
+   },
+   "ro__64x32x32_w2_s5.sm80": {
+    "requested": 90,
+    "placed_after": 541,
+    "body_index": 90,
+    "after_text": "UIADD3 UR4, UR9, -0x1, URZ",
+    "before_text": "IADD3 R186, R186, 0x1, RZ",
+    "moved": 0
+   },
+   "orig__64x32x32_w2_s5.sm80": {
+    "requested": 90,
+    "placed_after": 502,
+    "body_index": 90,
+    "after_text": "HADD2.F32 R14, -RZ, R14.H0_H0",
+    "before_text": "HADD2.F32 R15, -RZ, R13.H1_H1",
+    "moved": 0
+   }
+  },
+  "k093": {
+   "tt38__64x32x32_w2_s5.sm80": {
+    "requested": 93,
+    "placed_after": 533,
+    "body_index": 93,
+    "after_text": "FFMA R176, R29, R29, R176",
+    "before_text": "HADD2.F32 R60, -RZ, R60.H1_H1",
+    "moved": 0
+   },
+   "ro__64x32x32_w2_s5.sm80": {
+    "requested": 93,
+    "placed_after": 544,
+    "body_index": 93,
+    "after_text": "HADD2.F32 R217, -RZ, R217.H0_H0",
+    "before_text": "UIADD3 UR9, UR9, 0x1, URZ",
+    "moved": 0
+   },
+   "orig__64x32x32_w2_s5.sm80": {
+    "requested": 93,
+    "placed_after": 505,
+    "body_index": 93,
+    "after_text": "HADD2.F32 R14, -RZ, R13.H0_H0",
+    "before_text": "HADD2.F32 R13, -RZ, R12.H1_H1",
+    "moved": 0
+   }
+  },
+  "k096": {
+   "tt38__64x32x32_w2_s5.sm80": {
+    "requested": 96,
+    "placed_after": 536,
+    "body_index": 96,
+    "after_text": "IADD3.X R29, R164, UR6, RZ, P3, !PT",
+    "before_text": "HMUL2 R160, R120, R26.reuse",
+    "moved": 0
+   },
+   "ro__64x32x32_w2_s5.sm80": {
+    "requested": 96,
+    "placed_after": 547,
+    "body_index": 96,
+    "after_text": "BAR.SYNC.DEFER_BLOCKING 0x0",
+    "before_text": "ISETP.LE.AND P3, PT, R192, UR4, PT",
+    "moved": 0
+   },
+   "orig__64x32x32_w2_s5.sm80": {
+    "requested": 96,
+    "placed_after": 508,
+    "body_index": 96,
+    "after_text": "HMMA.16816.F32 R28, R92, R106, R28",
+    "before_text": "IADD3 R92, P2, R2, UR7, RZ",
+    "moved": 0
+   }
+  },
+  "k099": {
+   "tt38__64x32x32_w2_s5.sm80": {
+    "requested": 99,
+    "placed_after": 539,
+    "body_index": 99,
+    "after_text": "HMUL2 R161, R121, R26",
+    "before_text": "IADD3 R32, P3, R18, UR5, RZ",
+    "moved": 0
+   },
+   "ro__64x32x32_w2_s5.sm80": {
+    "requested": 99,
+    "placed_after": 550,
+    "body_index": 99,
+    "after_text": "SEL R186, R186, RZ, !P1",
+    "before_text": "HADD2.F32 R219, -RZ, R219.H0_H0",
+    "moved": 0
+   },
+   "orig__64x32x32_w2_s5.sm80": {
+    "requested": 99,
+    "placed_after": 511,
+    "body_index": 99,
+    "after_text": "IADD3.X R93, R5, UR8, RZ, P2, !PT",
+    "before_text": "BAR.SYNC.DEFER_BLOCKING 0x0",
+    "moved": 0
+   }
+  },
+  "k102": {
+   "tt38__64x32x32_w2_s5.sm80": {
+    "requested": 102,
+    "placed_after": 542,
+    "body_index": 102,
+    "after_text": "FFMA R175, R60, R60, R175",
+    "before_text": "HMUL2 R163, R123, R27",
+    "moved": 0
+   },
+   "ro__64x32x32_w2_s5.sm80": {
+    "requested": 102,
+    "placed_after": 553,
+    "body_index": 102,
+    "after_text": "HADD2.F32 R221, -RZ, R221.H0_H0",
+    "before_text": "UIADD3 UR8, UR4, 0x2000, URZ",
+    "moved": 0
+   },
+   "orig__64x32x32_w2_s5.sm80": {
+    "requested": 102,
+    "placed_after": 514,
+    "body_index": 102,
+    "after_text": "HADD2.F32 R13, -RZ, R19.H1_H1",
+    "before_text": "@!PT LDS RZ, [RZ]",
+    "moved": 0
+   }
+  },
+  "k105": {
+   "tt38__64x32x32_w2_s5.sm80": {
+    "requested": 105,
+    "placed_after": 547,
+    "body_index": 107,
+    "after_text": "LDSM.16.M88.4 R120, [R195+0x8000]",
+    "before_text": "HADD2.F32 R50, -RZ, R50.H1_H1",
+    "moved": 2
+   },
+   "ro__64x32x32_w2_s5.sm80": {
+    "requested": 105,
+    "placed_after": 556,
+    "body_index": 105,
+    "after_text": "FFMA R176, R215, R215, R176",
+    "before_text": "HADD2.F32 R225, -RZ, R225.H0_H0",
+    "moved": 0
+   },
+   "orig__64x32x32_w2_s5.sm80": {
+    "requested": 105,
+    "placed_after": 517,
+    "body_index": 105,
+    "after_text": "@!PT LDS RZ, [RZ]",
+    "before_text": "LDGSTS.E.BYPASS.128 [R95], [R92.64], !P0",
+    "moved": 0
+   }
+  },
+  "k108": {
+   "tt38__64x32x32_w2_s5.sm80": {
+    "requested": 108,
+    "placed_after": 548,
+    "body_index": 108,
+    "after_text": "HADD2.F32 R50, -RZ, R50.H1_H1",
+    "before_text": "FFMA R188, R33, R33, R188",
+    "moved": 0
+   },
+   "ro__64x32x32_w2_s5.sm80": {
+    "requested": 108,
+    "placed_after": 559,
+    "body_index": 108,
+    "after_text": "HADD2.F32 R227, -RZ, R227.H0_H0",
+    "before_text": "FFMA R6, R219, R219, R6",
+    "moved": 0
+   },
+   "orig__64x32x32_w2_s5.sm80": {
+    "requested": 108,
+    "placed_after": 520,
+    "body_index": 108,
+    "after_text": "IADD3.X R93, R4, UR8, RZ, P1, !PT",
+    "before_text": "LDGSTS.E.BYPASS.128 [R95+0x400], [R92.64], !P0",
+    "moved": 0
+   }
+  },
+  "k111": {
+   "tt38__64x32x32_w2_s5.sm80": {
+    "requested": 111,
+    "placed_after": 551,
+    "body_index": 111,
+    "after_text": "HMMA.16816.F32 R64, R96, R108, R64",
+    "before_text": "HADD2.F32 R54, -RZ, R54.H1_H1",
+    "moved": 0
+   },
+   "ro__64x32x32_w2_s5.sm80": {
+    "requested": 111,
+    "placed_after": 562,
+    "body_index": 111,
+    "after_text": "FFMA R10, R221, R221, R10",
+    "before_text": "HADD2.F32 R202, -RZ, R202.H0_H0",
+    "moved": 0
+   },
+   "orig__64x32x32_w2_s5.sm80": {
+    "requested": 111,
+    "placed_after": 523,
+    "body_index": 111,
+    "after_text": "IADD3 R92, P1, R6, UR7, RZ",
+    "before_text": "IADD3.X R93, R3, UR8, RZ, P1, !PT",
+    "moved": 0
+   }
+  },
+  "k114": {
+   "tt38__64x32x32_w2_s5.sm80": {
+    "requested": 114,
+    "placed_after": 554,
+    "body_index": 114,
+    "after_text": "FFMA R180, R33, R33, R180",
+    "before_text": "HADD2.F32 R33, -RZ, R62.reuse.H0_H0",
+    "moved": 0
+   },
+   "ro__64x32x32_w2_s5.sm80": {
+    "requested": 114,
+    "placed_after": 565,
+    "body_index": 114,
+    "after_text": "HADD2.F32 R204, -RZ, R204.H0_H0",
+    "before_text": "FFMA R18, R225, R225, R18",
+    "moved": 0
+   },
+   "orig__64x32x32_w2_s5.sm80": {
+    "requested": 114,
+    "placed_after": 526,
+    "body_index": 114,
+    "after_text": "LDGSTS.E.BYPASS.128 [R95+0x2000], [R92.64], !P0",
+    "before_text": "HADD2.F32 R13, -RZ, R18.H1_H1",
+    "moved": 0
+   }
+  },
+  "k117": {
+   "tt38__64x32x32_w2_s5.sm80": {
+    "requested": 117,
+    "placed_after": 557,
+    "body_index": 117,
+    "after_text": "HADD2.F32 R62, -RZ, R62.H1_H1",
+    "before_text": "HMMA.16816.F32 R84, R96, R104, R84",
+    "moved": 0
+   },
+   "ro__64x32x32_w2_s5.sm80": {
+    "requested": 117,
+    "placed_after": 568,
+    "body_index": 117,
+    "after_text": "FFMA R140, R227, R227, R140",
+    "before_text": "HADD2.F32 R208, -RZ, R208.H0_H0",
+    "moved": 0
+   },
+   "orig__64x32x32_w2_s5.sm80": {
+    "requested": 117,
+    "placed_after": 529,
+    "body_index": 117,
+    "after_text": "IADD3 R92, P1, R96, UR7, RZ",
+    "before_text": "IADD3.X R93, R7, UR8, RZ, P1, !PT",
+    "moved": 0
+   }
+  },
+  "k120": {
+   "tt38__64x32x32_w2_s5.sm80": {
+    "requested": 120,
+    "placed_after": 560,
+    "body_index": 120,
+    "after_text": "IADD3.X R33, R158, UR6, RZ, P3, !PT",
+    "before_text": "FFMA R171, R62, R62, R171",
+    "moved": 0
+   },
+   "ro__64x32x32_w2_s5.sm80": {
+    "requested": 120,
+    "placed_after": 571,
+    "body_index": 120,
+    "after_text": "LDSM.16.M88.4 R152, [R191+0x4000]",
+    "before_text": "HADD2.F32 R210, -RZ, R210.H0_H0",
+    "moved": 0
+   },
+   "orig__64x32x32_w2_s5.sm80": {
+    "requested": 120,
+    "placed_after": 532,
+    "body_index": 120,
+    "after_text": "HADD2.F32 R13, -RZ, R17.H1_H1",
+    "before_text": "FFMA R127, R12, R12, R127",
+    "moved": 0
+   }
+  },
+  "k123": {
+   "tt38__64x32x32_w2_s5.sm80": {
+    "requested": 123,
+    "placed_after": 564,
+    "body_index": 124,
+    "after_text": "HADD2.F32 R30, -RZ, R51.H1_H1",
+    "before_text": "HMMA.16816.F32 R144, R160, R34, R144",
+    "moved": 1
+   },
+   "ro__64x32x32_w2_s5.sm80": {
+    "requested": 123,
+    "placed_after": 574,
+    "body_index": 123,
+    "after_text": "HADD2.F32 R212, -RZ, R212.H0_H0",
+    "before_text": "LDSM.16.M88.4 R148, [R229]",
+    "moved": 0
+   },
+   "orig__64x32x32_w2_s5.sm80": {
+    "requested": 123,
+    "placed_after": 535,
+    "body_index": 123,
+    "after_text": "HADD2.F32 R12, -RZ, R19.H0_H0",
+    "before_text": "LDGDEPBAR",
+    "moved": 0
+   }
+  },
+  "k126": {
+   "tt38__64x32x32_w2_s5.sm80": {
+    "requested": 126,
+    "placed_after": 566,
+    "body_index": 126,
+    "after_text": "HADD2.F32 R31, -RZ, R49.H0_H0",
+    "before_text": "FFMA R185, R30, R30, R185",
+    "moved": 0
+   },
+   "ro__64x32x32_w2_s5.sm80": {
+    "requested": 126,
+    "placed_after": 577,
+    "body_index": 126,
+    "after_text": "FFMA R173, R204, R204, R173",
+    "before_text": "LDSM.16.M88.4 R132, [R191+0x4800]",
+    "moved": 0
+   },
+   "orig__64x32x32_w2_s5.sm80": {
+    "requested": 126,
+    "placed_after": 538,
+    "body_index": 126,
+    "after_text": "HADD2.F32 R13, -RZ, R16.H1_H1",
+    "before_text": "FFMA R129, R12, R12, R129",
+    "moved": 0
+   }
+  },
+  "k129": {
+   "tt38__64x32x32_w2_s5.sm80": {
+    "requested": 129,
+    "placed_after": 569,
+    "body_index": 129,
+    "after_text": "FFMA R190, R31, R31, R190",
+    "before_text": "HADD2.F32 R31, -RZ, R53.H0_H0",
+    "moved": 0
+   },
+   "ro__64x32x32_w2_s5.sm80": {
+    "requested": 129,
+    "placed_after": 580,
+    "body_index": 129,
+    "after_text": "FFMA R9, R208, R208, R9",
+    "before_text": "LDSM.16.M88.4 R68, [R234+0x400]",
+    "moved": 0
+   },
+   "orig__64x32x32_w2_s5.sm80": {
+    "requested": 129,
+    "placed_after": 541,
+    "body_index": 129,
+    "after_text": "HADD2.F32 R12, -RZ, R17.H0_H0",
+    "before_text": "UIADD3 UR4, UR4, 0x1, URZ",
+    "moved": 0
+   }
+  },
+  "k132": {
+   "tt38__64x32x32_w2_s5.sm80": {
+    "requested": 132,
+    "placed_after": 572,
+    "body_index": 132,
+    "after_text": "FFMA R177, R30, R30, R177",
+    "before_text": "HADD2.F32 R30, -RZ, R63.H1_H1",
+    "moved": 0
+   },
+   "ro__64x32x32_w2_s5.sm80": {
+    "requested": 132,
+    "placed_after": 583,
+    "body_index": 132,
+    "after_text": "FFMA R17, R212, R212, R17",
+    "before_text": "LDSM.16.M88.4 R144, [R229+0x400]",
+    "moved": 0
+   },
+   "orig__64x32x32_w2_s5.sm80": {
+    "requested": 132,
+    "placed_after": 545,
+    "body_index": 133,
+    "after_text": "FFMA R125, R14, R14, R125",
+    "before_text": "UISETP.GE.AND UP0, UPT, UR4, 0x4, UPT",
+    "moved": 1
+   }
+  },
+  "k135": {
+   "tt38__64x32x32_w2_s5.sm80": {
+    "requested": 135,
+    "placed_after": 575,
+    "body_index": 135,
+    "after_text": "HADD2.F32 R31, -RZ, R61.H0_H0",
+    "before_text": "HADD2.F32 R35, -RZ, R51.H0_H0",
+    "moved": 0
+   },
+   "ro__64x32x32_w2_s5.sm80": {
+    "requested": 135,
+    "placed_after": 586,
+    "body_index": 135,
+    "after_text": "LDSM.16.M88.4 R136, [R234]",
+    "before_text": "LDSM.16.M88.4 R64, [R190+0x4000]",
+    "moved": 0
+   },
+   "orig__64x32x32_w2_s5.sm80": {
+    "requested": 135,
+    "placed_after": 547,
+    "body_index": 135,
+    "after_text": "FFMA R133, R12, R12, R133",
+    "before_text": "ISETP.LE.AND P0, PT, R103, UR6, PT",
+    "moved": 0
+   }
+  },
+  "k138": {
+   "tt38__64x32x32_w2_s5.sm80": {
+    "requested": 138,
+    "placed_after": 578,
+    "body_index": 138,
+    "after_text": "IADD3 R30, P2, R20, UR5, RZ",
+    "before_text": "FFMA R174, R31, R31, R174",
+    "moved": 0
+   },
+   "ro__64x32x32_w2_s5.sm80": {
+    "requested": 138,
+    "placed_after": 589,
+    "body_index": 138,
+    "after_text": "LDSM.16.M88.4 R44, [R190+0x4800]",
+    "before_text": "LDSM.16.M88.4 R48, [R235+0x400]",
+    "moved": 0
+   },
+   "orig__64x32x32_w2_s5.sm80": {
+    "requested": 138,
+    "placed_after": 550,
+    "body_index": 138,
+    "after_text": "FFMA R136, R13, R13, R136",
+    "before_text": "HADD2.F32 R14, -RZ, R8.H0_H0",
+    "moved": 0
+   }
+  },
+  "k141": {
+   "tt38__64x32x32_w2_s5.sm80": {
+    "requested": 141,
+    "placed_after": 581,
+    "body_index": 141,
+    "after_text": "FFMA R186, R35, R35, R186",
+    "before_text": "HADD2.F32 R35, -RZ, R55.H0_H0",
+    "moved": 0
+   },
+   "ro__64x32x32_w2_s5.sm80": {
+    "requested": 141,
+    "placed_after": 593,
+    "body_index": 142,
+    "after_text": "LDSM.16.M88.4 R52, [R235]",
+    "before_text": "HMMA.16816.F32 R96, R132, R148, R96",
+    "moved": 1
+   },
+   "orig__64x32x32_w2_s5.sm80": {
+    "requested": 141,
+    "placed_after": 553,
+    "body_index": 141,
+    "after_text": "USEL UR4, UR4, URZ, !UP0",
+    "before_text": "HADD2.F32 R8, -RZ, R9.reuse.H0_H0",
+    "moved": 0
+   }
+  },
+  "k144": {
+   "tt38__64x32x32_w2_s5.sm80": {
+    "requested": 144,
+    "placed_after": 584,
+    "body_index": 144,
+    "after_text": "IADD3 R34, P4, R16, UR5, RZ",
+    "before_text": "FFMA R178, R35, R35, R178",
+    "moved": 0
+   },
+   "ro__64x32x32_w2_s5.sm80": {
+    "requested": 144,
+    "placed_after": 596,
+    "body_index": 145,
+    "after_text": "HMMA.16816.F32 R72, R132, R68, R72",
+    "before_text": "HMMA.16816.F32 R124, R152, R150.reuse, R124",
+    "moved": 1
+   },
+   "orig__64x32x32_w2_s5.sm80": {
+    "requested": 144,
+    "placed_after": 557,
+    "body_index": 145,
+    "after_text": "FFMA R124, R15, R15, R124",
+    "before_text": "UIADD3 UR7, UP0, UR7, 0x40, URZ",
+    "moved": 1
+   }
+  },
+  "k147": {
+   "tt38__64x32x32_w2_s5.sm80": {
+    "requested": 147,
+    "placed_after": 587,
+    "body_index": 147,
+    "after_text": "HADD2.F32 R35, -RZ, R63.H0_H0",
+    "before_text": "FFMA R170, R35, R35, R170",
+    "moved": 0
+   },
+   "ro__64x32x32_w2_s5.sm80": {
+    "requested": 147,
+    "placed_after": 603,
+    "body_index": 152,
+    "after_text": "HMMA.16816.F32 R36, R132, R70, R36",
+    "before_text": "HMMA.16816.F32 R128, R64, R60.reuse, R128",
+    "moved": 5
+   },
+   "orig__64x32x32_w2_s5.sm80": {
+    "requested": 147,
+    "placed_after": 559,
+    "body_index": 147,
+    "after_text": "FFMA R137, R12, R12, R137",
+    "before_text": "USHF.L.U32 UR5, UR4, 0xb, URZ",
+    "moved": 0
+   }
+  },
+  "k150": {
+   "tt38__64x32x32_w2_s5.sm80": {
+    "requested": 150,
+    "placed_after": 591,
+    "body_index": 151,
+    "after_text": "IADD3.X R35, R156, UR6, RZ, P4, !PT",
+    "before_text": "IADD3 R36, P4, R13, UR5, RZ",
+    "moved": 1
+   },
+   "ro__64x32x32_w2_s5.sm80": {
+    "requested": 150,
+    "placed_after": 603,
+    "body_index": 152,
+    "after_text": "HMMA.16816.F32 R36, R132, R70, R36",
+    "before_text": "HMMA.16816.F32 R128, R64, R60.reuse, R128",
+    "moved": 2
+   },
+   "orig__64x32x32_w2_s5.sm80": {
+    "requested": 150,
+    "placed_after": 562,
+    "body_index": 150,
+    "after_text": "HADD2.F32 R12, -RZ, R10.H0_H0",
+    "before_text": "FFMA R141, R8, R8, R141",
+    "moved": 0
+   }
+  },
+  "k153": {
+   "tt38__64x32x32_w2_s5.sm80": {
+    "requested": 153,
+    "placed_after": 593,
+    "body_index": 153,
+    "after_text": "@!PT LDS RZ, [RZ]",
+    "before_text": "@!PT LDS RZ, [RZ]",
+    "moved": 0
+   },
+   "ro__64x32x32_w2_s5.sm80": {
+    "requested": 153,
+    "placed_after": 605,
+    "body_index": 154,
+    "after_text": "HMMA.16816.F32 R96, R44, R60, R96",
+    "before_text": "HADD2.F32 R60, -RZ, R199.H0_H0",
+    "moved": 1
+   },
+   "orig__64x32x32_w2_s5.sm80": {
+    "requested": 153,
+    "placed_after": 565,
+    "body_index": 153,
+    "after_text": "FFMA R140, R9, R9, R140",
+    "before_text": "HADD2.F32 R15, -RZ, R20.H1_H1",
+    "moved": 0
+   }
+  },
+  "k156": {
+   "tt38__64x32x32_w2_s5.sm80": {
+    "requested": 156,
+    "placed_after": 596,
+    "body_index": 156,
+    "after_text": "LDGSTS.E.BYPASS.128 [R39], [R28.64], !P1",
+    "before_text": "IADD3.X R37, R19, UR6, RZ, P4, !PT",
+    "moved": 0
+   },
+   "ro__64x32x32_w2_s5.sm80": {
+    "requested": 156,
+    "placed_after": 607,
+    "body_index": 156,
+    "after_text": "HMMA.16816.F32 R104, R64, R48, R104",
+    "before_text": "HADD2.F32 R61, -RZ, R216.H0_H0",
+    "moved": 0
+   },
+   "orig__64x32x32_w2_s5.sm80": {
+    "requested": 156,
+    "placed_after": 568,
+    "body_index": 156,
+    "after_text": "HADD2.F32 R18, -RZ, R18.H0_H0",
+    "before_text": "DEPBAR.LE SB0, 0x6",
+    "moved": 0
+   }
+  },
+  "k159": {
+   "tt38__64x32x32_w2_s5.sm80": {
+    "requested": 159,
+    "placed_after": 600,
+    "body_index": 160,
+    "after_text": "LDGSTS.E.BYPASS.128 [R39+0x800], [R32.64], !P1",
+    "before_text": "HMMA.16816.F32 R84, R24.reuse, R106, R84",
+    "moved": 1
+   },
+   "ro__64x32x32_w2_s5.sm80": {
+    "requested": 159,
+    "placed_after": 610,
+    "body_index": 159,
+    "after_text": "HADD2.F32 R60, -RZ, R203.H0_H0",
+    "before_text": "FFMA R182, R61, R61, R182",
+    "moved": 0
+   },
+   "orig__64x32x32_w2_s5.sm80": {
+    "requested": 159,
+    "placed_after": 572,
+    "body_index": 160,
+    "after_text": "HADD2.F32 R8, -RZ, R23.H0_H0",
+    "before_text": "HADD2.F32 R22, -RZ, R22.H0_H0",
+    "moved": 1
+   }
+  },
+  "k162": {
+   "tt38__64x32x32_w2_s5.sm80": {
+    "requested": 162,
+    "placed_after": 602,
+    "body_index": 162,
+    "after_text": "IADD3 R28, P3, R14, UR5, RZ",
+    "before_text": "LDGSTS.E.BYPASS.128 [R39+0xc00], [R34.64], !P1",
+    "moved": 0
+   },
+   "ro__64x32x32_w2_s5.sm80": {
+    "requested": 162,
+    "placed_after": 613,
+    "body_index": 162,
+    "after_text": "HMMA.16816.F32 R72, R44, R48, R72",
+    "before_text": "FFMA R175, R60, R60, R175",
+    "moved": 0
+   },
+   "orig__64x32x32_w2_s5.sm80": {
+    "requested": 162,
+    "placed_after": 575,
+    "body_index": 163,
+    "after_text": "HADD2.F32 R10, -RZ, R21.H0_H0",
+    "before_text": "HADD2.F32 R20, -RZ, R20.H0_H0",
+    "moved": 1
+   }
+  },
+  "k165": {
+   "tt38__64x32x32_w2_s5.sm80": {
+    "requested": 165,
+    "placed_after": 605,
+    "body_index": 165,
+    "after_text": "LDGDEPBAR",
+    "before_text": "HMMA.16816.F32 R68, R24, R102, R68",
+    "moved": 0
+   },
+   "ro__64x32x32_w2_s5.sm80": {
+    "requested": 165,
+    "placed_after": 616,
+    "body_index": 165,
+    "after_text": "FFMA R174, R61, R61, R174",
+    "before_text": "SEL R61, R33, RZ, !P0",
+    "moved": 0
+   },
+   "orig__64x32x32_w2_s5.sm80": {
+    "requested": 165,
+    "placed_after": 577,
+    "body_index": 165,
+    "after_text": "HMMA.16816.F32 R24, R88, R104, R24",
+    "before_text": "UIADD3.X UR8, URZ, UR8, URZ, UP0, !UPT",
+    "moved": 0
+   }
+  },
+  "k168": {
+   "tt38__64x32x32_w2_s5.sm80": {
+    "requested": 168,
+    "placed_after": 608,
+    "body_index": 168,
+    "after_text": "FFMA R10, R33, R33, R10",
+    "before_text": "IADD3 R24, P2, R157, UR5, RZ",
+    "moved": 0
+   },
+   "ro__64x32x32_w2_s5.sm80": {
+    "requested": 168,
+    "placed_after": 619,
+    "body_index": 168,
+    "after_text": "FFMA R171, R60, R60, R171",
+    "before_text": "SEL R60, R32, RZ, !P0",
+    "moved": 0
+   },
+   "orig__64x32x32_w2_s5.sm80": {
+    "requested": 168,
+    "placed_after": 580,
+    "body_index": 168,
+    "after_text": "FFMA R131, R18, R18, R131",
+    "before_text": "HMMA.16816.F32 R84, R88, R106, R84",
+    "moved": 0
+   }
+  },
+  "k171": {
+   "tt38__64x32x32_w2_s5.sm80": {
+    "requested": 171,
+    "placed_after": 611,
+    "body_index": 171,
+    "after_text": "IADD3.X R25, R165, UR6, RZ, P2, !PT",
+    "before_text": "IADD3 R26, P2, R15, UR5, RZ",
+    "moved": 0
+   },
+   "ro__64x32x32_w2_s5.sm80": {
+    "requested": 171,
+    "placed_after": 622,
+    "body_index": 171,
+    "after_text": "IADD3 R32, P1, R163, UR6, RZ",
+    "before_text": "IADD3.X R49, R168, UR7, RZ, P2, !PT",
+    "moved": 0
+   },
+   "orig__64x32x32_w2_s5.sm80": {
+    "requested": 171,
+    "placed_after": 583,
+    "body_index": 171,
+    "after_text": "FFMA R143, R14, R14, R143",
+    "before_text": "FFMA R139, R12, R12, R139",
+    "moved": 0
+   }
+  },
+  "k174": {
+   "tt38__64x32x32_w2_s5.sm80": {
+    "requested": 174,
+    "placed_after": 614,
+    "body_index": 174,
+    "after_text": "IADD3.X R27, R23, UR6, RZ, P2, !PT",
+    "before_text": "IADD3 R30, P2, R12, UR5, RZ",
+    "moved": 0
+   },
+   "ro__64x32x32_w2_s5.sm80": {
+    "requested": 174,
+    "placed_after": 625,
+    "body_index": 174,
+    "after_text": "SHF.R.U32.HI R133, RZ, 0x10, R60",
+    "before_text": "HMMA.16816.F32 R124, R64, R62, R124",
+    "moved": 0
+   },
+   "orig__64x32x32_w2_s5.sm80": {
+    "requested": 174,
+    "placed_after": 586,
+    "body_index": 174,
+    "after_text": "FFMA R109, R8, R8, R109",
+    "before_text": "FFMA R110, R11, R11, R110",
+    "moved": 0
+   }
+  },
+  "k177": {
+   "tt38__64x32x32_w2_s5.sm80": {
+    "requested": 177,
+    "placed_after": 617,
+    "body_index": 177,
+    "after_text": "LEA R43, R194, R207, 0x6",
+    "before_text": "HMMA.16816.F32 R44, R116.reuse, R112, R44",
+    "moved": 0
+   },
+   "ro__64x32x32_w2_s5.sm80": {
+    "requested": 177,
+    "placed_after": 629,
+    "body_index": 178,
+    "after_text": "SEL R62, R34, RZ, !P0",
+    "before_text": "HMMA.16816.F32 R88, R44, R56, R88",
+    "moved": 1
+   },
+   "orig__64x32x32_w2_s5.sm80": {
+    "requested": 177,
+    "placed_after": 589,
+    "body_index": 177,
+    "after_text": "FFMA R116, R13, R13, R116",
+    "before_text": "FFMA R117, R10, R10, R117",
+    "moved": 0
+   }
+  },
+  "k180": {
+   "tt38__64x32x32_w2_s5.sm80": {
+    "requested": 180,
+    "placed_after": 620,
+    "body_index": 180,
+    "after_text": "UIADD3.X UR6, URZ, UR6, URZ, UP0, !UPT",
+    "before_text": "@!P0 LDGSTS.E.BYPASS.128 [R43+0x9000], [R24.64], !P1",
+    "moved": 0
+   },
+   "ro__64x32x32_w2_s5.sm80": {
+    "requested": 180,
+    "placed_after": 631,
+    "body_index": 180,
+    "after_text": "IADD3 R34, P2, R162, UR6, RZ",
+    "before_text": "SEL R63, R35, RZ, !P0",
+    "moved": 0
+   },
+   "orig__64x32x32_w2_s5.sm80": {
+    "requested": 180,
+    "placed_after": 592,
+    "body_index": 180,
+    "after_text": "FFMA R119, R20, R20, R119",
+    "before_text": "BAR.SYNC.DEFER_BLOCKING 0x0",
+    "moved": 0
+   }
+  },
+  "k183": {
+   "tt38__64x32x32_w2_s5.sm80": {
+    "requested": 183,
+    "placed_after": 625,
+    "body_index": 185,
+    "after_text": "LDGSTS.E.BYPASS.128 [R41+0x4400], [R28.64], !P1",
+    "before_text": "HMMA.16816.F32 R56, R116, R104, R56",
+    "moved": 2
+   },
+   "ro__64x32x32_w2_s5.sm80": {
+    "requested": 183,
+    "placed_after": 637,
+    "body_index": 186,
+    "after_text": "HMMA.16816.F32 R36, R44, R50, R36",
+    "before_text": "LEA R47, R186, R195, 0xb",
+    "moved": 3
+   },
+   "orig__64x32x32_w2_s5.sm80": "beyond loop body"
+  },
+  "k186": {
+   "tt38__64x32x32_w2_s5.sm80": {
+    "requested": 186,
+    "placed_after": 626,
+    "body_index": 186,
+    "after_text": "HMMA.16816.F32 R56, R116, R104, R56",
+    "before_text": "HADD2.F32 R25, -RZ, R88.H0_H0",
+    "moved": 0
+   },
+   "ro__64x32x32_w2_s5.sm80": {
+    "requested": 186,
+    "placed_after": 637,
+    "body_index": 186,
+    "after_text": "HMMA.16816.F32 R36, R44, R50, R36",
+    "before_text": "LEA R47, R186, R195, 0xb",
+    "moved": 0
+   },
+   "orig__64x32x32_w2_s5.sm80": "beyond loop body"
+  },
+  "k189": {
+   "tt38__64x32x32_w2_s5.sm80": {
+    "requested": 189,
+    "placed_after": 629,
+    "body_index": 189,
+    "after_text": "HADD2.F32 R88, -RZ, R88.H1_H1",
+    "before_text": "HADD2.F32 R24, -RZ, R89.reuse.H1_H1",
+    "moved": 0
+   },
+   "ro__64x32x32_w2_s5.sm80": {
+    "requested": 189,
+    "placed_after": 640,
+    "body_index": 189,
+    "after_text": "IADD3 R44, P1, R161, UR6, RZ",
+    "before_text": "HMMA.16816.F32 R116, R152, R146, R116",
+    "moved": 0
+   },
+   "orig__64x32x32_w2_s5.sm80": "beyond loop body"
+  },
+  "k192": {
+   "tt38__64x32x32_w2_s5.sm80": {
+    "requested": 192,
+    "placed_after": 632,
+    "body_index": 192,
+    "after_text": "HMMA.16816.F32 R76, R116, R100, R76",
+    "before_text": "HADD2.F32 R27, -RZ, R89.H0_H0",
+    "moved": 0
+   },
+   "ro__64x32x32_w2_s5.sm80": {
+    "requested": 192,
+    "placed_after": 643,
+    "body_index": 192,
+    "after_text": "SEL R46, R30, RZ, !P0",
+    "before_text": "IADD3.X R45, R165, UR7, RZ, P1, !PT",
+    "moved": 0
+   },
+   "orig__64x32x32_w2_s5.sm80": "beyond loop body"
+  },
+  "k195": {
+   "tt38__64x32x32_w2_s5.sm80": {
+    "requested": 195,
+    "placed_after": 636,
+    "body_index": 196,
+    "after_text": "FFMA R167, R88, R88, R167",
+    "before_text": "HADD2.F32 R90, -RZ, R90.H1_H1",
+    "moved": 1
+   },
+   "ro__64x32x32_w2_s5.sm80": {
+    "requested": 195,
+    "placed_after": 646,
+    "body_index": 195,
+    "after_text": "SHF.R.U32.HI R225, RZ, 0x10, R46",
+    "before_text": "HMMA.16816.F32 R112, R152.reuse, R136, R112",
+    "moved": 0
+   },
+   "orig__64x32x32_w2_s5.sm80": "beyond loop body"
+  },
+  "k198": {
+   "tt38__64x32x32_w2_s5.sm80": {
+    "requested": 198,
+    "placed_after": 638,
+    "body_index": 198,
+    "after_text": "FFMA R166, R27, R27, R166",
+    "before_text": "HADD2.F32 R26, -RZ, R91.H1_H1",
+    "moved": 0
+   },
+   "ro__64x32x32_w2_s5.sm80": {
+    "requested": 198,
+    "placed_after": 649,
+    "body_index": 198,
+    "after_text": "@!PT LDS RZ, [RZ]",
+    "before_text": "@!PT LDS RZ, [RZ]",
+    "moved": 0
+   },
+   "orig__64x32x32_w2_s5.sm80": "beyond loop body"
+  },
+  "k201": {
+   "tt38__64x32x32_w2_s5.sm80": {
+    "requested": 201,
+    "placed_after": 641,
+    "body_index": 201,
+    "after_text": "FFMA R7, R24, R24, R7",
+    "before_text": "FFMA R8, R29, R29, R8",
+    "moved": 0
+   },
+   "ro__64x32x32_w2_s5.sm80": {
+    "requested": 201,
+    "placed_after": 652,
+    "body_index": 201,
+    "after_text": "LDGSTS.E.BYPASS.128 [R47], [R48.64], !P3",
+    "before_text": "HMMA.16816.F32 R100, R152, R70, R100",
+    "moved": 0
+   },
+   "orig__64x32x32_w2_s5.sm80": "beyond loop body"
+  },
+  "k204": {
+   "tt38__64x32x32_w2_s5.sm80": {
+    "requested": 204,
+    "placed_after": 644,
+    "body_index": 204,
+    "after_text": "FFMA R11, R26, R26, R11",
+    "before_text": "HMMA.16816.F32 R72, R120.reuse, R110, R72",
+    "moved": 0
+   },
+   "ro__64x32x32_w2_s5.sm80": {
+    "requested": 204,
+    "placed_after": 655,
+    "body_index": 204,
+    "after_text": "LDGDEPBAR",
+    "before_text": "SHF.R.U32.HI R71, RZ, 0x10, R62",
+    "moved": 0
+   },
+   "orig__64x32x32_w2_s5.sm80": "beyond loop body"
+  },
+  "k207": {
+   "tt38__64x32x32_w2_s5.sm80": {
+    "requested": 207,
+    "placed_after": 647,
+    "body_index": 207,
+    "after_text": "@!PT LDS RZ, [RZ]",
+    "before_text": "@!PT LDS RZ, [RZ]",
+    "moved": 0
+   },
+   "ro__64x32x32_w2_s5.sm80": {
+    "requested": 207,
+    "placed_after": 658,
+    "body_index": 207,
+    "after_text": "SHF.R.U32.HI R70, RZ, 0x10, R63",
+    "before_text": "LDGSTS.E.BYPASS.128 [R47+0x2000], [R34.64], !P3",
+    "moved": 0
+   },
+   "orig__64x32x32_w2_s5.sm80": "beyond loop body"
+  },
+  "k210": {
+   "tt38__64x32x32_w2_s5.sm80": {
+    "requested": 210,
+    "placed_after": 650,
+    "body_index": 210,
+    "after_text": "HMMA.16816.F32 R56, R120, R106, R56",
+    "before_text": "LDGSTS.E.BYPASS.128 [R41+0x6400], [R30.64], !P1",
+    "moved": 0
+   },
+   "ro__64x32x32_w2_s5.sm80": {
+    "requested": 210,
+    "placed_after": 661,
+    "body_index": 210,
+    "after_text": "SEL R49, R25, RZ, !P0",
+    "before_text": "LDGSTS.E.BYPASS.128 [R47+0x2400], [R44.64], !P3",
+    "moved": 0
+   },
+   "orig__64x32x32_w2_s5.sm80": "beyond loop body"
+  },
+  "k213": {
+   "tt38__64x32x32_w2_s5.sm80": {
+    "requested": 213,
+    "placed_after": 653,
+    "body_index": 213,
+    "after_text": "LDGDEPBAR",
+    "before_text": "HMMA.16816.F32 R76, R120, R102, R76",
+    "moved": 0
+   },
+   "ro__64x32x32_w2_s5.sm80": {
+    "requested": 213,
+    "placed_after": 665,
+    "body_index": 214,
+    "after_text": "HADD2.F32 R56, -RZ, R207.H0_H0",
+    "before_text": "LDGDEPBAR",
+    "moved": 1
+   },
+   "orig__64x32x32_w2_s5.sm80": "beyond loop body"
+  },
+  "k216": {
+   "tt38__64x32x32_w2_s5.sm80": "beyond loop body",
+   "ro__64x32x32_w2_s5.sm80": {
+    "requested": 216,
+    "placed_after": 667,
+    "body_index": 216,
+    "after_text": "SHF.R.U32.HI R219, RZ, 0x10, R48",
+    "before_text": "FFMA R170, R57, R57, R170",
+    "moved": 0
+   },
+   "orig__64x32x32_w2_s5.sm80": "beyond loop body"
+  },
+  "k219": {
+   "tt38__64x32x32_w2_s5.sm80": "beyond loop body",
+   "ro__64x32x32_w2_s5.sm80": {
+    "requested": 219,
+    "placed_after": 670,
+    "body_index": 219,
+    "after_text": "FFMA R7, R56, R56, R7",
+    "before_text": "HADD2.F32 R59, -RZ, R224.H0_H0",
+    "moved": 0
+   },
+   "orig__64x32x32_w2_s5.sm80": "beyond loop body"
+  },
+  "k222": {
+   "tt38__64x32x32_w2_s5.sm80": "beyond loop body",
+   "ro__64x32x32_w2_s5.sm80": {
+    "requested": 222,
+    "placed_after": 673,
+    "body_index": 222,
+    "after_text": "HADD2.F32 R56, -RZ, R209.H0_H0",
+    "before_text": "FFMA R12, R57, R57, R12",
+    "moved": 0
+   },
+   "orig__64x32x32_w2_s5.sm80": "beyond loop body"
+  },
+  "k225": {
+   "tt38__64x32x32_w2_s5.sm80": "beyond loop body",
+   "ro__64x32x32_w2_s5.sm80": {
+    "requested": 225,
+    "placed_after": 676,
+    "body_index": 225,
+    "after_text": "FFMA R8, R59, R59, R8",
+    "before_text": "SEL R58, R42, RZ, !P0",
+    "moved": 0
+   },
+   "orig__64x32x32_w2_s5.sm80": "beyond loop body"
+  },
+  "k228": {
+   "tt38__64x32x32_w2_s5.sm80": "beyond loop body",
+   "ro__64x32x32_w2_s5.sm80": {
+    "requested": 228,
+    "placed_after": 679,
+    "body_index": 228,
+    "after_text": "HADD2.F32 R52, -RZ, R211.H0_H0",
+    "before_text": "HMMA.16816.F32 R108, R64, R54, R108",
+    "moved": 0
+   },
+   "orig__64x32x32_w2_s5.sm80": "beyond loop body"
+  },
+  "k231": {
+   "tt38__64x32x32_w2_s5.sm80": "beyond loop body",
+   "ro__64x32x32_w2_s5.sm80": {
+    "requested": 231,
+    "placed_after": 682,
+    "body_index": 231,
+    "after_text": "SEL R56, R40, RZ, !P0",
+    "before_text": "FFMA R15, R52, R52, R15",
+    "moved": 0
+   },
+   "orig__64x32x32_w2_s5.sm80": "beyond loop body"
+  },
+  "k234": {
+   "tt38__64x32x32_w2_s5.sm80": "beyond loop body",
+   "ro__64x32x32_w2_s5.sm80": {
+    "requested": 234,
+    "placed_after": 685,
+    "body_index": 234,
+    "after_text": "FFMA R16, R53, R53, R16",
+    "before_text": "SEL R52, R20, RZ, !P0",
+    "moved": 0
+   },
+   "orig__64x32x32_w2_s5.sm80": "beyond loop body"
+  },
+  "k237": {
+   "tt38__64x32x32_w2_s5.sm80": "beyond loop body",
+   "ro__64x32x32_w2_s5.sm80": {
+    "requested": 237,
+    "placed_after": 688,
+    "body_index": 237,
+    "after_text": "SEL R53, R21, RZ, !P0",
+    "before_text": "DEPBAR.LE SB0, 0x6",
+    "moved": 0
+   },
+   "orig__64x32x32_w2_s5.sm80": "beyond loop body"
+  },
+  "k240": {
+   "tt38__64x32x32_w2_s5.sm80": "beyond loop body",
+   "ro__64x32x32_w2_s5.sm80": {
+    "requested": 240,
+    "placed_after": 691,
+    "body_index": 240,
+    "after_text": "HADD2.F32 R64, -RZ, R201.H0_H0",
+    "before_text": "SEL R55, R23, RZ, !P0",
+    "moved": 0
+   },
+   "orig__64x32x32_w2_s5.sm80": "beyond loop body"
+  },
+  "k243": {
+   "tt38__64x32x32_w2_s5.sm80": "beyond loop body",
+   "ro__64x32x32_w2_s5.sm80": {
+    "requested": 243,
+    "placed_after": 694,
+    "body_index": 243,
+    "after_text": "SEL R50, R26, RZ, !P0",
+    "before_text": "FFMA R179, R64, R64, R179",
+    "moved": 0
+   },
+   "orig__64x32x32_w2_s5.sm80": "beyond loop body"
+  },
+  "k246": {
+   "tt38__64x32x32_w2_s5.sm80": "beyond loop body",
+   "ro__64x32x32_w2_s5.sm80": {
+    "requested": 246,
+    "placed_after": 697,
+    "body_index": 246,
+    "after_text": "FFMA R178, R65, R65, R178",
+    "before_text": "HADD2.F32 R65, -RZ, R214.H0_H0",
+    "moved": 0
+   },
+   "orig__64x32x32_w2_s5.sm80": "beyond loop body"
+  },
+  "k249": {
+   "tt38__64x32x32_w2_s5.sm80": "beyond loop body",
+   "ro__64x32x32_w2_s5.sm80": {
+    "requested": 249,
+    "placed_after": 700,
+    "body_index": 249,
+    "after_text": "SEL R44, R28, RZ, !P0",
+    "before_text": "FFMA R185, R64, R64, R185",
+    "moved": 0
+   },
+   "orig__64x32x32_w2_s5.sm80": "beyond loop body"
+  },
+  "k252": {
+   "tt38__64x32x32_w2_s5.sm80": "beyond loop body",
+   "ro__64x32x32_w2_s5.sm80": {
+    "requested": 252,
+    "placed_after": 703,
+    "body_index": 252,
+    "after_text": "FFMA R184, R65, R65, R184",
+    "before_text": "SEL R47, R31, RZ, !P0",
+    "moved": 0
+   },
+   "orig__64x32x32_w2_s5.sm80": "beyond loop body"
+  },
+  "k255": {
+   "tt38__64x32x32_w2_s5.sm80": "beyond loop body",
+   "ro__64x32x32_w2_s5.sm80": {
+    "requested": 255,
+    "placed_after": 706,
+    "body_index": 255,
+    "after_text": "SHF.R.U32.HI R216, RZ, 0x10, R57",
+    "before_text": "SHF.R.U32.HI R213, RZ, 0x10, R58",
+    "moved": 0
+   },
+   "orig__64x32x32_w2_s5.sm80": "beyond loop body"
+  },
+  "k258": {
+   "tt38__64x32x32_w2_s5.sm80": "beyond loop body",
+   "ro__64x32x32_w2_s5.sm80": {
+    "requested": 258,
+    "placed_after": 709,
+    "body_index": 258,
+    "after_text": "SHF.R.U32.HI R215, RZ, 0x10, R52",
+    "before_text": "SHF.R.U32.HI R220, RZ, 0x10, R53",
+    "moved": 0
+   },
+   "orig__64x32x32_w2_s5.sm80": "beyond loop body"
+  },
+  "k261": {
+   "tt38__64x32x32_w2_s5.sm80": "beyond loop body",
+   "ro__64x32x32_w2_s5.sm80": {
+    "requested": 261,
+    "placed_after": 712,
+    "body_index": 261,
+    "after_text": "SHF.R.U32.HI R222, RZ, 0x10, R55",
+    "before_text": "SHF.R.U32.HI R224, RZ, 0x10, R49",
+    "moved": 0
+   },
+   "orig__64x32x32_w2_s5.sm80": "beyond loop body"
+  },
+  "k264": {
+   "tt38__64x32x32_w2_s5.sm80": "beyond loop body",
+   "ro__64x32x32_w2_s5.sm80": {
+    "requested": 264,
+    "placed_after": 715,
+    "body_index": 264,
+    "after_text": "SHF.R.U32.HI R226, RZ, 0x10, R51",
+    "before_text": "SHF.R.U32.HI R223, RZ, 0x10, R44",
+    "moved": 0
+   },
+   "orig__64x32x32_w2_s5.sm80": "beyond loop body"
+  },
+  "k267": {
+   "tt38__64x32x32_w2_s5.sm80": "beyond loop body",
+   "ro__64x32x32_w2_s5.sm80": {
+    "requested": 267,
+    "placed_after": 718,
+    "body_index": 267,
+    "after_text": "SHF.R.U32.HI R227, RZ, 0x10, R47",
+    "before_text": "BAR.SYNC.DEFER_BLOCKING 0x0",
+    "moved": 0
+   },
+   "orig__64x32x32_w2_s5.sm80": "beyond loop body"
+  }
+ }
+}

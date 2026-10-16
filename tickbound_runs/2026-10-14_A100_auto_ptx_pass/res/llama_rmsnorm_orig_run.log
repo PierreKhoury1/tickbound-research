@@ -1,0 +1,90 @@
+[run] A100 (sm_80), stamp 20261014T040436Z
+Cuda compilation tools, release 12.6, V12.6.85
+Build cuda_12.6.r12.6/compiler.35059454_0
+[build] sm_80
+REG:31 STACK:0 REG:30 STACK:0 REG:32 STACK:0 REG:32 STACK:0 REG:32 STACK:0 REG:32 STACK:0 
+[build] check_trace_sass: ALL GATES PASS (sass/box/check_trace_sass.txt)
+[build] OK
+[run] SASS identical to the frozen local build (sass/nvcc_local) -> predictions apply to this code
+device NVIDIA A100-PCIE-40GB, cc 80, 108 SMs, L2 40 MB, driver 13020, runtime 12060; binary built for sm_80
+  orig regs 32 (trace build 32), max blocks/SM 2 (trace build 2)
+  ro   regs 32 (trace build 32), max blocks/SM 2 (trace build 2)
+  ro2  regs 30 (trace build 31), max blocks/SM 2 (trace build 2)
+  PDL cases (n_embd 4096 warm, llama.cpp's Hopper launch): no (cc 80, PTX 80)
+globaltimer update period 1024 ns, SM clock 0.8099 GHz, L2 flush 84 MB, 72 cases, reps 21, warm batch 100, cold batch 20, trace reps 21
+e2048_r1_warm      orig   5.755 | ro   5.612 (1.026x) | ro2   5.755 (1.000x) | null  1.393 us/launch | span 5.011/4.892/4.892 us (1.024x) | trace/timing 1.212/1.224/1.192 (span illustrative) | bit-identical | 0.810 GHz
+e2048_r2_warm      orig   4.454 | ro   4.342 (1.026x) | ro2   4.465 (0.998x) | null  1.116 us/launch | span 4.100/4.002/4.017 us (1.024x) | trace/timing 1.209/1.222/1.188 (span illustrative) | bit-identical | 1.065 GHz
+e2048_r4_warm      orig   4.454 | ro   4.342 (1.026x) | ro2   4.465 (0.998x) | null  1.106 us/launch | span 4.114/4.029/4.022 us (1.021x) | trace/timing 1.209/1.222/1.188 (span illustrative) | bit-identical | 1.065 GHz
+e2048_r8_warm      orig   3.369 | ro   3.287 (1.025x) | ro2   3.379 (0.997x) | null  0.840 us/launch | span 4.058/3.923/4.000 us (1.034x) | trace/timing 1.213/1.221/1.185 (span illustrative) | bit-identical | 1.065 GHz
+e2048_r16_warm     orig   3.451 | ro   3.338 (1.034x) | ro2   3.420 (1.009x) | null  0.850 us/launch | span 3.177/3.085/3.101 us (1.030x) | trace/timing 1.211/1.218/1.201 (span illustrative) | bit-identical | 1.410 GHz
+e2048_r32_warm     orig   3.471 | ro   3.379 (1.027x) | ro2   3.451 (1.006x) | null  0.870 us/launch | span 3.214/3.101/3.070 us (1.036x) | trace/timing 1.215/1.209/1.181 (span illustrative) | bit-identical | 1.410 GHz
+e2048_r128_warm    orig   4.516 | ro   4.925 (0.917x) | ro2   5.325 (0.848x) | null  0.973 us/launch | span 4.893/5.035/5.094 us (0.972x) | trace/timing 1.313/1.239/1.163 (span illustrative) | bit-identical | 1.410 GHz
+e2048_r512_warm    orig   9.718 | ro  10.148 (0.958x) | ro2  10.742 (0.905x) | null  1.495 us/launch | span 11.348/11.730/11.907 us (0.967x) | trace/timing 1.283/1.276/1.216 (span illustrative) | bit-identical | 1.410 GHz
+e4096_r1_warm      orig   3.973 | ro   3.246 (1.224x) | ro2   3.359 (1.183x) | null  0.799 us/launch | span 3.214/2.950/2.965 us (1.089x) | trace/timing 1.098/1.268/1.220 (span illustrative) | bit-identical | 1.409 GHz
+e4096_r2_warm      orig   4.055 | ro   3.369 (1.204x) | ro2   3.430 (1.182x) | null  0.840 us/launch | span 3.413/3.206/3.178 us (1.064x) | trace/timing 1.093/1.249/1.212 (span illustrative) | bit-identical | 1.410 GHz
+e4096_r4_warm      orig   4.055 | ro   3.359 (1.207x) | ro2   3.441 (1.179x) | null  0.840 us/launch | span 3.413/3.194/3.211 us (1.068x) | trace/timing 1.093/1.253/1.211 (span illustrative) | bit-identical | 1.410 GHz
+e4096_r8_warm      orig   4.055 | ro   3.359 (1.207x) | ro2   3.451 (1.175x) | null  0.840 us/launch | span 3.441/3.218/3.212 us (1.069x) | trace/timing 1.098/1.253/1.211 (span illustrative) | bit-identical | 1.410 GHz
+e4096_r16_warm     orig   4.147 | ro   3.420 (1.213x) | ro2   3.502 (1.184x) | null  0.850 us/launch | span 3.536/3.231/3.224 us (1.094x) | trace/timing 1.099/1.243/1.219 (span illustrative) | bit-identical | 1.410 GHz
+e4096_r32_warm     orig   4.198 | ro   3.430 (1.224x) | ro2   3.533 (1.188x) | null  0.860 us/launch | span 3.578/3.258/3.265 us (1.098x) | trace/timing 1.100/1.248/1.217 (span illustrative) | bit-identical | 1.410 GHz
+e4096_r128_warm    orig   5.489 | ro   5.243 (1.047x) | ro2   5.417 (1.013x) | null  0.973 us/launch | span 5.415/5.482/5.564 us (0.988x) | trace/timing 1.174/1.256/1.229 (span illustrative) | bit-identical | 1.409 GHz
+e4096_r512_warm    orig  12.564 | ro  10.772 (1.166x) | ro2  11.387 (1.103x) | null  1.495 us/launch | span 13.293/12.934/13.149 us (1.028x) | trace/timing 1.123/1.292/1.246 (span illustrative) | bit-identical | 1.410 GHz
+e5120_r1_warm      orig   4.260 | ro   3.758 (1.134x) | ro2   3.789 (1.124x) | null  0.799 us/launch | span 3.716/3.396/3.349 us (1.094x) | trace/timing 1.147/1.215/1.186 (span illustrative) | bit-identical | 1.410 GHz
+e5120_r2_warm      orig   4.311 | ro   3.809 (1.132x) | ro2   3.881 (1.111x) | null  0.840 us/launch | span 3.937/3.603/3.580 us (1.093x) | trace/timing 1.145/1.215/1.182 (span illustrative) | bit-identical | 1.409 GHz
+e5120_r4_warm      orig   4.321 | ro   3.820 (1.131x) | ro2   3.901 (1.108x) | null  0.840 us/launch | span 3.957/3.639/3.606 us (1.087x) | trace/timing 1.145/1.212/1.181 (span illustrative) | bit-identical | 1.409 GHz
+e5120_r8_warm      orig   4.352 | ro   3.840 (1.133x) | ro2   3.912 (1.113x) | null  0.840 us/launch | span 3.954/3.620/3.605 us (1.092x) | trace/timing 1.141/1.213/1.181 (span illustrative) | bit-identical | 1.410 GHz
+e5120_r16_warm     orig   4.485 | ro   3.953 (1.135x) | ro2   3.983 (1.126x) | null  0.850 us/launch | span 4.104/3.714/3.721 us (1.105x) | trace/timing 1.139/1.192/1.190 (span illustrative) | bit-identical | 1.410 GHz
+e5120_r32_warm     orig   4.526 | ro   3.994 (1.133x) | ro2   4.055 (1.116x) | null  0.860 us/launch | span 4.146/3.798/3.746 us (1.092x) | trace/timing 1.136/1.203/1.177 (span illustrative) | bit-identical | 1.409 GHz
+e5120_r128_warm    orig   5.970 | ro   5.837 (1.023x) | ro2   6.011 (0.993x) | null  0.973 us/launch | span 6.131/6.024/6.185 us (1.018x) | trace/timing 1.211/1.232/1.220 (span illustrative) | bit-identical | 1.410 GHz
+e5120_r512_warm    orig  13.763 | ro  12.943 (1.063x) | ro2  13.107 (1.050x) | null  1.495 us/launch | span 16.338/15.562/15.707 us (1.050x) | trace/timing 1.190/1.232/1.237 (span illustrative) | bit-identical | 1.409 GHz
+e8192_r1_warm      orig   4.997 | ro   4.157 (1.202x) | ro2   4.250 (1.176x) | null  0.799 us/launch | span 4.170/3.781/3.681 us (1.103x) | trace/timing 1.076/1.190/1.152 (span illustrative) | bit-identical | 1.409 GHz
+e8192_r2_warm      orig   5.069 | ro   4.209 (1.204x) | ro2   4.311 (1.176x) | null  0.840 us/launch | span 4.373/3.983/3.891 us (1.098x) | trace/timing 1.071/1.187/1.147 (span illustrative) | bit-identical | 1.410 GHz
+e8192_r4_warm      orig   5.079 | ro   4.219 (1.204x) | ro2   4.321 (1.175x) | null  0.840 us/launch | span 4.418/4.026/3.920 us (1.097x) | trace/timing 1.073/1.187/1.147 (span illustrative) | bit-identical | 1.410 GHz
+e8192_r8_warm      orig   5.100 | ro   4.219 (1.209x) | ro2   4.321 (1.180x) | null  0.840 us/launch | span 4.402/4.043/3.927 us (1.089x) | trace/timing 1.072/1.192/1.149 (span illustrative) | bit-identical | 1.410 GHz
+e8192_r16_warm     orig   5.253 | ro   4.291 (1.224x) | ro2   4.383 (1.199x) | null  0.850 us/launch | span 4.562/4.128/3.977 us (1.105x) | trace/timing 1.076/1.191/1.150 (span illustrative) | bit-identical | 1.410 GHz
+e8192_r32_warm     orig   5.356 | ro   4.383 (1.222x) | ro2   4.444 (1.205x) | null  0.860 us/launch | span 4.647/4.192/4.056 us (1.109x) | trace/timing 1.071/1.194/1.150 (span illustrative) | bit-identical | 1.409 GHz
+e8192_r128_warm    orig   7.004 | ro   6.666 (1.051x) | ro2   6.615 (1.059x) | null  0.973 us/launch | span 6.856/6.971/7.203 us (0.984x) | trace/timing 1.124/1.238/1.259 (span illustrative) | bit-identical | 1.410 GHz
+e8192_r512_warm    orig  26.870 | ro  27.177 (0.989x) | ro2  24.914 (1.079x) | null  1.536 us/launch | span 27.496/27.151/27.189 us (1.013x) | trace/timing 1.096/1.091/1.130 (span illustrative) | bit-identical | 1.409 GHz
+e2048_r1_cold      orig   9.114 | ro   8.397 (1.085x) | ro2   8.806 (1.035x) | null  4.710 us/launch | span 4.912/3.993/4.023 us (1.230x) | trace/timing 1.118/1.122/1.087 (span illustrative) | bit-identical | 1.410 GHz
+e2048_r2_cold      orig   9.011 | ro   8.499 (1.060x) | ro2   8.806 (1.023x) | null  4.864 us/launch | span 4.709/3.969/3.946 us (1.187x) | trace/timing 1.091/1.108/1.076 (span illustrative) | bit-identical | 1.410 GHz
+e2048_r4_cold      orig   8.858 | ro   8.602 (1.030x) | ro2   8.704 (1.018x) | null  4.966 us/launch | span 4.503/4.020/4.004 us (1.120x) | trace/timing 1.104/1.119/1.094 (span illustrative) | bit-identical | 1.410 GHz
+e2048_r8_cold      orig   8.960 | ro   8.653 (1.036x) | ro2   8.806 (1.017x) | null  5.120 us/launch | span 4.465/4.060/4.032 us (1.100x) | trace/timing 1.097/1.118/1.093 (span illustrative) | bit-identical | 1.410 GHz
+e2048_r16_cold     orig   8.858 | ro   8.653 (1.024x) | ro2   8.704 (1.018x) | null  4.966 us/launch | span 4.538/4.140/4.199 us (1.096x) | trace/timing 1.098/1.118/1.106 (span illustrative) | bit-identical | 1.409 GHz
+e2048_r32_cold     orig   8.960 | ro   8.704 (1.029x) | ro2   8.806 (1.017x) | null  4.813 us/launch | span 4.740/4.339/4.332 us (1.092x) | trace/timing 1.109/1.124/1.116 (span illustrative) | bit-identical | 1.410 GHz
+e2048_r128_cold    orig  10.189 | ro  10.394 (0.980x) | ro2  10.650 (0.957x) | null  5.120 us/launch | span 6.278/6.475/6.278 us (0.970x) | trace/timing 1.146/1.158/1.120 (span illustrative) | bit-identical | 1.410 GHz
+e2048_r512_cold    orig  18.176 | ro  18.074 (1.006x) | ro2  18.688 (0.973x) | null  5.427 us/launch | span 15.483/15.182/15.480 us (1.020x) | trace/timing 1.161/1.161/1.137 (span illustrative) | bit-identical | 1.410 GHz
+e4096_r1_cold      orig   9.933 | ro   8.038 (1.236x) | ro2   8.346 (1.190x) | null  4.710 us/launch | span 5.381/3.706/3.849 us (1.452x) | trace/timing 1.077/1.146/1.129 (span illustrative) | bit-identical | 1.410 GHz
+e4096_r2_cold      orig  10.138 | ro   8.397 (1.207x) | ro2   8.653 (1.172x) | null  5.120 us/launch | span 5.192/3.786/3.888 us (1.371x) | trace/timing 1.066/1.134/1.107 (span illustrative) | bit-identical | 1.410 GHz
+e4096_r4_cold      orig   9.984 | ro   8.243 (1.211x) | ro2   8.550 (1.168x) | null  4.915 us/launch | span 5.217/3.799/3.835 us (1.373x) | trace/timing 1.062/1.137/1.102 (span illustrative) | bit-identical | 1.410 GHz
+e4096_r8_cold      orig  10.035 | ro   8.294 (1.210x) | ro2   8.550 (1.174x) | null  5.018 us/launch | span 5.242/3.808/3.860 us (1.377x) | trace/timing 1.066/1.154/1.120 (span illustrative) | bit-identical | 1.410 GHz
+e4096_r16_cold     orig  10.086 | ro   8.448 (1.194x) | ro2   8.704 (1.159x) | null  5.018 us/launch | span 5.355/3.909/3.960 us (1.370x) | trace/timing 1.061/1.121/1.094 (span illustrative) | bit-identical | 1.410 GHz
+e4096_r32_cold     orig  10.342 | ro   8.806 (1.174x) | ro2   8.960 (1.154x) | null  5.018 us/launch | span 5.607/4.191/4.192 us (1.338x) | trace/timing 1.069/1.128/1.109 (span illustrative) | bit-identical | 1.410 GHz
+e4096_r128_cold    orig  12.288 | ro  11.827 (1.039x) | ro2  11.930 (1.030x) | null  5.120 us/launch | span 7.606/7.626/7.374 us (0.997x) | trace/timing 1.071/1.126/1.099 (span illustrative) | bit-identical | 1.409 GHz
+e4096_r512_cold    orig  23.040 | ro  20.736 (1.111x) | ro2  21.760 (1.059x) | null  5.427 us/launch | span 18.984/17.662/18.722 us (1.075x) | trace/timing 1.076/1.128/1.132 (span illustrative) | bit-identical | 1.409 GHz
+e5120_r1_cold      orig  11.059 | ro   9.472 (1.168x) | ro2   9.626 (1.149x) | null  4.710 us/launch | span 6.751/5.018/5.038 us (1.345x) | trace/timing 1.097/1.114/1.112 (span illustrative) | bit-identical | 1.410 GHz
+e5120_r2_cold      orig  10.957 | ro   9.472 (1.157x) | ro2   9.626 (1.138x) | null  5.069 us/launch | span 6.356/4.948/4.943 us (1.285x) | trace/timing 1.075/1.119/1.096 (span illustrative) | bit-identical | 1.410 GHz
+e5120_r4_cold      orig  10.957 | ro   9.523 (1.151x) | ro2   9.574 (1.144x) | null  5.018 us/launch | span 6.272/4.953/4.840 us (1.266x) | trace/timing 1.070/1.108/1.091 (span illustrative) | bit-identical | 1.410 GHz
+e5120_r8_cold      orig  10.854 | ro   9.472 (1.146x) | ro2   9.677 (1.122x) | null  4.966 us/launch | span 6.315/5.077/5.062 us (1.244x) | trace/timing 1.075/1.114/1.095 (span illustrative) | bit-identical | 1.410 GHz
+e5120_r16_cold     orig  11.059 | ro   9.626 (1.149x) | ro2   9.933 (1.113x) | null  5.018 us/launch | span 6.580/5.175/5.108 us (1.272x) | trace/timing 1.088/1.117/1.082 (span illustrative) | bit-identical | 1.410 GHz
+e5120_r32_cold     orig  11.264 | ro   9.933 (1.134x) | ro2  10.035 (1.122x) | null  5.018 us/launch | span 6.717/5.457/5.305 us (1.231x) | trace/timing 1.082/1.119/1.087 (span illustrative) | bit-identical | 1.410 GHz
+e5120_r128_cold    orig  12.954 | ro  12.800 (1.012x) | ro2  12.698 (1.020x) | null  5.120 us/launch | span 8.674/8.441/8.498 us (1.028x) | trace/timing 1.091/1.100/1.113 (span illustrative) | bit-identical | 1.410 GHz
+e5120_r512_cold    orig  27.597 | ro  25.498 (1.082x) | ro2  26.163 (1.055x) | null  5.427 us/launch | span 23.870/21.967/22.476 us (1.087x) | trace/timing 1.069/1.094/1.084 (span illustrative) | bit-identical | 1.410 GHz
+e8192_r1_cold      orig  12.237 | ro   9.882 (1.238x) | ro2   9.728 (1.258x) | null  4.813 us/launch | span 7.707/5.427/5.060 us (1.420x) | trace/timing 1.067/1.114/1.105 (span illustrative) | bit-identical | 1.410 GHz
+e8192_r2_cold      orig  12.339 | ro   9.882 (1.249x) | ro2   9.677 (1.275x) | null  4.966 us/launch | span 7.524/5.365/4.972 us (1.402x) | trace/timing 1.050/1.104/1.090 (span illustrative) | bit-identical | 1.409 GHz
+e8192_r4_cold      orig  12.237 | ro   9.830 (1.245x) | ro2   9.626 (1.271x) | null  4.966 us/launch | span 7.295/5.397/5.016 us (1.352x) | trace/timing 1.042/1.120/1.096 (span illustrative) | bit-identical | 1.409 GHz
+e8192_r8_cold      orig  12.186 | ro   9.984 (1.221x) | ro2   9.779 (1.246x) | null  4.966 us/launch | span 7.411/5.501/5.095 us (1.347x) | trace/timing 1.050/1.103/1.084 (span illustrative) | bit-identical | 1.410 GHz
+e8192_r16_cold     orig  12.544 | ro  10.240 (1.225x) | ro2  10.138 (1.237x) | null  5.069 us/launch | span 7.582/5.680/5.158 us (1.335x) | trace/timing 1.049/1.105/1.071 (span illustrative) | bit-identical | 1.410 GHz
+e8192_r32_cold     orig  13.056 | ro  10.598 (1.232x) | ro2  10.598 (1.232x) | null  4.966 us/launch | span 8.290/6.027/5.757 us (1.376x) | trace/timing 1.047/1.097/1.063 (span illustrative) | bit-identical | 1.409 GHz
+e8192_r128_cold    orig  15.821 | ro  15.258 (1.037x) | ro2  15.155 (1.044x) | null  5.222 us/launch | span 11.129/10.736/10.648 us (1.037x) | trace/timing 1.061/1.070/1.078 (span illustrative) | bit-identical | 1.410 GHz
+e8192_r512_cold    orig  36.301 | ro  34.867 (1.041x) | ro2  33.946 (1.069x) | null  5.427 us/launch | span 32.788/31.234/31.251 us (1.050x) | trace/timing 1.055/1.066/1.100 (span illustrative) | bit-identical | 1.410 GHz
+e4096_r1_decode    orig   9.370 | ro   7.834 (1.196x) | ro2   7.936 (1.181x) | null  4.608 us/launch | span 4.977/3.603/3.474 us (1.381x) | trace/timing 1.093/1.150/1.116 (span illustrative) | bit-identical | 1.410 GHz
+e4096_r2_decode    orig   9.523 | ro   7.885 (1.208x) | ro2   8.038 (1.185x) | null  4.813 us/launch | span 4.886/3.593/3.443 us (1.360x) | trace/timing 1.070/1.149/1.102 (span illustrative) | bit-identical | 1.410 GHz
+e4096_r4_decode    orig   9.472 | ro   7.834 (1.209x) | ro2   7.987 (1.186x) | null  4.813 us/launch | span 4.808/3.558/3.474 us (1.351x) | trace/timing 1.059/1.150/1.115 (span illustrative) | bit-identical | 1.409 GHz
+e4096_r8_decode    orig   9.574 | ro   7.987 (1.199x) | ro2   8.090 (1.184x) | null  4.813 us/launch | span 4.790/3.568/3.505 us (1.343x) | trace/timing 1.059/1.135/1.108 (span illustrative) | bit-identical | 1.409 GHz
+e4096_r16_decode   orig   9.472 | ro   7.834 (1.209x) | ro2   8.090 (1.171x) | null  4.813 us/launch | span 4.833/3.585/3.443 us (1.348x) | trace/timing 1.076/1.150/1.108 (span illustrative) | bit-identical | 1.410 GHz
+e4096_r32_decode   orig   9.574 | ro   7.936 (1.206x) | ro2   8.141 (1.176x) | null  4.864 us/launch | span 4.959/3.705/3.532 us (1.338x) | trace/timing 1.075/1.155/1.119 (span illustrative) | bit-identical | 1.409 GHz
+e4096_r128_decode  orig  10.138 | ro   9.574 (1.059x) | ro2  10.240 (0.990x) | null  5.018 us/launch | span 5.762/5.997/5.917 us (0.961x) | trace/timing 1.101/1.209/1.120 (span illustrative) | bit-identical | 1.410 GHz
+e4096_r512_decode  orig  17.562 | ro  15.462 (1.136x) | ro2  16.486 (1.065x) | null  5.325 us/launch | span 14.060/13.296/13.393 us (1.057x) | trace/timing 1.117/1.242/1.168 (span illustrative) | bit-identical | 1.410 GHz
+wrote results/llama_rmsnorm_A100_20261014T040436Z.csv, results/llama_rmsnorm_A100_20261014T040436Z_extra.csv, results/llama_rmsnorm_A100_20261014T040436Z_env.json and traces/20261014T040436Z/*.json
+bench: all 72 cases finished
+[run] archive llama_rmsnorm_A100_20261014T040436Z.tgz (189 trace files), 25 s on the box
+DONE

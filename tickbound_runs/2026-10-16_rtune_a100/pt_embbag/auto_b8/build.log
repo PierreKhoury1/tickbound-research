@@ -1,0 +1,37 @@
+
+$ bash ./build.sh 80
+Cuda compilation tools, release 12.6, V12.6.85
+Build cuda_12.6.r12.6/compiler.35059454_0
+== sm_80
+inject_stamps: 8 entry/exit markers replaced
+patch_exits (sm_80): _ZN2at6native8eb_trace3ro340EmbeddingBag_updateOutputKernel_...: stub 0x5170-0x5500 (58 slots), exit stamp = 17 copied instructions + EXIT at 0x5280, first one waits on all scoreboards; 3 EXIT -> BRA 0x5170; EXIT_INSTR_OFFSETS entries 5
+  _ZN2at6native8eb_trace3ro240EmbeddingBag_updateOutputKernel_...: stub 0x5150-0x54e0 (58 slots), exit stamp = 17 copied instructions + EXIT at 0x5260, first one waits on all scoreboards; 3 EXIT -> BRA 0x5150; EXIT_INSTR_OFFSETS entries 5
+  _ZN2at6native8eb_trace2ro40EmbeddingBag_updateOutputKernel_s...: stub 0x42e0-0x4670 (58 slots), exit stamp = 17 copied instructions + EXIT at 0x43f0, first one waits on all scoreboards; 2 EXIT -> BRA 0x42e0; EXIT_INSTR_OFFSETS entries 4
+  _ZN2at6native8eb_trace4orig40EmbeddingBag_updateOutputKernel...: stub 0x6eb0-0x7240 (58 slots), exit stamp = 17 copied instructions + EXIT at 0x6fc0, first one waits on all scoreboards; 3 EXIT -> BRA 0x6eb0; EXIT_INSTR_OFFSETS entries 5
+patch_exits check (sm_80, trace_sm80.cubin): _ZN2at6native8eb_trace3ro340EmbeddingBag_updateOutputKernel_...: 3 exit paths -> stub 0x5170; scoreboard hazards 0 (without the stub's wait: 10)
+  _ZN2at6native8eb_trace3ro240EmbeddingBag_updateOutputKernel_...: 3 exit paths -> stub 0x5150; scoreboard hazards 0 (without the stub's wait: 7)
+  _ZN2at6native8eb_trace2ro40EmbeddingBag_updateOutputKernel_s...: 2 exit paths -> stub 0x42e0; scoreboard hazards 0 (without the stub's wait: 0)
+  _ZN2at6native8eb_trace4orig40EmbeddingBag_updateOutputKernel...: 3 exit paths -> stub 0x6eb0; scoreboard hazards 0 (without the stub's wait: 8)
+patch_exits: PASS
+timing build/eb_bench_sm80.sass vs trace build/trace_sm80.sass:
+  orig  PASS  hot loops timing 3 / trace 3; trace module's own copy of the timing kernel vs the timing binary: same 2032 instructions, 16 differ only in c[0x4][..] (assert-string addresses)
+      loop @0x2010 (trace @0x2120): 102 instr, 12 LDG, text identical, encodings differing 0
+      loop @0x4a30 (trace @0x4b40): 361 instr, 32 LDG, text identical, encodings differing 0
+      loop @0x60f0 (trace @0x6200): 86 instr, 8 LDG, text identical, encodings differing 0
+  ro    PASS  hot loops timing 4 / trace 4; trace module's own copy of the timing kernel vs the timing binary: same 1328 instructions, 8 differ only in c[0x4][..] (assert-string addresses)
+      loop @0x1b70 (trace @0x1c80): 94 instr, 12 LDG, text identical, encodings differing 0
+      loop @0x21c0 (trace @0x22d0): 82 instr, 8 LDG, text identical, encodings differing 0
+      loop @0x2ee0 (trace @0x2ff0): 92 instr, 12 LDG, text identical, encodings differing 0
+      loop @0x3a30 (trace @0x3b40): 78 instr, 8 LDG, text identical, encodings differing 0
+  ro2   PASS  hot loops timing 2 / trace 2; trace module's own copy of the timing kernel vs the timing binary: same 1560 instructions, 16 differ only in c[0x4][..] (assert-string addresses)
+      loop @0x1c70 (trace @0x1d80): 98 instr, 12 LDG, text identical, encodings differing 0
+      loop @0x4360 (trace @0x4470): 86 instr, 8 LDG, text identical, encodings differing 0
+  ro3   PASS  hot loops timing 2 / trace 2; trace module's own copy of the timing kernel vs the timing binary: same 1560 instructions, 16 differ only in c[0x4][..] (assert-string addresses)
+      loop @0x1c60 (trace @0x1d70): 100 instr, 12 LDG, text identical, encodings differing 0
+      loop @0x4330 (trace @0x4440): 90 instr, 8 LDG, text identical, encodings differing 0
+RESULT: PASS
+trace build sm_80: OK (exit patch verified, hot loops identical to the timing build)
+sm_80 done in 10 s
+BUILD OK
+
+[rc=0 10s]

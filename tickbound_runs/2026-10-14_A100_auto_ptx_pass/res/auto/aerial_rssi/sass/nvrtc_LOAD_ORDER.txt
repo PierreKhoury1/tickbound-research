@@ -1,0 +1,15 @@
+rssiMeasKernel hot loop, load/use order per variant (NVRTC 12.6.85 (pip), --use_fast_math, local)
+L = sample load (LD.E: generic load, resolves to global), C = first instruction using a loaded value.
+orig: one load per trip, used 3 instructions later (latency fully exposed every iteration);
+ro: 4 loads in flight before the first use; ro2: 2. Same instructions per sample in every variant.
+
+sm_80 ro_nolb  loop 0x0580-0x0880  49 instr  loads 4  order LLLLCCCC   load->use distances [13, 11, 12, 16]
+sm_80 orig_lb  loop 0x0580-0x0640  13 instr  loads 1  order LC         load->use distances [3]
+sm_80 ro2      loop 0x0590-0x0710  25 instr  loads 2  order LLCC       load->use distances [3, 5]
+sm_80 ro       loop 0x0590-0x0890  49 instr  loads 4  order LLLLCCCC   load->use distances [12, 10, 12, 16]
+sm_80 orig     loop 0x0580-0x0640  13 instr  loads 1  order LC         load->use distances [3]
+sm_90 ro_nolb  loop 0x05e0-0x08e0  49 instr  loads 4  order LCLCLCLC   load->use distances [3, 3, 3, 3]
+sm_90 orig_lb  loop 0x05e0-0x06a0  13 instr  loads 1  order LC         load->use distances [3]
+sm_90 ro2      loop 0x05f0-0x0770  25 instr  loads 2  order LLCC       load->use distances [5, 7]
+sm_90 ro       loop 0x05e0-0x08e0  49 instr  loads 4  order LLLLCCCC   load->use distances [12, 12, 13, 16]
+sm_90 orig     loop 0x05e0-0x06a0  13 instr  loads 1  order LC         load->use distances [3]

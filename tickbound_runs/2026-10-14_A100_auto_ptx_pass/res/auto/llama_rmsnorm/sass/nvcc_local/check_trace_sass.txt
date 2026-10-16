@@ -1,0 +1,39 @@
+== sass/box/bench_sm80.sass  (resources: sass/box/bench_sm80.res.txt)
+  orig: hot loop 0x06d0-0x0950 (41 ins, 16 LDG, 0 STG) | trace 0x08c0-0x0b40: memory-order skeleton IDENTICAL (1 segments; load issue order permuted inside a batch); identity MIX (41 -> 41 instructions; same opcode multiset, different order)
+  orig: hot loop 0x14a0-0x1910 (72 ins, 8 LDG, 4 STG) | trace 0x16c0-0x1b30: memory-order skeleton IDENTICAL (8 segments; load issue order identical); identity MIX (72 -> 72 instructions; opcode count change: IADD3-1, IADD3.X-1, IMAD.MOV+1, IMAD.X+1)
+  orig: whole-kernel memory-order skeleton IDENTICAL (16 segments, 45 global loads)
+  orig: registers timing {'REG': 32, 'STACK': 0, 'LOCAL': 0} trace {'REG': 32, 'STACK': 0, 'LOCAL': 0} -> OK
+  orig: 432 -> 480 instructions (7 stamp stores, all outside loops: yes)
+  orig: PASS  [G1 stamps outside loops: ok, G2 hot loops memory skeleton: ok, G3 kernel memory skeleton: ok, G4 registers / no spills: ok]
+  ro: hot loop 0x08d0-0x0c20 (54 ins, 16 LDG, 0 STG) | trace 0x0ab0-0x0e00: memory-order skeleton IDENTICAL (1 segments; load issue order permuted inside a batch); identity MIX (54 -> 54 instructions; same opcode multiset, different order)
+  ro: hot loop 0x1380-0x1800 (73 ins, 8 LDG, 4 STG) | trace 0x15c0-0x1a40: memory-order skeleton IDENTICAL (2 segments; load issue order permuted inside a batch); identity MIX (73 -> 73 instructions; opcode count change: HFMA2.MMA+1, IADD3.X+1, IMAD.MOV.U32-1, IMAD.X-1)
+  ro: whole-kernel memory-order skeleton IDENTICAL (10 segments, 53 global loads)
+  ro: registers timing {'REG': 32, 'STACK': 0, 'LOCAL': 0} trace {'REG': 32, 'STACK': 0, 'LOCAL': 0} -> OK
+  ro: 496 -> 544 instructions (7 stamp stores, all outside loops: yes)
+  ro: PASS  [G1 stamps outside loops: ok, G2 hot loops memory skeleton: ok, G3 kernel memory skeleton: ok, G4 registers / no spills: ok]
+  ro2: hot loop 0x06b0-0x0a00 (54 ins, 16 LDG, 0 STG) | trace 0x0890-0x0be0: memory-order skeleton IDENTICAL (1 segments; load issue order identical); identity OPCODES
+  ro2: hot loop 0x14d0-0x1950 (73 ins, 8 LDG, 4 STG) | trace 0x1710-0x1b90: memory-order skeleton IDENTICAL (2 segments; load issue order permuted inside a batch); identity MIX (73 -> 73 instructions; same opcode multiset, different order)
+  ro2: whole-kernel skeleton DIFFERS at #2: timing [('loads', (('LDG.E', True), ('LDG.E', True))), ('order', (('LDS', False),))] vs trace [('loads', (('LDG.E', True), ('LDG.E', True), ('LDG.E', True), ('LDG.E', True))), ('order', (('LDS', False),))]
+  ro2: registers timing {'REG': 30, 'STACK': 0, 'LOCAL': 0} trace {'REG': 31, 'STACK': 0, 'LOCAL': 0} -> DIFFERENT
+  ro2: 528 -> 576 instructions (7 stamp stores, all outside loops: yes)
+  ro2: FAIL  [G1 stamps outside loops: ok, G2 hot loops memory skeleton: ok, G3 kernel memory skeleton: FAIL, G4 registers / no spills: FAIL]
+== sass/box/bench_sm90.sass  (resources: sass/box/bench_sm90.res.txt)
+  orig: hot loop 0x0630-0x08d0 (43 ins, 16 LDG, 0 STG) | trace 0x08e0-0x0b60: memory-order skeleton IDENTICAL (1 segments; load issue order identical); identity MIX (43 -> 41 instructions; opcode count change: IADD3-1, IMAD.MOV.U32-1, MOV-1, VIADD+1)
+  orig: hot loop 0x1520-0x1990 (72 ins, 8 LDG, 4 STG) | trace 0x1850-0x1ce0: memory-order skeleton IDENTICAL (8 segments; load issue order identical); identity MIX (72 -> 74 instructions; opcode count change: HFMA2.MMA-1, IADD3-1, IMAD+2, IMAD.MOV-1, IMAD.MOV.U32+1, IMAD.X-1, LDC+1, LEA.HI.X.SX32+1, SHF.R.S32.HI-1, VIADD+2)
+  orig: whole-kernel memory-order skeleton IDENTICAL (17 segments, 45 global loads)
+  orig: registers timing {'REG': 32, 'STACK': 0, 'LOCAL': 0} trace {'REG': 32, 'STACK': 0, 'LOCAL': 0} -> OK
+  orig: 432 -> 512 instructions (7 stamp stores, all outside loops: yes)
+  orig: PASS  [G1 stamps outside loops: ok, G2 hot loops memory skeleton: ok, G3 kernel memory skeleton: ok, G4 registers / no spills: ok]
+  ro: hot loop 0x0ad0-0x0e20 (54 ins, 16 LDG, 0 STG) | trace 0x0cb0-0x1000: memory-order skeleton IDENTICAL (1 segments; load issue order identical); identity MIX (54 -> 54 instructions; opcode count change: IADD3-1, VIADD+1)
+  ro: hot loop 0x1670-0x1af0 (73 ins, 8 LDG, 4 STG) | trace 0x1980-0x1e00: memory-order skeleton IDENTICAL (2 segments; load issue order identical); identity MIX (73 -> 73 instructions; opcode count change: IADD3.X-1, IMAD.MOV-1, IMAD.X+1, VIADD+1)
+  ro: whole-kernel memory-order skeleton IDENTICAL (11 segments, 53 global loads)
+  ro: registers timing {'REG': 32, 'STACK': 0, 'LOCAL': 0} trace {'REG': 32, 'STACK': 0, 'LOCAL': 0} -> OK
+  ro: 560 -> 632 instructions (7 stamp stores, all outside loops: yes)
+  ro: PASS  [G1 stamps outside loops: ok, G2 hot loops memory skeleton: ok, G3 kernel memory skeleton: ok, G4 registers / no spills: ok]
+  ro2: hot loop 0x06f0-0x0a40 (54 ins, 16 LDG, 0 STG) | trace 0x0910-0x0c60: memory-order skeleton IDENTICAL (1 segments; load issue order identical); identity OPCODES
+  ro2: hot loop 0x16e0-0x1b50 (72 ins, 8 LDG, 4 STG) | trace 0x1a10-0x1ea0: memory-order skeleton IDENTICAL (2 segments; load issue order identical); identity MIX (72 -> 74 instructions; opcode count change: HFMA2.MMA-1, IADD3-1, IMAD.MOV.U32+2, MOV+1, VIADD+1)
+  ro2: whole-kernel skeleton DIFFERS at #3: timing [('loads', (('LDG.E', True), ('LDG.E', True))), ('order', (('LDS', False),))] vs trace [('loads', (('LDG.E', True), ('LDG.E', True), ('LDG.E', True), ('LDG.E', True))), ('order', (('LDS', False),))]
+  ro2: registers timing {'REG': 32, 'STACK': 0, 'LOCAL': 0} trace {'REG': 32, 'STACK': 0, 'LOCAL': 0} -> OK
+  ro2: 568 -> 640 instructions (7 stamp stores, all outside loops: yes)
+  ro2: FAIL  [G1 stamps outside loops: ok, G2 hot loops memory skeleton: ok, G3 kernel memory skeleton: FAIL, G4 registers / no spills: ok]
+check_trace_sass: FAILED

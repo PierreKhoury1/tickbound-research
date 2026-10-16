@@ -1,0 +1,53 @@
+
+Fatbin elf code:
+================
+arch = sm_80
+code version = [1,7]
+host = linux
+compile_size = 64bit
+
+Resource usage:
+ Common:
+  GLOBAL:0
+
+Fatbin elf code:
+================
+arch = sm_80
+code version = [1,7]
+host = linux
+compile_size = 64bit
+
+Resource usage:
+ Common:
+  GLOBAL:0 CONSTANT[3]:8
+ Function _Z25rms_norm_mul_f32_ro_traceILi1024ELi4ELb0EEvPKfPfiiilllfS1_lll5uint3S3_S3_S3_:
+  REG:31 STACK:0 SHARED:0 LOCAL:0 CONSTANT[0]:496 TEXTURE:0 SURFACE:0 SAMPLER:0
+ Function _Z19rms_norm_mul_f32_roILi1024ELi4ELb0EEvPKfPfiiilllfS1_lll5uint3S3_S3_S3_:
+  REG:30 STACK:0 SHARED:0 LOCAL:0 CONSTANT[0]:496 TEXTURE:0 SURFACE:0 SAMPLER:0
+ Function _Z25rms_norm_mul_f32_ro_traceILi1024ELi4ELb1EEvPKfPfiiilllfS1_lll5uint3S3_S3_S3_:
+  REG:32 STACK:0 SHARED:0 LOCAL:0 CONSTANT[0]:496 TEXTURE:0 SURFACE:0 SAMPLER:0
+ Function _Z19rms_norm_mul_f32_roILi1024ELi4ELb1EEvPKfPfiiilllfS1_lll5uint3S3_S3_S3_:
+  REG:32 STACK:0 SHARED:0 LOCAL:0 CONSTANT[0]:496 TEXTURE:0 SURFACE:0 SAMPLER:0
+ Function _Z18rms_norm_f32_traceILi1024ELb1ELb0ELb0EEvPKfPfiiilllfS1_lll5uint3S3_S3_S3_S1_lllS3_S3_S3_S3_f:
+  REG:32 STACK:0 SHARED:0 LOCAL:0 CONSTANT[0]:580 TEXTURE:0 SURFACE:0 SAMPLER:0
+ Function _Z12rms_norm_f32ILi1024ELb1ELb0ELb0EEvPKfPfiiilllfS1_lll5uint3S3_S3_S3_S1_lllS3_S3_S3_S3_f:
+  REG:40 STACK:0 SHARED:0 LOCAL:0 CONSTANT[0]:580 TEXTURE:0 SURFACE:0 SAMPLER:0
+ Function _Z14rr_tick_kernelPyi:
+  REG:14 STACK:0 SHARED:0 LOCAL:0 CONSTANT[0]:364 TEXTURE:0 SURFACE:0 SAMPLER:0
+ Function _Z15rr_calib_kernelPyy:
+  REG:14 STACK:0 SHARED:0 LOCAL:0 CONSTANT[0]:368 TEXTURE:0 SURFACE:0 SAMPLER:0
+ Function _Z14rr_null_kernelv:
+  REG:4 STACK:0 SHARED:0 LOCAL:0 CONSTANT[0]:352 TEXTURE:0 SURFACE:0 SAMPLER:0
+ Function _Z14rr_copy_kernelPfPKfm:
+  REG:10 STACK:0 SHARED:0 LOCAL:0 CONSTANT[0]:376 TEXTURE:0 SURFACE:0 SAMPLER:0
+ Function _Z15rr_flush_kernelPjmj:
+  REG:10 STACK:0 SHARED:0 LOCAL:0 CONSTANT[0]:372 TEXTURE:0 SURFACE:0 SAMPLER:0
+
+Fatbin ptx code:
+================
+arch = sm_80
+code version = [8,5]
+host = linux
+compile_size = 64bit
+compressed
+ptxasOptions = 

@@ -1,0 +1,102 @@
+USDT:2026-10-13 23:00:19 3380:3380 SyncActivityProfilerHandler.cpp:39] profiler_start
+USDT:2026-10-13 23:00:19 3380:3380 SyncActivityProfilerHandler.cpp:46] profiler_stop
+[liger] rms_norm_M16                 ok        506.7 us  kernels 5  new 0  det True
+USDT:2026-10-13 23:00:19 3380:3380 SyncActivityProfilerHandler.cpp:39] profiler_start
+USDT:2026-10-13 23:00:19 3380:3380 SyncActivityProfilerHandler.cpp:46] profiler_stop
+[liger] fused_add_rms_norm_M16       ok         89.8 us  kernels 2  new 0  det True
+USDT:2026-10-13 23:00:20 3380:3380 SyncActivityProfilerHandler.cpp:39] profiler_start
+USDT:2026-10-13 23:00:20 3380:3380 SyncActivityProfilerHandler.cpp:46] profiler_stop
+[liger] layer_norm_M16               ok        605.9 us  kernels 5  new 0  det True
+USDT:2026-10-13 23:00:20 3380:3380 SyncActivityProfilerHandler.cpp:39] profiler_start
+USDT:2026-10-13 23:00:20 3380:3380 SyncActivityProfilerHandler.cpp:46] profiler_stop
+[liger] poly_norm_M16                ok         48.9 us  kernels 1  new 0  det True
+USDT:2026-10-13 23:00:27 3380:3380 SyncActivityProfilerHandler.cpp:39] profiler_start
+USDT:2026-10-13 23:00:27 3380:3380 SyncActivityProfilerHandler.cpp:46] profiler_stop
+[liger] dyt_M16                      ok        712.0 us  kernels 7  new 0  det True
+USDT:2026-10-13 23:00:27 3380:3380 SyncActivityProfilerHandler.cpp:39] profiler_start
+USDT:2026-10-13 23:00:27 3380:3380 SyncActivityProfilerHandler.cpp:46] profiler_stop
+[liger] swiglu_M16                   ok        602.0 us  kernels 3  new 0  det False
+USDT:2026-10-13 23:00:28 3380:3380 SyncActivityProfilerHandler.cpp:39] profiler_start
+USDT:2026-10-13 23:00:28 3380:3380 SyncActivityProfilerHandler.cpp:46] profiler_stop
+[liger] geglu_M16                    ok        360.4 us  kernels 3  new 0  det False
+USDT:2026-10-13 23:00:28 3380:3380 SyncActivityProfilerHandler.cpp:39] profiler_start
+USDT:2026-10-13 23:00:28 3380:3380 SyncActivityProfilerHandler.cpp:46] profiler_stop
+[liger] relu_squared_M16             ok         34.0 us  kernels 1  new 0  det True
+USDT:2026-10-13 23:00:28 3380:3380 SyncActivityProfilerHandler.cpp:39] profiler_start
+USDT:2026-10-13 23:00:28 3380:3380 SyncActivityProfilerHandler.cpp:46] profiler_stop
+[liger] softmax_M16                  ok        511.4 us  kernels 3  new 0  det True
+USDT:2026-10-13 23:00:28 3380:3380 SyncActivityProfilerHandler.cpp:39] profiler_start
+USDT:2026-10-13 23:00:28 3380:3380 SyncActivityProfilerHandler.cpp:46] profiler_stop
+[liger] sparsemax_M16                ok        100.1 us  kernels 5  new 0  det True
+USDT:2026-10-13 23:00:29 3380:3380 SyncActivityProfilerHandler.cpp:39] profiler_start
+USDT:2026-10-13 23:00:29 3380:3380 SyncActivityProfilerHandler.cpp:46] profiler_stop
+[liger] cross_entropy_M16            ok        554.4 us  kernels 14  new 0  det False
+USDT:2026-10-13 23:00:31 3380:3380 SyncActivityProfilerHandler.cpp:39] profiler_start
+USDT:2026-10-13 23:00:31 3380:3380 SyncActivityProfilerHandler.cpp:46] profiler_stop
+[liger] fused_linear_ce_M16          ok       6168.4 us  kernels 16  new 0  det True
+USDT:2026-10-13 23:00:32 3380:3380 SyncActivityProfilerHandler.cpp:39] profiler_start
+USDT:2026-10-13 23:00:32 3380:3380 SyncActivityProfilerHandler.cpp:46] profiler_stop
+[liger] kl_div_M16                   ok        724.7 us  kernels 9  new 0  det True
+Backend impl 'liger_kernel.ops.backends._cutedsl.jsd' for op 'jsd_loss_and_grad' could not be imported: ModuleNotFoundError: No module named 'cutlass'
+Backend impl 'liger_kernel.ops.backends._cutile.jsd' for op 'jsd_loss_and_grad' could not be imported: ModuleNotFoundError: No module named 'cuda.tile'
+USDT:2026-10-13 23:00:32 3380:3380 SyncActivityProfilerHandler.cpp:39] profiler_start
+USDT:2026-10-13 23:00:32 3380:3380 SyncActivityProfilerHandler.cpp:46] profiler_stop
+[liger] jsd_M16                      ok        379.0 us  kernels 8  new 0  det True
+USDT:2026-10-13 23:00:33 3380:3380 SyncActivityProfilerHandler.cpp:39] profiler_start
+USDT:2026-10-13 23:00:33 3380:3380 SyncActivityProfilerHandler.cpp:46] profiler_stop
+[liger] tvd_M16                      ok        330.7 us  kernels 7  new 0  det True
+USDT:2026-10-13 23:00:33 3380:3380 SyncActivityProfilerHandler.cpp:39] profiler_start
+USDT:2026-10-13 23:00:33 3380:3380 SyncActivityProfilerHandler.cpp:46] profiler_stop
+[liger] rms_norm_M4096               ok        543.2 us  kernels 5  new 0  det True
+USDT:2026-10-13 23:00:34 3380:3380 SyncActivityProfilerHandler.cpp:39] profiler_start
+USDT:2026-10-13 23:00:34 3380:3380 SyncActivityProfilerHandler.cpp:46] profiler_stop
+[liger] fused_add_rms_norm_M4096     ok        164.0 us  kernels 2  new 0  det True
+USDT:2026-10-13 23:00:34 3380:3380 SyncActivityProfilerHandler.cpp:39] profiler_start
+USDT:2026-10-13 23:00:34 3380:3380 SyncActivityProfilerHandler.cpp:46] profiler_stop
+[liger] layer_norm_M4096             ok        541.5 us  kernels 5  new 0  det True
+USDT:2026-10-13 23:00:34 3380:3380 SyncActivityProfilerHandler.cpp:39] profiler_start
+USDT:2026-10-13 23:00:34 3380:3380 SyncActivityProfilerHandler.cpp:46] profiler_stop
+[liger] poly_norm_M4096              ok         50.2 us  kernels 1  new 0  det True
+USDT:2026-10-13 23:00:36 3380:3380 SyncActivityProfilerHandler.cpp:39] profiler_start
+USDT:2026-10-13 23:00:36 3380:3380 SyncActivityProfilerHandler.cpp:46] profiler_stop
+[liger] dyt_M4096                    ok        674.1 us  kernels 7  new 0  det True
+USDT:2026-10-13 23:00:37 3380:3380 SyncActivityProfilerHandler.cpp:39] profiler_start
+USDT:2026-10-13 23:00:37 3380:3380 SyncActivityProfilerHandler.cpp:46] profiler_stop
+[liger] swiglu_M4096                 ok        449.0 us  kernels 3  new 0  det False
+USDT:2026-10-13 23:00:39 3380:3380 SyncActivityProfilerHandler.cpp:39] profiler_start
+USDT:2026-10-13 23:00:39 3380:3380 SyncActivityProfilerHandler.cpp:46] profiler_stop
+[liger] geglu_M4096                  ok        453.2 us  kernels 3  new 0  det False
+USDT:2026-10-13 23:00:39 3380:3380 SyncActivityProfilerHandler.cpp:39] profiler_start
+USDT:2026-10-13 23:00:39 3380:3380 SyncActivityProfilerHandler.cpp:46] profiler_stop
+[liger] relu_squared_M4096           ok        106.0 us  kernels 1  new 0  det True
+USDT:2026-10-13 23:00:42 3380:3380 SyncActivityProfilerHandler.cpp:39] profiler_start
+USDT:2026-10-13 23:00:42 3380:3380 SyncActivityProfilerHandler.cpp:46] profiler_stop
+[liger] softmax_M4096                ok        853.3 us  kernels 3  new 0  det True
+USDT:2026-10-13 23:00:42 3380:3380 SyncActivityProfilerHandler.cpp:39] profiler_start
+USDT:2026-10-13 23:00:42 3380:3380 SyncActivityProfilerHandler.cpp:46] profiler_stop
+[liger] sparsemax_M4096              ok        252.1 us  kernels 5  new 0  det True
+USDT:2026-10-13 23:00:49 3380:3380 SyncActivityProfilerHandler.cpp:39] profiler_start
+USDT:2026-10-13 23:00:49 3380:3380 SyncActivityProfilerHandler.cpp:46] profiler_stop
+[liger] cross_entropy_M4096          ok       1847.5 us  kernels 14  new 0  det False
+USDT:2026-10-13 23:00:51 3380:3380 SyncActivityProfilerHandler.cpp:39] profiler_start
+USDT:2026-10-13 23:00:52 3380:3380 SyncActivityProfilerHandler.cpp:46] profiler_stop
+[liger] fused_linear_ce_M4096        ok       9169.6 us  kernels 16  new 0  det True
+USDT:2026-10-13 23:00:56 3380:3380 SyncActivityProfilerHandler.cpp:39] profiler_start
+USDT:2026-10-13 23:00:56 3380:3380 SyncActivityProfilerHandler.cpp:46] profiler_stop
+[liger] kl_div_M4096                 ok       1863.0 us  kernels 9  new 0  det True
+USDT:2026-10-13 23:00:59 3380:3380 SyncActivityProfilerHandler.cpp:39] profiler_start
+USDT:2026-10-13 23:00:59 3380:3380 SyncActivityProfilerHandler.cpp:46] profiler_stop
+[liger] jsd_M4096                    ok       2473.3 us  kernels 8  new 0  det True
+USDT:2026-10-13 23:01:03 3380:3380 SyncActivityProfilerHandler.cpp:39] profiler_start
+USDT:2026-10-13 23:01:03 3380:3380 SyncActivityProfilerHandler.cpp:46] profiler_stop
+[liger] tvd_M4096                    ok       1079.8 us  kernels 7  new 0  det True
+USDT:2026-10-13 23:01:03 3380:3380 SyncActivityProfilerHandler.cpp:39] profiler_start
+USDT:2026-10-13 23:01:03 3380:3380 SyncActivityProfilerHandler.cpp:46] profiler_stop
+[liger] rope_S16                     ok        672.1 us  kernels 3  new 0  det True
+USDT:2026-10-13 23:01:03 3380:3380 SyncActivityProfilerHandler.cpp:39] profiler_start
+USDT:2026-10-13 23:01:03 3380:3380 SyncActivityProfilerHandler.cpp:46] profiler_stop
+[liger] rope_S2048                   ok        456.2 us  kernels 3  new 0  det True
+USDT:2026-10-13 23:01:04 3380:3380 SyncActivityProfilerHandler.cpp:39] profiler_start
+USDT:2026-10-13 23:01:04 3380:3380 SyncActivityProfilerHandler.cpp:46] profiler_stop
+[liger] group_norm_B8                ok        663.6 us  kernels 3  new 0  det False
+SUITE DONE
